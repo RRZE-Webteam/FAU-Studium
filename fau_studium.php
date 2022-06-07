@@ -54,7 +54,7 @@ add_action('plugins_loaded', __NAMESPACE__ . '\loaded');
  * Einbindung der Sprachdateien.
  */
 function loadTextDomain() {
-    load_plugin_textdomain('fau-person', false, sprintf('%s/languages/', dirname(plugin_basename(__FILE__))));
+    load_plugin_textdomain('fau-studium', false, sprintf('%s/languages/', dirname(plugin_basename(__FILE__))));
 }
 
 /**

@@ -4,6 +4,8 @@ namespace FAU_Studium;
 
 defined('ABSPATH') || exit;
 
+use FAU_Studium\Settings;
+use FAU_Studium\Shortcode;
 	
 
 /**
@@ -27,7 +29,15 @@ class Main {
 	 add_action('admin_enqueue_scripts', [$this, 'enqueueAdminScripts']);
 	 
 	 // Add and load other classes here
-	 
+
+	// Settings-Klasse wird instanziiert.
+        $settings = new Settings($this->pluginFile);
+        $settings->onLoaded();
+
+        // Shortcode-Klasse wird instanziiert.
+        $shortcode = new Shortcode($this->pluginFile, $settings);
+        $shortcode->onLoaded();
+   
 	return;			
     }
     
