@@ -1,10 +1,10 @@
 <?php
 /**
- Plugin Name: FAU Person
- Plugin URI: https://github.com/RRZE-Webteam/fau-person
- GitHub Plugin URI: https://github.com/RRZE-Webteam/fau-person
- Description: Visitenkarten-Plugin für FAU Webauftritte
- Version: 3.5.11
+ Plugin Name: FAU Studium
+ Plugin URI: https://github.com/RRZE-Webteam/fau-studium
+ GitHub Plugin URI: https://github.com/RRZE-Webteam/fau-studium
+ Description: Studiengangsdatenbank der FAU als Plugin
+ Version: 0.0.1
  Author: RRZE-Webteam
  Author URI: http://blogs.fau.de/webworking/
  License: GPLv3 or later
@@ -39,7 +39,7 @@ spl_autoload_register(function ($class) {
     }
 });
 
-const RRZE_PHP_VERSION = '8.0';
+const RRZE_PHP_VERSION = '7.4';
 const RRZE_WP_VERSION = '6.0';
 
 // Registriert die Plugin-Funktion, die bei Aktivierung des Plugins ausgeführt werden soll.
