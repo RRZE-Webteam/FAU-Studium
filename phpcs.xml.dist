@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset>
+    <file>./src/</file>
+    <file>./fau-degree-program.php</file>
+    <file>./templates</file>
+
+    <arg value="sp"/>
+    <arg name="colors"/>
+    <config name="testVersion" value="8.0-"/>
+    <config name="text_domain" value="fau-degree-program"/>
+    <config name="ignore_warnings_on_exit" value="1"/>
+
+    <rule ref="Inpsyde">
+    </rule>
+
+    <rule ref="Inpsyde.CodeQuality.Psr4">
+        <properties>
+            <property
+                    name="psr4"
+                    type="array"
+                    value="Fau\DegreeProgram=>src"
+            />
+        </properties>
+    </rule>
+
+    <rule ref="VariableAnalysis.CodeAnalysis.VariableAnalysis.UndefinedVariable">
+        <exclude-pattern>*/templates/*</exclude-pattern>
+    </rule>
+
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+</ruleset>
