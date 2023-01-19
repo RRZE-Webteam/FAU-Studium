@@ -42,5 +42,6 @@ module.exports = {
             },
         ],
         'simple-import-sort/exports': 'error',
+        'react/jsx-props-no-spreading': 'off',
     },
 };

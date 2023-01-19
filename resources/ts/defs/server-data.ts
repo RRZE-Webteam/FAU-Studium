@@ -1,7 +1,9 @@
+import { LanguageCode } from './common';
+
 export type DegreeProgramEditorServerDataType = Readonly<{
     postType: string;
     propertyName: string;
-    languages: 'de' | 'en';
+    languages: Record<LanguageCode, string>;
     taxonomySlugs: {
         areaOfStudy: string;
         attribute: string;
