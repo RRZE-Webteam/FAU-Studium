@@ -1,8 +1,8 @@
 import { Immutable } from 'immer';
+import serverData from 'util/serverData';
 
 import { useEntityProp } from '@wordpress/core-data';
 
-import ServerData from '../util/serverData';
 import useDegreeProgramProperty from './useDegreeProgramProperty';
 
 type GermanTitle = string;
@@ -16,7 +16,7 @@ export default function useDegreeProgramTitle(): {
     const [, setDegreeProgramTitleGerman] = useDegreeProgramProperty<string>('title.de');
     const [degreeProgramTitleEnglish, setDegreeProgramTitleEnglish] =
         useDegreeProgramProperty<string>('title.en');
-    const [postTitle, setPostTitle] = useEntityProp('postType', ServerData.postType, 'title');
+    const [postTitle, setPostTitle] = useEntityProp('postType', serverData().postType, 'title');
 
     return {
         germanTitle: postTitle,

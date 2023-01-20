@@ -1,4 +1,4 @@
-import { Paths } from './generic';
+import { ObjectValues, Paths } from './generic';
 
 export interface DegreeProgramData {
     id: number;
@@ -63,10 +63,30 @@ export interface DegreeProgramData {
     limited_combinations: Array<number>;
 }
 
+export const DEGREE_ABBREVIATION_ENGLISH = {
+    BACHELOR: 'B.A.',
+    MASTERS: 'M.A.',
+    TEACHING_DEGREE: 'B.S.E.',
+} as const;
+
+export const DEGREE_ABBREVIATION_GERMAN = {
+    BACHELOR: 'BA',
+    MASTERS: 'MA',
+    TEACHING_DEGREE: 'LA',
+} as const;
+
+export type DegreeAbbreviationEnglish = ObjectValues<typeof DEGREE_ABBREVIATION_ENGLISH>;
+export type DegreeAbbreviationGerman = ObjectValues<typeof DEGREE_ABBREVIATION_GERMAN>;
+
+export interface DegreeProgramAbbreviation extends MultilingualString {
+    en: DegreeAbbreviationEnglish;
+    de: DegreeAbbreviationGerman;
+}
+
 export interface Degree {
     id: string;
     name: MultilingualString;
-    abbreviation: MultilingualString;
+    abbreviation: DegreeProgramAbbreviation;
 }
 
 export type Image = {

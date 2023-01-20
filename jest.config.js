@@ -1,9 +1,10 @@
+/** @type {import('jest').Config} */
 module.exports = {
     preset: 'ts-jest',
-    testEnvironment: 'node',
+    testEnvironment: 'jsdom',
     collectCoverage: true,
     collectCoverageFrom: [
-        'resources/**/*.{js,jsx,ts,tsx}',
+        'resources/ts/**/*.{js,jsx,ts,tsx}',
         '!assets/**/**',
         '!**/node_modules/**',
         '!**/vendor/**',
@@ -15,5 +16,21 @@ module.exports = {
             lines: 80,
             statements: -10
         }
+    },
+    rootDir: './',
+    roots: [
+      '<rootDir>/tests',
+      '<rootDir>/resources',
+    ],
+    testMatch: [
+        './tests/js/**/*.[jt]s?(x)',
+        '**/?(*.)+(spec|test).[tj]s?(x)'
+    ],
+    testPathIgnorePatterns: [
+        '<rootDir>/node_modules/'
+    ],
+    modulePaths: ['<rootDir>/resources/ts'],
+    moduleNameMapper: {
+        "^uuid$": require.resolve("uuid"),
     },
 };

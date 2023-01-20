@@ -5,6 +5,7 @@ import TermSelector from 'components/TermSelector/TermSelector';
 import TextControlCollection from 'components/TextControlCollection';
 import { useEditDegreeProgram } from 'contexts/DegreeProgramEditFormProvider';
 import { Degree, Image, MultilingualLink, MultilingualString } from 'defs';
+import { useDegreeFeesEnabled } from 'hooks/useConditionalFields';
 import useMedia from 'hooks/useMedia';
 import { propertyId } from 'util/idHelpers';
 import {
@@ -26,8 +27,11 @@ import {
 import { PostFeaturedImage } from '@wordpress/editor';
 import { _x } from '@wordpress/i18n';
 
+import MultilingualContainer from './MultilingualContainer';
+
 const General = () => {
     const { values, handleChange } = useEditDegreeProgram();
+    const degreeFeesEnabled = useDegreeFeesEnabled();
     const teaserImageMedia = useMedia(values.teaser_image.id);
 
     return (
@@ -142,6 +146,31 @@ const General = () => {
                         />
                     </div>
                 </BaseControl>
+
+                {degreeFeesEnabled && (
+                    <BaseControl
+                        label={_x(
+                            'Degree Program Fee',
+                            'backoffice: degree program edit form',
+                            'fau-degree-program',
+                        )}
+                    >
+                        <MultilingualContainer>
+                            {(languageCode) => (
+                                <TextControl
+                                    onChange={(degreeProgramFees: string) => {
+                                        handleChange<string>(
+                                            `degree_program_fees.${languageCode}`,
+                                            degreeProgramFees,
+                                        );
+                                    }}
+                                    value={values.degree_program_fees[languageCode]}
+                                />
+                            )}
+                        </MultilingualContainer>
+                    </BaseControl>
+                )}
+
                 <BaseControl
                     id="semester"
                     label={_x(

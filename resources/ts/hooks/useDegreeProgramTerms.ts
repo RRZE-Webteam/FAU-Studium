@@ -1,7 +1,7 @@
+import serverData from 'util/serverData';
+
 import { store } from '@wordpress/core-data';
 import { useSelect } from '@wordpress/data';
-
-import ServerData from '../util/serverData';
 
 import {
     CoreDataSelectors,
@@ -64,7 +64,7 @@ export default function useDegreeProgramTerms<T extends TaxonomySlug>(taxonomy: 
     return useSelect<MapSelect<CoreDataSelectors>>(
         (select) => {
             const { getEntityRecords } = select(store.name);
-            return getEntityRecords('taxonomy', ServerData.taxonomySlugs[taxonomy]) || [];
+            return getEntityRecords('taxonomy', serverData().taxonomySlugs[taxonomy]) || [];
         },
         [taxonomy],
     );

@@ -1,4 +1,10 @@
-import { Degree, MultilingualLink, MultilingualString } from 'defs';
+import {
+    Degree,
+    DegreeAbbreviationEnglish,
+    DegreeAbbreviationGerman,
+    MultilingualLink,
+    MultilingualString,
+} from 'defs';
 import { MultilingualLinkMeta, WpTerm } from 'defs/term';
 
 import { propertyId } from './idHelpers';
@@ -37,7 +43,11 @@ export function transformTermToMultilingualLink(
 }
 
 export function transformTermToDegree(
-    term: WpTerm<{ name_en: string; abbreviation: string; abbreviation_en: string }>,
+    term: WpTerm<{
+        name_en: string;
+        abbreviation: DegreeAbbreviationGerman;
+        abbreviation_en: DegreeAbbreviationEnglish;
+    }>,
 ): Degree {
     return {
         id: propertyId('term', term.id),

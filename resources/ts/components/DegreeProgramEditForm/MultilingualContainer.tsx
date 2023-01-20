@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react';
+import serverData from 'util/serverData';
 
 import { TabPanel } from '@wordpress/components';
 
-import ServerData from '../../util/serverData';
 import { TabItem } from '../Tabs';
 
 import { LanguageCode } from '../../defs/common';
@@ -11,9 +11,9 @@ type MultilingualContainerProps = {
     children: (languageCode: LanguageCode) => ReactNode;
 };
 
-const tabs: TabPanel.Tab[] = (Object.keys(ServerData.languages) as Array<LanguageCode>).map(
+const tabs: TabPanel.Tab[] = (Object.keys(serverData().languages) as Array<LanguageCode>).map(
     (languageCode: LanguageCode) => {
-        const languageName = ServerData.languages[languageCode];
+        const languageName = serverData().languages[languageCode];
 
         return {
             name: languageCode,

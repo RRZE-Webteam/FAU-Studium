@@ -1,4 +1,5 @@
 import React from 'react';
+import { useCombinationOfDegreeProgramEnabled } from 'hooks/useConditionalFields';
 
 import { Flex, FlexBlock, Spinner } from '@wordpress/components';
 import { _x } from '@wordpress/i18n';
@@ -6,10 +7,15 @@ import { _x } from '@wordpress/i18n';
 import useDegreeProgramProperty from '../../hooks/useDegreeProgramProperty';
 import RelatedDegreePrograms from './RelatedDegreePrograms';
 
-export default function DegreeProgramCombinations(): JSX.Element {
+export default function DegreeProgramCombinations(): JSX.Element | null {
+    const enabled = useCombinationOfDegreeProgramEnabled();
     const [combinations, setCombinations] = useDegreeProgramProperty<Array<number>>('combinations');
     const [limitedCombinations, setLimitedCombinations] =
         useDegreeProgramProperty<Array<number>>('limited_combinations');
+
+    if (!enabled) {
+        return null;
+    }
 
     if (combinations === undefined || limitedCombinations === undefined) {
         return (

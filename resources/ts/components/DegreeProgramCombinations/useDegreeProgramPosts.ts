@@ -1,9 +1,8 @@
 import { Immutable } from 'immer';
+import serverData from 'util/serverData';
 
 import { Post, store as coreStore } from '@wordpress/core-data';
 import { useSelect } from '@wordpress/data';
-
-import ServerData from '../../util/serverData';
 
 import { CoreDataSelectors, MapSelect } from '../../defs/core-data';
 
@@ -36,10 +35,10 @@ export default function useDegreeProgramPosts(
             };
 
             return {
-                posts: getEntityRecords('postType', ServerData.postType, query),
+                posts: getEntityRecords('postType', serverData().postType, query),
                 hasResolvedPosts: hasFinishedResolution('getEntityRecords', [
                     'postType',
-                    ServerData.postType,
+                    serverData().postType,
                     query,
                 ]),
             };

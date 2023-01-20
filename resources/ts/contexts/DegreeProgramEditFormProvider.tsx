@@ -35,8 +35,8 @@ const DegreeProgramEditFormProvider = ({ children }: Props) => {
     const [errors, setErrors] = useState<Partial<Record<keyof DegreeProgramData, string>>>({});
     const [degreeProgramData, setDegreeProgramData] = useEntityProp(
         'postType',
-        serverData.postType,
-        serverData.propertyName,
+        serverData().postType,
+        serverData().propertyName,
     ) as [DegreeProgramData, (val: DegreeProgramData) => void, any];
     const [,] = useDegreeProgramFeaturedImage();
 

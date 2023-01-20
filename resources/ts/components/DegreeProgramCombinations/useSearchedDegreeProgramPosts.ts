@@ -2,7 +2,7 @@ import { Post, store as coreStore } from '@wordpress/core-data';
 import { useSelect } from '@wordpress/data';
 import { store as editorStore } from '@wordpress/editor';
 
-import ServerData from '../../util/serverData';
+import serverData from '../../util/serverData';
 import { MAX_SUGGESTIONS } from './constants';
 
 import { CoreDataSelectors, EditorStoreSelectors, MapSelect } from '../../defs';
@@ -29,7 +29,7 @@ export default function useSearchedDegreeProgramPosts(
 
             const currentPost = getCurrentPost();
 
-            const posts = getEntityRecords('postType', ServerData.postType, {
+            const posts = getEntityRecords('postType', serverData().postType, {
                 ...DEFAULT_QUERY,
                 search,
                 ...additionalQuery,

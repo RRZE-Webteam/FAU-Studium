@@ -8,7 +8,7 @@ import { useSelect } from '@wordpress/data';
 import useDegreeProgramProperty from './useDegreeProgramProperty';
 
 export default function useDegreeProgramFeaturedImage(): [Image, (val: Image) => void] {
-    const [postThumbnail] = useEntityProp('postType', serverData.postType, 'featured_media');
+    const [postThumbnail] = useEntityProp('postType', serverData().postType, 'featured_media');
     const [featuredImage, setFeaturedImage] = useDegreeProgramProperty<Image>('featured_image');
 
     if (!featuredImage) {

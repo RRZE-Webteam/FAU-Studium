@@ -1,9 +1,8 @@
 import produce, { Immutable } from 'immer';
 import { get, set } from 'lodash';
+import serverData from 'util/serverData';
 
 import { useEntityProp } from '@wordpress/core-data';
-
-import ServerData from '../util/serverData';
 
 import { DegreeProgramDataPaths } from '../defs';
 
@@ -33,8 +32,8 @@ export default function useDegreeProgramProperty<Value>(
 ): [Immutable<undefined | Value>, (value: Value) => void] {
     const [degreeProgramData, setDegreeProgramData] = useEntityProp(
         'postType',
-        ServerData.postType,
-        ServerData.propertyName,
+        serverData().postType,
+        serverData().propertyName,
     );
 
     return [
