@@ -1,0 +1,15 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "fau/description-list",
+  "title": "Description List",
+  "category": "theme",
+  "icon": "admin-page",
+  "version": "1.0.0",
+  "textdomain": "fau-degree-program",
+  "supports": {
+    "lock": false,
+    "html": false,
+    "reusable": false
+  }
+}

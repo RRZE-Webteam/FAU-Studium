@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "fau/degree-program-form",
+  "title": "Degree program editor",
+  "category": "theme",
+  "icon": "welcome-learn-more",
+  "description": "Displays degree program editor form.",
+  "version": "1.0.0",
+  "textdomain": "fau-degree-program",
+  "supports": {
+    "lock": false,
+    "html": false,
+    "inserter": false,
+    "multiple": false,
+    "reusable": false,
+    "customClassName": false
+  }
+}

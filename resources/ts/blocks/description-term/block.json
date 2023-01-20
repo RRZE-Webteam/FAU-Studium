@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "fau/description-term",
+  "title": "Description Term",
+  "category": "theme",
+  "parent": [
+    "fau/description-list"
+  ],
+  "icon": "info",
+  "version": "1.0.0",
+  "textdomain": "fau-degree-program",
+  "attributes": {
+    "content": {
+      "type": "string",
+      "source": "html",
+      "selector": "dt",
+      "default": ""
+    }
+  },
+  "supports": {
+    "lock": false,
+    "html": false,
+    "reusable": false
+  }
+}
