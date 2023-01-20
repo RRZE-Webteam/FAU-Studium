@@ -35,11 +35,7 @@ const General = () => {
             <PanelBody>
                 <BaseControl
                     id="featured_image"
-                    help={_x(
-                        'Is used for the detail view',
-                        'backoffice: degree program edit form',
-                        'fau-degree-program',
-                    )}
+                    help="Wird für die Detailansicht verwendet."
                     label={_x(
                         'Featured image',
                         'backoffice: degree program edit form',
@@ -52,11 +48,7 @@ const General = () => {
                 </BaseControl>
                 <BaseControl
                     id="teaser_image"
-                    help={_x(
-                        'Used for the tiles on the selection page',
-                        'backoffice: degree program edit form',
-                        'fau-degree-program',
-                    )}
+                    help="Wird für die Kacheln auf der Auswahlseite verwendet."
                     label={_x(
                         'Teaser Image',
                         'backoffice: degree program edit form',
@@ -101,11 +93,7 @@ const General = () => {
                         handleChange<string>('title.de', title);
                     }}
                     value={values.title.de}
-                    help={_x(
-                        'The course title. Do not include the degree title or abbreviation',
-                        'backoffice: degree program edit form',
-                        'fau-degree-program',
-                    )}
+                    help="Studiengangsbezeichnung, ohne Abschluss."
                     label={_x(
                         'Title',
                         'backoffice: degree program edit form',
@@ -117,11 +105,7 @@ const General = () => {
                         handleChange<string>('subtitle.de', title);
                     }}
                     value={values.subtitle.de}
-                    help={_x(
-                        'E.g. list of majors in economics',
-                        'backoffice: degree program edit form',
-                        'fau-degree-program',
-                    )}
+                    help="Z. B. Aufzählung der Studienschwerpunkte bei Wirtschaftswissenschaften."
                     label={_x(
                         'Subtitle',
                         'backoffice: degree program edit form',
@@ -184,11 +168,7 @@ const General = () => {
                         'backoffice: degree program edit form',
                         'fau-degree-program',
                     )}
-                    help={_x(
-                        'Total number of students, not just freshmen',
-                        'backoffice: degree program edit form',
-                        'fau-degree-program',
-                    )}
+                    help="Gesamtzahl der Studierenden, nicht nur Erstsemester."
                 >
                     <TermSelector
                         taxonomy="numberOfStudents"
@@ -322,11 +302,7 @@ const General = () => {
                         'backoffice: degree program edit form',
                         'fau-degree-program',
                     )}
-                    help={_x(
-                        'Videos about the course, the subject, a topic of the subject (e.g. 2-minute knowledge), field reports',
-                        'backoffice: degree program edit form',
-                        'fau-degree-program',
-                    )}
+                    help="Videos über den Studiengang, das Studienfach, ein Thema des Fachs (z. B. 2-Minuten-Wissen), Erfahrungsberichte."
                 >
                     <TextControlCollection
                         value={values.videos}
@@ -343,11 +319,7 @@ const General = () => {
                                 'backoffice: degree program edit form',
                                 'fau-degree-program',
                             )}
-                            help={_x(
-                                'Text for display on search engines',
-                                'backoffice: degree program edit form',
-                                'fau-degree-program',
-                            )}
+                            help="Text für die Anzeige bei Suchmaschinen."
                             value={values.meta_description.de}
                             onChange={(text: string) => {
                                 if (text.length <= maxChars) {
