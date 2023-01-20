@@ -10,6 +10,7 @@ use Fau\DegreeProgram\Common\Application\DegreeProgramViewRepository;
 use Fau\DegreeProgram\Common\Domain\DegreeProgramDataValidator;
 use Fau\DegreeProgram\Common\Domain\DegreeProgramRepository;
 use Fau\DegreeProgram\Common\Infrastructure\Content\PostType\DegreeProgramPostType;
+use Fau\DegreeProgram\Common\Infrastructure\Sanitizer\SerializedBlocksDegreeProgramSanitizer;
 use Fau\DegreeProgram\Common\Infrastructure\Validator\JsonSchemaDegreeProgramDataValidator;
 use Inpsyde\Modularity\Module\ExecutableModule;
 use Inpsyde\Modularity\Module\ModuleClassNameIdTrait;
@@ -33,6 +34,7 @@ final class RestApiModule implements ServiceModule, ExecutableModule
             DegreeProgramUpdater::class => static fn(ContainerInterface $container) => new DegreeProgramUpdater(
                 $container->get(DegreeProgramRepository::class),
                 $container->get(DegreeProgramDataValidator::class),
+                $container->get(SerializedBlocksDegreeProgramSanitizer::class),
             ),
             DegreeProgramController::class => static fn(ContainerInterface $container) => new DegreeProgramController(
                 $container->get(DegreeProgramRetriever::class),

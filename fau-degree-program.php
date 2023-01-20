@@ -27,6 +27,7 @@ use Fau\DegreeProgram\Infrastructure\LoggerModule;
 use Fau\DegreeProgram\Infrastructure\Meta\MetaModule;
 use Fau\DegreeProgram\Infrastructure\Repository\RepositoryModule;
 use Fau\DegreeProgram\Infrastructure\RestApi\RestApiModule;
+use Fau\DegreeProgram\Infrastructure\SanitizerModule;
 use Inpsyde\Modularity\Package;
 use Inpsyde\Modularity\Properties\PluginProperties;
 use RuntimeException;
@@ -117,6 +118,7 @@ function initialize(): void
             new DegreeProgramEditorModule(),
             new RestApiModule(),
             new LoggerModule(),
+            new SanitizerModule(),
         );
     } catch (Throwable $throwable) {
         handleException($throwable);

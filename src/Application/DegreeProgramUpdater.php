@@ -7,12 +7,14 @@ namespace Fau\DegreeProgram\Application;
 use Fau\DegreeProgram\Common\Domain\DegreeProgramDataValidator;
 use Fau\DegreeProgram\Common\Domain\DegreeProgramId;
 use Fau\DegreeProgram\Common\Domain\DegreeProgramRepository;
+use Fau\DegreeProgram\Common\Domain\DegreeProgramSanitizer;
 
 final class DegreeProgramUpdater
 {
     public function __construct(
         private DegreeProgramRepository $degreeProgramRepository,
         private DegreeProgramDataValidator $degreeProgramDataValidator,
+        private DegreeProgramSanitizer $degreeProgramSanitizer,
     ) {
     }
 
@@ -28,6 +30,7 @@ final class DegreeProgramUpdater
         $degreeProgram->update(
             $data,
             $this->degreeProgramDataValidator,
+            $this->degreeProgramSanitizer,
         );
 
         $this->degreeProgramRepository->save($degreeProgram);
