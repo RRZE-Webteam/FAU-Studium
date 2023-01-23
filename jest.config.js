@@ -33,4 +33,7 @@ module.exports = {
     moduleNameMapper: {
         "^uuid$": require.resolve("uuid"),
     },
+    setupFiles: [
+        '<rootDir>/tests/js/stubs.ts'
+    ],
 };

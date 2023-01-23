@@ -25,11 +25,8 @@
     },
     "repositories": [
         {
-            "type": "composer",
-            "url": "https://repo.packagist.com/inpsyde/"
-        },
-        {
-            "packagist.org": false
+            "type": "vcs",
+            "url": "https://github.com/inpsyde/fau-degree-program-common"
         }
     ],
     "minimum-stability": "dev",
