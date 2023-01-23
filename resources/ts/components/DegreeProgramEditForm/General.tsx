@@ -171,26 +171,23 @@ const General = () => {
                     </BaseControl>
                 )}
 
-                <BaseControl
+                <MultiTermSelector
                     id="semester"
                     label={_x(
                         'Start of degree program',
                         'backoffice: degree program edit form',
                         'fau-degree-program',
                     )}
-                >
-                    <MultiTermSelector
-                        taxonomy="semester"
-                        value={values.start.map((term) => term.id)}
-                        onChange={(terms) => {
-                            handleChange<MultilingualString[]>(
-                                'start',
-                                terms.map(transformTermToMultilingualString),
-                            );
-                        }}
-                    />
-                </BaseControl>
-                <BaseControl
+                    taxonomy="semester"
+                    value={values.start.map((term) => term.id)}
+                    onChange={(terms) => {
+                        handleChange<MultilingualString[]>(
+                            'start',
+                            terms.map(transformTermToMultilingualString),
+                        );
+                    }}
+                />
+                <TermSelector
                     id="number_of_students"
                     label={_x(
                         'Number of students',
@@ -198,132 +195,116 @@ const General = () => {
                         'fau-degree-program',
                     )}
                     help="Gesamtzahl der Studierenden, nicht nur Erstsemester."
-                >
-                    <TermSelector
-                        taxonomy="numberOfStudents"
-                        value={values.number_of_students.id}
-                        onChange={(term) => {
-                            handleChange<{ id: string; description: string }>(
-                                'number_of_students',
-                                {
-                                    id: propertyId('term', term.id),
-                                    description: term.description,
-                                },
-                            );
-                        }}
-                    />
-                </BaseControl>
-                <BaseControl
+                    taxonomy="numberOfStudents"
+                    value={values.number_of_students.id}
+                    onChange={(term) => {
+                        handleChange<{ id: string; description: string }>(
+                            'number_of_students',
+                            term
+                                ? {
+                                      id: propertyId('term', term.id),
+                                      description: term.description,
+                                  }
+                                : {
+                                      id: '',
+                                      description: '',
+                                  },
+                        );
+                    }}
+                />
+                <TermSelector
                     id="teaching-language"
                     label={_x(
                         'Teaching language',
                         'backoffice: degree program edit form',
                         'fau-degree-program',
                     )}
-                >
-                    <TermSelector
-                        taxonomy="teachingLanguage"
-                        value={values.teaching_language.id}
-                        onChange={(term) => {
-                            handleChange<MultilingualString>(
-                                'teaching_language',
-                                transformTermToMultilingualString(term),
-                            );
-                        }}
-                    />
-                </BaseControl>
-                <BaseControl
+                    taxonomy="teachingLanguage"
+                    value={values.teaching_language.id}
+                    onChange={(term) => {
+                        handleChange<MultilingualString>(
+                            'teaching_language',
+                            transformTermToMultilingualString(term),
+                        );
+                    }}
+                />
+                <MultiTermSelector
                     id="attribute"
                     label={_x(
                         'Attributes',
                         'backoffice: degree program edit form',
                         'fau-degree-program',
                     )}
-                >
-                    <MultiTermSelector
-                        taxonomy="attribute"
-                        value={values.attributes.map((term) => term.id)}
-                        onChange={(terms) => {
-                            handleChange<MultilingualString[]>(
-                                'attributes',
-                                terms.map(transformTermToMultilingualString),
-                            );
-                        }}
-                    />
-                </BaseControl>
-                <BaseControl
+                    taxonomy="attribute"
+                    value={values.attributes.map((term) => term.id)}
+                    onChange={(terms) => {
+                        handleChange<MultilingualString[]>(
+                            'attributes',
+                            terms.map(transformTermToMultilingualString),
+                        );
+                    }}
+                />
+                <TermSelector
                     id="degree"
                     label={_x(
                         'Degree',
                         'backoffice: degree program edit form',
                         'fau-degree-program',
                     )}
-                >
-                    <TermSelector
-                        taxonomy="degree"
-                        value={values.degree.id}
-                        onChange={(term) => {
-                            handleChange<Degree>('degree', transformTermToDegree(term));
-                        }}
-                    />
-                </BaseControl>
-                <BaseControl
+                    taxonomy="degree"
+                    value={values.degree.id}
+                    onChange={(term) => {
+                        handleChange<Degree>('degree', transformTermToDegree(term));
+                    }}
+                />
+                <TermSelector
                     id="faculty"
                     label={_x(
                         'Faculty',
                         'backoffice: degree program edit form',
                         'fau-degree-program',
                     )}
-                >
-                    <TermSelector
-                        taxonomy="faculty"
-                        value={values.faculty.id}
-                        onChange={(term) => {
-                            handleChange<MultilingualLink>(
-                                'faculty',
-                                transformTermToMultilingualLink(term),
-                            );
-                        }}
-                    />
-                </BaseControl>
-                <BaseControl
+                    taxonomy="faculty"
+                    value={values.faculty.id}
+                    onChange={(term) => {
+                        handleChange<MultilingualLink>(
+                            'faculty',
+                            transformTermToMultilingualLink(term),
+                        );
+                    }}
+                />
+                <TermSelector
                     id="study-location"
                     label={_x(
                         'Study location',
                         'backoffice: degree program edit form',
                         'fau-degree-program',
                     )}
-                >
-                    <TermSelector
-                        taxonomy="studyLocation"
-                        value={values.location.id}
-                        onChange={(term) => {
-                            handleChange<MultilingualString>(
-                                'location',
-                                transformTermToMultilingualString(term),
-                            );
-                        }}
-                    />
-                </BaseControl>
-                <BaseControl
+                    taxonomy="studyLocation"
+                    value={values.location.id}
+                    onChange={(term) => {
+                        handleChange<MultilingualString>(
+                            'location',
+                            transformTermToMultilingualString(term),
+                        );
+                    }}
+                />
+                <MultiTermSelector
                     id="subject-group"
                     label={_x(
                         'Subject groups',
                         'backoffice: degree program edit form',
                         'fau-degree-program',
                     )}
-                >
-                    <MultiTermSelector
-                        taxonomy="subjectGroup"
-                        value={values.subject_groups.map((t) => t.id)}
-                        onChange={(terms) => {
-                            handleChange<MultilingualString[]>(
-                                'subject_groups',
-                                terms.map(transformTermToMultilingualString),
-                            );
-                        }}
-                    />
-                </BaseControl>
+                    taxonomy="subjectGroup"
+                    value={values.subject_groups.map((t) => t.id)}
+                    onChange={(terms) => {
+                        handleChange<MultilingualString[]>(
+                            'subject_groups',
+                            terms.map(transformTermToMultilingualString),
+                        );
+                    }}
+                />
                 <BaseControl
                     id="videos"
                     label={_x(

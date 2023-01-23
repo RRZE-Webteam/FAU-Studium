@@ -1,35 +1,18 @@
-import React, { useMemo } from 'react';
-import useDegreeProgramTerms from 'hooks/useDegreeProgramTerms';
-import { propertyId } from 'util/idHelpers';
+import React from 'react';
 
-import { SelectControl } from '@wordpress/components';
+import { compose } from '@wordpress/compose';
+
+import EntitySelector from '../EntitySelector';
+import {
+    withDegreeProgramTerms,
+    withSearchedDegreeProgramTerms,
+    withTermSelectorProps,
+} from './hoc';
 
 import { MultiTermSelectorProps } from './defs';
 
-const MultiTermSelector = ({ taxonomy, value, onChange }: MultiTermSelectorProps) => {
-    const terms = useDegreeProgramTerms(taxonomy);
-
-    const options = useMemo(() => {
-        return terms.map((term) => ({
-            value: propertyId('term', term.id),
-            label: term.name,
-        }));
-    }, [terms]);
-
-    return (
-        <div>
-            <SelectControl
-                options={options}
-                multiple
-                onChange={(selected: string[]) => {
-                    onChange(
-                        terms.filter((term) => selected.includes(propertyId('term', term.id))),
-                    );
-                }}
-                value={value}
-            />
-        </div>
-    );
-};
-
-export default MultiTermSelector;
+export default compose(
+    withTermSelectorProps,
+    withDegreeProgramTerms,
+    withSearchedDegreeProgramTerms,
+)(EntitySelector) as React.FC<MultiTermSelectorProps>;

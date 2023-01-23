@@ -75,8 +75,8 @@ export const DEGREE_ABBREVIATION_GERMAN = {
     TEACHING_DEGREE: 'LA',
 } as const;
 
-export type DegreeAbbreviationEnglish = ObjectValues<typeof DEGREE_ABBREVIATION_ENGLISH>;
-export type DegreeAbbreviationGerman = ObjectValues<typeof DEGREE_ABBREVIATION_GERMAN>;
+export type DegreeAbbreviationEnglish = ObjectValues<typeof DEGREE_ABBREVIATION_ENGLISH> | '';
+export type DegreeAbbreviationGerman = ObjectValues<typeof DEGREE_ABBREVIATION_GERMAN> | '';
 
 export interface DegreeProgramAbbreviation extends MultilingualString {
     en: DegreeAbbreviationEnglish;

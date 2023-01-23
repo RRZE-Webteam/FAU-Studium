@@ -1,0 +1,45 @@
+import { useState } from 'react';
+import { EntitySelectorProps } from 'defs';
+import serverData from 'util/serverData';
+
+import { Post, store as coreStore } from '@wordpress/core-data';
+import { withSelect } from '@wordpress/data';
+import { store as editorStore } from '@wordpress/editor';
+
+const withSearchedDegreeProgramPosts = withSelect(
+    (
+        select,
+        ownProps: EntitySelectorProps<Post<'view'>>,
+    ): Partial<EntitySelectorProps<Post<'view'>>> => {
+        const [search, setSearch] = useState('');
+        const { getCurrentPost } = select(editorStore.name);
+        const { getEntityRecords } = select(coreStore.name);
+        if (search.length === 0) {
+            return {
+                searchedEntities: [],
+                setSearch,
+            };
+        }
+
+        const currentPost = getCurrentPost();
+
+        const posts = getEntityRecords('postType', serverData().postType, {
+            ...{
+                per_page: ownProps.maxSuggestions,
+                orderby: 'title',
+                order: 'asc',
+                _fields: 'id,title',
+                context: 'view',
+            },
+            search,
+            ...(currentPost ? { exclude: currentPost.id } : {}),
+        });
+
+        return {
+            searchedEntities: posts ?? [],
+            setSearch,
+        };
+    },
+);
+
+export default withSearchedDegreeProgramPosts;
