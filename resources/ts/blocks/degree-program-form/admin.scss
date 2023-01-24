@@ -15,3 +15,20 @@
 .editor-styles-wrapper h5 {
   text-transform: none!important;
 }
+
+.editor-post-featured-image__preview img {
+  margin-left: unset;
+}
+
+.editor-post-featured-image .components-button + .components-button {
+  display: inline-block;
+}
+
+.components-button.block-editor-media-placeholder__cancel-button.is-link {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.edit-post-visual-editor .components-button.has-icon.components-form-token-field__remove-token {
+  padding: 0;
+}

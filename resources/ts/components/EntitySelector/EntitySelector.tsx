@@ -47,6 +47,11 @@ export default function EntitySelector({
         onChange(newEntities);
     };
 
+    const isTokenValid = (token: string): boolean => {
+        const availableEntities = [...entities, ...searchedEntities];
+        return find(availableEntities, (entity) => entityToToken(entity) === token);
+    };
+
     return (
         <FormTokenField
             label={label}
@@ -58,6 +63,7 @@ export default function EntitySelector({
             onInputChange={debouncedSearch}
             maxSuggestions={maxSuggestions}
             __experimentalShowHowTo={false}
+            __experimentalValidateInput={isTokenValid}
         />
     );
 }

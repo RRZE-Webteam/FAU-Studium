@@ -5,7 +5,6 @@ import TermSelector from 'components/TermSelector/TermSelector';
 import TextControlCollection from 'components/TextControlCollection';
 import { useEditDegreeProgram } from 'contexts/DegreeProgramEditFormProvider';
 import { Degree, Image, MultilingualLink, MultilingualString } from 'defs';
-import { useDegreeFeesEnabled } from 'hooks/useConditionalFields';
 import useMedia from 'hooks/useMedia';
 import { propertyId } from 'util/idHelpers';
 import {
@@ -31,7 +30,7 @@ import MultilingualContainer from './MultilingualContainer';
 
 const General = () => {
     const { values, handleChange } = useEditDegreeProgram();
-    const degreeFeesEnabled = useDegreeFeesEnabled();
+
     const teaserImageMedia = useMedia(values.teaser_image.id);
 
     return (
@@ -68,6 +67,12 @@ const General = () => {
                                     url,
                                 });
                             }}
+                            onCancel={() => {
+                                handleChange<Image>('teaser_image', {
+                                    id: 0,
+                                    url: '',
+                                });
+                            }}
                             allowedTypes={['image']}
                             multiple={false}
                             labels={{
@@ -92,30 +97,48 @@ const General = () => {
                     </MediaUploadCheck>
                 </BaseControl>
 
-                <TextControl
-                    onChange={(title: string) => {
-                        handleChange<string>('title.de', title);
-                    }}
-                    value={values.title.de}
-                    help="Studiengangsbezeichnung, ohne Abschluss."
+                <BaseControl
+                    id="title"
                     label={_x(
                         'Title',
                         'backoffice: degree program edit form',
                         'fau-degree-program',
                     )}
-                />
-                <TextControl
-                    onChange={(title: string) => {
-                        handleChange<string>('subtitle.de', title);
-                    }}
-                    value={values.subtitle.de}
-                    help="Z. B. Aufzählung der Studienschwerpunkte bei Wirtschaftswissenschaften."
+                    help="Studiengangsbezeichnung, ohne Abschluss."
+                >
+                    <MultilingualContainer>
+                        {(languageCode) => (
+                            <TextControl
+                                onChange={(value: string) => {
+                                    handleChange<string>(`title.${languageCode}`, value);
+                                }}
+                                value={values.title[languageCode]}
+                            />
+                        )}
+                    </MultilingualContainer>
+                </BaseControl>
+
+                <BaseControl
+                    id="subtitle"
                     label={_x(
                         'Subtitle',
                         'backoffice: degree program edit form',
                         'fau-degree-program',
                     )}
-                />
+                    help="Z. B. Aufzählung der Studienschwerpunkte bei Wirtschaftswissenschaften."
+                >
+                    <MultilingualContainer>
+                        {(languageCode) => (
+                            <TextControl
+                                onChange={(value: string) => {
+                                    handleChange<string>(`subtitle.${languageCode}`, value);
+                                }}
+                                value={values.subtitle[languageCode]}
+                            />
+                        )}
+                    </MultilingualContainer>
+                </BaseControl>
+
                 <NumberControl
                     onChange={(value: string) => {
                         handleChange<number>('standard_duration', parseInt(value, 10));
@@ -146,30 +169,6 @@ const General = () => {
                         />
                     </div>
                 </BaseControl>
-
-                {degreeFeesEnabled && (
-                    <BaseControl
-                        label={_x(
-                            'Degree Program Fee',
-                            'backoffice: degree program edit form',
-                            'fau-degree-program',
-                        )}
-                    >
-                        <MultilingualContainer>
-                            {(languageCode) => (
-                                <TextControl
-                                    onChange={(degreeProgramFees: string) => {
-                                        handleChange<string>(
-                                            `degree_program_fees.${languageCode}`,
-                                            degreeProgramFees,
-                                        );
-                                    }}
-                                    value={values.degree_program_fees[languageCode]}
-                                />
-                            )}
-                        </MultilingualContainer>
-                    </BaseControl>
-                )}
 
                 <MultiTermSelector
                     id="semester"
