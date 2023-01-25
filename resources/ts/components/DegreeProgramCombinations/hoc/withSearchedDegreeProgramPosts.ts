@@ -28,7 +28,7 @@ const withSearchedDegreeProgramPosts = withSelect(
                 per_page: ownProps.maxSuggestions,
                 orderby: 'title',
                 order: 'asc',
-                _fields: 'id,title',
+                _fields: 'id,degree_program',
                 context: 'view',
             },
             search,

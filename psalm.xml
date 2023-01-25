@@ -7,6 +7,7 @@
     ignoreInternalFunctionFalseReturn="false"
     ignoreInternalFunctionNullReturn="false"
     hideExternalErrors="true"
+    usePhpStormMetaPath="false"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns="https://getpsalm.org/schema/config"
     xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
@@ -22,7 +23,6 @@
     <stubs>
         <file name=".psalm.stubs.php"/>
         <file name="vendor/inpsyde/wp-stubs/stubs/latest.php"/>
-        <file name=".psalm.stubs.php"/>
     </stubs>
     <issueHandlers>
         <MixedAssignment errorLevel="suppress" />

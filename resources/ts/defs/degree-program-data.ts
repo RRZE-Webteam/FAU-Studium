@@ -1,3 +1,5 @@
+import { Post } from '@wordpress/core-data';
+
 import { ObjectValues, Paths } from './generic';
 
 export interface DegreeProgramData {
@@ -113,3 +115,7 @@ export type ContentItem = {
 };
 
 export type DegreeProgramDataPaths = Paths<DegreeProgramData, 3>;
+
+export interface DegreeProgramPost extends Post {
+    degree_program: DegreeProgramData;
+}

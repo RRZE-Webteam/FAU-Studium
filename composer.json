@@ -26,7 +26,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/inpsyde/fau-degree-program-common"
+            "url": "https://github.com/RRZE-Webteam/FAU-Studium-Common"
         }
     ],
     "minimum-stability": "dev",

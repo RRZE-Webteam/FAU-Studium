@@ -19,7 +19,7 @@ const withDegreeProgramPosts = withSelect(
             ...{
                 per_page: -1,
                 orderby: 'include',
-                _fields: 'id,title',
+                _fields: 'id,degree_program',
                 context: 'view',
             },
             include: ownProps.relatedDegreeProgramIds.join(','),

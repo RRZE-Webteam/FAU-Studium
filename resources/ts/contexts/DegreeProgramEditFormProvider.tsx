@@ -1,15 +1,7 @@
 /* eslint-disable no-param-reassign */
-import React, {
-    createContext,
-    ReactNode,
-    useCallback,
-    useContext,
-    useEffect,
-    useState,
-} from 'react';
+import React, { createContext, ReactNode, useCallback, useContext, useState } from 'react';
 import { DegreeProgramData, DegreeProgramDataPaths } from 'defs';
 import useDegreeProgramFeaturedImage from 'hooks/useDegreeProgramFeaturedImage';
-import useDegreeProgramTitle from 'hooks/useDegreeProgramTitle';
 import produce from 'immer';
 import { set } from 'lodash';
 import serverData from 'util/serverData';
@@ -31,7 +23,6 @@ interface Props {
 }
 
 const DegreeProgramEditFormProvider = ({ children }: Props) => {
-    const { germanTitle, setGermanTitle } = useDegreeProgramTitle();
     const [errors, setErrors] = useState<Partial<Record<keyof DegreeProgramData, string>>>({});
     const [degreeProgramData, setDegreeProgramData] = useEntityProp(
         'postType',
@@ -62,10 +53,6 @@ const DegreeProgramEditFormProvider = ({ children }: Props) => {
         },
         [setErrors],
     );
-
-    useEffect(() => {
-        setGermanTitle(germanTitle || '');
-    }, [germanTitle]);
 
     return (
         <DegreeProgramEditFormContext.Provider

@@ -6,12 +6,14 @@ import { _x } from '@wordpress/i18n';
 import Tabs from '../Tabs';
 import AdmissionRequirements from './AdmissionRequirements';
 import Content from './Content';
+import FormHeading from './FormHeading';
 import General from './General';
 import OrganizationalLinks from './OrganizationalLinks';
 
 const DegreeProgramEditForm = () => {
     return (
         <DegreeProgramEditFormProvider>
+            <FormHeading />
             <Tabs
                 tabs={[
                     {

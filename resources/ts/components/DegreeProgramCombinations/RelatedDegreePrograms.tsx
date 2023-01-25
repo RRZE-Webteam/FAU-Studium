@@ -7,6 +7,7 @@ import { Post } from '@wordpress/core-data';
 import EntitySelector from '../EntitySelector';
 import { withDegreeProgramPosts, withSearchedDegreeProgramPosts } from './hoc';
 
+import { DegreeProgramPost } from '../../defs/degree-program-data';
 import { EntitySelectorProps } from '../../defs/entity-selector';
 
 export type RelatedDegreeProgramsProps = Pick<EntitySelectorProps, 'label' | 'messages'> & {
@@ -19,7 +20,7 @@ const withRelatedDegreeProgramProps = createHigherOrderComponent(
         ({ setRelatedDegreePrograms, ...others }: RelatedDegreeProgramsProps) => {
             return (
                 <WrappedComponent
-                    entityToToken={(post: Post) => post.title.rendered}
+                    entityToToken={(post: DegreeProgramPost) => post.degree_program.title.de}
                     onChange={(posts: Array<Post>) => {
                         setRelatedDegreePrograms(posts.map((post) => post.id));
                     }}

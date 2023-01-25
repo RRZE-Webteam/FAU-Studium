@@ -24,6 +24,8 @@ final class DegreeProgramEditorModule implements ServiceModule, ExecutableModule
                 $container->get(ServerDataProvider::class),
             ),
             PostTypeEditor::class => static fn () => new PostTypeEditor(),
+            TaxonomyVisibilityModifier::class => static fn () => new TaxonomyVisibilityModifier(),
+            InlineEditingDisabler::class => static fn() => new InlineEditingDisabler(),
         ];
     }
 
@@ -38,6 +40,20 @@ final class DegreeProgramEditorModule implements ServiceModule, ExecutableModule
             'use_block_editor_for_post_type',
             [$container->get(PostTypeEditor::class), 'forceBlockEditor'],
             PHP_INT_MAX,
+            2
+        );
+
+        add_filter(
+            'rest_prepare_taxonomy',
+            [$container->get(TaxonomyVisibilityModifier::class), 'modify'],
+            10,
+            3
+        );
+
+        add_filter(
+            'post_row_actions',
+            [$container->get(InlineEditingDisabler::class), 'disableForDegreeProgram'],
+            10,
             2
         );
 
