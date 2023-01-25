@@ -16,7 +16,6 @@ import {
     __experimentalHeading as Heading,
     BaseControl,
     TextareaControl,
-    TextControl,
 } from '@wordpress/components';
 import { _x } from '@wordpress/i18n';
 
@@ -118,7 +117,7 @@ const AdmissionRequirements = () => {
                 >
                     <MultilingualContainer>
                         {(languageCode) => (
-                            <TextControl
+                            <TextareaControl
                                 onChange={(value: string) => {
                                     handleChange<string>(
                                         `content_related_master_requirements.${languageCode}`,
@@ -131,7 +130,7 @@ const AdmissionRequirements = () => {
                     </MultilingualContainer>
                 </BaseControl>
 
-                <TextControl
+                <TextareaControl
                     onChange={(value: string) => {
                         handleChange<string>('application_deadline_winter_semester', value);
                     }}
@@ -145,7 +144,7 @@ const AdmissionRequirements = () => {
 
                 {applicationSummerDeadlineEnabled && (
                     <div data-testid="application-deadline-summer">
-                        <TextControl
+                        <TextareaControl
                             onChange={(value: string) => {
                                 handleChange<string>('application_deadline_summer_semester', value);
                             }}
@@ -196,7 +195,7 @@ const AdmissionRequirements = () => {
                 >
                     <MultilingualContainer>
                         {(languageCode) => (
-                            <TextControl
+                            <TextareaControl
                                 onChange={(value: string) => {
                                     handleChange<string>(`language_skills.${languageCode}`, value);
                                 }}
@@ -208,7 +207,7 @@ const AdmissionRequirements = () => {
 
                 {humanitiesFacultyLanguageSkillsEnabled && (
                     <div data-testid="language-skills-humanities-faculty">
-                        <TextControl
+                        <TextareaControl
                             onChange={(value: string) => {
                                 handleChange<string>('language_skills_humanities_faculty', value);
                             }}
