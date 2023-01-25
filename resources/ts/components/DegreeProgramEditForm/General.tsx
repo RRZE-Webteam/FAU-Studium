@@ -1,17 +1,4 @@
 import React from 'react';
-import LimitedInputControl from 'components/LimitedInputControl';
-import { MultiTermSelector } from 'components/TermSelector';
-import TermSelector from 'components/TermSelector/TermSelector';
-import TextControlCollection from 'components/TextControlCollection';
-import { useEditDegreeProgram } from 'contexts/DegreeProgramEditFormProvider';
-import { Degree, Image, MultilingualLink, MultilingualString } from 'defs';
-import useMedia from 'hooks/useMedia';
-import { propertyId } from 'util/idHelpers';
-import {
-    transformTermToDegree,
-    transformTermToMultilingualLink,
-    transformTermToMultilingualString,
-} from 'util/transforms';
 
 import { MediaPlaceholder, MediaUploadCheck } from '@wordpress/block-editor';
 import {
@@ -26,7 +13,22 @@ import {
 import { PostFeaturedImage } from '@wordpress/editor';
 import { _x } from '@wordpress/i18n';
 
+import LimitedInputControl from 'components/LimitedInputControl';
+import { MultiTermSelector } from 'components/TermSelector';
+import TermSelector from 'components/TermSelector/TermSelector';
+import TextControlCollection from 'components/TextControlCollection';
+import { useEditDegreeProgram } from 'contexts/DegreeProgramEditFormProvider';
+import useMedia from 'hooks/useMedia';
+import { propertyId } from 'util/idHelpers';
+import {
+    transformTermToDegree,
+    transformTermToMultilingualLink,
+    transformTermToMultilingualString,
+} from 'util/transforms';
+
 import MultilingualContainer from './MultilingualContainer';
+
+import { Degree, Image, MultilingualLink, MultilingualString } from 'defs';
 
 const General = () => {
     const { values, handleChange } = useEditDegreeProgram();

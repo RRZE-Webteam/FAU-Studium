@@ -1,7 +1,7 @@
 import { DegreeAbbreviationEnglish } from './degree-program-data';
 import { DegreeProgramEditorServerDataType } from './server-data';
 
-export interface WpTerm<Meta extends Record<string, string> = {}> {
+export interface WpTerm<Meta extends Record<string, string> = never> {
     id: number;
     description: string;
     name: string;

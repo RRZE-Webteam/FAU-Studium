@@ -5,7 +5,7 @@ export interface SelectOption {
 
 export type LanguageCode = 'de' | 'en';
 
-export interface Block<Attributes = {}> {
+export interface Block<Attributes> {
     attributes: Attributes;
     setAttributes(value: Partial<Attributes>): void;
 }

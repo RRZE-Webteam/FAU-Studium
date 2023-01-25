@@ -1,8 +1,9 @@
 import React, { ReactNode, useEffect, useState } from 'react';
-import CircularProgress from 'components/CircularProgress';
 
 import { Flex } from '@wordpress/components';
 import { _x } from '@wordpress/i18n';
+
+import CircularProgress from 'components/CircularProgress';
 
 interface Props {
     maxChars: number;

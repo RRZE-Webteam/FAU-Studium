@@ -1,7 +1,7 @@
-import serverData from 'util/serverData';
-
 import { Post, store as coreStore } from '@wordpress/core-data';
 import { withSelect } from '@wordpress/data';
+
+import serverData from 'util/serverData';
 
 import { RelatedDegreeProgramsProps } from '../defs';
 

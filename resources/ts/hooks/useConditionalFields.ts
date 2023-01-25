@@ -1,5 +1,3 @@
-import { Degree, DEGREE_ABBREVIATION_GERMAN, MultilingualLink } from 'defs';
-
 import {
     ADMISSION_REQUIREMENT_FREE,
     FACULTY_NATURAL_SCIENCES,
@@ -7,6 +5,8 @@ import {
     SEMESTER_SUMMER,
 } from './constants';
 import useDegreeProgramProperty from './useDegreeProgramProperty';
+
+import { Degree, DEGREE_ABBREVIATION_GERMAN, MultilingualLink } from 'defs';
 
 const ALLOWED_FACULTIES_FOR_COMBINATION = [FACULTY_PHILOSOPHY, FACULTY_NATURAL_SCIENCES];
 

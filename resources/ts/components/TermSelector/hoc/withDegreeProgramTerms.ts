@@ -1,9 +1,10 @@
 import { isArray, isEmpty } from 'lodash';
-import { entityId } from 'util/idHelpers';
-import serverData from 'util/serverData';
 
 import { Post, store as coreStore } from '@wordpress/core-data';
 import { withSelect } from '@wordpress/data';
+
+import { entityId } from 'util/idHelpers';
+import serverData from 'util/serverData';
 
 import { MultiTermSelectorProps, TermSelectorProps } from '../defs';
 

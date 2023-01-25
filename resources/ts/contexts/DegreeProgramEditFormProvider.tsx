@@ -1,16 +1,17 @@
-/* eslint-disable no-param-reassign */
 import React, { createContext, ReactNode, useCallback, useContext, useState } from 'react';
-import { DegreeProgramData, DegreeProgramDataPaths } from 'defs';
-import useDegreeProgramFeaturedImage from 'hooks/useDegreeProgramFeaturedImage';
 import produce from 'immer';
 import { set } from 'lodash';
-import serverData from 'util/serverData';
 
 import { useEntityProp } from '@wordpress/core-data';
 
+import useDegreeProgramFeaturedImage from 'hooks/useDegreeProgramFeaturedImage';
+import serverData from 'util/serverData';
+
+import { DegreeProgramData, DegreeProgramDataPaths } from 'defs';
+
 interface ContextValue {
     values: DegreeProgramData;
-    handleChange: <Value extends unknown>(path: DegreeProgramDataPaths, val: Value) => void;
+    handleChange: <Value>(path: DegreeProgramDataPaths, val: Value) => void;
     errors: Partial<Record<keyof DegreeProgramData, string>>;
     addError: (field: keyof DegreeProgramData, errorMessage: string) => void;
     removeError: (field: keyof DegreeProgramData) => void;
@@ -28,31 +29,27 @@ const DegreeProgramEditFormProvider = ({ children }: Props) => {
         'postType',
         serverData().postType,
         serverData().propertyName,
-    ) as [DegreeProgramData, (val: DegreeProgramData) => void, any];
+    ) as [DegreeProgramData, (val: DegreeProgramData) => void, unknown];
     const [,] = useDegreeProgramFeaturedImage();
 
     const handleChange = useCallback(
-        <Value extends unknown>(path: DegreeProgramDataPaths, val: Value) => {
+        <Value,>(path: DegreeProgramDataPaths, val: Value) => {
             setDegreeProgramData(produce(degreeProgramData, (draft) => set(draft, path, val)));
         },
         [setDegreeProgramData, degreeProgramData],
     );
-    const addError = useCallback(
-        (field: keyof DegreeProgramData, errorMessage: string) => {
-            setErrors({ ...errors, [field]: errorMessage });
-        },
-        [setErrors],
-    );
-    const removeError = useCallback(
-        (field: keyof DegreeProgramData) => {
-            setErrors(
-                produce(errors, (draft) => {
-                    delete draft[field];
-                }),
-            );
-        },
-        [setErrors],
-    );
+
+    const addError = useCallback((field: keyof DegreeProgramData, errorMessage: string) => {
+        setErrors((prevErrors) => ({ ...prevErrors, [field]: errorMessage }));
+    }, []);
+
+    const removeError = useCallback((field: keyof DegreeProgramData) => {
+        setErrors((prevErrors) =>
+            produce(prevErrors, (draft) => {
+                delete draft[field];
+            }),
+        );
+    }, []);
 
     return (
         <DegreeProgramEditFormContext.Provider

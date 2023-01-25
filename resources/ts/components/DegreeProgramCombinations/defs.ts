@@ -10,5 +10,5 @@ export type RelatedDegreeProgramsProps = Readonly<{
     /**
      * Could be used to restrict suggestions by tax query.
      */
-    additionalQuery?: Record<string, any>;
+    additionalQuery?: Record<string, unknown>;
 }>;

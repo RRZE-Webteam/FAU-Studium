@@ -1,6 +1,6 @@
 import { FormTokenFieldProps } from '@wordpress/components/build-types/form-token-field/types';
 
-export type EntitySelectorProps<Entity = Object> = Readonly<{
+export type EntitySelectorProps<Entity = object> = Readonly<{
     label: string;
     messages: FormTokenFieldProps['messages'];
     maxLength?: number;

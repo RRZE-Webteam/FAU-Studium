@@ -1,7 +1,8 @@
 import React from 'react';
-import DegreeProgramEditForm from 'components/DegreeProgramEditForm';
 
 import { useBlockProps } from '@wordpress/block-editor';
+
+import DegreeProgramEditForm from 'components/DegreeProgramEditForm';
 
 import './admin.scss';
 

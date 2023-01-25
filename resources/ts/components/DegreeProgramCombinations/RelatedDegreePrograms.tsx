@@ -4,11 +4,10 @@ import { Immutable } from 'immer';
 import { compose, createHigherOrderComponent } from '@wordpress/compose';
 import { Post } from '@wordpress/core-data';
 
-import EntitySelector from '../EntitySelector';
-import { withDegreeProgramPosts, withSearchedDegreeProgramPosts } from './hoc';
-
 import { DegreeProgramPost } from '../../defs/degree-program-data';
 import { EntitySelectorProps } from '../../defs/entity-selector';
+import EntitySelector from '../EntitySelector';
+import { withDegreeProgramPosts, withSearchedDegreeProgramPosts } from './hoc';
 
 export type RelatedDegreeProgramsProps = Pick<EntitySelectorProps, 'label' | 'messages'> & {
     relatedDegreeProgramIds: Immutable<Array<number>>;

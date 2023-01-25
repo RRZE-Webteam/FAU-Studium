@@ -1,8 +1,8 @@
-import { TaxonomySlug, WpTerm } from 'defs/term';
-
 import { FormTokenFieldProps } from '@wordpress/components/build-types/form-token-field/types';
 
-export type Term = WpTerm<any>;
+import { TaxonomySlug, WpTerm } from 'defs/term';
+
+export type Term = WpTerm;
 
 export interface SelectorProps {
     id: string;

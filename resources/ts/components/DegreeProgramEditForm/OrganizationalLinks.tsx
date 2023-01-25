@@ -4,12 +4,11 @@ import { BaseControl, Panel, PanelBody, TextControl } from '@wordpress/component
 import { _x } from '@wordpress/i18n';
 
 import { useEditDegreeProgram } from '../../contexts/DegreeProgramEditFormProvider';
+import { MultilingualLink } from '../../defs';
 import { useDegreeFeesEnabled } from '../../hooks/useConditionalFields';
 import { transformTermToMultilingualLink } from '../../util/transforms';
 import TermSelector from '../TermSelector';
 import MultilingualContainer from './MultilingualContainer';
-
-import { MultilingualLink } from '../../defs';
 
 const OrganizationalLinks = () => {
     const { values, handleChange } = useEditDegreeProgram();

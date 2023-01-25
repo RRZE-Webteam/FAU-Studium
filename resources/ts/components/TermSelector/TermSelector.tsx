@@ -1,16 +1,16 @@
 import React from 'react';
-import { EntitySelectorProps, WpTerm } from 'defs';
 
 import { compose, createHigherOrderComponent } from '@wordpress/compose';
 
 import EntitySelector from '../EntitySelector';
+import { TermSelectorProps } from './defs';
 import {
     withDegreeProgramTerms,
     withSearchedDegreeProgramTerms,
     withTermSelectorProps,
 } from './hoc';
 
-import { TermSelectorProps } from './defs';
+import { EntitySelectorProps, WpTerm } from 'defs';
 
 const withSingleTermSelectorProps = createHigherOrderComponent(
     (WrappedComponent: React.FC<Partial<EntitySelectorProps>>) =>

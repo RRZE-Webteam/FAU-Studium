@@ -1,7 +1,7 @@
-import serverData from 'util/serverData';
-
 import { store } from '@wordpress/core-data';
 import { useSelect } from '@wordpress/data';
+
+import serverData from 'util/serverData';
 
 import {
     CoreDataSelectors,
@@ -36,7 +36,7 @@ type Term<T> = T extends
     : T extends 'degree'
     ? WpTerm<DegreeMeta>
     : T extends 'numberOfStudents'
-    ? WpTerm<{}>
+    ? WpTerm
     : never;
 
 /**

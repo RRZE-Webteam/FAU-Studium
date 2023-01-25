@@ -1,12 +1,14 @@
 import React from 'react';
-import { useEditDegreeProgram } from 'contexts/DegreeProgramEditFormProvider';
-import { DegreeProgramData, LanguageCode } from 'defs';
 
 import { BaseControl, Panel, PanelBody } from '@wordpress/components';
+
+import { useEditDegreeProgram } from 'contexts/DegreeProgramEditFormProvider';
 
 import ContentField from '../ContentField';
 import DegreeProgramCombinations from '../DegreeProgramCombinations';
 import MultilingualContainer from './MultilingualContainer';
+
+import { DegreeProgramData, LanguageCode } from 'defs';
 
 const CONTENT_ITEMS = [
     'about',

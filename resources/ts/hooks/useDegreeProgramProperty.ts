@@ -1,8 +1,9 @@
 import produce, { Immutable } from 'immer';
 import { get, set } from 'lodash';
-import serverData from 'util/serverData';
 
 import { useEntityProp } from '@wordpress/core-data';
+
+import serverData from 'util/serverData';
 
 import { DegreeProgramDataPaths } from '../defs';
 

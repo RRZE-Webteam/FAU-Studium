@@ -1,9 +1,10 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { EntitySelectorProps } from 'defs';
 import { find, uniq } from 'lodash';
 
 import { FormTokenField } from '@wordpress/components';
 import { useDebounce } from '@wordpress/compose';
+
+import { EntitySelectorProps } from 'defs';
 
 /**
  * Entity selector.

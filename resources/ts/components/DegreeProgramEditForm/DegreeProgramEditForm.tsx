@@ -1,7 +1,8 @@
 import React from 'react';
-import DegreeProgramEditFormProvider from 'contexts/DegreeProgramEditFormProvider';
 
 import { _x } from '@wordpress/i18n';
+
+import DegreeProgramEditFormProvider from 'contexts/DegreeProgramEditFormProvider';
 
 import Tabs from '../Tabs';
 import AdmissionRequirements from './AdmissionRequirements';

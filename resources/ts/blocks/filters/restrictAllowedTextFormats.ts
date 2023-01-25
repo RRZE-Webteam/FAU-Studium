@@ -4,7 +4,7 @@ import { store as richTextStore } from '@wordpress/rich-text';
 
 interface FormatType {
     name: string;
-    [key: string]: any;
+    [key: string]: unknown;
 }
 
 const ALLOWED_FORMATS = ['core/bold', 'core/link'];

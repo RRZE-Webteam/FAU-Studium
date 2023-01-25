@@ -1,9 +1,11 @@
 import { useState } from 'react';
-import { EntitySelectorProps, WpTerm } from 'defs';
-import serverData from 'util/serverData';
 
 import { store as coreStore } from '@wordpress/core-data';
 import { withSelect } from '@wordpress/data';
+
+import serverData from 'util/serverData';
+
+import { EntitySelectorProps, WpTerm } from 'defs';
 
 const withSearchedDegreeProgramTerms = withSelect(
     (

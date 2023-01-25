@@ -1,3 +1,5 @@
+import { propertyId } from './idHelpers';
+
 import {
     Degree,
     DegreeAbbreviationEnglish,
@@ -6,8 +8,6 @@ import {
     MultilingualString,
 } from 'defs';
 import { MultilingualLinkMeta, WpTerm } from 'defs/term';
-
-import { propertyId } from './idHelpers';
 
 const EMPTY_MULTILINGUAL_STRING = {
     id: '',

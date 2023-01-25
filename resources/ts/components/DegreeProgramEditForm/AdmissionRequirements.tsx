@@ -1,16 +1,5 @@
 import React from 'react';
-import TermSelector from 'components/TermSelector';
-import { useEditDegreeProgram } from 'contexts/DegreeProgramEditFormProvider';
-import { MultilingualLink } from 'defs';
-import {
-    useAdmissionRequirementsForBachelorAndTeachingDegreesEnable,
-    useAdmissionRequirementsForMastersDegree,
-    useAdmissionRequirementsTeachingDegreeAtHigherSemesterEnabled,
-    useApplicationDeadlineSummerSemesterEnabled,
-    useLanguageSkillsForFacultyOfHumanitiesOnlyEnabled,
-} from 'hooks/useConditionalFields';
 import styled from 'styled-components';
-import { transformTermToMultilingualLink } from 'util/transforms';
 
 import {
     __experimentalHeading as Heading,
@@ -19,7 +8,20 @@ import {
 } from '@wordpress/components';
 import { _x } from '@wordpress/i18n';
 
+import TermSelector from 'components/TermSelector';
+import { useEditDegreeProgram } from 'contexts/DegreeProgramEditFormProvider';
+import {
+    useAdmissionRequirementsForBachelorAndTeachingDegreesEnable,
+    useAdmissionRequirementsForMastersDegree,
+    useAdmissionRequirementsTeachingDegreeAtHigherSemesterEnabled,
+    useApplicationDeadlineSummerSemesterEnabled,
+    useLanguageSkillsForFacultyOfHumanitiesOnlyEnabled,
+} from 'hooks/useConditionalFields';
+import { transformTermToMultilingualLink } from 'util/transforms';
+
 import MultilingualContainer from './MultilingualContainer';
+
+import { MultilingualLink } from 'defs';
 
 const StyledHeading = styled(Heading)`
     margin-bottom: 12px;

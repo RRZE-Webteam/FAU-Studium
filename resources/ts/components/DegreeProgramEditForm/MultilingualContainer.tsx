@@ -1,11 +1,11 @@
 import React, { ReactNode } from 'react';
-import serverData from 'util/serverData';
 
 import { TabPanel } from '@wordpress/components';
 
-import { TabItem } from '../Tabs';
+import serverData from 'util/serverData';
 
 import { LanguageCode } from '../../defs/common';
+import { TabItem } from '../Tabs';
 
 type MultilingualContainerProps = {
     children: (languageCode: LanguageCode) => ReactNode;

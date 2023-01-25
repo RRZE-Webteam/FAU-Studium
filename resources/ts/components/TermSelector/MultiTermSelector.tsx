@@ -3,13 +3,12 @@ import React from 'react';
 import { compose } from '@wordpress/compose';
 
 import EntitySelector from '../EntitySelector';
+import { MultiTermSelectorProps } from './defs';
 import {
     withDegreeProgramTerms,
     withSearchedDegreeProgramTerms,
     withTermSelectorProps,
 } from './hoc';
-
-import { MultiTermSelectorProps } from './defs';
 
 export default compose(
     withTermSelectorProps,

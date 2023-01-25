@@ -1,10 +1,11 @@
 import React from 'react';
-import { EntitySelectorProps, WpTerm } from 'defs';
 
 import { BaseControl } from '@wordpress/components';
 import { createHigherOrderComponent } from '@wordpress/compose';
 
 import { SelectorProps } from '../defs';
+
+import { EntitySelectorProps, WpTerm } from 'defs';
 
 const withTermSelectorProps = createHigherOrderComponent(
     (WrappedComponent: React.FC<Partial<EntitySelectorProps>>) =>

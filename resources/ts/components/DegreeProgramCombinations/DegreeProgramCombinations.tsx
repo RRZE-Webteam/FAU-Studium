@@ -1,8 +1,9 @@
 import React from 'react';
-import { useCombinationOfDegreeProgramEnabled } from 'hooks/useConditionalFields';
 
 import { Flex, FlexBlock, Spinner } from '@wordpress/components';
 import { _x } from '@wordpress/i18n';
+
+import { useCombinationOfDegreeProgramEnabled } from 'hooks/useConditionalFields';
 
 import useDegreeProgramProperty from '../../hooks/useDegreeProgramProperty';
 import RelatedDegreePrograms from './RelatedDegreePrograms';
