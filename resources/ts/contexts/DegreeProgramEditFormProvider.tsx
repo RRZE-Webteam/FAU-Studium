@@ -4,7 +4,6 @@ import { set } from 'lodash';
 
 import { useEntityProp } from '@wordpress/core-data';
 
-import useDegreeProgramFeaturedImage from 'hooks/useDegreeProgramFeaturedImage';
 import serverData from 'util/serverData';
 
 import { DegreeProgramData, DegreeProgramDataPaths } from 'defs';
@@ -30,7 +29,6 @@ const DegreeProgramEditFormProvider = ({ children }: Props) => {
         serverData().postType,
         serverData().propertyName,
     ) as [DegreeProgramData, (val: DegreeProgramData) => void, unknown];
-    const [,] = useDegreeProgramFeaturedImage();
 
     const handleChange = useCallback(
         <Value,>(path: DegreeProgramDataPaths, val: Value) => {

@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { MediaPlaceholder, MediaUploadCheck } from '@wordpress/block-editor';
 import {
     __experimentalNumberControl as NumberControl,
     BaseControl,
@@ -10,15 +9,14 @@ import {
     TextControl,
     ToggleControl,
 } from '@wordpress/components';
-import { PostFeaturedImage } from '@wordpress/editor';
 import { _x } from '@wordpress/i18n';
 
+import ImageField from 'components/ImageField';
 import LimitedInputControl from 'components/LimitedInputControl';
 import { MultiTermSelector } from 'components/TermSelector';
 import TermSelector from 'components/TermSelector/TermSelector';
 import TextControlCollection from 'components/TextControlCollection';
 import { useEditDegreeProgram } from 'contexts/DegreeProgramEditFormProvider';
-import useMedia from 'hooks/useMedia';
 import { propertyId } from 'util/idHelpers';
 import {
     transformTermToDegree,
@@ -28,12 +26,10 @@ import {
 
 import MultilingualContainer from './MultilingualContainer';
 
-import { Degree, Image, MultilingualLink, MultilingualString } from 'defs';
+import { Degree, MultilingualLink, MultilingualString } from 'defs';
 
 const General = () => {
     const { values, handleChange } = useEditDegreeProgram();
-
-    const teaserImageMedia = useMedia(values.teaser_image.id);
 
     return (
         <Panel>
@@ -47,9 +43,14 @@ const General = () => {
                         'fau-degree-program',
                     )}
                 >
-                    <MediaUploadCheck>
-                        <PostFeaturedImage />
-                    </MediaUploadCheck>
+                    <ImageField
+                        path="featured_image"
+                        title={_x(
+                            'Featured image',
+                            'backoffice: degree program edit form',
+                            'fau-degree-program',
+                        )}
+                    />
                 </BaseControl>
                 <BaseControl
                     id="teaser_image"
@@ -60,43 +61,14 @@ const General = () => {
                         'fau-degree-program',
                     )}
                 >
-                    <MediaUploadCheck>
-                        <MediaPlaceholder
-                            value={[values.teaser_image.id]}
-                            onSelect={({ id, url }) => {
-                                handleChange<Image>('teaser_image', {
-                                    id,
-                                    url,
-                                });
-                            }}
-                            onCancel={() => {
-                                handleChange<Image>('teaser_image', {
-                                    id: 0,
-                                    url: '',
-                                });
-                            }}
-                            allowedTypes={['image']}
-                            multiple={false}
-                            labels={{
-                                title: _x(
-                                    'Teaser Image',
-                                    'backoffice: degree program edit form',
-                                    'fau-degree-program',
-                                ),
-                            }}
-                            mediaPreview={
-                                values.teaser_image.url ? (
-                                    <img
-                                        src={
-                                            teaserImageMedia?.media_details?.sizes?.thumbnail
-                                                ?.source_url ?? values.teaser_image.url
-                                        }
-                                        alt="preview"
-                                    />
-                                ) : undefined
-                            }
-                        />
-                    </MediaUploadCheck>
+                    <ImageField
+                        path="teaser_image"
+                        title={_x(
+                            'Teaser image',
+                            'backoffice: degree program edit form',
+                            'fau-degree-program',
+                        )}
+                    />
                 </BaseControl>
 
                 <BaseControl
