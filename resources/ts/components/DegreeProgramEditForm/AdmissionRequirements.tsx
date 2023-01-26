@@ -1,11 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import {
-    __experimentalHeading as Heading,
-    BaseControl,
-    TextareaControl,
-} from '@wordpress/components';
+import { __experimentalHeading as Heading, BaseControl } from '@wordpress/components';
 import { _x } from '@wordpress/i18n';
 
 import TermSelector from 'components/TermSelector';
@@ -19,6 +15,7 @@ import {
 } from 'hooks/useConditionalFields';
 import { transformTermToMultilingualLink } from 'util/transforms';
 
+import ContentField from '../ContentField';
 import MultilingualContainer from './MultilingualContainer';
 
 import { MultilingualLink } from 'defs';
@@ -119,45 +116,50 @@ const AdmissionRequirements = () => {
                 >
                     <MultilingualContainer>
                         {(languageCode) => (
-                            <TextareaControl
+                            <ContentField
                                 onChange={(value: string) => {
                                     handleChange<string>(
                                         `content_related_master_requirements.${languageCode}`,
                                         value,
                                     );
                                 }}
-                                value={values.content_related_master_requirements[languageCode]}
+                                content={values.content_related_master_requirements[languageCode]}
                             />
                         )}
                     </MultilingualContainer>
                 </BaseControl>
 
-                <TextareaControl
-                    onChange={(value: string) => {
-                        handleChange<string>('application_deadline_winter_semester', value);
-                    }}
-                    value={values.application_deadline_winter_semester}
+                <BaseControl
                     label={_x(
                         'Application deadline winter semester',
                         'backoffice: degree program edit form',
                         'fau-degree-program',
                     )}
-                />
+                >
+                    <ContentField
+                        onChange={(value: string) => {
+                            handleChange<string>('application_deadline_winter_semester', value);
+                        }}
+                        content={values.application_deadline_winter_semester}
+                    />
+                </BaseControl>
 
                 {applicationSummerDeadlineEnabled && (
-                    <div data-testid="application-deadline-summer">
-                        <TextareaControl
+                    <BaseControl
+                        data-testid="application-deadline-summer"
+                        label={_x(
+                            'Application deadline summer semester',
+                            'backoffice: degree program edit form',
+                            'fau-degree-program',
+                        )}
+                    >
+                        <ContentField
                             onChange={(value: string) => {
                                 handleChange<string>('application_deadline_summer_semester', value);
                             }}
-                            value={values.application_deadline_summer_semester}
-                            label={_x(
-                                'Application deadline summer semester',
-                                'backoffice: degree program edit form',
-                                'fau-degree-program',
-                            )}
+                            content={values.application_deadline_summer_semester}
                         />
-                    </div>
+                    </BaseControl>
                 )}
             </div>
 
@@ -174,14 +176,14 @@ const AdmissionRequirements = () => {
                 >
                     <MultilingualContainer>
                         {(languageCode) => (
-                            <TextareaControl
+                            <ContentField
                                 onChange={(value: string) => {
                                     handleChange<string>(
                                         `details_and_notes.${languageCode}`,
                                         value,
                                     );
                                 }}
-                                value={values.details_and_notes[languageCode]}
+                                content={values.details_and_notes[languageCode]}
                             />
                         )}
                     </MultilingualContainer>
@@ -197,31 +199,33 @@ const AdmissionRequirements = () => {
                 >
                     <MultilingualContainer>
                         {(languageCode) => (
-                            <TextareaControl
+                            <ContentField
                                 onChange={(value: string) => {
                                     handleChange<string>(`language_skills.${languageCode}`, value);
                                 }}
-                                value={values.language_skills[languageCode]}
+                                content={values.language_skills[languageCode]}
                             />
                         )}
                     </MultilingualContainer>
                 </BaseControl>
 
                 {humanitiesFacultyLanguageSkillsEnabled && (
-                    <div data-testid="language-skills-humanities-faculty">
-                        <TextareaControl
+                    <BaseControl
+                        data-testid="language-skills-humanities-faculty"
+                        label={_x(
+                            'Language skills for Faculty of Humanities, Social Sciences, and Theology only',
+                            'backoffice: degree program edit form',
+                            'fau-degree-program',
+                        )}
+                        help="Sprachkenntnisse, die auch in den ersten Semestern noch erworben werden können."
+                    >
+                        <ContentField
                             onChange={(value: string) => {
                                 handleChange<string>('language_skills_humanities_faculty', value);
                             }}
-                            value={values.language_skills_humanities_faculty}
-                            label={_x(
-                                'Language skills for Faculty of Humanities, Social Sciences, and Theology only',
-                                'backoffice: degree program edit form',
-                                'fau-degree-program',
-                            )}
-                            help="Sprachkenntnisse, die auch in den ersten Semestern noch erworben werden können."
+                            content={values.language_skills_humanities_faculty}
                         />
-                    </div>
+                    </BaseControl>
                 )}
 
                 <TermSelector
