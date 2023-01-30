@@ -40,45 +40,41 @@ const AdmissionRequirements = () => {
                 <StyledHeading level={4}>Bachelor/Lehramt</StyledHeading>
 
                 {bachelorOrTeachingEnabled && (
-                    <div data-testid="bacholar-teaching-admission-requirement">
-                        <TermSelector
-                            id="bachelor_teaching_admission_requirement"
-                            label={_x(
-                                "Admission requirements for Bachelor's/teaching degrees",
-                                'backoffice: degree program edit form',
-                                'fau-degree-program',
-                            )}
-                            taxonomy="bachelorOrTeachingDegreeAdmissionRequirement"
-                            value={values.admission_requirements.bachelor_or_teaching_degree.id}
-                            onChange={(term) => {
-                                handleChange<MultilingualLink>(
-                                    'admission_requirements.bachelor_or_teaching_degree',
-                                    transformTermToMultilingualLink(term),
-                                );
-                            }}
-                        />
-                    </div>
+                    <TermSelector
+                        id="bachelor_teaching_admission_requirement"
+                        label={_x(
+                            "Admission requirements for Bachelor's/teaching degrees",
+                            'backoffice: degree program edit form',
+                            'fau-degree-program',
+                        )}
+                        taxonomy="bachelorOrTeachingDegreeAdmissionRequirement"
+                        value={values.admission_requirements.bachelor_or_teaching_degree.id}
+                        onChange={(term) => {
+                            handleChange<MultilingualLink>(
+                                'admission_requirements.bachelor_or_teaching_degree',
+                                transformTermToMultilingualLink(term),
+                            );
+                        }}
+                    />
                 )}
 
                 {teachingDegreeHigherSemesterEnabled && (
-                    <div data-testid="teaching-higher-semester-admission-requirement">
-                        <TermSelector
-                            id="teaching_higher_semester_admission_requirement"
-                            label={_x(
-                                'Admission requirements for entering a teaching degree at a higher semester',
-                                'backoffice: degree program edit form',
-                                'fau-degree-program',
-                            )}
-                            taxonomy="teachingDegreeHigherSemesterAdmissionRequirement"
-                            value={values.admission_requirements.teaching_degree_higher_semester.id}
-                            onChange={(term) => {
-                                handleChange<MultilingualLink>(
-                                    'admission_requirements.teaching_degree_higher_semester',
-                                    transformTermToMultilingualLink(term),
-                                );
-                            }}
-                        />
-                    </div>
+                    <TermSelector
+                        id="teaching_higher_semester_admission_requirement"
+                        label={_x(
+                            'Admission requirements for entering a teaching degree at a higher semester',
+                            'backoffice: degree program edit form',
+                            'fau-degree-program',
+                        )}
+                        taxonomy="teachingDegreeHigherSemesterAdmissionRequirement"
+                        value={values.admission_requirements.teaching_degree_higher_semester.id}
+                        onChange={(term) => {
+                            handleChange<MultilingualLink>(
+                                'admission_requirements.teaching_degree_higher_semester',
+                                transformTermToMultilingualLink(term),
+                            );
+                        }}
+                    />
                 )}
             </div>
 
@@ -86,24 +82,22 @@ const AdmissionRequirements = () => {
                 <StyledHeading level={4}>Master</StyledHeading>
 
                 {mastersEnabled && (
-                    <div data-testid="masters-admission-requirement">
-                        <TermSelector
-                            id="master_admission_requirement"
-                            label={_x(
-                                "Admission requirements for Master's degree",
-                                'backoffice: degree program edit form',
-                                'fau-degree-program',
-                            )}
-                            taxonomy="masterDegreeAdmissionRequirement"
-                            value={values.admission_requirements.master.id}
-                            onChange={(term) => {
-                                handleChange<MultilingualLink>(
-                                    'admission_requirements.master',
-                                    transformTermToMultilingualLink(term),
-                                );
-                            }}
-                        />
-                    </div>
+                    <TermSelector
+                        id="master_admission_requirement"
+                        label={_x(
+                            "Admission requirements for Master's degree",
+                            'backoffice: degree program edit form',
+                            'fau-degree-program',
+                        )}
+                        taxonomy="masterDegreeAdmissionRequirement"
+                        value={values.admission_requirements.master.id}
+                        onChange={(term) => {
+                            handleChange<MultilingualLink>(
+                                'admission_requirements.master',
+                                transformTermToMultilingualLink(term),
+                            );
+                        }}
+                    />
                 )}
 
                 <BaseControl
@@ -146,7 +140,6 @@ const AdmissionRequirements = () => {
 
                 {applicationSummerDeadlineEnabled && (
                     <BaseControl
-                        data-testid="application-deadline-summer"
                         label={_x(
                             'Application deadline summer semester',
                             'backoffice: degree program edit form',
@@ -211,7 +204,6 @@ const AdmissionRequirements = () => {
 
                 {humanitiesFacultyLanguageSkillsEnabled && (
                     <BaseControl
-                        data-testid="language-skills-humanities-faculty"
                         label={_x(
                             'Language skills for Faculty of Humanities, Social Sciences, and Theology only',
                             'backoffice: degree program edit form',

@@ -1,5 +1,6 @@
-import { Degree, DegreeProgramData } from 'defs';
 import useDegreeProgramProperty from 'hooks/useDegreeProgramProperty';
+
+import { Degree, DegreeProgramData } from 'defs';
 
 export const mockUseDegreeProgramProperty = useDegreeProgramProperty as jest.MockedFunction<
     typeof useDegreeProgramProperty

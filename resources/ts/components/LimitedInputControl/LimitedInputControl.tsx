@@ -8,7 +8,13 @@ import CircularProgress from 'components/CircularProgress';
 interface Props {
     maxChars: number;
     value: string;
-    children: (maxChars: number) => ReactNode;
+    children: ({
+        maxChars,
+        updatedValue,
+    }: {
+        maxChars: number;
+        updatedValue: (text: string) => string;
+    }) => ReactNode;
 }
 
 const LimitedInputControl = ({ maxChars, children, value }: Props) => {
@@ -18,9 +24,13 @@ const LimitedInputControl = ({ maxChars, children, value }: Props) => {
         setCharsLeft(maxChars - value.length);
     }, [value, maxChars]);
 
+    const updatedValue = (text: string) => {
+        return text.length <= maxChars ? text : text.substring(0, maxChars);
+    };
+
     return (
         <>
-            {children(maxChars)}
+            {children({ updatedValue, maxChars })}
 
             <Flex justify="flex-start">
                 <CircularProgress percentage={(charsLeft * 100) / maxChars} squareSize={16} />

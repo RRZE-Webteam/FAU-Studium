@@ -1,4 +1,5 @@
 import { renderHook } from '@testing-library/react-hooks';
+
 import { useAdmissionRequirementsForMastersDegree } from 'hooks/useConditionalFields';
 
 import { mockBachelorDegree, mockMastersDegree } from '../../../__mocks__/degrees';

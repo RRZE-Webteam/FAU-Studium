@@ -1,5 +1,6 @@
-import { DegreeProgramData } from 'defs';
 import { SEMESTER_SUMMER } from 'hooks/constants';
+
+import { DegreeProgramData } from 'defs';
 
 export const mockSummerSemester: DegreeProgramData['semester_dates'] = {
     id: 'term:10',

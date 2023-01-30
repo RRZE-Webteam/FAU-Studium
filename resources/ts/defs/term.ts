@@ -7,7 +7,7 @@ export interface WpTerm<Meta extends Record<string, string> = never> {
     name: string;
     slug: string;
     taxonomy: string;
-    meta: Meta;
+    meta: [Meta] extends [never] ? object : Meta;
 }
 
 export type EnglishNameMeta = {

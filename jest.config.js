@@ -14,26 +14,23 @@ module.exports = {
             branches: 80,
             functions: 80,
             lines: 80,
-            statements: -10
-        }
+            statements: -10,
+        },
     },
     rootDir: './',
-    roots: [
-      '<rootDir>/tests',
-      '<rootDir>/resources',
-    ],
-    testMatch: [
-        './tests/js/**/*.[jt]s?(x)',
-        '**/?(*.)+(spec|test).[tj]s?(x)'
-    ],
-    testPathIgnorePatterns: [
-        '<rootDir>/node_modules/'
-    ],
+    roots: ['<rootDir>/tests', '<rootDir>/resources'],
+    testMatch: ['./tests/js/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[tj]s?(x)'],
+    testPathIgnorePatterns: ['<rootDir>/node_modules/'],
     modulePaths: ['<rootDir>/resources/ts'],
     moduleNameMapper: {
-        "^uuid$": require.resolve("uuid"),
+        '^uuid$': require.resolve('uuid'),
+        '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+            '<rootDir>/tests/js/__mocks__/staticMock.js',
+        '\\.(scss|css)$': '<rootDir>/tests/js/__mocks__/styleMock.js',
     },
     setupFiles: [
-        '<rootDir>/tests/js/stubs.ts'
+        '<rootDir>/tests/js/setup-window-globals.ts',
+        '<rootDir>/tests/js/setup-globals.ts',
     ],
+    setupFilesAfterEnv: ['@testing-library/jest-dom'],
 };

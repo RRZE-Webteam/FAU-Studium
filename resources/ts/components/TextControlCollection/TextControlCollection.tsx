@@ -4,7 +4,14 @@ import produce from 'immer';
 import { nanoid } from 'nanoid';
 import styled from 'styled-components';
 
-import { BaseControl, Button, Flex, Icon, TextControl } from '@wordpress/components';
+import {
+    BaseControl,
+    Button,
+    Flex,
+    Icon,
+    TextControl,
+    VisuallyHidden,
+} from '@wordpress/components';
 import { _x } from '@wordpress/i18n';
 
 interface FieldItem {
@@ -70,6 +77,13 @@ const TextControlCollection = ({ value, onChange }: Props) => {
                             }}
                         >
                             <Icon icon="no" />
+                            <VisuallyHidden>
+                                {_x(
+                                    'Remove',
+                                    'backoffice: TextControlCollection',
+                                    'fau-degree-program',
+                                )}
+                            </VisuallyHidden>
                         </Button>
                     </StyledFieldRow>
                 ))}

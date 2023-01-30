@@ -1,9 +1,9 @@
 import React from 'react';
+import renderer from 'react-test-renderer';
 import { cleanup, render, screen } from '@testing-library/react';
+
 import AdmissionRequirements from 'components/DegreeProgramEditForm/AdmissionRequirements';
 import * as useConditionalFields from 'hooks/useConditionalFields';
-
-import '@testing-library/jest-dom';
 
 jest.mock('hooks/useConditionalFields', () => {
     const conditionalHooks = jest.requireActual('hooks/useConditionalFields');
@@ -13,7 +13,22 @@ jest.mock('hooks/useConditionalFields', () => {
     );
 });
 
-jest.mock('components/TermSelector', () => () => <></>);
+jest.mock(
+    'components/TermSelector',
+    // eslint-disable-next-line react/prop-types
+    jest.fn(() =>
+        jest.fn(({ label }) => (
+            <form>
+                <label htmlFor="foo">
+                    <span>{label}</span>
+                    <input aria-labelledby="foo" />
+                </label>
+            </form>
+        )),
+    ),
+);
+jest.mock('components/DegreeProgramEditForm/MultilingualContainer', () => () => <></>);
+jest.mock('components/ContentField', () => () => <></>);
 jest.mock('contexts/DegreeProgramEditFormProvider', () => ({
     useEditDegreeProgram: () => ({
         values: {
@@ -68,11 +83,21 @@ describe('Admission requirement fields', () => {
     it('should not include conditional fields by default', () => {
         render(<AdmissionRequirements />);
 
-        expect(screen.queryByTestId('bacholar-teaching-admission-requirement')).toBeNull();
-        expect(screen.queryByTestId('teaching-higher-semester-admission-requirement')).toBeNull();
-        expect(screen.queryByTestId('masters-admission-requirement')).toBeNull();
-        expect(screen.queryByTestId('application-deadline-summer')).toBeNull();
-        expect(screen.queryByTestId('language-skills-humanities-faculty')).toBeNull();
+        expect(
+            screen.queryByText(/Admission requirements for Bachelor's\/teaching degrees/i),
+        ).toBeNull();
+        expect(
+            screen.queryByText(
+                /Admission requirements for entering a teaching degree at a higher semester/i,
+            ),
+        ).toBeNull();
+        expect(screen.queryByText(/^Admission requirements for Master's degree/i)).toBeNull();
+        expect(screen.queryByText(/Application deadline summer semester/i)).toBeNull();
+        expect(
+            screen.queryByText(
+                /Language skills for Faculty of Humanities, Social Sciences, and Theology only/i,
+            ),
+        ).toBeNull();
     });
 
     it('should include conditional fields when conditions met', () => {
@@ -89,12 +114,28 @@ describe('Admission requirement fields', () => {
 
         render(<AdmissionRequirements />);
 
-        expect(screen.queryByTestId('bacholar-teaching-admission-requirement')).toBeInTheDocument();
         expect(
-            screen.queryByTestId('teaching-higher-semester-admission-requirement'),
+            screen.queryByText(/Admission requirements for Bachelor's\/teaching degrees/i),
         ).toBeInTheDocument();
-        expect(screen.queryByTestId('masters-admission-requirement')).toBeInTheDocument();
-        expect(screen.queryByTestId('application-deadline-summer')).toBeInTheDocument();
-        expect(screen.queryByTestId('language-skills-humanities-faculty')).toBeInTheDocument();
+        expect(
+            screen.queryByText(
+                /Admission requirements for entering a teaching degree at a higher semester/i,
+            ),
+        ).toBeInTheDocument();
+        expect(
+            screen.queryByText(/^Admission requirements for Master's degree/i),
+        ).toBeInTheDocument();
+        expect(screen.queryByText(/Application deadline summer semester/i)).toBeInTheDocument();
+        expect(
+            screen.queryByText(
+                /Language skills for Faculty of Humanities, Social Sciences, and Theology only/i,
+            ),
+        ).toBeInTheDocument();
+    });
+
+    it('should match snapshot', () => {
+        const test = renderer.create(<AdmissionRequirements />).toJSON();
+
+        expect(test).toMatchSnapshot();
     });
 });

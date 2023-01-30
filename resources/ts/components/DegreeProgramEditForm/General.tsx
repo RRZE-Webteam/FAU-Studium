@@ -295,7 +295,7 @@ const General = () => {
                     />
                 </BaseControl>
                 <LimitedInputControl value={values.meta_description.de} maxChars={160}>
-                    {(maxChars) => (
+                    {({ updatedValue }) => (
                         <TextareaControl
                             label={_x(
                                 'Meta description',
@@ -305,9 +305,7 @@ const General = () => {
                             help="Text für die Anzeige bei Suchmaschinen."
                             value={values.meta_description.de}
                             onChange={(text: string) => {
-                                if (text.length <= maxChars) {
-                                    handleChange<string>('meta_description.de', text);
-                                }
+                                handleChange<string>('meta_description.de', updatedValue(text));
                             }}
                         />
                     )}
