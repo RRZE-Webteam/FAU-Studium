@@ -1,0 +1,10 @@
+{
+  "ts/defs.js": "/ts/defs.js",
+  "ts/defs.php": "/ts/defs.asset.php",
+  "ts/degree-program-editor.css": "/ts/degree-program-editor.css",
+  "ts/degree-program-editor.js": "/ts/degree-program-editor.js",
+  "ts/degree-program-editor.php": "/ts/degree-program-editor.asset.php",
+  "ts/main.js": "/ts/main.js",
+  "ts/main.php": "/ts/main.asset.php",
+  "css/dashboard-settings.css": "/css/dashboard-settings.css"
+}
