@@ -6,11 +6,11 @@ export const mockBachelorDegree: Degree = {
     abbreviation: {
         de: DEGREE_ABBREVIATION_GERMAN.BACHELOR,
         en: DEGREE_ABBREVIATION_ENGLISH.BACHELOR,
-        id: 'term:4.abbreviation',
+        id: 'term_meta:4:abbreviation',
     },
     id: 'term:4',
     name: {
-        id: 'term:4.name',
+        id: 'term:4:name',
         en: 'Bachelor',
         de: 'Bachelor',
     },
@@ -18,13 +18,13 @@ export const mockBachelorDegree: Degree = {
 
 export const mockTeachingDegree: Degree = {
     abbreviation: {
-        id: 'term:4.abbreviation',
+        id: 'term_meta:4:abbreviation',
         de: DEGREE_ABBREVIATION_GERMAN.TEACHING_DEGREE,
         en: DEGREE_ABBREVIATION_ENGLISH.TEACHING_DEGREE,
     },
     id: 'term:4',
     name: {
-        id: 'term:4.name',
+        id: 'term:4:name',
         de: 'Lehramt',
         en: 'Teaching Degree',
     },
@@ -32,13 +32,13 @@ export const mockTeachingDegree: Degree = {
 
 export const mockMastersDegree: Degree = {
     abbreviation: {
-        id: 'term:4.abbreviation',
+        id: 'term_meta:4:abbreviation',
         de: DEGREE_ABBREVIATION_GERMAN.MASTERS,
         en: DEGREE_ABBREVIATION_ENGLISH.MASTERS,
     },
     id: 'term:4',
     name: {
-        id: 'term:4.name',
+        id: 'term:4:name',
         de: 'Master',
         en: 'Masters',
     },

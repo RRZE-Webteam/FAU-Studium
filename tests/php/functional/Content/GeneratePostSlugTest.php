@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Fau\DegreeProgram\Tests\Content;
 
 use Fau\DegreeProgram\Application\Content\GeneratePostSlug;
+use Fau\DegreeProgram\Common\Infrastructure\Repository\IdGenerator;
 use Fau\DegreeProgram\Common\LanguageExtension\ArrayOfStrings;
 use Fau\DegreeProgram\Common\Tests\FixtureDegreeProgramDataProviderTrait;
 use Fau\DegreeProgram\Common\Tests\Repository\StubDegreeProgramRepository;
@@ -34,7 +35,8 @@ class GeneratePostSlugTest extends WpDbLessTestCase
         $repository->save($emptyDegreeProgram);
 
         $sut = new GeneratePostSlug(
-            $repository
+            $repository,
+            new IdGenerator(),
         );
 
         $result = $sut->generate(123);
@@ -46,7 +48,8 @@ class GeneratePostSlugTest extends WpDbLessTestCase
     {
         $repository = new StubDegreeProgramRepository();
         $sut = new GeneratePostSlug(
-            $repository
+            $repository,
+            new IdGenerator(),
         );
 
         $result = $sut->generate(123);

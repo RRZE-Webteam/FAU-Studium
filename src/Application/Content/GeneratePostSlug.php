@@ -7,11 +7,14 @@ namespace Fau\DegreeProgram\Application\Content;
 use Fau\DegreeProgram\Common\Application\DegreeProgramViewRepository;
 use Fau\DegreeProgram\Common\Domain\DegreeProgramId;
 use Fau\DegreeProgram\Common\Domain\MultilingualString;
+use Fau\DegreeProgram\Common\Infrastructure\Repository\IdGenerator;
 
 class GeneratePostSlug
 {
-    public function __construct(private DegreeProgramViewRepository $degreeProgramViewRepository)
-    {
+    public function __construct(
+        private DegreeProgramViewRepository $degreeProgramViewRepository,
+        private IdGenerator $idGenerator,
+    ) {
     }
 
     /**
@@ -46,7 +49,7 @@ class GeneratePostSlug
         );
 
         return MultilingualString::fromTranslations(
-            'post:slug',
+            $this->idGenerator->generatePostId($postId, 'post_name'),
             $germanSlug,
             $englishSlug
         );

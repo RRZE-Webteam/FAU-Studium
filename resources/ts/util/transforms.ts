@@ -22,7 +22,7 @@ export function transformTermToMultilingualString(
         ? {
               en: term.meta.name_en ?? '',
               de: term.name,
-              id: propertyId('term', term.id),
+              id: propertyId('term', term.id, 'name'),
           }
         : { ...EMPTY_MULTILINGUAL_STRING };
 }
@@ -34,17 +34,17 @@ export function transformTermToMultilingualLink(
         ? {
               id: propertyId('term', term.id),
               name: {
-                  id: propertyId('term', `${term.id}.name`),
+                  id: propertyId('term', term.id, 'name'),
                   de: term.name,
                   en: term.meta.name_en ?? '',
               },
               link_text: {
-                  id: propertyId('term', `${term.id}.link_text`),
+                  id: propertyId('term_meta', term.id, 'link_text'),
                   de: term.meta.link_text ?? '',
                   en: term.meta.link_text_en ?? '',
               },
               link_url: {
-                  id: propertyId('term', `${term.id}.link_url`),
+                  id: propertyId('term_meta', term.id, 'link_url'),
                   de: term.meta.link_url ?? '',
                   en: term.meta.link_url_en ?? '',
               },
@@ -68,12 +68,12 @@ export function transformTermToDegree(
         ? {
               id: propertyId('term', term.id),
               abbreviation: {
-                  id: propertyId('term', `${term.id}.abbreviation`),
+                  id: propertyId('term_meta', term.id, 'abbreviation'),
                   de: term.meta.abbreviation ?? '',
                   en: term.meta.abbreviation_en ?? '',
               },
               name: {
-                  id: propertyId('term', `${term.id}.name`),
+                  id: propertyId('term', term.id, 'name'),
                   de: term.name,
                   en: term.meta.name_en ?? '',
               },

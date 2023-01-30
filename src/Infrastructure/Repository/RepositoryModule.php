@@ -6,6 +6,7 @@ namespace Fau\DegreeProgram\Infrastructure\Repository;
 
 use Fau\DegreeProgram\Common\Application\DegreeProgramViewRepository;
 use Fau\DegreeProgram\Common\Domain\DegreeProgramRepository;
+use Fau\DegreeProgram\Common\Infrastructure\Repository\IdGenerator;
 use Fau\DegreeProgram\Common\Infrastructure\Repository\WordPressDatabaseDegreeProgramRepository;
 use Fau\DegreeProgram\Common\Infrastructure\Repository\WordPressDatabaseDegreeProgramViewRepository;
 use Fau\DegreeProgram\Common\Infrastructure\Sanitizer\HtmlDegreeProgramSanitizer;
@@ -20,7 +21,10 @@ class RepositoryModule implements ServiceModule
     public function services(): array
     {
         return [
-            DegreeProgramRepository::class => static fn() => new WordPressDatabaseDegreeProgramRepository(),
+            IdGenerator::class => static fn() => new IdGenerator(),
+            DegreeProgramRepository::class => static fn(ContainerInterface $container) => new WordPressDatabaseDegreeProgramRepository(
+                $container->get(IdGenerator::class),
+            ),
             DegreeProgramViewRepository::class =>
                 static fn(ContainerInterface $container) => new WordPressDatabaseDegreeProgramViewRepository(
                     $container->get(DegreeProgramRepository::class),

@@ -3,17 +3,17 @@ import { DegreeProgramData } from 'defs';
 export const mockNatFaculty: DegreeProgramData['faculty'] = {
     id: 'term:10',
     link_url: {
-        id: 'term:10.link_url',
+        id: 'term_meta:10:link_url',
         de: 'https://fau.localhost',
         en: 'https://fau.localhost/en',
     },
     link_text: {
-        id: 'term:10.link_text',
+        id: 'term_meta:10:link_text',
         de: 'Nat',
         en: 'Nat',
     },
     name: {
-        id: 'term:10.name',
+        id: 'term:10:name',
         de: 'Nat',
         en: 'Nat',
     },
@@ -22,17 +22,17 @@ export const mockNatFaculty: DegreeProgramData['faculty'] = {
 export const mockPhilFaculty: DegreeProgramData['faculty'] = {
     id: 'term:10',
     link_url: {
-        id: 'term:10.link_url',
+        id: 'term_meta:10:link_url',
         de: 'https://fau.localhost',
         en: 'https://fau.localhost/en',
     },
     link_text: {
-        id: 'term:10.link_text',
+        id: 'term_meta:10:link_text',
         de: 'Phil',
         en: 'Phil',
     },
     name: {
-        id: 'term:10.name',
+        id: 'term:10:name',
         de: 'Phil',
         en: 'Phil',
     },
@@ -41,17 +41,17 @@ export const mockPhilFaculty: DegreeProgramData['faculty'] = {
 export const mockAbcFaculty: DegreeProgramData['faculty'] = {
     id: 'term:10',
     link_url: {
-        id: 'term:10.link_url',
+        id: 'term_meta:10:link_url',
         de: 'https://fau.localhost',
         en: 'https://fau.localhost/en',
     },
     link_text: {
-        id: 'term:10.link_text',
+        id: 'term_meta:10:link_text',
         de: 'Abc',
         en: 'Abc',
     },
     name: {
-        id: 'term:10.name',
+        id: 'term:10:name',
         de: 'Abc',
         en: 'Abc',
     },
