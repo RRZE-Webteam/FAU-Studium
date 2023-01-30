@@ -21,6 +21,8 @@
     "require-dev": {
         "inpsyde/php-coding-standards": "@stable",
         "inpsyde/wp-stubs": "dev-main",
+        "johnpbloch/wordpress-core": "^6.1",
+        "phpunit/phpunit": "^9.5",
         "vimeo/psalm": "^5.4"
     },
     "repositories": [
@@ -34,6 +36,15 @@
     "autoload": {
         "psr-4": {
             "Fau\\DegreeProgram\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Fau\\DegreeProgram\\Tests\\": [
+                "tests/php/use-case/",
+                "tests/php/functional/"
+            ],
+            "Fau\\DegreeProgram\\Common\\Tests\\": "vendor/inpsyde/fau-degree-program-common/tests/src/"
         }
     },
     "config": {
