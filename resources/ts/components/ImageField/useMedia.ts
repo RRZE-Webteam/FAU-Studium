@@ -4,7 +4,7 @@ import { useSelect } from '@wordpress/data';
 import { CoreDataSelectors, MapSelect, WpMedia, WpMediaImage } from 'defs';
 
 export default function useMedia<T extends MediaType = 'image'>(mediaId: number) {
-    const media: T extends 'image' ? WpMediaImage : WpMedia = useSelect<
+    const media: (T extends 'image' ? WpMediaImage : WpMedia) | undefined = useSelect<
         MapSelect<CoreDataSelectors>
     >(
         (select) => {
