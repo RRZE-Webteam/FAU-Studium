@@ -11,9 +11,9 @@ import { Image } from 'defs';
 
 type ImageFieldProps = {
     path: 'teaser_image' | 'featured_image';
-    title: string;
+    title?: string;
 };
-export default function ImageField({ path, title }: ImageFieldProps) {
+export default function ImageField({ path, title = '' }: ImageFieldProps) {
     const [isLoading, setIsLoading] = useState(false);
     const { values, handleChange } = useEditDegreeProgram();
 
@@ -66,3 +66,7 @@ export default function ImageField({ path, title }: ImageFieldProps) {
         </MediaUploadCheck>
     );
 }
+
+ImageField.defaultProps = {
+    title: '',
+};

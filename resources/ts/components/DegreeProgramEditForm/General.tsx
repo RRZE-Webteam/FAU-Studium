@@ -43,14 +43,7 @@ const General = () => {
                         'fau-degree-program',
                     )}
                 >
-                    <ImageField
-                        path="featured_image"
-                        title={_x(
-                            'Featured image',
-                            'backoffice: degree program edit form',
-                            'fau-degree-program',
-                        )}
-                    />
+                    <ImageField path="featured_image" />
                 </BaseControl>
                 <BaseControl
                     id="teaser_image"
@@ -61,14 +54,7 @@ const General = () => {
                         'fau-degree-program',
                     )}
                 >
-                    <ImageField
-                        path="teaser_image"
-                        title={_x(
-                            'Teaser image',
-                            'backoffice: degree program edit form',
-                            'fau-degree-program',
-                        )}
-                    />
+                    <ImageField path="teaser_image" />
                 </BaseControl>
 
                 <BaseControl
