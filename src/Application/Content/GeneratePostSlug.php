@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Fau\DegreeProgram\Application\Content;
 
-use Fau\DegreeProgram\Common\Application\DegreeProgramViewRepository;
+use Fau\DegreeProgram\Common\Application\Repository\DegreeProgramViewRepository;
 use Fau\DegreeProgram\Common\Domain\DegreeProgramId;
 use Fau\DegreeProgram\Common\Domain\MultilingualString;
 use Fau\DegreeProgram\Common\Infrastructure\Repository\IdGenerator;

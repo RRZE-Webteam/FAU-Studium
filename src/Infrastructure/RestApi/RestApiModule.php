@@ -6,7 +6,7 @@ namespace Fau\DegreeProgram\Infrastructure\RestApi;
 
 use Fau\DegreeProgram\Application\DegreeProgramRetriever;
 use Fau\DegreeProgram\Application\DegreeProgramUpdater;
-use Fau\DegreeProgram\Common\Application\DegreeProgramViewRepository;
+use Fau\DegreeProgram\Common\Application\Repository\DegreeProgramViewRepository;
 use Fau\DegreeProgram\Common\Domain\DegreeProgramDataValidator;
 use Fau\DegreeProgram\Common\Domain\DegreeProgramRepository;
 use Fau\DegreeProgram\Common\Infrastructure\Content\PostType\DegreeProgramPostType;
@@ -41,24 +41,33 @@ final class RestApiModule implements ServiceModule, ExecutableModule
                 $container->get(DegreeProgramUpdater::class),
                 $container->get(LoggerInterface::class),
             ),
+            TranslatedDegreeProgramController::class => static fn(ContainerInterface $container) => new TranslatedDegreeProgramController(
+                $container->get(DegreeProgramViewRepository::class),
+            ),
         ];
     }
 
     public function run(ContainerInterface $container): bool
     {
         $degreeProgramController = $container->get(DegreeProgramController::class);
+        $translatedDegreeProgramController = $container->get(TranslatedDegreeProgramController::class);
 
-        add_action('rest_api_init', static function () use ($degreeProgramController): void {
-            register_rest_field(
-                DegreeProgramPostType::KEY,
-                self::DEGREE_PROGRAM_REST_PROPERTY,
-                [
-                    'get_callback' => [$degreeProgramController, 'get'],
-                    'update_callback' => [$degreeProgramController, 'update'],
-                    'schema' => JsonSchemaDegreeProgramDataValidator::SCHEMA,
-                ]
-            );
-        });
+        add_action(
+            'rest_api_init',
+            static function () use ($degreeProgramController, $translatedDegreeProgramController): void {
+                register_rest_field(
+                    DegreeProgramPostType::KEY,
+                    self::DEGREE_PROGRAM_REST_PROPERTY,
+                    [
+                        'get_callback' => [$degreeProgramController, 'get'],
+                        'update_callback' => [$degreeProgramController, 'update'],
+                        'schema' => JsonSchemaDegreeProgramDataValidator::SCHEMA,
+                    ]
+                );
+
+                $translatedDegreeProgramController->register_routes();
+            }
+        );
 
         return true;
     }

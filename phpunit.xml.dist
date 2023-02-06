@@ -7,7 +7,7 @@
         bootstrap="tests/php/bootstrap.php"
         colors="true"
         verbose="true">
-    <coverage processUncoveredFiles="true">
+    <coverage>
         <include>
             <directory suffix=".php">src</directory>
         </include>

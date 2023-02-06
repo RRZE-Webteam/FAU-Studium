@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Fau\DegreeProgram\Infrastructure\Repository;
 
-use Fau\DegreeProgram\Common\Application\DegreeProgramViewRepository;
+use Fau\DegreeProgram\Common\Application\Repository\DegreeProgramViewRepository;
 use Fau\DegreeProgram\Common\Domain\DegreeProgramRepository;
 use Fau\DegreeProgram\Common\Infrastructure\Repository\IdGenerator;
 use Fau\DegreeProgram\Common\Infrastructure\Repository\WordPressDatabaseDegreeProgramRepository;

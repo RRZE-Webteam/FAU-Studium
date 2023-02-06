@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Fau\DegreeProgram\Application;
 
 use Fau\DegreeProgram\Common\Application\DegreeProgramViewRaw;
-use Fau\DegreeProgram\Common\Application\DegreeProgramViewRepository;
+use Fau\DegreeProgram\Common\Application\Repository\DegreeProgramViewRepository;
 use Fau\DegreeProgram\Common\Domain\DegreeProgramId;
 
 final class DegreeProgramRetriever
