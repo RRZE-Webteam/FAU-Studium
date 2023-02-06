@@ -5,7 +5,12 @@ import { useEditDegreeProgram } from '../../contexts/DegreeProgramEditFormProvid
 const FormHeading = () => {
     const { values } = useEditDegreeProgram();
 
-    return <h1>{`${values.title.de} (${values.title.en})`}</h1>;
+    return (
+        <h1>
+            {values.title.de}
+            {!!values.title.en && ` (${values.title.en})`}
+        </h1>
+    );
 };
 
 export default FormHeading;
