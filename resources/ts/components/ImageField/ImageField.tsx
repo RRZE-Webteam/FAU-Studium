@@ -16,6 +16,8 @@ type ImageFieldProps = {
     title?: string;
 };
 
+const THUMBNAIL_SIZE = 150;
+
 const StyledWrapper = styled.div<{ hasImage: boolean }>`
     .components-placeholder__fieldset {
         ${({ hasImage }) =>
@@ -47,8 +49,14 @@ export default function ImageField({ path, title = '' }: ImageFieldProps) {
             return null;
         }
 
-        return (
+        return !selectedMedia ? (
+            <div
+                style={{ width: THUMBNAIL_SIZE, height: THUMBNAIL_SIZE }}
+                className="loader-card"
+            />
+        ) : (
             <img
+                width={THUMBNAIL_SIZE}
                 src={selectedMedia?.media_details?.sizes?.thumbnail?.source_url ?? values[path].url}
                 alt="preview"
             />
