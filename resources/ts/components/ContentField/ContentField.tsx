@@ -2,9 +2,12 @@ import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
 
 import {
+    BlockBreadcrumb,
+    BlockEditorKeyboardShortcuts,
     BlockEditorProvider,
     BlockList,
     BlockTools,
+    DefaultBlockAppender,
     ObserveTyping,
     WritingFlow,
 } from '@wordpress/block-editor';
@@ -21,8 +24,12 @@ interface ContentFieldProps {
 }
 
 const StyledEditorWrapper = styled.div`
-    border: 1px solid #757575;
-    padding: 10px;
+    margin: 0 0 12px !important;
+
+    .content-field-blocks-list {
+        border: 1px solid #757575;
+        padding: 10px;
+    }
 `;
 
 /**
@@ -63,19 +70,28 @@ const ContentField = ({ content, onChange }: ContentFieldProps) => {
             settings={settings}
         >
             <SlotFillProvider>
-                <BlockTools>
-                    <WritingFlow>
-                        <ObserveTyping>
-                            <StyledEditorWrapper>
-                                <BlockList />
-                            </StyledEditorWrapper>
-                        </ObserveTyping>
-                    </WritingFlow>
-                </BlockTools>
+                <StyledEditorWrapper className="editor-styles-wrapper">
+                    <BlockEditorKeyboardShortcuts.Register />
+                    <BlockTools>
+                        <WritingFlow>
+                            <ObserveTyping>
+                                <BlockList
+                                    renderAppender={DefaultBlockAppender}
+                                    className="content-field-blocks-list"
+                                />
+                            </ObserveTyping>
+                        </WritingFlow>
+                    </BlockTools>
+
+                    <BlockBreadcrumb />
+                </StyledEditorWrapper>
                 <Popover.Slot />
             </SlotFillProvider>
         </BlockEditorProvider>
     );
 };
 
-export default ContentField;
+export default React.memo(
+    ContentField,
+    (prevProps, nextProps) => prevProps.content === nextProps.content,
+);

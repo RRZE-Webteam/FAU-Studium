@@ -1,3 +1,3 @@
-import './hide-toolbar-buttons.scss';
+import './styles.scss';
 
 export { default } from './ContentField';

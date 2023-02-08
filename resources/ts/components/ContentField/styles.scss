@@ -17,3 +17,8 @@
 .components-toolbar-button[aria-label="Ordered"] {
   display: none;
 }
+
+.content-field-blocks-list .block-editor-default-block-appender {
+  display: block !important;
+  height: auto !important;
+}
