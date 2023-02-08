@@ -30,7 +30,11 @@ const Content = () => {
                 {CONTENT_ITEMS.map((item) => (
                     <BaseControl
                         key={item}
-                        label={`${values.content[item].title.de} (${values.content[item].title.en})`}
+                        label={`${values.content[item].title.de} ${
+                            values.content[item].title.en
+                                ? `(${values.content[item].title.en})`
+                                : ''
+                        }`}
                     >
                         <MultilingualContainer>
                             {(languageCode: LanguageCode) => (
