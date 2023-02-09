@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace Fau\DegreeProgram\Infrastructure\RestApi;
 
 use Fau\DegreeProgram\Common\Application\Repository\CollectionCriteria;
+use Fau\DegreeProgram\Common\Application\Repository\DegreeProgramCollectionRepository;
 use Fau\DegreeProgram\Common\Application\Repository\DegreeProgramViewRepository;
 use Fau\DegreeProgram\Common\Application\DegreeProgramViewTranslated;
+use Fau\DegreeProgram\Common\Application\Repository\PaginationAwareCollection;
 use Fau\DegreeProgram\Common\Domain\DegreeProgram;
 use Fau\DegreeProgram\Common\Domain\DegreeProgramId;
 use Fau\DegreeProgram\Common\Domain\MultilingualString;
@@ -43,6 +45,7 @@ final class TranslatedDegreeProgramController extends WP_REST_Controller
 
     public function __construct(
         private DegreeProgramViewRepository $degreeProgramViewRepository,
+        private DegreeProgramCollectionRepository $degreeProgramCollectionRepository,
     ) {
     }
 
@@ -75,6 +78,8 @@ final class TranslatedDegreeProgramController extends WP_REST_Controller
 
     /**
      * @param WP_REST_Request $request Full data about the request.
+     *
+     * phpcs:disable Inpsyde.CodeQuality.FunctionLength.TooLong
      */
     public function get_items($request): WP_Error|WP_REST_Response
     {
@@ -82,10 +87,22 @@ final class TranslatedDegreeProgramController extends WP_REST_Controller
             ->withPage((int) $request->get_param('page'))
             ->withPerPage((int) $request->get_param('per_page'));
 
-        $views = $this->degreeProgramViewRepository->findTranslatedCollection(
+        $views = $this->degreeProgramCollectionRepository->findTranslatedCollection(
             $criteria,
             $this->requestedLanguage($request)
         );
+
+        if (!$views instanceof PaginationAwareCollection) {
+            return new WP_Error(
+                'unexpected_error',
+                _x(
+                    'Something went wrong. Please try again later.',
+                    'rest_api: response status',
+                    'fau-degree-program'
+                ),
+                ['status' => 500]
+            );
+        }
 
         $data = [];
         foreach ($views as $view) {

@@ -20,10 +20,21 @@ namespace Psr\Container {
          *           ? \Fau\DegreeProgram\Common\Infrastructure\TemplateRenderer\Renderer
          *           : $name is \Fau\DegreeProgram\Infrastructure\Dashboard\Settings\SettingsModule::SETTINGS_FIELD_RENDERER
          *            ? \Fau\DegreeProgram\Common\Infrastructure\TemplateRenderer\Renderer
-         *            : mixed)
+         *              : $name is \Fau\DegreeProgram\Infrastructure\CliModule::CLI_CACHE_WARMER
+         *                ? \Fau\DegreeProgram\Common\Application\Cache\CacheWarmer
+         *                  : $name is \Fau\DegreeProgram\Infrastructure\CliModule::CLI_LOGGER
+         *                     ? \Psr\Log\LoggerInterface
+         *                       : mixed)
          *        )
          * )
          */
         public function get(string $name): object;
+    }
+}
+
+namespace {
+    class WP_CLI {
+        public static function add_command(string $name, callable|object $command, array $args = []): void
+        {}
     }
 }

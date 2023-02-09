@@ -6,6 +6,7 @@ namespace Fau\DegreeProgram\Infrastructure\RestApi;
 
 use Fau\DegreeProgram\Application\DegreeProgramRetriever;
 use Fau\DegreeProgram\Application\DegreeProgramUpdater;
+use Fau\DegreeProgram\Common\Application\Repository\DegreeProgramCollectionRepository;
 use Fau\DegreeProgram\Common\Application\Repository\DegreeProgramViewRepository;
 use Fau\DegreeProgram\Common\Domain\DegreeProgramDataValidator;
 use Fau\DegreeProgram\Common\Domain\DegreeProgramRepository;
@@ -43,6 +44,7 @@ final class RestApiModule implements ServiceModule, ExecutableModule
             ),
             TranslatedDegreeProgramController::class => static fn(ContainerInterface $container) => new TranslatedDegreeProgramController(
                 $container->get(DegreeProgramViewRepository::class),
+                $container->get(DegreeProgramCollectionRepository::class),
             ),
         ];
     }

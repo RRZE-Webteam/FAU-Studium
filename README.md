@@ -5,6 +5,7 @@ Add and edit degree programs and expose them via the REST API.
 ## Table Of Contents
 
 * [Installation](#installation)
+* [Requirements](#requirements)
 * [Crafted by Inpsyde](#crafted-by-inpsyde)
 * [License](#license)
 * [Contributing](#contributing)
@@ -13,6 +14,14 @@ Add and edit degree programs and expose them via the REST API.
 
 The best way to use this package is to download the archive from the releases page on GitHub and
 install it as a WordPress plugin.
+
+## Requirements
+
+The WordPress Cron API is required for the correct functioning of the plugin because it is used to
+update the degree program cache. If the cron API is inactive, the cache will not be warmed after
+invalidation, leading to performance issues.
+If you can't use the WordPress Cron API, make sure you run cron jobs using the WP-CLI or a real Unix
+cron job.
 
 ## Crafted by Inpsyde
 

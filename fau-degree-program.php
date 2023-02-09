@@ -21,11 +21,15 @@ namespace Fau\DegreeProgram;
 // phpcs:disable PSR1.Files.SideEffects
 
 use Fau\DegreeProgram\Application\Content\ContentModule as ApplicationContentModule;
+use Fau\DegreeProgram\Infrastructure\Cache\CacheModule;
+use Fau\DegreeProgram\Infrastructure\CliModule;
 use Fau\DegreeProgram\Infrastructure\Command\CommandModule;
 use Fau\DegreeProgram\Infrastructure\Content\ContentModule;
+use Fau\DegreeProgram\Infrastructure\Dashboard\AdminBarModule;
 use Fau\DegreeProgram\Infrastructure\Dashboard\DegreeProgramEditor\DegreeProgramEditorModule;
 use Fau\DegreeProgram\Infrastructure\Dashboard\Settings\SettingsModule;
 use Fau\DegreeProgram\Infrastructure\Dashboard\TermMeta\TermMetaModule;
+use Fau\DegreeProgram\Infrastructure\EventDispatcherModule;
 use Fau\DegreeProgram\Infrastructure\LoggerModule;
 use Fau\DegreeProgram\Infrastructure\Meta\MetaModule;
 use Fau\DegreeProgram\Infrastructure\Repository\RepositoryModule;
@@ -122,6 +126,10 @@ function initialize(): void
             new RestApiModule(),
             new LoggerModule(),
             new SanitizerModule(),
+            new EventDispatcherModule(),
+            new CacheModule(),
+            new CliModule(),
+            new AdminBarModule(),
         );
     } catch (Throwable $throwable) {
         handleException($throwable);
