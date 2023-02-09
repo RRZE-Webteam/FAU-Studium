@@ -134,7 +134,6 @@ final class TermMetaModule implements ServiceModule, ExecutableModule
     private static function degreeMetaFields(): array
     {
         return [
-            new EnglishNameTermMetaField(),
             new InputTermMetaField(
                 Degree::ABBREVIATION,
                 _x(
@@ -143,6 +142,7 @@ final class TermMetaModule implements ServiceModule, ExecutableModule
                     'fau-degree-program'
                 )
             ),
+            new EnglishNameTermMetaField(),
             new InputTermMetaField(
                 BilingualRepository::addEnglishSuffix(Degree::ABBREVIATION),
                 _x(
