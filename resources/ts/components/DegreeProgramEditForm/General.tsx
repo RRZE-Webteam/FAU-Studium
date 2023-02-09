@@ -103,13 +103,13 @@ const General = () => {
                     onChange={(value: string) => {
                         handleChange<number>('standard_duration', parseInt(value, 10));
                     }}
-                    value={values.standard_duration}
+                    value={values.standard_duration || undefined}
                     label={_x(
                         'Standard duration of study',
                         'backoffice: degree program edit form',
                         'fau-degree-program',
                     )}
-                    min={0}
+                    min={1}
                 />
 
                 <BaseControl
