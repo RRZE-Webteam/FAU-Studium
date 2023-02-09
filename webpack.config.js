@@ -41,7 +41,8 @@ Encore
     .setOutputPath('assets/')
 
     // public path used by the web server to access the output path
-    .setPublicPath('/')
+    .setPublicPath('../')
+    .setManifestKeyPrefix('assets/')
 
     // uncomment if you use Sass/SCSS files
     .enableSassLoader()

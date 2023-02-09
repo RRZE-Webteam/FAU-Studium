@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 
 import { TabPanel } from '@wordpress/components';
+import { _x } from '@wordpress/i18n';
 
 import serverData from 'util/serverData';
 
@@ -9,6 +10,7 @@ import { TabItem } from '../Tabs';
 
 type MultilingualContainerProps = {
     children: (languageCode: LanguageCode) => ReactNode;
+    value: Record<LanguageCode, string>;
 };
 
 const tabs: TabPanel.Tab[] = (Object.keys(serverData().languages) as Array<LanguageCode>).map(
@@ -22,9 +24,33 @@ const tabs: TabPanel.Tab[] = (Object.keys(serverData().languages) as Array<Langu
     },
 );
 
-const MultilingualContainer = ({ children }: MultilingualContainerProps) => {
+const MultilingualContainer = ({ children, value }: MultilingualContainerProps) => {
     return (
-        <TabPanel tabs={tabs}>
+        <TabPanel
+            tabs={tabs.map((tab: { name: LanguageCode; title: string; className: string }) => {
+                const isEmpty = tab.name !== 'de' && !value[tab.name];
+                return {
+                    ...tab,
+                    title: isEmpty ? (
+                        <>
+                            {tab.title}
+                            <small>
+                                &nbsp; (
+                                {_x(
+                                    'no content',
+                                    'backoffice: Multilingual container',
+                                    'fau-degree-program',
+                                )}
+                                )
+                            </small>
+                        </>
+                    ) : (
+                        tab.title
+                    ),
+                    className: isEmpty ? 'is-empty' : '',
+                };
+            })}
+        >
             {(tab: TabItem) => <>{children(tab.name as LanguageCode)}</>}
         </TabPanel>
     );

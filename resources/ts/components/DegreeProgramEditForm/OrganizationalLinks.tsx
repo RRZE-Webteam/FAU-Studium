@@ -69,7 +69,7 @@ const OrganizationalLinks = () => {
                         'fau-degree-program',
                     )}
                 >
-                    <MultilingualContainer>
+                    <MultilingualContainer value={values.url}>
                         {(languageCode) => (
                             <TextControl
                                 onChange={(value: string) => {
@@ -118,7 +118,7 @@ const OrganizationalLinks = () => {
                         )}
                         help="Studiengangsgebühren, nicht Semesterbeiträge."
                     >
-                        <MultilingualContainer>
+                        <MultilingualContainer value={values.degree_program_fees}>
                             {(languageCode) => (
                                 <TextControl
                                     onChange={(degreeProgramFees: string) => {

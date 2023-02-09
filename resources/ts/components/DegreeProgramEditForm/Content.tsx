@@ -36,7 +36,7 @@ const Content = () => {
                                 : ''
                         }`}
                     >
-                        <MultilingualContainer>
+                        <MultilingualContainer value={values.content[item].description}>
                             {(languageCode: LanguageCode) => (
                                 <>
                                     <ContentField

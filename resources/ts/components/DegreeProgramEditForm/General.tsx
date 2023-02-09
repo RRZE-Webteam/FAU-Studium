@@ -66,7 +66,7 @@ const General = () => {
                     )}
                     help="Studiengangsbezeichnung, ohne Abschluss."
                 >
-                    <MultilingualContainer>
+                    <MultilingualContainer value={values.title}>
                         {(languageCode) => (
                             <TextControl
                                 onChange={(value: string) => {
@@ -87,7 +87,7 @@ const General = () => {
                     )}
                     help="Z. B. Aufzählung der Studienschwerpunkte bei Wirtschaftswissenschaften."
                 >
-                    <MultilingualContainer>
+                    <MultilingualContainer value={values.subtitle}>
                         {(languageCode) => (
                             <TextControl
                                 onChange={(value: string) => {

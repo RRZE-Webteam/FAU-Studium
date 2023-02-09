@@ -108,7 +108,7 @@ const AdmissionRequirements = () => {
                     )}
                     help="vorausgegangene Bachelorstudiengänge, Qualifikationswerte, etc."
                 >
-                    <MultilingualContainer>
+                    <MultilingualContainer value={values.content_related_master_requirements}>
                         {(languageCode) => (
                             <ContentField
                                 onChange={(value: string) => {
@@ -167,7 +167,7 @@ const AdmissionRequirements = () => {
                     )}
                     help="evtl. zusätzliche Infos zu Bewerbung und Einschreibung."
                 >
-                    <MultilingualContainer>
+                    <MultilingualContainer value={values.details_and_notes}>
                         {(languageCode) => (
                             <ContentField
                                 onChange={(value: string) => {
@@ -190,7 +190,7 @@ const AdmissionRequirements = () => {
                     )}
                     help="Sprachkenntnisse, die für den Studiengang erforderlich sind."
                 >
-                    <MultilingualContainer>
+                    <MultilingualContainer value={values.language_skills}>
                         {(languageCode) => (
                             <ContentField
                                 onChange={(value: string) => {
