@@ -23,7 +23,7 @@
         "inpsyde/wp-stubs": "dev-main",
         "johnpbloch/wordpress-core": "^6.1",
         "phpunit/phpunit": "^9.5",
-        "vimeo/psalm": "^5.4",
+        "vimeo/psalm": "dev-master",
         "wp-cli/wp-cli": "^2.7"
     },
     "repositories": [

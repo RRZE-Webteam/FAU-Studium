@@ -37,7 +37,7 @@ final class SettingsModule implements ServiceModule, ExecutableModule
                 )
             ),
             SettingsRegistrar::class => static fn(ContainerInterface $container): SettingsRegistrar => new SettingsRegistrar(
-                $container->get(self::SETTINGS_FIELD_RENDERER),
+                $container->get(SettingsModule::SETTINGS_FIELD_RENDERER),
             ),
             SettingAssetsLoader::class => static fn(ContainerInterface $container): SettingAssetsLoader => new SettingAssetsLoader(
                 $container->get(Package::PROPERTIES),

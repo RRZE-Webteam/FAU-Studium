@@ -47,7 +47,7 @@ final class TermMetaModule implements ServiceModule, ExecutableModule
             ),
             TermMetaRepository::class => fn() => new TermMetaRepository(),
             TermMetaRegistrar::class => static fn(ContainerInterface $container): TermMetaRegistrar => new TermMetaRegistrar(
-                termMetaFieldRenderer: $container->get(self::TERM_META_FIELD_RENDERER),
+                termMetaFieldRenderer: $container->get(TermMetaModule::TERM_META_FIELD_RENDERER),
                 termMetaRepository: $container->get(TermMetaRepository::class),
             ),
         ];
