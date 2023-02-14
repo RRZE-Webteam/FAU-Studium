@@ -26,7 +26,7 @@ final class SettingsModule implements ServiceModule, ExecutableModule
     private const FAU_CONTENT_ITEM_TITLES = 'fau_content_item_titles';
     private const FAU_DEGREE_PROGRAM_SHARED_PROPERTIES = 'fau_degree_program_shared_properties';
     //@TODO: consider specific capability like 'edit_fau_central_settings'
-    private const CAPABILITY = 'delete_users';
+    private const CAPABILITY = 'manage_options';
 
     public function services(): array
     {
