@@ -11,17 +11,27 @@ use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\TaxonomiesList;
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\Taxonomy;
 use Inpsyde\Modularity\Module\ExecutableModule;
 use Inpsyde\Modularity\Module\ModuleClassNameIdTrait;
+use Inpsyde\Modularity\Module\ServiceModule;
 use Psr\Container\ContainerInterface;
 
-final class ContentModule implements ExecutableModule
+final class ContentModule implements ServiceModule, ExecutableModule
 {
     use ModuleClassNameIdTrait;
 
+    public function services(): array
+    {
+        return [
+            TaxonomiesList::class => fn() => TaxonomiesList::new(),
+        ];
+    }
+
     public function run(ContainerInterface $container): bool
     {
-        add_action('init', static function (): void {
+        add_action('init', static function () use ($container): void {
             self::registerPostType();
-            self::registerTaxonomies();
+            self::registerTaxonomies(
+                $container->get(TaxonomiesList::class),
+            );
         });
 
         return true;
@@ -42,14 +52,14 @@ final class ContentModule implements ExecutableModule
         );
     }
 
-    private static function registerTaxonomies(): void
+    private static function registerTaxonomies(TaxonomiesList $taxonomiesList): void
     {
         $taxonomiesToShowAdminColumn = [
             KeywordTaxonomy::class,
             AreaOfStudyTaxonomy::class,
         ];
 
-        foreach (TaxonomiesList::new() as $taxonomyClass) {
+        foreach ($taxonomiesList as $taxonomyClass) {
             /** @var Taxonomy $taxonomyObject */
             // phpcs:ignore NeutronStandard.Functions.DisallowCallUserFunc.CallUserFunc
             $taxonomyObject = call_user_func([$taxonomyClass, 'public']);

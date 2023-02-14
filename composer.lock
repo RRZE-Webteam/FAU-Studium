@@ -79,12 +79,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/RRZE-Webteam/FAU-Studium-Common.git",
-                "reference": "abb63e9e4add9057ef1f0e60831e72288639aa32"
+                "reference": "f7437fd0e6b68c37fc958c0336a831646c02d246"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RRZE-Webteam/FAU-Studium-Common/zipball/abb63e9e4add9057ef1f0e60831e72288639aa32",
-                "reference": "abb63e9e4add9057ef1f0e60831e72288639aa32",
+                "url": "https://api.github.com/repos/RRZE-Webteam/FAU-Studium-Common/zipball/f7437fd0e6b68c37fc958c0336a831646c02d246",
+                "reference": "f7437fd0e6b68c37fc958c0336a831646c02d246",
                 "shasum": ""
             },
             "require": {
@@ -151,7 +151,7 @@
                 "source": "https://github.com/RRZE-Webteam/FAU-Studium-Common/tree/main",
                 "issues": "https://github.com/RRZE-Webteam/FAU-Studium-Common/issues"
             },
-            "time": "2023-02-10T12:30:06+00:00"
+            "time": "2023-02-14T08:55:54+00:00"
         },
         {
             "name": "inpsyde/modularity",
@@ -4550,12 +4550,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/vimeo/psalm.git",
-                "reference": "992162569196741d452aae7a8a22b0f8c95db3b9"
+                "reference": "dd1393005d8139c752e469de7a94493308f6780e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vimeo/psalm/zipball/992162569196741d452aae7a8a22b0f8c95db3b9",
-                "reference": "992162569196741d452aae7a8a22b0f8c95db3b9",
+                "url": "https://api.github.com/repos/vimeo/psalm/zipball/dd1393005d8139c752e469de7a94493308f6780e",
+                "reference": "dd1393005d8139c752e469de7a94493308f6780e",
                 "shasum": ""
             },
             "require": {
@@ -4647,7 +4647,7 @@
                 "issues": "https://github.com/vimeo/psalm/issues",
                 "source": "https://github.com/vimeo/psalm/tree/master"
             },
-            "time": "2023-02-13T06:10:43+00:00"
+            "time": "2023-02-14T02:59:29+00:00"
         },
         {
             "name": "wp-cli/mustangostang-spyc",

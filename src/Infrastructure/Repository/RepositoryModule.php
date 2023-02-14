@@ -9,6 +9,7 @@ use Fau\DegreeProgram\Common\Application\Repository\CachedDegreeProgramViewRepos
 use Fau\DegreeProgram\Common\Application\Repository\DegreeProgramCollectionRepository;
 use Fau\DegreeProgram\Common\Application\Repository\DegreeProgramViewRepository;
 use Fau\DegreeProgram\Common\Domain\DegreeProgramRepository;
+use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\TaxonomiesList;
 use Fau\DegreeProgram\Common\Infrastructure\Repository\IdGenerator;
 use Fau\DegreeProgram\Common\Infrastructure\Repository\WordPressDatabaseDegreeProgramCollectionRepository;
 use Fau\DegreeProgram\Common\Infrastructure\Repository\WordPressDatabaseDegreeProgramRepository;
@@ -24,6 +25,9 @@ class RepositoryModule implements ServiceModule
 {
     use ModuleClassNameIdTrait;
 
+    public const VIEW_REPOSITORY_UNCACHED = 'view_repository_uncached';
+    public const COLLECTION_REPOSITORY_UNCACHED = 'collection_repository_uncached';
+
     public function services(): array
     {
         return [
@@ -32,22 +36,23 @@ class RepositoryModule implements ServiceModule
                 $container->get(IdGenerator::class),
                 $container->get(EventDispatcherInterface::class),
             ),
-            DegreeProgramViewRepository::class => static function (ContainerInterface $container): DegreeProgramViewRepository {
-                $repository = new WordPressDatabaseDegreeProgramViewRepository(
-                    $container->get(DegreeProgramRepository::class),
-                    $container->get(HtmlDegreeProgramSanitizer::class),
-                );
-
-                return new CachedDegreeProgramViewRepository(
-                    $repository,
-                    $container->get(CacheKeyGenerator::class),
-                    $container->get(CacheInterface::class),
-                );
-            },
+            self::VIEW_REPOSITORY_UNCACHED => static fn(ContainerInterface $container) => new WordPressDatabaseDegreeProgramViewRepository(
+                $container->get(DegreeProgramRepository::class),
+                $container->get(HtmlDegreeProgramSanitizer::class),
+            ),
+            DegreeProgramViewRepository::class => static fn(ContainerInterface $container) => new CachedDegreeProgramViewRepository(
+                $container->get(self::VIEW_REPOSITORY_UNCACHED),
+                $container->get(CacheKeyGenerator::class),
+                $container->get(CacheInterface::class),
+            ),
+            self::COLLECTION_REPOSITORY_UNCACHED => static fn(ContainerInterface $container) => new WordPressDatabaseDegreeProgramCollectionRepository(
+                $container->get(self::VIEW_REPOSITORY_UNCACHED),
+                $container->get(TaxonomiesList::class),
+            ),
             DegreeProgramCollectionRepository::class => static fn(ContainerInterface $container) => new WordPressDatabaseDegreeProgramCollectionRepository(
                 $container->get(DegreeProgramViewRepository::class),
+                $container->get(TaxonomiesList::class),
             ),
-            PostSlugRepository::class => static fn() => new PostSlugRepository(),
         ];
     }
 }

@@ -20,7 +20,6 @@ namespace Fau\DegreeProgram;
 
 // phpcs:disable PSR1.Files.SideEffects
 
-use Fau\DegreeProgram\Application\Content\ContentModule as ApplicationContentModule;
 use Fau\DegreeProgram\Infrastructure\Cache\CacheModule;
 use Fau\DegreeProgram\Infrastructure\CliModule;
 use Fau\DegreeProgram\Infrastructure\Command\CommandModule;
@@ -121,7 +120,6 @@ function initialize(): void
             new MetaModule(),
             new RepositoryModule(),
             new CommandModule(),
-            new ApplicationContentModule(),
             new DegreeProgramEditorModule(),
             new RestApiModule(),
             new LoggerModule(),

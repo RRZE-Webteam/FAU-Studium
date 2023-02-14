@@ -15,6 +15,7 @@ use Fau\DegreeProgram\Common\Domain\Event\DegreeProgramUpdated;
 use Fau\DegreeProgram\Common\Infrastructure\Cache\PostMetaDegreeProgramCache;
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\TaxonomiesList;
 use Fau\DegreeProgram\Common\Infrastructure\Repository\BilingualRepository;
+use Fau\DegreeProgram\Infrastructure\Repository\RepositoryModule;
 use Inpsyde\Modularity\Module\ExecutableModule;
 use Inpsyde\Modularity\Module\ModuleClassNameIdTrait;
 use Inpsyde\Modularity\Module\ServiceModule;
@@ -40,7 +41,6 @@ final class CacheModule implements ServiceModule, ExecutableModule
         DegreeProgram::SEMESTER_DATES,
         DegreeProgram::DEPARTMENT,
         DegreeProgram::STUDENT_ADVICE,
-
     ];
 
     public function services(): array
@@ -59,7 +59,8 @@ final class CacheModule implements ServiceModule, ExecutableModule
             CacheWarmer::class => static fn(ContainerInterface $container) => new CacheWarmer(
                 $container->get(CacheKeyGenerator::class),
                 $container->get(CacheInterface::class),
-                $container->get(DegreeProgramCollectionRepository::class),
+                $container->get(RepositoryModule::COLLECTION_REPOSITORY_UNCACHED),
+                $container->get(EventDispatcherInterface::class),
                 $container->get(LoggerInterface::class),
             ),
             WhenDegreeProgramUpdated::class => static fn(ContainerInterface $container) => new WhenDegreeProgramUpdated(

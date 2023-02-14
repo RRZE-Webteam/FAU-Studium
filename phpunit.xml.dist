@@ -16,8 +16,5 @@
         <testsuite name="use-case">
             <directory>tests/php/use-case</directory>
         </testsuite>
-        <testsuite name="functional">
-            <directory>tests/php/functional</directory>
-        </testsuite>
     </testsuites>
 </phpunit>

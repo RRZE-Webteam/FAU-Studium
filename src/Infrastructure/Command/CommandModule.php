@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace Fau\DegreeProgram\Infrastructure\Command;
 
-use Fau\DegreeProgram\Application\Content\GeneratePostSlug;
-use Fau\DegreeProgram\Common\Infrastructure\Content\PostType\DegreeProgramPostType;
-use Fau\DegreeProgram\Infrastructure\Repository\PostSlugRepository;
+use Fau\DegreeProgram\Application\DegreeProgramBulkUpdater;
+use Fau\DegreeProgram\Common\Application\Repository\DegreeProgramCollectionRepository;
+use Fau\DegreeProgram\Common\Domain\DegreeProgramRepository;
+use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\DegreeTaxonomy;
 use Inpsyde\Modularity\Module\ExecutableModule;
 use Inpsyde\Modularity\Module\ModuleClassNameIdTrait;
 use Inpsyde\Modularity\Module\ServiceModule;
@@ -19,9 +20,9 @@ class CommandModule implements ServiceModule, ExecutableModule
     public function services(): array
     {
         return [
-            UpdatePostSlug::class => static fn(ContainerInterface $container) => new UpdatePostSlug(
-                generatePostSlug: $container->get(GeneratePostSlug::class),
-                postSlugRepository: $container->get(PostSlugRepository::class),
+            DegreeProgramBulkUpdater::class => static fn(ContainerInterface $container) => new DegreeProgramBulkUpdater(
+                $container->get(DegreeProgramCollectionRepository::class),
+                $container->get(DegreeProgramRepository::class),
             ),
         ];
     }
@@ -29,8 +30,8 @@ class CommandModule implements ServiceModule, ExecutableModule
     public function run(ContainerInterface $container): bool
     {
         add_action(
-            'save_post_' . DegreeProgramPostType::KEY,
-            [$container->get(UpdatePostSlug::class), 'update']
+            'edited_' . DegreeTaxonomy::KEY,
+            [$container->get(DegreeProgramBulkUpdater::class), 'whenDegreeTermWasUpdated']
         );
 
         return true;

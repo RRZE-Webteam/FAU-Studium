@@ -13,7 +13,7 @@ final class WhenCacheInvalidated
         wp_schedule_single_event(
             time(),
             WhenWarmingToBeStarted::HOOK,
-            [$event->isFull(), $event->ids()]
+            [$event->isFully(), $event->ids()]
         );
     }
 }

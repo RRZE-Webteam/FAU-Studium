@@ -6,6 +6,7 @@ Add and edit degree programs and expose them via the REST API.
 
 * [Installation](#installation)
 * [Requirements](#requirements)
+* [Usage](#usage)
 * [Crafted by Inpsyde](#crafted-by-inpsyde)
 * [License](#license)
 * [Contributing](#contributing)
@@ -22,6 +23,10 @@ update the degree program cache. If the cron API is inactive, the cache will not
 invalidation, leading to performance issues.
 If you can't use the WordPress Cron API, make sure you run cron jobs using the WP-CLI or a real Unix
 cron job.
+
+## Requirements
+
+The plugin's logger uses [`error_log()`](https://www.php.net/manual/en/function.error-log.php) internally.
 
 ## Crafted by Inpsyde
 
