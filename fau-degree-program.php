@@ -29,6 +29,7 @@ use Fau\DegreeProgram\Infrastructure\Dashboard\DegreeProgramEditor\DegreeProgram
 use Fau\DegreeProgram\Infrastructure\Dashboard\Settings\SettingsModule;
 use Fau\DegreeProgram\Infrastructure\Dashboard\TermMeta\TermMetaModule;
 use Fau\DegreeProgram\Infrastructure\EventDispatcherModule;
+use Fau\DegreeProgram\Infrastructure\QueueModule;
 use Fau\DegreeProgram\Infrastructure\LoggerModule;
 use Fau\DegreeProgram\Infrastructure\Meta\MetaModule;
 use Fau\DegreeProgram\Infrastructure\Repository\RepositoryModule;
@@ -128,6 +129,7 @@ function initialize(): void
             new CacheModule(),
             new CliModule(),
             new AdminBarModule(),
+            new QueueModule(),
         );
     } catch (Throwable $throwable) {
         handleException($throwable);

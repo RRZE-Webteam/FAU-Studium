@@ -8,6 +8,7 @@ use Fau\DegreeProgram\Common\Application\Cache\CacheInvalidator;
 use Fau\DegreeProgram\Common\Application\Cache\CacheKeyGenerator;
 use Fau\DegreeProgram\Common\Application\Cache\CacheWarmer;
 use Fau\DegreeProgram\Common\Application\Event\CacheInvalidated;
+use Fau\DegreeProgram\Common\Application\Queue\MessageBus;
 use Fau\DegreeProgram\Common\Application\Repository\DegreeProgramCollectionRepository;
 use Fau\DegreeProgram\Common\Domain\Content;
 use Fau\DegreeProgram\Common\Domain\DegreeProgram;
@@ -72,8 +73,10 @@ final class CacheModule implements ServiceModule, ExecutableModule
             WhenDegreeProgramTermUpdated::class => static fn(ContainerInterface $container) => new WhenDegreeProgramTermUpdated(
                 $container->get(CacheInvalidator::class),
             ),
-            WhenCacheInvalidated::class => static fn() => new WhenCacheInvalidated(),
-            WhenWarmingToBeStarted::class => static fn(ContainerInterface $container) => new WhenWarmingToBeStarted(
+            WhenCacheInvalidated::class => static fn(ContainerInterface $container) => new WhenCacheInvalidated(
+                $container->get(MessageBus::class),
+            ),
+            WarmCacheMessageHandler::class => static fn(ContainerInterface $container) => new WarmCacheMessageHandler(
                 $container->get(CacheWarmer::class),
             ),
         ];
@@ -89,16 +92,6 @@ final class CacheModule implements ServiceModule, ExecutableModule
                 $container->get(WhenCacheInvalidated::class),
                 'scheduleWarming',
             ]
-        );
-
-        add_action(
-            WhenWarmingToBeStarted::HOOK,
-            [
-                $container->get(WhenWarmingToBeStarted::class),
-                'warm',
-            ],
-            10,
-            2
         );
 
         return true;

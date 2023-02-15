@@ -7,26 +7,22 @@ namespace Fau\DegreeProgram\Infrastructure\Cache;
 use Fau\DegreeProgram\Common\Application\Cache\CacheWarmer;
 use Psr\SimpleCache\InvalidArgumentException;
 
-final class WhenWarmingToBeStarted
+final class WarmCacheMessageHandler
 {
-    public const HOOK = 'warm_degree_program_cache';
-
     public function __construct(private CacheWarmer $cacheWarmer)
     {
     }
 
     /**
-     * @psalm-param array<int> $ids
-     *
      * @throws InvalidArgumentException
      */
-    public function warm(bool $isFull, array $ids): void
+    public function __invoke(WarmCacheMessage $message): void
     {
-        if ($isFull) {
+        if ($message->isFully()) {
             $this->cacheWarmer->warmFully();
             return;
         }
 
-        $this->cacheWarmer->warmPartially($ids);
+        $this->cacheWarmer->warmPartially($message->ids());
     }
 }
