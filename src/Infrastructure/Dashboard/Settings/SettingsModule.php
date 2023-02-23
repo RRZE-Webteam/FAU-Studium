@@ -10,6 +10,7 @@ use Fau\DegreeProgram\Common\Domain\MultilingualString;
 use Fau\DegreeProgram\Common\Infrastructure\TemplateRenderer\DirectoryLocator;
 use Fau\DegreeProgram\Common\Infrastructure\TemplateRenderer\Renderer;
 use Fau\DegreeProgram\Common\Infrastructure\TemplateRenderer\TemplateRenderer;
+use Fau\DegreeProgram\Infrastructure\Authorization\Capabilities;
 use Inpsyde\Assets\AssetManager;
 use Inpsyde\Modularity\Module\ExecutableModule;
 use Inpsyde\Modularity\Module\ModuleClassNameIdTrait;
@@ -25,8 +26,6 @@ final class SettingsModule implements ServiceModule, ExecutableModule
 
     private const FAU_CONTENT_ITEM_TITLES = 'fau_content_item_titles';
     private const FAU_DEGREE_PROGRAM_SHARED_PROPERTIES = 'fau_degree_program_shared_properties';
-    //@TODO: consider specific capability like 'edit_fau_central_settings'
-    private const CAPABILITY = 'manage_options';
 
     public function services(): array
     {
@@ -64,7 +63,7 @@ final class SettingsModule implements ServiceModule, ExecutableModule
                     'backoffice: setting page title',
                     'fau-degree-program'
                 ),
-                self::CAPABILITY,
+                Capabilities::MANAGE_DEGREE_PROGRAM_SETTINGS,
                 self::contentItemTitlesSection(),
             ),
             SettingsPage::default(
@@ -74,7 +73,7 @@ final class SettingsModule implements ServiceModule, ExecutableModule
                     'backoffice: setting page title',
                     'fau-degree-program'
                 ),
-                self::CAPABILITY,
+                Capabilities::MANAGE_DEGREE_PROGRAM_SETTINGS,
                 self::degreeProgramSharedPropertiesSection(),
             )
         );

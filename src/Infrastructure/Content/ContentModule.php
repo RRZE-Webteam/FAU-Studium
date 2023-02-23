@@ -9,6 +9,7 @@ use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\AreaOfStudyTaxonomy
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\KeywordTaxonomy;
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\TaxonomiesList;
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\Taxonomy;
+use Fau\DegreeProgram\Infrastructure\Authorization\Capabilities;
 use Inpsyde\Modularity\Module\ExecutableModule;
 use Inpsyde\Modularity\Module\ModuleClassNameIdTrait;
 use Inpsyde\Modularity\Module\ServiceModule;
@@ -43,6 +44,8 @@ final class ContentModule implements ServiceModule, ExecutableModule
             DegreeProgramPostType::KEY,
             DegreeProgramPostType::public()
                 ->merge([
+                    'capability_type' => ['degree_program', 'degree_programs'],
+                    'map_meta_cap' => true,
                     'template' => [
                         ['fau/degree-program-form'],
                     ],
@@ -63,6 +66,14 @@ final class ContentModule implements ServiceModule, ExecutableModule
             /** @var Taxonomy $taxonomyObject */
             // phpcs:ignore NeutronStandard.Functions.DisallowCallUserFunc.CallUserFunc
             $taxonomyObject = call_user_func([$taxonomyClass, 'public']);
+            $taxonomyObject->merge([
+                'capabilities' => [
+                    'manage_terms' => Capabilities::MANAGE_DEGREE_PROGRAM_TERMS,
+                    'edit_terms' => Capabilities::EDIT_DEGREE_PROGRAM_TERMS,
+                    'delete_terms' => Capabilities::DELETE_DEGREE_PROGRAM_TERMS,
+                    'assign_terms' => Capabilities::ASSIGN_DEGREE_PROGRAM_TERMS,
+                ],
+            ]);
 
             if (in_array($taxonomyClass, $taxonomiesToShowAdminColumn, true)) {
                 $taxonomyObject = $taxonomyObject->showAdminColumn();

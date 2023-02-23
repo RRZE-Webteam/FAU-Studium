@@ -20,6 +20,8 @@ namespace Fau\DegreeProgram;
 
 // phpcs:disable PSR1.Files.SideEffects
 
+use Fau\DegreeProgram\Infrastructure\Authorization\AuthorizationModule;
+use Fau\DegreeProgram\Infrastructure\Authorization\UserRolesRegistrar;
 use Fau\DegreeProgram\Infrastructure\Cache\CacheModule;
 use Fau\DegreeProgram\Infrastructure\CliModule;
 use Fau\DegreeProgram\Infrastructure\Command\CommandModule;
@@ -130,6 +132,7 @@ function initialize(): void
             new CliModule(),
             new AdminBarModule(),
             new QueueModule(),
+            new AuthorizationModule(),
         );
     } catch (Throwable $throwable) {
         handleException($throwable);
@@ -137,3 +140,8 @@ function initialize(): void
 }
 
 add_action('plugins_loaded', __NAMESPACE__ . '\\initialize');
+
+register_activation_hook(
+    __FILE__,
+    [UserRolesRegistrar::class, 'register']
+);
