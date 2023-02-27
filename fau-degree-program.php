@@ -103,6 +103,19 @@ function plugin(): Package
     return $package;
 }
 
+function setUpAutoloader(): void
+{
+    if (class_exists(ContentModule::class)) {
+        return;
+    }
+
+    if (!is_readable(__DIR__ . '/vendor/autoload.php')) {
+        throw new RuntimeException('Composer autoload file does not exist.');
+    }
+
+    require_once __DIR__ . '/vendor/autoload.php';
+}
+
 /**
  * Initialize plugin.
  *
@@ -111,11 +124,7 @@ function plugin(): Package
 function initialize(): void
 {
     try {
-        if (!is_readable(__DIR__ . '/vendor/autoload.php')) {
-            throw new RuntimeException('Composer autoload file does not exist.');
-        }
-
-        require_once __DIR__ . '/vendor/autoload.php';
+        setUpAutoloader();
 
         // Initialize plugin
         plugin()->boot(
@@ -147,5 +156,8 @@ add_action('plugins_loaded', __NAMESPACE__ . '\\initialize');
 
 register_activation_hook(
     __FILE__,
-    [UserRolesRegistrar::class, 'register']
+    static function (): void {
+        setUpAutoloader();
+        UserRolesRegistrar::register();
+    },
 );
