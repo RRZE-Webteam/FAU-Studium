@@ -18,13 +18,14 @@ install it as a WordPress plugin.
 
 ## Requirements
 
+PHP version 8.0 or greater.
+PHP extensions: DOM, libxml.
+
 The WordPress Cron API is required for the correct functioning of the plugin because it is used to
 update the degree program cache. If the cron API is inactive, the cache will not be warmed after
 invalidation, leading to performance issues.
 If you can't use the WordPress Cron API, make sure you run cron jobs using the WP-CLI or a real Unix
 cron job.
-
-## Requirements
 
 The plugin's logger uses [`error_log()`](https://www.php.net/manual/en/function.error-log.php) internally.
 

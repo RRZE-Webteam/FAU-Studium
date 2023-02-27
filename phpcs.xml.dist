@@ -31,5 +31,9 @@
         <exclude-pattern>*/templates/*</exclude-pattern>
     </rule>
 
+    <rule ref="Inpsyde.CodeQuality.NoElse.ElseFound">
+        <exclude-pattern>*/templates/*</exclude-pattern>
+    </rule>
+
     <exclude-pattern>*/vendor/*</exclude-pattern>
 </ruleset>

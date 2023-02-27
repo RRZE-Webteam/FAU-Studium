@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Fau\DegreeProgram\Infrastructure\Meta;
+namespace Fau\DegreeProgram\Infrastructure\Command;
 
 use Fau\DegreeProgram\Common\Domain\DegreeProgram;
 use Fau\DegreeProgram\Common\Infrastructure\Content\PostType\DegreeProgramPostType;

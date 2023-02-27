@@ -31,11 +31,13 @@ use Fau\DegreeProgram\Infrastructure\Dashboard\DegreeProgramEditor\DegreeProgram
 use Fau\DegreeProgram\Infrastructure\Dashboard\Settings\SettingsModule;
 use Fau\DegreeProgram\Infrastructure\Dashboard\TermMeta\TermMetaModule;
 use Fau\DegreeProgram\Infrastructure\EventDispatcherModule;
+use Fau\DegreeProgram\Infrastructure\Migration\MigrationModule;
 use Fau\DegreeProgram\Infrastructure\QueueModule;
 use Fau\DegreeProgram\Infrastructure\LoggerModule;
-use Fau\DegreeProgram\Infrastructure\Meta\MetaModule;
 use Fau\DegreeProgram\Infrastructure\Repository\RepositoryModule;
 use Fau\DegreeProgram\Infrastructure\RestApi\RestApiModule;
+use Fau\DegreeProgram\Infrastructure\Revision\Notification\RevisionNotificationModule;
+use Fau\DegreeProgram\Infrastructure\Revision\RevisionModule;
 use Fau\DegreeProgram\Infrastructure\SanitizerModule;
 use Inpsyde\Modularity\Package;
 use Inpsyde\Modularity\Properties\PluginProperties;
@@ -120,7 +122,7 @@ function initialize(): void
             new ContentModule(),
             new TermMetaModule(),
             new SettingsModule(),
-            new MetaModule(),
+            new RevisionModule(),
             new RepositoryModule(),
             new CommandModule(),
             new DegreeProgramEditorModule(),
@@ -133,6 +135,8 @@ function initialize(): void
             new AdminBarModule(),
             new QueueModule(),
             new AuthorizationModule(),
+            new MigrationModule(),
+            new RevisionNotificationModule(),
         );
     } catch (Throwable $throwable) {
         handleException($throwable);

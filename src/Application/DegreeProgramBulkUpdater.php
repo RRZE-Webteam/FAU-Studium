@@ -21,7 +21,7 @@ final class DegreeProgramBulkUpdater
      * Degree program values are calculated based on the degree term.
      * So if the term was changed, we have to update all related degree programs.
      */
-    public function whenDegreeTermWasUpdated(int $termId): void
+    public function whenDegreeTermUpdated(int $termId): void
     {
         $rawViews = $this->degreeProgramCollectionRepository->findRawCollection(
             CollectionCriteria::new()

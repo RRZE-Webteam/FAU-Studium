@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Fau\DegreeProgram\Infrastructure\Repository;
 
+use Fau\DegreeProgram\Application\Revision\DegreeProgramRevisionRepository;
+use Fau\DegreeProgram\Application\Revision\RevisionNotificationRepository;
 use Fau\DegreeProgram\Common\Application\Cache\CacheKeyGenerator;
 use Fau\DegreeProgram\Common\Application\Repository\CachedDegreeProgramViewRepository;
 use Fau\DegreeProgram\Common\Application\Repository\DegreeProgramCollectionRepository;
@@ -15,6 +17,7 @@ use Fau\DegreeProgram\Common\Infrastructure\Repository\WordPressDatabaseDegreePr
 use Fau\DegreeProgram\Common\Infrastructure\Repository\WordPressDatabaseDegreeProgramRepository;
 use Fau\DegreeProgram\Common\Infrastructure\Repository\WordPressDatabaseDegreeProgramViewRepository;
 use Fau\DegreeProgram\Common\Infrastructure\Sanitizer\HtmlDegreeProgramSanitizer;
+use Fau\DegreeProgram\Infrastructure\Revision\RevisionModule;
 use Inpsyde\Modularity\Module\ModuleClassNameIdTrait;
 use Inpsyde\Modularity\Module\ServiceModule;
 use Psr\Container\ContainerInterface;
@@ -53,6 +56,15 @@ class RepositoryModule implements ServiceModule
                 $container->get(DegreeProgramViewRepository::class),
                 $container->get(TaxonomiesList::class),
             ),
+            DegreeProgramRevisionRepository::class => static fn(ContainerInterface $container) => new CacheBasedRevisionRepository(
+                $container->get(CacheKeyGenerator::class),
+                $container->get(CacheInterface::class),
+                $container->get(RepositoryModule::VIEW_REPOSITORY_UNCACHED),
+                $container->get(DegreeProgramViewRepository::class),
+                $container->get(IdGenerator::class),
+            ),
+            RevisionNotificationRepository::class => static fn() => new WordPressRevisionNotificationRepository(),
+            RevisionMetaRepository::class => static fn() => new RevisionMetaRepository(),
         ];
     }
 }

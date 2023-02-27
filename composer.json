@@ -13,6 +13,8 @@
     ],
     "require": {
         "php": "^8.0",
+        "ext-dom": "*",
+        "ext-libxml": "*",
         "inpsyde/assets": "^2.8",
         "inpsyde/fau-degree-program-common": "*",
         "inpsyde/modularity": "^1.5",
@@ -23,7 +25,7 @@
         "inpsyde/wp-stubs": "dev-main",
         "johnpbloch/wordpress-core": "^6.1",
         "phpunit/phpunit": "^9.5",
-        "vimeo/psalm": "dev-master",
+        "vimeo/psalm": "^5.7",
         "wp-cli/wp-cli": "^2.7"
     },
     "repositories": [

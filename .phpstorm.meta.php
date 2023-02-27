@@ -11,6 +11,8 @@ namespace PHPSTORM_META {
                 => \Fau\DegreeProgram\Common\Infrastructure\TemplateRenderer\Renderer::class,
             \Fau\DegreeProgram\Infrastructure\Dashboard\TermMeta\TermMetaModule::TERM_META_FIELD_RENDERER
                 => \Fau\DegreeProgram\Common\Infrastructure\TemplateRenderer\Renderer::class,
+            \Fau\DegreeProgram\Infrastructure\Revision\Notification\RevisionNotificationModule::REVISION_NOTIFICATION_RENDERER
+            => \Fau\DegreeProgram\Common\Infrastructure\TemplateRenderer\Renderer::class,
             \Fau\DegreeProgram\Infrastructure\Repository\RepositoryModule::VIEW_REPOSITORY_UNCACHED
                 => \Fau\DegreeProgram\Common\Application\Repository\DegreeProgramViewRepository::class,
             \Fau\DegreeProgram\Infrastructure\Repository\RepositoryModule::COLLECTION_REPOSITORY_UNCACHED

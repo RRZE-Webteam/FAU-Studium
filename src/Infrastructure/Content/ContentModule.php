@@ -50,6 +50,10 @@ final class ContentModule implements ServiceModule, ExecutableModule
                         ['fau/degree-program-form'],
                     ],
                     'template_lock' => 'all',
+                    'supports' => [
+                        'editor',
+                        'revisions',
+                    ],
                 ])
                 ->args()
         );

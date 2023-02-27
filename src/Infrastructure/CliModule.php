@@ -6,6 +6,8 @@ namespace Fau\DegreeProgram\Infrastructure;
 
 use Fau\DegreeProgram\Common\Application\Cache\CacheInvalidator;
 use Fau\DegreeProgram\Common\Infrastructure\Cli\DegreeProgramCacheCommand;
+use Fau\DegreeProgram\Infrastructure\Cli\DegreeProgramRevisionCommand;
+use Fau\DegreeProgram\Infrastructure\Revision\Notification\RevisionNotifier;
 use Inpsyde\Modularity\Module\ExecutableModule;
 use Inpsyde\Modularity\Module\ModuleClassNameIdTrait;
 use Inpsyde\Modularity\Module\ServiceModule;
@@ -22,6 +24,9 @@ final class CliModule implements ServiceModule, ExecutableModule
             DegreeProgramCacheCommand::class => static fn(ContainerInterface $container) => new DegreeProgramCacheCommand(
                 $container->get(CacheInvalidator::class),
             ),
+            DegreeProgramRevisionCommand::class => static fn(ContainerInterface $container) => new DegreeProgramRevisionCommand(
+                $container->get(RevisionNotifier::class),
+            ),
         ];
     }
 
@@ -31,6 +36,11 @@ final class CliModule implements ServiceModule, ExecutableModule
             WP_CLI::add_command(
                 'fau cache',
                 $container->get(DegreeProgramCacheCommand::class)
+            );
+
+            WP_CLI::add_command(
+                'fau revision',
+                $container->get(DegreeProgramRevisionCommand::class)
             );
         });
 
