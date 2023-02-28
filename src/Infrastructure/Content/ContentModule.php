@@ -53,6 +53,7 @@ final class ContentModule implements ServiceModule, ExecutableModule
                     'supports' => [
                         'editor',
                         'revisions',
+                        'author',
                     ],
                 ])
                 ->args()

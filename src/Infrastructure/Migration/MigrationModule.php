@@ -18,7 +18,7 @@ final class MigrationModule implements ServiceModule, ExecutableModule
     public function services(): array
     {
         return [
-            Migration002::class => static fn() => new Migration002(),
+            Migration002TransformVideosMeta::class => static fn() => new Migration002TransformVideosMeta(),
         ];
     }
 

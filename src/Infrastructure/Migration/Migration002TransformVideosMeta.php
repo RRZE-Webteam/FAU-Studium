@@ -8,7 +8,7 @@ use Fau\DegreeProgram\Common\Domain\DegreeProgram;
 use Fau\DegreeProgram\Common\Infrastructure\Content\PostType\DegreeProgramPostType;
 use Fau\DegreeProgram\Common\LanguageExtension\ArrayOfStrings;
 
-final class Migration002
+final class Migration002TransformVideosMeta
 {
     public function __invoke(): void
     {
