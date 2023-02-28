@@ -6,7 +6,6 @@ Add and edit degree programs and expose them via the REST API.
 
 * [Installation](#installation)
 * [Requirements](#requirements)
-* [Usage](#usage)
 * [Crafted by Inpsyde](#crafted-by-inpsyde)
 * [License](#license)
 * [Contributing](#contributing)
@@ -26,6 +25,12 @@ update the degree program cache. If the cron API is inactive, the cache will not
 invalidation, leading to performance issues.
 If you can't use the WordPress Cron API, make sure you run cron jobs using the WP-CLI or a real Unix
 cron job.
+
+After plugin activation, a daily WordPress Cron job is registered to schedule revision notifications.
+The behavior can be disabled by defining the PHP constant or environment variable `FAU_DISABLE_DAILY_REVISION_NOTIFICATION`.
+In this case, a Unix cron job that executes the WP-CLI command `wp fau revision notify` should be run with the desired frequency.
+This is the preferred way for revision notification because there are no time and memory limits 
+compared to WordPress Cron which runs within HTTP requests.
 
 The plugin's logger uses [`error_log()`](https://www.php.net/manual/en/function.error-log.php) internally.
 

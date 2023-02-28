@@ -131,7 +131,7 @@ function initialize(): void
             new ContentModule(),
             new TermMetaModule(),
             new SettingsModule(),
-            new RevisionModule(),
+            new RevisionModule(__FILE__),
             new RepositoryModule(),
             new CommandModule(),
             new DegreeProgramEditorModule(),

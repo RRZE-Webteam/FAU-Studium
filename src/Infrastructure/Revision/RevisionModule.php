@@ -9,6 +9,7 @@ use Fau\DegreeProgram\Application\Revision\DegreeProgramRevisionRepository;
 use Fau\DegreeProgram\Common\Application\Repository\DegreeProgramViewRepository;
 use Fau\DegreeProgram\Common\Domain\Event\DegreeProgramUpdated;
 use Fau\DegreeProgram\Common\Infrastructure\Content\PostType\DegreeProgramPostType;
+use Fau\DegreeProgram\Infrastructure\Revision\Notification\RevisionNotifier;
 use Inpsyde\Modularity\Module\ExecutableModule;
 use Inpsyde\Modularity\Module\ModuleClassNameIdTrait;
 use Inpsyde\Modularity\Module\ServiceModule;
@@ -17,6 +18,10 @@ use Psr\Container\ContainerInterface;
 class RevisionModule implements ServiceModule, ExecutableModule
 {
     use ModuleClassNameIdTrait;
+
+    public function __construct(private string $pluginFile)
+    {
+    }
 
     public function services(): array
     {
@@ -40,6 +45,9 @@ class RevisionModule implements ServiceModule, ExecutableModule
             RestoreRevision::class => static fn(ContainerInterface $container) => new RestoreRevision(
                 $container->get(DegreeProgramViewRepository::class),
                 $container->get(DegreeProgramUpdater::class),
+            ),
+            DailyRevisionNotificationRunner::class => static fn(ContainerInterface $container) => new DailyRevisionNotificationRunner(
+                $container->get(RevisionNotifier::class),
             ),
         ];
     }
@@ -79,6 +87,8 @@ class RevisionModule implements ServiceModule, ExecutableModule
             2
         );
 
+        $this->scheduleNotificationRunner($container->get(DailyRevisionNotificationRunner::class));
+
         return true;
     }
 
@@ -96,5 +106,32 @@ class RevisionModule implements ServiceModule, ExecutableModule
         add_action(DegreeProgramUpdated::NAME, static function (DegreeProgramUpdated $event): void {
             wp_save_post_revision($event->id());
         }, 20); // After cache invalidation
+    }
+
+    private function scheduleNotificationRunner(DailyRevisionNotificationRunner $runner): void
+    {
+        add_action(
+            'admin_init',
+            [
+                $runner,
+                'scheduleDailyRevisionNotification',
+            ]
+        );
+
+        register_deactivation_hook(
+            $this->pluginFile,
+            [
+                $runner,
+                'unscheduleDailyRevisionNotification',
+            ]
+        );
+
+        add_action(
+            DailyRevisionNotificationRunner::DAILY_REVISION_NOTIFICATION_HOOK,
+            [
+                $runner,
+                'runDailyRevisionNotification',
+            ]
+        );
     }
 }
