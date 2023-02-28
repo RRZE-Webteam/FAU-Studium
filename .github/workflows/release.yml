@@ -38,7 +38,7 @@ jobs:
           composer-options: "--no-dev"
 
       - name: Clean up
-        run: rm -rf assets vendor
+        run: rm -rf vendor
 
       - name: Setup Git
         run: |
