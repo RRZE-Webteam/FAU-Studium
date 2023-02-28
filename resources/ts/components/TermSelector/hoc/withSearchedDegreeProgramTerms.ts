@@ -14,12 +14,6 @@ const withSearchedDegreeProgramTerms = withSelect(
     ): Partial<EntitySelectorProps<WpTerm>> => {
         const [search, setSearch] = useState('');
         const { getEntityRecords } = select(coreStore.name);
-        if (search.length === 0) {
-            return {
-                searchedEntities: [],
-                setSearch,
-            };
-        }
 
         const terms = getEntityRecords('taxonomy', serverData().taxonomySlugs[ownProps.taxonomy], {
             ...{

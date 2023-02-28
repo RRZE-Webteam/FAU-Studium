@@ -3,8 +3,11 @@ import { find, uniq } from 'lodash';
 
 import { FormTokenField } from '@wordpress/components';
 import { useDebounce } from '@wordpress/compose';
+import { _nx, sprintf } from '@wordpress/i18n';
 
 import { EntitySelectorProps } from 'defs';
+
+import './styles.scss';
 
 /**
  * Entity selector.
@@ -34,8 +37,12 @@ export default function EntitySelector({
     }, [entities]);
 
     const suggestions = useMemo<Array<string>>(() => {
+        if (maxLength && values.length >= maxLength) {
+            return [];
+        }
+
         return searchedEntities.map(entityToToken);
-    }, [searchedEntities]);
+    }, [searchedEntities, values]);
 
     const onChangeTokens = (tokens) => {
         const availableEntities = [...entities, ...searchedEntities];
@@ -46,6 +53,7 @@ export default function EntitySelector({
             find(availableEntities, (entity) => entityToToken(entity) === token),
         );
         onChange(newEntities);
+        setSearch('');
     };
 
     const isTokenValid = (token: string): boolean => {
@@ -54,17 +62,36 @@ export default function EntitySelector({
     };
 
     return (
-        <FormTokenField
-            label={label}
-            messages={messages}
-            maxLength={maxLength}
-            value={values}
-            suggestions={suggestions}
-            onChange={onChangeTokens}
-            onInputChange={debouncedSearch}
-            maxSuggestions={maxSuggestions}
-            __experimentalShowHowTo={false}
-            __experimentalValidateInput={isTokenValid}
-        />
+        <>
+            <FormTokenField
+                label={label}
+                messages={messages}
+                maxLength={maxLength}
+                value={values}
+                suggestions={suggestions}
+                onChange={onChangeTokens}
+                onInputChange={debouncedSearch}
+                maxSuggestions={maxSuggestions}
+                __experimentalShowHowTo={false}
+                __experimentalValidateInput={isTokenValid}
+                __experimentalExpandOnFocus
+            />
+
+            {maxLength && values.length >= maxLength && (
+                <p className="entity-selector--max-items-notice">
+                    {sprintf(
+                        // translators: %d is maximum number of items that can be selected
+                        _nx(
+                            'You can only select %d item',
+                            'You can only select %d items',
+                            maxLength,
+                            'backoffice: selector message',
+                            'fau-degree-program',
+                        ),
+                        maxLength,
+                    )}
+                </p>
+            )}
+        </>
     );
 }
