@@ -18,6 +18,7 @@ class AuthorizationModule implements ServiceModule, ExecutableModule
         return [
             MediaCapabilitiesModifier::class => static fn() => new MediaCapabilitiesModifier(),
             BlocksCapabilitiesModifier::class => static fn() => new BlocksCapabilitiesModifier(),
+            DeletionDisabler::class => static fn() => new DeletionDisabler(),
         ];
     }
 
@@ -35,6 +36,16 @@ class AuthorizationModule implements ServiceModule, ExecutableModule
             [$container->get(BlocksCapabilitiesModifier::class), 'modify'],
             10,
             4
+        );
+
+        add_filter(
+            'pre_delete_post',
+            [
+                $container->get(DeletionDisabler::class),
+                'forbidDirectDeletionOfDegreePrograms',
+            ],
+            10,
+            2
         );
 
         return true;

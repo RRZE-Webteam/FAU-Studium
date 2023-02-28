@@ -14,6 +14,7 @@ use Inpsyde\Modularity\Module\ExecutableModule;
 use Inpsyde\Modularity\Module\ModuleClassNameIdTrait;
 use Inpsyde\Modularity\Module\ServiceModule;
 use Psr\Container\ContainerInterface;
+use WP_Post;
 
 class RevisionModule implements ServiceModule, ExecutableModule
 {
@@ -106,6 +107,27 @@ class RevisionModule implements ServiceModule, ExecutableModule
         add_action(DegreeProgramUpdated::NAME, static function (DegreeProgramUpdated $event): void {
             wp_save_post_revision($event->id());
         }, 20); // After cache invalidation
+
+        add_action(
+            'transition_post_status',
+            static function (string $newStatus, string $oldStatus, WP_Post $post): void {
+                if ($post->post_type !== DegreeProgramPostType::KEY) {
+                    return;
+                }
+
+                if ($newStatus === 'auto-draft' || $oldStatus === 'auto-draft') {
+                    // Normally, auto drafts are not created for degree programs.
+                    // The single point is a new degree program creation.
+                    // But we don't need revision at this point because actual new content
+                    // will be filled later within the entity repository and caught with the DegreeProgramUpdated event.
+                    return;
+                }
+
+                wp_save_post_revision($post->ID);
+            },
+            10,
+            3
+        );
     }
 
     private function scheduleNotificationRunner(DailyRevisionNotificationRunner $runner): void

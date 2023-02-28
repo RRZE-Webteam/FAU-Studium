@@ -21,8 +21,10 @@ use Fau\DegreeProgram\Common\Domain\MultilingualLinks;
 use Fau\DegreeProgram\Common\Domain\MultilingualList;
 use Fau\DegreeProgram\Common\Domain\MultilingualString;
 use Fau\DegreeProgram\Common\Domain\NumberOfStudents;
+use Fau\DegreeProgram\Common\Infrastructure\Content\PostType\DegreeProgramPostType;
 use Fau\DegreeProgram\Common\Infrastructure\Repository\IdGenerator;
 use Psr\SimpleCache\CacheInterface;
+use WP_Post;
 
 final class CacheBasedRevisionRepository implements DegreeProgramRevisionRepository
 {
@@ -46,6 +48,23 @@ final class CacheBasedRevisionRepository implements DegreeProgramRevisionReposit
 
         $cacheKey = $this->cacheKeyGenerator->generateForDegreeProgram($revisionId);
         $this->cache->set($cacheKey, $rawView->asArray());
+
+        $this->saveStatus($degreeProgramId, $revisionId);
+    }
+
+    private function saveStatus(DegreeProgramId $degreeProgramId, DegreeProgramId $revisionId): void
+    {
+        $degreeProgramPost = get_post($degreeProgramId->asInt());
+        if (!$degreeProgramPost instanceof WP_Post) {
+            return;
+        }
+
+        update_metadata(
+            'post',
+            $revisionId->asInt(),
+            DegreeProgramRevision::STATUS,
+            $degreeProgramPost->post_status
+        );
     }
 
     /**
@@ -68,6 +87,7 @@ final class CacheBasedRevisionRepository implements DegreeProgramRevisionReposit
         /** @var array<string, string> $data */
         $data = array_merge(
             [
+                DegreeProgramRevision::STATUS => self::status($revisionId->asInt()),
                 DegreeProgram::FEATURED_IMAGE => self::imageToContextualId($rawRevision->featuredImage()),
                 DegreeProgram::TEASER_IMAGE => self::imageToContextualId($rawRevision->teaserImage()),
             ],
@@ -129,7 +149,7 @@ final class CacheBasedRevisionRepository implements DegreeProgramRevisionReposit
                 DegreeProgram::AREA_OF_STUDY => $this->arrayLikeStructureToContextualIdList($rawRevision->areaOfStudy()),
                 DegreeProgram::COMBINATIONS => $this->combinationsToContextualIdList($rawRevision->combinations()),
                 DegreeProgram::LIMITED_COMBINATIONS => $this->combinationsToContextualIdList($rawRevision->limitedCombinations()),
-            ]
+            ],
         );
 
         $cache[$revisionId->asInt()] = DegreeProgramRevision::fromArray($data);
@@ -229,5 +249,19 @@ final class CacheBasedRevisionRepository implements DegreeProgramRevisionReposit
         }
 
         return sprintf('%d (%s)', $id, $context);
+    }
+
+    private static function status(int $postId): string
+    {
+        $post = get_post($postId);
+        if (!$post instanceof WP_Post) {
+            return '';
+        }
+
+        if ($post->post_type === DegreeProgramPostType::KEY) {
+            return $post->post_status;
+        }
+
+        return (string) get_post_meta($postId, DegreeProgramRevision::STATUS, true);
     }
 }

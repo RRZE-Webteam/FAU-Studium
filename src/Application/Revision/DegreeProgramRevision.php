@@ -13,6 +13,8 @@ use Fau\DegreeProgram\Common\Infrastructure\Repository\IdGenerator;
 
 final class DegreeProgramRevision
 {
+    public const STATUS = 'status';
+
     /**
      * @psalm-param array<string, string> $data
      */
