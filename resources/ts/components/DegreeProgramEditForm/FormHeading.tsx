@@ -1,15 +1,20 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import { useEditDegreeProgram } from '../../contexts/DegreeProgramEditFormProvider';
+
+const StyledHeading = styled.h1`
+    font-size: 1.5rem;
+`;
 
 const FormHeading = () => {
     const { values } = useEditDegreeProgram();
 
     return (
-        <h1>
-            {values.title.de}
-            {!!values.title.en && ` (${values.title.en})`}
-        </h1>
+        <StyledHeading>
+            {values.title.de} <br />
+            <small>{values.title.en}</small>
+        </StyledHeading>
     );
 };
 
