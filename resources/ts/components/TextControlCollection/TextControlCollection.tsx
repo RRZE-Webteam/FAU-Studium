@@ -21,6 +21,7 @@ interface FieldItem {
 
 interface Props {
     value: string[];
+    emptyMessage?: string;
     onChange(val: string[]): void;
 }
 
@@ -46,8 +47,15 @@ const StyledFieldRow = styled(Flex)`
     }
 `;
 
-const TextControlCollection = ({ value, onChange }: Props) => {
-    const [fields, setFields] = useState<FieldItem[]>(transformRawValue(value));
+const StyledNoItemsMessage = styled.p`
+    background-color: #eee;
+    padding: 10px;
+    border-radius: 2px;
+`;
+
+const TextControlCollection = ({ emptyMessage = undefined, value, onChange }: Props) => {
+    const initialValue = value.length ? value : [''];
+    const [fields, setFields] = useState<FieldItem[]>(transformRawValue(initialValue));
 
     useEffect(() => {
         // Filter-out empty values
@@ -87,6 +95,17 @@ const TextControlCollection = ({ value, onChange }: Props) => {
                         </Button>
                     </StyledFieldRow>
                 ))}
+
+                {fields.length === 0 && (
+                    <StyledNoItemsMessage>
+                        {emptyMessage ??
+                            _x(
+                                'No items added yet',
+                                'backoffice: text control collection',
+                                'fau-degree-program',
+                            )}
+                    </StyledNoItemsMessage>
+                )}
             </BaseControl>
 
             <Button
@@ -106,6 +125,10 @@ const TextControlCollection = ({ value, onChange }: Props) => {
             </Button>
         </div>
     );
+};
+
+TextControlCollection.defaultProps = {
+    emptyMessage: undefined,
 };
 
 export default TextControlCollection;

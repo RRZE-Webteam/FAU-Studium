@@ -6,9 +6,9 @@ import TextControlCollection from 'components/TextControlCollection';
 jest.mock('nanoid', () => ({ nanoid: () => `key_${Math.random()}` }));
 
 describe('TextControlCollection', () => {
-    it('should show no text fields initially', () => {
+    it('should show one text field initially', () => {
         render(<TextControlCollection value={[]} onChange={() => {}} />);
-        expect(screen.queryByRole('textbox')).toBeNull();
+        expect(screen.queryAllByRole('textbox').length).toBe(1);
     });
 
     it('should render text fields with whatever passed as value', () => {
@@ -21,13 +21,13 @@ describe('TextControlCollection', () => {
 
     it('should add one text field after clicking add button', () => {
         render(<TextControlCollection value={[]} onChange={() => {}} />);
-        const button = screen.getByRole('button');
+        const button = screen.getByRole('button', { name: /Add/i });
 
         act(() => {
             button.dispatchEvent(new MouseEvent('click', { bubbles: true }));
         });
 
-        expect(screen.queryAllByRole('textbox').length).toBe(1);
+        expect(screen.queryAllByRole('textbox').length).toBe(2);
     });
 
     it('should remove text field after clicking x button', () => {

@@ -274,6 +274,11 @@ const General = () => {
                     help="Videos über den Studiengang, das Studienfach, ein Thema des Fachs (z. B. 2-Minuten-Wissen), Erfahrungsberichte."
                 >
                     <TextControlCollection
+                        emptyMessage={_x(
+                            'No videos added yet',
+                            'backoffice: degree program form',
+                            'fau-degree-program',
+                        )}
                         value={values.videos}
                         onChange={(value) => {
                             handleChange<string[]>('videos', value);
