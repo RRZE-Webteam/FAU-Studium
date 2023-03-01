@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { RefObject, useCallback, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 import {
@@ -9,11 +9,13 @@ import {
     BlockTools,
     DefaultBlockAppender,
     ObserveTyping,
+    store as blockEditorStore,
     WritingFlow,
 } from '@wordpress/block-editor';
 import { parse, serialize } from '@wordpress/blocks';
 import { Popover, SlotFillProvider } from '@wordpress/components';
 import { useDebounce } from '@wordpress/compose';
+import { useDispatch } from '@wordpress/data';
 
 import useBlockEditorSettings from './useBlockEditorSettings';
 
@@ -25,12 +27,33 @@ interface ContentFieldProps {
 
 const StyledEditorWrapper = styled.div`
     margin: 0 0 12px !important;
+    padding-top: 34px !important;
 
     .content-field-blocks-list {
         border: 1px solid #757575;
         padding: 10px;
     }
 `;
+
+const BlockDeselectListener = ({ editorRef }: { editorRef: RefObject<HTMLDivElement> }) => {
+    const { clearSelectedBlock } = useDispatch(blockEditorStore);
+
+    const blurListener = (event: MouseEvent) => {
+        if (!editorRef.current || editorRef.current.contains(event.target as Node)) {
+            return;
+        }
+
+        clearSelectedBlock();
+    };
+
+    useEffect(() => {
+        document.body.addEventListener('click', blurListener);
+
+        return () => document.body.removeEventListener('click', blurListener);
+    }, []);
+
+    return null;
+};
 
 /**
  * Provides restricted Block Editor UI.
@@ -41,6 +64,7 @@ const StyledEditorWrapper = styled.div`
  */
 const ContentField = ({ content, onChange }: ContentFieldProps) => {
     const [currentBlocks, setCurrentBlocks] = useState(parse(content));
+    const editorRef = useRef<HTMLDivElement>(null);
 
     /**
      * The `onChange` callback is fired only when changes are considered final,
@@ -70,7 +94,7 @@ const ContentField = ({ content, onChange }: ContentFieldProps) => {
             settings={settings}
         >
             <SlotFillProvider>
-                <StyledEditorWrapper className="editor-styles-wrapper">
+                <StyledEditorWrapper ref={editorRef} className="editor-styles-wrapper">
                     <BlockEditorKeyboardShortcuts.Register />
                     <BlockTools>
                         <WritingFlow>
@@ -79,6 +103,7 @@ const ContentField = ({ content, onChange }: ContentFieldProps) => {
                                     renderAppender={DefaultBlockAppender}
                                     className="content-field-blocks-list"
                                 />
+                                <BlockDeselectListener editorRef={editorRef} />
                             </ObserveTyping>
                         </WritingFlow>
                     </BlockTools>
