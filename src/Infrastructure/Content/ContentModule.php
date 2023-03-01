@@ -5,8 +5,7 @@ declare(strict_types=1);
 namespace Fau\DegreeProgram\Infrastructure\Content;
 
 use Fau\DegreeProgram\Common\Infrastructure\Content\PostType\DegreeProgramPostType;
-use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\AreaOfStudyTaxonomy;
-use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\KeywordTaxonomy;
+use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\DegreeTaxonomy;
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\TaxonomiesList;
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\Taxonomy;
 use Fau\DegreeProgram\Infrastructure\Authorization\Capabilities;
@@ -23,6 +22,7 @@ final class ContentModule implements ServiceModule, ExecutableModule
     {
         return [
             TaxonomiesList::class => fn() => TaxonomiesList::new(),
+            SortableDegreeTaxonomyColumn::class => fn() => new SortableDegreeTaxonomyColumn(),
         ];
     }
 
@@ -34,6 +34,18 @@ final class ContentModule implements ServiceModule, ExecutableModule
                 $container->get(TaxonomiesList::class),
             );
         });
+
+        add_filter(
+            'manage_edit-' . DegreeProgramPostType::KEY . '_sortable_columns',
+            [$container->get(SortableDegreeTaxonomyColumn::class), 'addDegreeToSortableColumns'],
+        );
+
+        add_filter(
+            'posts_clauses',
+            [$container->get(SortableDegreeTaxonomyColumn::class), 'modifyClauses'],
+            10,
+            2
+        );
 
         return true;
     }
@@ -63,8 +75,7 @@ final class ContentModule implements ServiceModule, ExecutableModule
     private static function registerTaxonomies(TaxonomiesList $taxonomiesList): void
     {
         $taxonomiesToShowAdminColumn = [
-            KeywordTaxonomy::class,
-            AreaOfStudyTaxonomy::class,
+            DegreeTaxonomy::class,
         ];
 
         foreach ($taxonomiesList as $taxonomyClass) {
