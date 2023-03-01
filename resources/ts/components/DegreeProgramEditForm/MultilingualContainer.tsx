@@ -50,6 +50,7 @@ const MultilingualContainer = ({ children, value }: MultilingualContainerProps) 
                     className: isEmpty ? 'is-empty' : '',
                 };
             })}
+            className="component-multilingual-container"
         >
             {(tab: TabItem) => <>{children(tab.name as LanguageCode)}</>}
         </TabPanel>

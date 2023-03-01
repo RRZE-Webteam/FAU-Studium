@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import { __experimentalHeading as Heading, BaseControl } from '@wordpress/components';
 import { _x } from '@wordpress/i18n';
 
+import FormFieldWrapper from 'components/Layouts/FormFieldWrapper';
+import FormWrapper from 'components/Layouts/FormWrapper';
 import TermSelector from 'components/TermSelector';
 import { useEditDegreeProgram } from 'contexts/DegreeProgramEditFormProvider';
 import {
@@ -39,43 +41,51 @@ const AdmissionRequirements = () => {
             <div>
                 <StyledHeading level={4}>Bachelor/Lehramt</StyledHeading>
 
-                {bachelorOrTeachingEnabled && (
-                    <TermSelector
-                        id="bachelor_teaching_admission_requirement"
-                        label={_x(
-                            "Admission requirements for Bachelor's/teaching degrees",
-                            'backoffice: degree program edit form',
-                            'fau-degree-program',
-                        )}
-                        taxonomy="bachelorOrTeachingDegreeAdmissionRequirement"
-                        value={values.admission_requirements.bachelor_or_teaching_degree.id}
-                        onChange={(term) => {
-                            handleChange<MultilingualLink>(
-                                'admission_requirements.bachelor_or_teaching_degree',
-                                transformTermToMultilingualLink(term),
-                            );
-                        }}
-                    />
-                )}
+                <FormWrapper>
+                    {bachelorOrTeachingEnabled && (
+                        <FormFieldWrapper fill="half">
+                            <TermSelector
+                                id="bachelor_teaching_admission_requirement"
+                                label={_x(
+                                    "Admission requirements for Bachelor's/teaching degrees",
+                                    'backoffice: degree program edit form',
+                                    'fau-degree-program',
+                                )}
+                                taxonomy="bachelorOrTeachingDegreeAdmissionRequirement"
+                                value={values.admission_requirements.bachelor_or_teaching_degree.id}
+                                onChange={(term) => {
+                                    handleChange<MultilingualLink>(
+                                        'admission_requirements.bachelor_or_teaching_degree',
+                                        transformTermToMultilingualLink(term),
+                                    );
+                                }}
+                            />
+                        </FormFieldWrapper>
+                    )}
 
-                {teachingDegreeHigherSemesterEnabled && (
-                    <TermSelector
-                        id="teaching_higher_semester_admission_requirement"
-                        label={_x(
-                            'Admission requirements for entering a teaching degree at a higher semester',
-                            'backoffice: degree program edit form',
-                            'fau-degree-program',
-                        )}
-                        taxonomy="teachingDegreeHigherSemesterAdmissionRequirement"
-                        value={values.admission_requirements.teaching_degree_higher_semester.id}
-                        onChange={(term) => {
-                            handleChange<MultilingualLink>(
-                                'admission_requirements.teaching_degree_higher_semester',
-                                transformTermToMultilingualLink(term),
-                            );
-                        }}
-                    />
-                )}
+                    {teachingDegreeHigherSemesterEnabled && (
+                        <FormFieldWrapper fill="half">
+                            <TermSelector
+                                id="teaching_higher_semester_admission_requirement"
+                                label={_x(
+                                    'Admission requirements for entering a teaching degree at a higher semester',
+                                    'backoffice: degree program edit form',
+                                    'fau-degree-program',
+                                )}
+                                taxonomy="teachingDegreeHigherSemesterAdmissionRequirement"
+                                value={
+                                    values.admission_requirements.teaching_degree_higher_semester.id
+                                }
+                                onChange={(term) => {
+                                    handleChange<MultilingualLink>(
+                                        'admission_requirements.teaching_degree_higher_semester',
+                                        transformTermToMultilingualLink(term),
+                                    );
+                                }}
+                            />
+                        </FormFieldWrapper>
+                    )}
+                </FormWrapper>
             </div>
 
             <div>
