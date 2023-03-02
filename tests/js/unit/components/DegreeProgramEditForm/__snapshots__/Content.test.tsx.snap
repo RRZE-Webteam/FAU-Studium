@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Content fields should match snapshot 1`] = `
+[
+  <span>
+    Vorstellung des Fachs und der Studieninhalte; ±200 Wörter
+  </span>,
+  <span>
+    about (about)
+  </span>,
+  <span>
+    Vorstellung des Fachs und der Studieninhalte; ±200 Wörter
+  </span>,
+  <span>
+    structure (structure)
+  </span>,
+  <span>
+    Spezialisierungsmöglichkeiten und Schwerpunkte während des Studiums; ±200 Wörter
+  </span>,
+  <span>
+    specializations (specializations)
+  </span>,
+  <span>
+    Fähigkeiten und Vorlieben der Studieninteressierten, nicht formelle Voraussetzungen; ±200 Wörter
+  </span>,
+  <span>
+    qualities_and_skills (qualities_and_skills)
+  </span>,
+  <span>
+    Einzigartigkeit bzw. Besonderheiten (z. B. Kooperationspartner, Verbundstudiumsangebot) des Studiengangs an der FAU; ±200 Wörter
+  </span>,
+  <span>
+    why_should_study (why_should_study)
+  </span>,
+  <span>
+    mögliche Tätigkeitsfelder nach Abschluss des Studiums; ±200 Wörter
+  </span>,
+  <span>
+    career_prospects (career_prospects)
+  </span>,
+  <span>
+    Möglichkeiten von Auslandsaufenthalten, Kooperationen mit Forschungsprojekten, etc.; ±200 Wörter
+  </span>,
+  <span>
+    special_features (special_features)
+  </span>,
+  <span>
+    Videos oder Links zu schriftlichen Testimonials, Einbindung von studycheck-Bewertungen
+  </span>,
+  <span>
+    testimonials (testimonials)
+  </span>,
+]
+`;
