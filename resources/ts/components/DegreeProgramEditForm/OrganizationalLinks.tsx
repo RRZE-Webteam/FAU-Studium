@@ -61,7 +61,7 @@ const OrganizationalLinks = () => {
                         <TextControl
                             id="module_handbook"
                             label={_x(
-                                'Module handbook',
+                                'Module handbook (URL)',
                                 'backoffice: degree program edit form',
                                 'fau-degree-program',
                             )}
@@ -69,13 +69,14 @@ const OrganizationalLinks = () => {
                                 handleChange<string>('module_handbook', handbook);
                             }}
                             value={values.module_handbook}
+                            type="url"
                         />
                     </FormFieldWrapper>
                     <FormFieldWrapper fill="full">
                         <BaseControl
                             id="url"
                             label={_x(
-                                'Degree program URL',
+                                'Degree program (URL)',
                                 'backoffice: degree program edit form',
                                 'fau-degree-program',
                             )}
@@ -115,7 +116,7 @@ const OrganizationalLinks = () => {
                         <TextControl
                             id="student_representatives"
                             label={_x(
-                                'Student’s Representatives/FSI',
+                                'Student’s Representatives/FSI (URL)',
                                 'backoffice: degree program edit form',
                                 'fau-degree-program',
                             )}
@@ -123,6 +124,7 @@ const OrganizationalLinks = () => {
                                 handleChange<string>('student_representatives', representatives);
                             }}
                             value={values.student_representatives}
+                            type="url"
                         />
                     </FormFieldWrapper>
 
