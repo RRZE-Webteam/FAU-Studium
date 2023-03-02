@@ -109,6 +109,25 @@ const General = () => {
                     </FormFieldWrapper>
 
                     <FormFieldWrapper fill="third">
+                        <MultiTermSelector
+                            id="area_of_study"
+                            label={_x(
+                                'Area of study',
+                                'backoffice: degree program edit form',
+                                'fau-degree-program',
+                            )}
+                            taxonomy="areaOfStudy"
+                            value={values.area_of_study.map((term) => term.id)}
+                            onChange={(terms) => {
+                                handleChange<MultilingualLink[]>(
+                                    'area_of_study',
+                                    terms.map(transformTermToMultilingualLink),
+                                );
+                            }}
+                        />
+                    </FormFieldWrapper>
+
+                    <FormFieldWrapper fill="third">
                         <NumberControl
                             onChange={(value: string) => {
                                 handleChange<number>('standard_duration', parseInt(value, 10));
@@ -292,25 +311,35 @@ const General = () => {
                         </BaseControl>
                     </FormFieldWrapper>
                     <FormFieldWrapper fill="full">
-                        <LimitedInputControl value={values.meta_description.de} maxChars={160}>
-                            {({ updatedValue }) => (
-                                <TextareaControl
-                                    label={_x(
-                                        'Meta description',
-                                        'backoffice: degree program edit form',
-                                        'fau-degree-program',
-                                    )}
-                                    help="Text für die Anzeige bei Suchmaschinen."
-                                    value={values.meta_description.de}
-                                    onChange={(text: string) => {
-                                        handleChange<string>(
-                                            'meta_description.de',
-                                            updatedValue(text),
-                                        );
-                                    }}
-                                />
+                        <BaseControl
+                            label={_x(
+                                'Meta description',
+                                'backoffice: degree program edit form',
+                                'fau-degree-program',
                             )}
-                        </LimitedInputControl>
+                            help="Text für die Anzeige bei Suchmaschinen."
+                        >
+                            <MultilingualContainer value={values.meta_description}>
+                                {(languageCode) => (
+                                    <LimitedInputControl
+                                        value={values.meta_description[languageCode]}
+                                        maxChars={160}
+                                    >
+                                        {({ updatedValue }) => (
+                                            <TextareaControl
+                                                value={values.meta_description[languageCode]}
+                                                onChange={(text: string) => {
+                                                    handleChange<string>(
+                                                        `meta_description.${languageCode}`,
+                                                        updatedValue(text),
+                                                    );
+                                                }}
+                                            />
+                                        )}
+                                    </LimitedInputControl>
+                                )}
+                            </MultilingualContainer>
+                        </BaseControl>
                     </FormFieldWrapper>
                 </FormWrapper>
             </PanelBody>
