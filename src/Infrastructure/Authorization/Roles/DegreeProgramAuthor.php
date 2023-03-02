@@ -33,8 +33,6 @@ class DegreeProgramAuthor implements Role
             Capabilities::EDIT_DEGREE_PROGRAM,
             Capabilities::EDIT_DEGREE_PROGRAMS,
             Capabilities::EDIT_PUBLISHED_DEGREE_PROGRAMS,
-            Capabilities::EDIT_PRIVATE_DEGREE_PROGRAMS,
-            Capabilities::PUBLISH_DEGREE_PROGRAMS,
             Capabilities::ASSIGN_DEGREE_PROGRAM_TERMS,
             Capabilities::UPLOAD_FILES,
         ], true);

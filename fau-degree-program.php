@@ -21,6 +21,7 @@ namespace Fau\DegreeProgram;
 // phpcs:disable PSR1.Files.SideEffects
 
 use Fau\DegreeProgram\Infrastructure\Authorization\AuthorizationModule;
+use Fau\DegreeProgram\Infrastructure\Authorization\UserRolesModifier;
 use Fau\DegreeProgram\Infrastructure\Authorization\UserRolesRegistrar;
 use Fau\DegreeProgram\Infrastructure\Cache\CacheModule;
 use Fau\DegreeProgram\Infrastructure\CliModule;
@@ -159,5 +160,6 @@ register_activation_hook(
     static function (): void {
         setUpAutoloader();
         UserRolesRegistrar::register();
+        UserRolesModifier::modify();
     },
 );

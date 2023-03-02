@@ -43,7 +43,6 @@ class DegreeProgramEditor implements Role
             Capabilities::MANAGE_DEGREE_PROGRAM_TERMS,
             Capabilities::EDIT_DEGREE_PROGRAM_TERMS,
             Capabilities::DELETE_DEGREE_PROGRAM_TERMS,
-            Capabilities::MANAGE_DEGREE_PROGRAM_SETTINGS,
             Capabilities::UPLOAD_FILES,
         ], true);
     }
