@@ -18,8 +18,8 @@ export interface DegreeProgramData {
     teaching_language: MultilingualString;
     attributes: Array<MultilingualString>;
     degree: Degree;
-    faculty: MultilingualLink;
-    location: MultilingualString;
+    faculty: Array<MultilingualLink>;
+    location: Array<MultilingualString>;
     subject_groups: Array<MultilingualString>;
     videos: string[];
     meta_description: MultilingualString;

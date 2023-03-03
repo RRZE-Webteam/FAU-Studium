@@ -375,7 +375,7 @@ final class TranslatedDegreeProgramController extends WP_REST_Controller
                     'rest_api: schema item description',
                     'fau-degree-program'
                 ),
-                'type' => 'object',
+                'type' => 'array',
             ],
             DegreeProgram::LOCATION => [
                 'description' => _x(
@@ -383,7 +383,7 @@ final class TranslatedDegreeProgramController extends WP_REST_Controller
                     'rest_api: schema item description',
                     'fau-degree-program'
                 ),
-                'type' => 'string',
+                'type' => 'array',
             ],
             DegreeProgram::SUBJECT_GROUPS => [
                 'description' => _x(

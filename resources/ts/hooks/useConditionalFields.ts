@@ -17,7 +17,7 @@ export function useDegreeFeesEnabled() {
 }
 
 export function useCombinationOfDegreeProgramEnabled() {
-    const [faculty] = useDegreeProgramProperty<MultilingualLink>('faculty');
+    const [faculty] = useDegreeProgramProperty<MultilingualLink[]>('faculty');
     const [degree] = useDegreeProgramProperty<Degree>('degree');
 
     if (!faculty || !degree) {
@@ -25,8 +25,9 @@ export function useCombinationOfDegreeProgramEnabled() {
     }
 
     return (
-        ALLOWED_FACULTIES_FOR_COMBINATION.includes(faculty.name.de) &&
-        degree.abbreviation.de === DEGREE_ABBREVIATION_GERMAN.BACHELOR
+        !!faculty.find((facultyItem) =>
+            ALLOWED_FACULTIES_FOR_COMBINATION.includes(facultyItem.name.de),
+        ) && degree.abbreviation.de === DEGREE_ABBREVIATION_GERMAN.BACHELOR
     );
 }
 
@@ -67,7 +68,7 @@ export function useAdmissionRequirementsForMastersDegree() {
 
 export function useLanguageSkillsForFacultyOfHumanitiesOnlyEnabled() {
     const [degree] = useDegreeProgramProperty<Degree>('degree');
-    const [faculty] = useDegreeProgramProperty<MultilingualLink>('faculty');
+    const [faculty] = useDegreeProgramProperty<MultilingualLink[]>('faculty');
 
     if (!degree || !faculty) {
         return false;
@@ -76,7 +77,7 @@ export function useLanguageSkillsForFacultyOfHumanitiesOnlyEnabled() {
     return (
         (degree.abbreviation.de === DEGREE_ABBREVIATION_GERMAN.BACHELOR ||
             degree.abbreviation.de === DEGREE_ABBREVIATION_GERMAN.TEACHING_DEGREE) &&
-        faculty.name.de === FACULTY_PHILOSOPHY
+        !!faculty.find((facultyItem) => facultyItem.name.de === FACULTY_PHILOSOPHY)
     );
 }
 

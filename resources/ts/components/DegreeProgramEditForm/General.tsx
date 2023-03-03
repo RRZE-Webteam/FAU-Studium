@@ -239,7 +239,7 @@ const General = () => {
                         />
                     </FormFieldWrapper>
                     <FormFieldWrapper fill="third">
-                        <TermSelector
+                        <MultiTermSelector
                             id="faculty"
                             label={_x(
                                 'Faculty',
@@ -247,17 +247,17 @@ const General = () => {
                                 'fau-degree-program',
                             )}
                             taxonomy="faculty"
-                            value={values.faculty.id}
-                            onChange={(term) => {
-                                handleChange<MultilingualLink>(
+                            value={values.faculty.map((term) => term.id)}
+                            onChange={(terms) => {
+                                handleChange<MultilingualLink[]>(
                                     'faculty',
-                                    transformTermToMultilingualLink(term),
+                                    terms.map(transformTermToMultilingualLink),
                                 );
                             }}
                         />
                     </FormFieldWrapper>
                     <FormFieldWrapper fill="third">
-                        <TermSelector
+                        <MultiTermSelector
                             id="study-location"
                             label={_x(
                                 'Study location',
@@ -265,11 +265,11 @@ const General = () => {
                                 'fau-degree-program',
                             )}
                             taxonomy="studyLocation"
-                            value={values.location.id}
-                            onChange={(term) => {
-                                handleChange<MultilingualString>(
+                            value={values.location.map((term) => term.id)}
+                            onChange={(terms) => {
+                                handleChange<MultilingualString[]>(
                                     'location',
-                                    transformTermToMultilingualString(term),
+                                    terms.map(transformTermToMultilingualString),
                                 );
                             }}
                         />
