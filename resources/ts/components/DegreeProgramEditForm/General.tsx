@@ -274,7 +274,7 @@ const General = () => {
                             }}
                         />
                     </FormFieldWrapper>
-                    <FormFieldWrapper fill="third">
+                    <FormFieldWrapper fill="half">
                         <MultiTermSelector
                             id="subject-group"
                             label={_x(
@@ -283,10 +283,28 @@ const General = () => {
                                 'fau-degree-program',
                             )}
                             taxonomy="subjectGroup"
-                            value={values.subject_groups.map((t) => t.id)}
+                            value={values.subject_groups.map((term) => term.id)}
                             onChange={(terms) => {
                                 handleChange<MultilingualString[]>(
                                     'subject_groups',
+                                    terms.map(transformTermToMultilingualString),
+                                );
+                            }}
+                        />
+                    </FormFieldWrapper>
+                    <FormFieldWrapper fill="half">
+                        <MultiTermSelector
+                            id="keywords"
+                            label={_x(
+                                'Keywords',
+                                'backoffice: degree program edit form',
+                                'fau-degree-program',
+                            )}
+                            taxonomy="keyword"
+                            value={values.keywords.map((term) => term.id)}
+                            onChange={(terms) => {
+                                handleChange<MultilingualString[]>(
+                                    'keywords',
                                     terms.map(transformTermToMultilingualString),
                                 );
                             }}
