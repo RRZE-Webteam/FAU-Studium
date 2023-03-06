@@ -1,14 +1,16 @@
-name: Release
+name: Build
 
 on:
   workflow_dispatch:
   push:
+    branches:
+      - main
     tags:
       - '*'
 
 jobs:
   release:
-    uses: RRZE-Webteam/FAU-Studium-Common/.github/workflows/release.yml@main
+    uses: RRZE-Webteam/FAU-Studium-Common/.github/workflows/build.yml@main
     secrets:
       DEPLOYBOT_EMAIL: ${{ secrets.DEPLOYBOT_EMAIL }}
       DEPLOYBOT_USER: ${{ secrets.DEPLOYBOT_USER }}
