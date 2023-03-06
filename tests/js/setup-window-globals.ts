@@ -13,7 +13,6 @@ if (global.window) {
             attribute: 'attribute',
             bachelorOrTeachingDegreeAdmissionRequirement: 'bachelor_or_teaching_adm_req',
             degree: 'abschluss',
-            examinationRegulations: 'examination_regulation',
             examinationsOffice: 'examinations_office',
             faculty: 'faculty',
             germanLanguageSkillsForInternationalStudents: 'german_for_int_students',

@@ -17,7 +17,6 @@ type TaxonomySlug = keyof DegreeProgramEditorServerDataType['taxonomySlugs'];
 type Term<T> = T extends
     | 'areaOfStudy'
     | 'bachelorOrTeachingDegreeAdmissionRequirement'
-    | 'examinationRegulations'
     | 'examinationsOffice'
     | 'faculty'
     | 'germanLanguageSkillsForInternationalStudents'

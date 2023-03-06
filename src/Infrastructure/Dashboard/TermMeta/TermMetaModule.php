@@ -9,7 +9,6 @@ use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\AreaOfStudyTaxonomy
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\AttributeTaxonomy;
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\BachelorOrTeachingDegreeAdmissionRequirementTaxonomy;
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\DegreeTaxonomy;
-use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\ExaminationRegulationsTaxonomy;
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\ExaminationsOfficeTaxonomy;
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\FacultyTaxonomy;
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\GermanLanguageSkillsForInternationalStudentsTaxonomy;
@@ -75,10 +74,6 @@ final class TermMetaModule implements ServiceModule, ExecutableModule
         $termMetaRegistrar->register(
             DegreeTaxonomy::KEY,
             ...self::degreeMetaFields(),
-        );
-        $termMetaRegistrar->register(
-            ExaminationRegulationsTaxonomy::KEY,
-            ...(new MultilingualLinkTermMetaFields())->getArrayCopy(),
         );
         $termMetaRegistrar->register(
             ExaminationsOfficeTaxonomy::KEY,

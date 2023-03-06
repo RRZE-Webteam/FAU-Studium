@@ -48,7 +48,7 @@ export interface DegreeProgramData {
     readonly start_of_semester: MultilingualLink;
     readonly semester_dates: MultilingualLink;
     examinations_office: MultilingualLink;
-    examination_regulations: MultilingualLink;
+    examination_regulations: MultilingualString;
     module_handbook: string;
     url: MultilingualString;
     readonly department: MultilingualLink;

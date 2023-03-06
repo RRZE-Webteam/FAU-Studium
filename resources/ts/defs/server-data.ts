@@ -9,7 +9,6 @@ export type DegreeProgramEditorServerDataType = Readonly<{
         attribute: string;
         bachelorOrTeachingDegreeAdmissionRequirement: string;
         degree: string;
-        examinationRegulations: string;
         examinationsOffice: string;
         faculty: string;
         germanLanguageSkillsForInternationalStudents: string;

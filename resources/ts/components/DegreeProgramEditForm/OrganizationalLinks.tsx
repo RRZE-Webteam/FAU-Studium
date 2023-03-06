@@ -21,7 +21,7 @@ const OrganizationalLinks = () => {
         <Panel>
             <PanelBody>
                 <FormWrapper>
-                    <FormFieldWrapper fill="third">
+                    <FormFieldWrapper fill="half">
                         <TermSelector
                             id="examinations_office"
                             label={_x(
@@ -39,25 +39,7 @@ const OrganizationalLinks = () => {
                             }}
                         />
                     </FormFieldWrapper>
-                    <FormFieldWrapper fill="third">
-                        <TermSelector
-                            id="examination_regulations"
-                            label={_x(
-                                'Degree program and examination regulations',
-                                'backoffice: degree program edit form',
-                                'fau-degree-program',
-                            )}
-                            taxonomy="examinationRegulations"
-                            value={values.examination_regulations.id}
-                            onChange={(term) => {
-                                handleChange<MultilingualLink>(
-                                    'examination_regulations',
-                                    transformTermToMultilingualLink(term),
-                                );
-                            }}
-                        />
-                    </FormFieldWrapper>
-                    <FormFieldWrapper fill="third">
+                    <FormFieldWrapper fill="half">
                         <TextControl
                             id="module_handbook"
                             label={_x(
@@ -72,7 +54,7 @@ const OrganizationalLinks = () => {
                             type="url"
                         />
                     </FormFieldWrapper>
-                    <FormFieldWrapper fill="full">
+                    <FormFieldWrapper fill="half">
                         <BaseControl
                             id="url"
                             label={_x(
@@ -89,6 +71,30 @@ const OrganizationalLinks = () => {
                                         }}
                                         value={values.url[languageCode]}
                                         type="url"
+                                    />
+                                )}
+                            </MultilingualContainer>
+                        </BaseControl>
+                    </FormFieldWrapper>
+                    <FormFieldWrapper fill="half">
+                        <BaseControl
+                            id="examination_regulations"
+                            label={_x(
+                                'Degree program and examination regulations',
+                                'backoffice: degree program edit form',
+                                'fau-degree-program',
+                            )}
+                        >
+                            <MultilingualContainer value={values.examination_regulations}>
+                                {(languageCode) => (
+                                    <TextControl
+                                        onChange={(value: string) => {
+                                            handleChange<string>(
+                                                `examination_regulations.${languageCode}`,
+                                                value,
+                                            );
+                                        }}
+                                        value={values.examination_regulations[languageCode]}
                                     />
                                 )}
                             </MultilingualContainer>
