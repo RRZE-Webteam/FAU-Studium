@@ -9,6 +9,7 @@ use Fau\DegreeProgram\Application\Revision\DegreeProgramRevisionRepository;
 use Fau\DegreeProgram\Common\Application\Cache\CacheKeyGenerator;
 use Fau\DegreeProgram\Common\Application\DegreeProgramViewRaw;
 use Fau\DegreeProgram\Common\Application\Repository\DegreeProgramViewRepository;
+use Fau\DegreeProgram\Common\Domain\AdmissionRequirement;
 use Fau\DegreeProgram\Common\Domain\AdmissionRequirements;
 use Fau\DegreeProgram\Common\Domain\Content;
 use Fau\DegreeProgram\Common\Domain\Degree;
@@ -204,8 +205,10 @@ final class CacheBasedRevisionRepository implements DegreeProgramRevisionReposit
         return implode(', ', $pieces);
     }
 
-    private function structureToContextualId(MultilingualString|Degree|MultilingualLink|NumberOfStudents $structure): string
-    {
+    private function structureToContextualId(
+        MultilingualString|Degree|MultilingualLink|NumberOfStudents|AdmissionRequirement $structure
+    ): string {
+
         $name = '';
 
         if ($structure instanceof MultilingualString) {
@@ -216,7 +219,11 @@ final class CacheBasedRevisionRepository implements DegreeProgramRevisionReposit
             $name = wp_strip_all_tags($structure->description());
         }
 
-        if ($structure instanceof Degree || $structure instanceof MultilingualLink) {
+        if (
+            $structure instanceof Degree
+            || $structure instanceof MultilingualLink
+            || $structure instanceof AdmissionRequirement
+        ) {
             $name = $structure->name()->inGerman();
         }
 
