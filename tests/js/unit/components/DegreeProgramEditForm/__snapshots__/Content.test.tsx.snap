@@ -18,37 +18,37 @@ exports[`Content fields should match snapshot 1`] = `
     Spezialisierungsmöglichkeiten und Schwerpunkte während des Studiums; ±200 Wörter
   </span>,
   <span>
-    specializations (specializations)
+    specializations (specializations) (optional)
   </span>,
   <span>
     Fähigkeiten und Vorlieben der Studieninteressierten, nicht formelle Voraussetzungen; ±200 Wörter
   </span>,
   <span>
-    qualities_and_skills (qualities_and_skills)
+    qualities_and_skills (qualities_and_skills) (optional)
   </span>,
   <span>
     Einzigartigkeit bzw. Besonderheiten (z. B. Kooperationspartner, Verbundstudiumsangebot) des Studiengangs an der FAU; ±200 Wörter
   </span>,
   <span>
-    why_should_study (why_should_study)
+    why_should_study (why_should_study) (optional)
   </span>,
   <span>
     mögliche Tätigkeitsfelder nach Abschluss des Studiums; ±200 Wörter
   </span>,
   <span>
-    career_prospects (career_prospects)
+    career_prospects (career_prospects) (optional)
   </span>,
   <span>
     Möglichkeiten von Auslandsaufenthalten, Kooperationen mit Forschungsprojekten, etc.; ±200 Wörter
   </span>,
   <span>
-    special_features (special_features)
+    special_features (special_features) (optional)
   </span>,
   <span>
     Videos oder Links zu schriftlichen Testimonials, Einbindung von studycheck-Bewertungen
   </span>,
   <span>
-    testimonials (testimonials)
+    testimonials (testimonials) (optional)
   </span>,
 ]
 `;

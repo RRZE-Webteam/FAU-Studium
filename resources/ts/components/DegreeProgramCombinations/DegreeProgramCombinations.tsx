@@ -33,7 +33,11 @@ export default function DegreeProgramCombinations(): JSX.Element | null {
             <RelatedDegreePrograms
                 relatedDegreeProgramIds={combinations}
                 setRelatedDegreePrograms={setCombinations}
-                label={_x('Combinations', 'backoffice: field label', 'fau-degree-program')}
+                label={_x(
+                    'Combinations (optional)',
+                    'backoffice: field label',
+                    'fau-degree-program',
+                )}
                 messages={{
                     added: _x('Combination added', 'backoffice: field label', 'fau-degree-program'),
                     removed: _x(
@@ -56,7 +60,11 @@ export default function DegreeProgramCombinations(): JSX.Element | null {
             <RelatedDegreePrograms
                 relatedDegreeProgramIds={limitedCombinations}
                 setRelatedDegreePrograms={setLimitedCombinations}
-                label={_x('Limited Combinations', 'backoffice: field label', 'fau-degree-program')}
+                label={_x(
+                    'Limited Combinations (optional)',
+                    'backoffice: field label',
+                    'fau-degree-program',
+                )}
                 messages={{
                     added: _x(
                         'Limited combination added',

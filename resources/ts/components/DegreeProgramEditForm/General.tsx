@@ -89,7 +89,7 @@ const General = () => {
                         <BaseControl
                             id="subtitle"
                             label={_x(
-                                'Subtitle',
+                                'Subtitle (optional)',
                                 'backoffice: degree program edit form',
                                 'fau-degree-program',
                             )}

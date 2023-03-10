@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { BaseControl, Panel, PanelBody } from '@wordpress/components';
+import { _x } from '@wordpress/i18n';
 
 import { useEditDegreeProgram } from 'contexts/DegreeProgramEditFormProvider';
 
@@ -26,6 +27,15 @@ const CONTENT_ITEMS = {
         'Videos oder Links zu schriftlichen Testimonials, Einbindung von studycheck-Bewertungen',
 } as Record<keyof DegreeProgramData['content'], string>;
 
+const OPTIONAL_FIELDS = [
+    'specializations',
+    'qualities_and_skills',
+    'why_should_study',
+    'career_prospects',
+    'special_features',
+    'testimonials',
+];
+
 const Content = () => {
     const { values, handleChange } = useEditDegreeProgram();
 
@@ -38,6 +48,14 @@ const Content = () => {
                         label={`${values.content[item].title.de} ${
                             values.content[item].title.en
                                 ? `(${values.content[item].title.en})`
+                                : ''
+                        }${
+                            OPTIONAL_FIELDS.includes(item)
+                                ? _x(
+                                      ' (optional)',
+                                      'backoffice: optional field suffix',
+                                      'fau-degree-program',
+                                  )
                                 : ''
                         }`}
                         help={CONTENT_ITEMS[item]}
