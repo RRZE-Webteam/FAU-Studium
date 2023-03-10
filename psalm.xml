@@ -35,5 +35,6 @@
     </issueHandlers>
     <globals>
         <var name="wpdb" type="\wpdb"/>
+        <var name="submenu" type="array"/>
     </globals>
 </psalm>

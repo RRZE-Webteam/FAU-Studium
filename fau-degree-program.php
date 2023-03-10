@@ -23,6 +23,7 @@ namespace Fau\DegreeProgram;
 use Fau\DegreeProgram\Infrastructure\Authorization\AuthorizationModule;
 use Fau\DegreeProgram\Infrastructure\Authorization\UserRolesModifier;
 use Fau\DegreeProgram\Infrastructure\Authorization\UserRolesRegistrar;
+use Fau\DegreeProgram\Infrastructure\Authorization\WorkflowAuthor\WorkflowAuthorModule;
 use Fau\DegreeProgram\Infrastructure\Cache\CacheModule;
 use Fau\DegreeProgram\Infrastructure\CliModule;
 use Fau\DegreeProgram\Infrastructure\Command\CommandModule;
@@ -144,6 +145,7 @@ function initialize(): void
             new CliModule(),
             new AdminBarModule(),
             new QueueModule(),
+            new WorkflowAuthorModule(),
             new AuthorizationModule(),
             new MigrationModule(),
             new RevisionNotificationModule(),

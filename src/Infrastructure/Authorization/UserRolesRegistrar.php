@@ -21,6 +21,8 @@ class UserRolesRegistrar
         ];
 
         foreach ($roles as $role) {
+            // Reset DB cache
+            remove_role($role->key());
             add_role(
                 $role->key(),
                 $role->label(),

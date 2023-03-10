@@ -57,6 +57,9 @@ final class ContentModule implements ServiceModule, ExecutableModule
             DegreeProgramPostType::public()
                 ->merge([
                     'capability_type' => ['degree_program', 'degree_programs'],
+                    'capabilities' => [
+                        'create_posts' => Capabilities::CREATE_DEGREE_PROGRAMS,
+                    ],
                     'map_meta_cap' => true,
                     'template' => [
                         ['fau/degree-program-form'],
@@ -82,7 +85,7 @@ final class ContentModule implements ServiceModule, ExecutableModule
             /** @var Taxonomy $taxonomyObject */
             // phpcs:ignore NeutronStandard.Functions.DisallowCallUserFunc.CallUserFunc
             $taxonomyObject = call_user_func([$taxonomyClass, 'public']);
-            $taxonomyObject->merge([
+            $taxonomyObject = $taxonomyObject->merge([
                 'capabilities' => [
                     'manage_terms' => Capabilities::MANAGE_DEGREE_PROGRAM_TERMS,
                     'edit_terms' => Capabilities::EDIT_DEGREE_PROGRAM_TERMS,

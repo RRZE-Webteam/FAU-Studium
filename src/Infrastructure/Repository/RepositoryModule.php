@@ -65,6 +65,7 @@ class RepositoryModule implements ServiceModule
             ),
             RevisionNotificationRepository::class => static fn() => new WordPressRevisionNotificationRepository(),
             RevisionMetaRepository::class => static fn() => new RevisionMetaRepository(),
+            WorkflowAuthorsRepository::class => static fn() => new WorkflowAuthorsRepository(),
         ];
     }
 }

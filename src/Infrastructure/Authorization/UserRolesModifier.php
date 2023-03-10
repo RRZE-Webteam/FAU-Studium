@@ -18,6 +18,7 @@ class UserRolesModifier
         $capabilities = [
             Capabilities::READ_DEGREE_PROGRAM,
             Capabilities::READ_PRIVATE_DEGREE_PROGRAMS,
+            Capabilities::CREATE_DEGREE_PROGRAMS,
             Capabilities::EDIT_DEGREE_PROGRAM,
             Capabilities::EDIT_DEGREE_PROGRAMS,
             Capabilities::EDIT_OTHERS_DEGREE_PROGRAMS,
@@ -31,6 +32,8 @@ class UserRolesModifier
             Capabilities::MANAGE_DEGREE_PROGRAM_TERMS,
             Capabilities::EDIT_DEGREE_PROGRAM_TERMS,
             Capabilities::DELETE_DEGREE_PROGRAM_TERMS,
+            Capabilities::MANAGE_WORKFLOW_AUTHORS_TERMS,
+            Capabilities::ASSIGN_WORKFLOW_AUTHORS_TERMS,
             Capabilities::MANAGE_DEGREE_PROGRAM_SETTINGS,
         ];
 
