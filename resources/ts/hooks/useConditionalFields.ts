@@ -45,15 +45,21 @@ export function useAdmissionRequirementsForBachelorAndTeachingDegreesEnable() {
 }
 
 export function useAdmissionRequirementsTeachingDegreeAtHigherSemesterEnabled() {
+    const [degree] = useDegreeProgramProperty<Degree>('degree');
     const [bachelorOrTeachingAdmissionRequirement] = useDegreeProgramProperty<MultilingualLink>(
         'admission_requirements.bachelor_or_teaching_degree',
     );
 
-    if (!bachelorOrTeachingAdmissionRequirement) {
+    if (!degree || !bachelorOrTeachingAdmissionRequirement) {
         return false;
     }
 
-    return bachelorOrTeachingAdmissionRequirement.name.de !== ADMISSION_REQUIREMENT_FREE;
+    return (
+        (degree.abbreviation.de === DEGREE_ABBREVIATION_GERMAN.BACHELOR ||
+            degree.abbreviation.de === DEGREE_ABBREVIATION_GERMAN.TEACHING_DEGREE) &&
+        bachelorOrTeachingAdmissionRequirement.name.de &&
+        bachelorOrTeachingAdmissionRequirement.name.de !== ADMISSION_REQUIREMENT_FREE
+    );
 }
 
 export function useAdmissionRequirementsForMastersDegree() {
@@ -82,7 +88,7 @@ export function useLanguageSkillsForFacultyOfHumanitiesOnlyEnabled() {
 }
 
 export function useApplicationDeadlineSummerSemesterEnabled() {
-    const [semester] = useDegreeProgramProperty<Degree>('semester_dates');
+    const [semester] = useDegreeProgramProperty<MultilingualLink>('semester_dates');
 
     if (!semester) {
         return false;

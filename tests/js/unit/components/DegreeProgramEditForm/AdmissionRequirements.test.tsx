@@ -76,13 +76,13 @@ describe('Admission requirement fields', () => {
     it('should render', () => {
         render(<AdmissionRequirements />);
 
-        expect(screen.getByText('Bachelor/Lehramt')).toBeInTheDocument();
         expect(screen.getByText('Für Bachelor/Lehramt/Master')).toBeInTheDocument();
     });
 
     it('should not include conditional fields by default', () => {
         render(<AdmissionRequirements />);
 
+        expect(screen.queryByText(/Bachelor\/Lehramt[^/]/i)).toBeNull();
         expect(
             screen.queryByText(/Admission requirements for Bachelor's\/teaching degrees/i),
         ).toBeNull();

@@ -38,55 +38,60 @@ const AdmissionRequirements = () => {
 
     return (
         <>
-            <div>
-                <StyledHeading level={4}>Bachelor/Lehramt</StyledHeading>
+            {(bachelorOrTeachingEnabled || teachingDegreeHigherSemesterEnabled) && (
+                <div>
+                    <StyledHeading level={4}>Bachelor/Lehramt</StyledHeading>
 
-                <FormWrapper>
-                    {bachelorOrTeachingEnabled && (
-                        <FormFieldWrapper fill="half">
-                            <TermSelector
-                                id="bachelor_teaching_admission_requirement"
-                                label={_x(
-                                    "Admission requirements for Bachelor's/teaching degrees",
-                                    'backoffice: degree program edit form',
-                                    'fau-degree-program',
-                                )}
-                                taxonomy="bachelorOrTeachingDegreeAdmissionRequirement"
-                                value={values.admission_requirements.bachelor_or_teaching_degree.id}
-                                onChange={(term) => {
-                                    handleChange<MultilingualLink>(
-                                        'admission_requirements.bachelor_or_teaching_degree',
-                                        transformTermToMultilingualLink(term),
-                                    );
-                                }}
-                            />
-                        </FormFieldWrapper>
-                    )}
+                    <FormWrapper>
+                        {bachelorOrTeachingEnabled && (
+                            <FormFieldWrapper fill="half">
+                                <TermSelector
+                                    id="bachelor_teaching_admission_requirement"
+                                    label={_x(
+                                        "Admission requirements for Bachelor's/teaching degrees",
+                                        'backoffice: degree program edit form',
+                                        'fau-degree-program',
+                                    )}
+                                    taxonomy="bachelorOrTeachingDegreeAdmissionRequirement"
+                                    value={
+                                        values.admission_requirements.bachelor_or_teaching_degree.id
+                                    }
+                                    onChange={(term) => {
+                                        handleChange<MultilingualLink>(
+                                            'admission_requirements.bachelor_or_teaching_degree',
+                                            transformTermToMultilingualLink(term),
+                                        );
+                                    }}
+                                />
+                            </FormFieldWrapper>
+                        )}
 
-                    {teachingDegreeHigherSemesterEnabled && (
-                        <FormFieldWrapper fill="half">
-                            <TermSelector
-                                id="teaching_higher_semester_admission_requirement"
-                                label={_x(
-                                    'Admission requirements for entering a teaching degree at a higher semester',
-                                    'backoffice: degree program edit form',
-                                    'fau-degree-program',
-                                )}
-                                taxonomy="teachingDegreeHigherSemesterAdmissionRequirement"
-                                value={
-                                    values.admission_requirements.teaching_degree_higher_semester.id
-                                }
-                                onChange={(term) => {
-                                    handleChange<MultilingualLink>(
-                                        'admission_requirements.teaching_degree_higher_semester',
-                                        transformTermToMultilingualLink(term),
-                                    );
-                                }}
-                            />
-                        </FormFieldWrapper>
-                    )}
-                </FormWrapper>
-            </div>
+                        {teachingDegreeHigherSemesterEnabled && (
+                            <FormFieldWrapper fill="half">
+                                <TermSelector
+                                    id="teaching_higher_semester_admission_requirement"
+                                    label={_x(
+                                        'Admission requirements for entering a teaching degree at a higher semester',
+                                        'backoffice: degree program edit form',
+                                        'fau-degree-program',
+                                    )}
+                                    taxonomy="teachingDegreeHigherSemesterAdmissionRequirement"
+                                    value={
+                                        values.admission_requirements
+                                            .teaching_degree_higher_semester.id
+                                    }
+                                    onChange={(term) => {
+                                        handleChange<MultilingualLink>(
+                                            'admission_requirements.teaching_degree_higher_semester',
+                                            transformTermToMultilingualLink(term),
+                                        );
+                                    }}
+                                />
+                            </FormFieldWrapper>
+                        )}
+                    </FormWrapper>
+                </div>
+            )}
 
             <div>
                 <StyledHeading level={4}>Master</StyledHeading>
@@ -110,28 +115,32 @@ const AdmissionRequirements = () => {
                     />
                 )}
 
-                <BaseControl
-                    label={_x(
-                        "Content-related admission requirements for Master's degree",
-                        'backoffice: degree program edit form',
-                        'fau-degree-program',
-                    )}
-                    help="vorausgegangene Bachelorstudiengänge, Qualifikationswerte, etc."
-                >
-                    <MultilingualContainer value={values.content_related_master_requirements}>
-                        {(languageCode) => (
-                            <ContentField
-                                onChange={(value: string) => {
-                                    handleChange<string>(
-                                        `content_related_master_requirements.${languageCode}`,
-                                        value,
-                                    );
-                                }}
-                                content={values.content_related_master_requirements[languageCode]}
-                            />
+                {mastersEnabled && (
+                    <BaseControl
+                        label={_x(
+                            "Content-related admission requirements for Master's degree",
+                            'backoffice: degree program edit form',
+                            'fau-degree-program',
                         )}
-                    </MultilingualContainer>
-                </BaseControl>
+                        help="vorausgegangene Bachelorstudiengänge, Qualifikationswerte, etc."
+                    >
+                        <MultilingualContainer value={values.content_related_master_requirements}>
+                            {(languageCode) => (
+                                <ContentField
+                                    onChange={(value: string) => {
+                                        handleChange<string>(
+                                            `content_related_master_requirements.${languageCode}`,
+                                            value,
+                                        );
+                                    }}
+                                    content={
+                                        values.content_related_master_requirements[languageCode]
+                                    }
+                                />
+                            )}
+                        </MultilingualContainer>
+                    </BaseControl>
+                )}
 
                 <BaseControl
                     label={_x(

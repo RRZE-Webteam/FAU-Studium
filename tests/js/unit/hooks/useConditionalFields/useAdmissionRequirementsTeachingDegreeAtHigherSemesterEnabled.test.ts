@@ -6,13 +6,15 @@ import {
     mockAbcAdmissionRequirement,
     mockFreiAdmissionRequirement,
 } from '../../../__mocks__/admission-requirements';
-import { mockUseDegreeProgramProperty } from './__mocks';
+import { mockBachelorDegree } from '../../../__mocks__/degrees';
+import { mockDegreeAndBachelorOrTeachingAdmissionRequirements } from './__mocks';
 
 jest.mock('hooks/useDegreeProgramProperty');
 
 describe('useAdmissionRequirementsTeachingDegreeAtHigherSemesterEnabled', () => {
-    it('should return false if admission_requirements.bachelor_or_teaching_degree is undefined', () => {
-        mockUseDegreeProgramProperty.mockReturnValue([undefined, () => {}]);
+    it('should return false if degree is undefined and admission_requirements.bachelor_or_teaching_degree is undefined', () => {
+        mockDegreeAndBachelorOrTeachingAdmissionRequirements(undefined, undefined);
+
         const { result } = renderHook(() =>
             useAdmissionRequirementsTeachingDegreeAtHigherSemesterEnabled(),
         );
@@ -20,7 +22,11 @@ describe('useAdmissionRequirementsTeachingDegreeAtHigherSemesterEnabled', () => 
     });
 
     it('should return true if admission_requirements.bachelor_or_teaching_degree is not frei', () => {
-        mockUseDegreeProgramProperty.mockReturnValue([mockAbcAdmissionRequirement, () => {}]);
+        mockDegreeAndBachelorOrTeachingAdmissionRequirements(
+            mockBachelorDegree,
+            mockAbcAdmissionRequirement,
+        );
+
         const { result } = renderHook(() =>
             useAdmissionRequirementsTeachingDegreeAtHigherSemesterEnabled(),
         );
@@ -28,7 +34,11 @@ describe('useAdmissionRequirementsTeachingDegreeAtHigherSemesterEnabled', () => 
     });
 
     it('should return false if admission_requirements.bachelor_or_teaching_degree is frei', () => {
-        mockUseDegreeProgramProperty.mockReturnValue([mockFreiAdmissionRequirement, () => {}]);
+        mockDegreeAndBachelorOrTeachingAdmissionRequirements(
+            mockBachelorDegree,
+            mockFreiAdmissionRequirement,
+        );
+
         const { result } = renderHook(() =>
             useAdmissionRequirementsTeachingDegreeAtHigherSemesterEnabled(),
         );

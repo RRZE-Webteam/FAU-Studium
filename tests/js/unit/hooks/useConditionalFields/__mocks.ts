@@ -22,3 +22,20 @@ export function mockFacultyAndDegreeProgram(
         return [undefined, () => {}];
     });
 }
+
+export function mockDegreeAndBachelorOrTeachingAdmissionRequirements(
+    degree?: Degree,
+    bachelorOrTeachingAdmissionRequirement?: DegreeProgramData['admission_requirements']['bachelor_or_teaching_degree'],
+) {
+    mockUseDegreeProgramProperty.mockImplementation((path) => {
+        if (path === 'degree') {
+            return [degree, () => {}];
+        }
+
+        if (path === 'admission_requirements.bachelor_or_teaching_degree') {
+            return [bachelorOrTeachingAdmissionRequirement, () => {}];
+        }
+
+        return [undefined, () => {}];
+    });
+}
