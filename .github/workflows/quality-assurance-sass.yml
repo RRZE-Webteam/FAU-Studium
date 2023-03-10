@@ -10,6 +10,4 @@ on:
       - 'yarn.lock'
 jobs:
   static-code-analysis-sass:
-    uses: inpsyde/reusable-workflows/.github/workflows/static-analysis-sass.yml@feature/customizable-package-manager
-    with:
-      PACKAGE_MANAGER: "yarn"
+    uses: inpsyde/reusable-workflows/.github/workflows/static-analysis-sass.yml@main

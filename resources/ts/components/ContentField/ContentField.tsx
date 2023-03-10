@@ -1,4 +1,4 @@
-import React, { RefObject, useCallback, useEffect, useRef, useState } from 'react';
+import React, { RefObject, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 import {
@@ -14,7 +14,6 @@ import {
 } from '@wordpress/block-editor';
 import { parse, serialize } from '@wordpress/blocks';
 import { Popover, SlotFillProvider } from '@wordpress/components';
-import { useDebounce } from '@wordpress/compose';
 import { useDispatch } from '@wordpress/data';
 
 import useBlockEditorSettings from './useBlockEditorSettings';
@@ -71,12 +70,12 @@ const ContentField = ({ content, onChange }: ContentFieldProps) => {
      * i.e., when the user switches to another block.
      * To prevent incomplete persisting, we have to serialize the blocks `onInput`.
      * But since the callback runs on every attribute change,
-     * the debounced version of the function is used to improve performance.
+     * a debounced version of the function for improved performance existed but was removed due to issues.
+     * TODO: Bring back performance considerations using a debounced update
      */
-    const updateValue = useCallback((blocks) => {
+    const updateValue = (blocks) => {
         onChange(serialize(blocks));
-    }, []);
-    const updateValueDebounced = useDebounce(updateValue, 500);
+    };
 
     const settings = useBlockEditorSettings();
 
@@ -85,7 +84,7 @@ const ContentField = ({ content, onChange }: ContentFieldProps) => {
             value={currentBlocks}
             onInput={(blocks) => {
                 setCurrentBlocks(blocks);
-                updateValueDebounced(blocks);
+                updateValue(blocks);
             }}
             onChange={(blocks) => {
                 setCurrentBlocks(blocks);
@@ -116,7 +115,4 @@ const ContentField = ({ content, onChange }: ContentFieldProps) => {
     );
 };
 
-export default React.memo(
-    ContentField,
-    (prevProps, nextProps) => prevProps.content === nextProps.content,
-);
+export default ContentField;

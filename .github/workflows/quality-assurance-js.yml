@@ -14,14 +14,11 @@ on:
       - 'quality-assurance-js.yml'
 jobs:
   static-code-analysis-js:
-    uses: inpsyde/reusable-workflows/.github/workflows/static-analysis-js.yml@feature/customizable-package-manager
-    with:
-      PACKAGE_MANAGER: "yarn"
+    uses: inpsyde/reusable-workflows/.github/workflows/static-analysis-js.yml@main
 
   tests-unit-js:
-    uses: inpsyde/reusable-workflows/.github/workflows/tests-unit-js.yml@feature/customizable-package-manager
+    uses: inpsyde/reusable-workflows/.github/workflows/tests-unit-js.yml@main
     with:
-      PACKAGE_MANAGER: "yarn"
       JEST_ARGS: '--reporters=default --reporters=github-actions --no-coverage'
 
   check-types-ts:
