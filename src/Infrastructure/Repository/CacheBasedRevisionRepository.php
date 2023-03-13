@@ -75,7 +75,11 @@ final class CacheBasedRevisionRepository implements DegreeProgramRevisionReposit
     {
         /** @var array<int, DegreeProgramRevision|null> $cache */
         static $cache = [];
-        if (array_key_exists($revisionId->asInt(), $cache)) {
+        if (
+            array_key_exists($revisionId->asInt(), $cache)
+            // Original post can be changed several times during request
+            && !self::isParentPost($revisionId->asInt())
+        ) {
             return $cache[$revisionId->asInt()];
         }
 
@@ -270,5 +274,15 @@ final class CacheBasedRevisionRepository implements DegreeProgramRevisionReposit
         }
 
         return (string) get_post_meta($postId, DegreeProgramRevision::STATUS, true);
+    }
+
+    private static function isParentPost(int $postId): bool
+    {
+        $post = get_post($postId);
+        if (!$post instanceof WP_Post) {
+            return false;
+        }
+
+        return $post->post_parent === 0;
     }
 }
