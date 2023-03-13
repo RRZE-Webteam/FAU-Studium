@@ -1,12 +1,13 @@
 import { DegreeAbbreviationEnglish } from './degree-program-data';
 import { DegreeProgramEditorServerDataType } from './server-data';
 
-export interface WpTerm<Meta extends Record<string, string> = never> {
+export interface WpTerm<Meta extends Record<string, string> = never, ParentType = never> {
     id: number;
     description: string;
     name: string;
     slug: string;
     taxonomy: string;
+    parent_object?: ParentType;
     meta: [Meta] extends [never] ? object : Meta;
 }
 

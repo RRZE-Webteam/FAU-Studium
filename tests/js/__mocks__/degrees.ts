@@ -14,6 +14,7 @@ export const mockBachelorDegree: Degree = {
         en: 'Bachelor',
         de: 'Bachelor',
     },
+    parent: null,
 };
 
 export const mockTeachingDegree: Degree = {
@@ -28,6 +29,7 @@ export const mockTeachingDegree: Degree = {
         de: 'Lehramt',
         en: 'Teaching Degree',
     },
+    parent: null,
 };
 
 export const mockMastersDegree: Degree = {
@@ -42,4 +44,5 @@ export const mockMastersDegree: Degree = {
         de: 'Master',
         en: 'Masters',
     },
+    parent: null,
 };

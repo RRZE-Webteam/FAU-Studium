@@ -34,9 +34,9 @@ export interface DegreeProgramData {
         testimonials: ContentItem;
     };
     admission_requirements: {
-        bachelor_or_teaching_degree: MultilingualLink;
-        teaching_degree_higher_semester: MultilingualLink;
-        master: MultilingualLink;
+        bachelor_or_teaching_degree: AdmissionRequirement;
+        teaching_degree_higher_semester: AdmissionRequirement;
+        master: AdmissionRequirement;
     };
     content_related_master_requirements: MultilingualString;
     application_deadline_winter_semester: string;
@@ -89,6 +89,7 @@ export interface Degree {
     id: string;
     name: MultilingualString;
     abbreviation: DegreeProgramAbbreviation;
+    parent: Degree | null;
 }
 
 export type Image = {
@@ -118,4 +119,8 @@ export type DegreeProgramDataPaths = Paths<DegreeProgramData, 3>;
 
 export interface DegreeProgramPost extends Post {
     degree_program: DegreeProgramData;
+}
+
+export interface AdmissionRequirement extends MultilingualLink {
+    parent: AdmissionRequirement | null;
 }

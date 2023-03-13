@@ -66,6 +66,9 @@ class RepositoryModule implements ServiceModule
             RevisionNotificationRepository::class => static fn() => new WordPressRevisionNotificationRepository(),
             RevisionMetaRepository::class => static fn() => new RevisionMetaRepository(),
             WorkflowAuthorsRepository::class => static fn() => new WorkflowAuthorsRepository(),
+            TermsRepository::class => static fn(ContainerInterface $container) => new TermsRepository(
+                $container->get(IdGenerator::class),
+            ),
         ];
     }
 }

@@ -18,6 +18,7 @@ export const mockFreiAdmissionRequirement: DegreeProgramData['admission_requirem
             de: 'frei',
             en: 'frei',
         },
+        parent: null,
     };
 
 export const mockAbcAdmissionRequirement: DegreeProgramData['admission_requirements']['bachelor_or_teaching_degree'] =
@@ -38,4 +39,5 @@ export const mockAbcAdmissionRequirement: DegreeProgramData['admission_requireme
             de: 'abc',
             en: 'abc',
         },
+        parent: null,
     };

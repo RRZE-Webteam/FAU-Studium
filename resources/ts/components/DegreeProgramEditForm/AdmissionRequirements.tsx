@@ -15,7 +15,10 @@ import {
     useApplicationDeadlineSummerSemesterEnabled,
     useLanguageSkillsForFacultyOfHumanitiesOnlyEnabled,
 } from 'hooks/useConditionalFields';
-import { transformTermToMultilingualLink } from 'util/transforms';
+import {
+    transformTermToAdmissionRequirement,
+    transformTermToMultilingualLink,
+} from 'util/transforms';
 
 import ContentField from '../ContentField';
 import MultilingualContainer from './MultilingualContainer';
@@ -59,7 +62,7 @@ const AdmissionRequirements = () => {
                                     onChange={(term) => {
                                         handleChange<MultilingualLink>(
                                             'admission_requirements.bachelor_or_teaching_degree',
-                                            transformTermToMultilingualLink(term),
+                                            transformTermToAdmissionRequirement(term),
                                         );
                                     }}
                                 />
@@ -83,7 +86,7 @@ const AdmissionRequirements = () => {
                                     onChange={(term) => {
                                         handleChange<MultilingualLink>(
                                             'admission_requirements.teaching_degree_higher_semester',
-                                            transformTermToMultilingualLink(term),
+                                            transformTermToAdmissionRequirement(term),
                                         );
                                     }}
                                 />
@@ -109,7 +112,7 @@ const AdmissionRequirements = () => {
                         onChange={(term) => {
                             handleChange<MultilingualLink>(
                                 'admission_requirements.master',
-                                transformTermToMultilingualLink(term),
+                                transformTermToAdmissionRequirement(term),
                             );
                         }}
                     />

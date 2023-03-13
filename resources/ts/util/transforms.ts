@@ -1,6 +1,7 @@
 import { propertyId } from './idHelpers';
 
 import {
+    AdmissionRequirement,
     Degree,
     DegreeAbbreviationEnglish,
     DegreeAbbreviationGerman,
@@ -27,8 +28,8 @@ export function transformTermToMultilingualString(
         : { ...EMPTY_MULTILINGUAL_STRING };
 }
 
-export function transformTermToMultilingualLink(
-    term: WpTerm<MultilingualLinkMeta> | null,
+export function transformTermToMultilingualLink<ParentType = never>(
+    term: WpTerm<MultilingualLinkMeta, ParentType> | null,
 ): MultilingualLink {
     return term
         ? {
@@ -58,11 +59,14 @@ export function transformTermToMultilingualLink(
 }
 
 export function transformTermToDegree(
-    term: WpTerm<{
-        name_en: string;
-        abbreviation: DegreeAbbreviationGerman;
-        abbreviation_en: DegreeAbbreviationEnglish;
-    }> | null,
+    term: WpTerm<
+        {
+            name_en: string;
+            abbreviation: DegreeAbbreviationGerman;
+            abbreviation_en: DegreeAbbreviationEnglish;
+        },
+        Degree
+    > | null,
 ): Degree {
     return term
         ? {
@@ -77,10 +81,26 @@ export function transformTermToDegree(
                   de: term.name,
                   en: term.meta.name_en ?? '',
               },
+              parent: term.parent_object ?? null,
           }
         : {
               id: '',
               abbreviation: { ...EMPTY_MULTILINGUAL_STRING },
               name: { ...EMPTY_MULTILINGUAL_STRING },
+              parent: null,
           };
+}
+
+export function transformTermToAdmissionRequirement(
+    term: WpTerm<MultilingualLinkMeta, AdmissionRequirement> | null,
+): AdmissionRequirement {
+    const admissionRequirement = transformTermToMultilingualLink(term) as AdmissionRequirement;
+
+    if (!term) {
+        return admissionRequirement;
+    }
+
+    admissionRequirement.parent = term.parent_object ?? null;
+
+    return admissionRequirement;
 }
