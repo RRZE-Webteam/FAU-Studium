@@ -2,6 +2,7 @@ import React from 'react';
 
 import { BaseControl } from '@wordpress/components';
 import { createHigherOrderComponent } from '@wordpress/compose';
+import { decodeEntities } from '@wordpress/html-entities';
 
 import { SelectorProps } from '../defs';
 
@@ -13,7 +14,7 @@ const withTermSelectorProps = createHigherOrderComponent(
             return (
                 <BaseControl id={id} help={help ?? ''}>
                     <WrappedComponent
-                        entityToToken={(term: WpTerm) => term.name}
+                        entityToToken={(term: WpTerm) => decodeEntities(term.name)}
                         maxSuggestions={20}
                         {...others}
                     />

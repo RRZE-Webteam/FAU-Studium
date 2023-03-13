@@ -3320,6 +3320,13 @@
   dependencies:
     "@babel/runtime" "^7.16.0"
 
+"@wordpress/html-entities@^3.28.0":
+  version "3.28.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/html-entities/-/html-entities-3.28.0.tgz#7207f7b33988f070904bf0462c25d00d0fdcda47"
+  integrity sha512-UAaU6au8UTrSkowkV33pE/EvdPov2mA9W51vh6t88KsJPzt4171EzIchGnQuzt04HuZLdLyWy2A+7JCOSbfhBA==
+  dependencies:
+    "@babel/runtime" "^7.16.0"
+
 "@wordpress/i18n@^4.17.1", "@wordpress/i18n@^4.20.0", "@wordpress/i18n@^4.22.0", "@wordpress/i18n@^4.24.0":
   version "4.24.0"
   resolved "https://registry.yarnpkg.com/@wordpress/i18n/-/i18n-4.24.0.tgz#128cca5ecb6e928a41f1d7d8b0c9a3c4ac8df0ee"

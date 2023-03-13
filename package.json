@@ -64,6 +64,7 @@
     "@wordpress/dom-ready": "^3.17.1",
     "@wordpress/editor": "^13.1.0",
     "@wordpress/hooks": "^3.24.0",
+    "@wordpress/html-entities": "^3.28.0",
     "@wordpress/i18n": "^4.17.1",
     "@wordpress/media-utils": "^4.15.0",
     "@wordpress/rich-text": "^6.2.0",

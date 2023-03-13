@@ -3,6 +3,7 @@ import { Immutable } from 'immer';
 
 import { compose, createHigherOrderComponent } from '@wordpress/compose';
 import { Post } from '@wordpress/core-data';
+import { decodeEntities } from '@wordpress/html-entities';
 
 import { DegreeProgramPost } from '../../defs/degree-program-data';
 import { EntitySelectorProps } from '../../defs/entity-selector';
@@ -19,7 +20,9 @@ const withRelatedDegreeProgramProps = createHigherOrderComponent(
         ({ setRelatedDegreePrograms, ...others }: RelatedDegreeProgramsProps) => {
             return (
                 <WrappedComponent
-                    entityToToken={(post: DegreeProgramPost) => post.degree_program.title.de}
+                    entityToToken={(post: DegreeProgramPost) =>
+                        decodeEntities(post.degree_program.title.de)
+                    }
                     onChange={(posts: Array<Post>) => {
                         setRelatedDegreePrograms(posts.map((post) => post.id));
                     }}
