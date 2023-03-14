@@ -31,7 +31,7 @@ exports[`Admission requirement fields should match snapshot 1`] = `
         htmlFor="foo"
       >
         <span>
-          Admission requirements for Bachelor's/teaching degrees
+          Admission requirements for Bachelor's/teaching degrees 
         </span>
         <input
           aria-labelledby="foo"
@@ -50,7 +50,7 @@ exports[`Admission requirement fields should match snapshot 1`] = `
         htmlFor="foo"
       >
         <span>
-          Admission requirements for entering a teaching degree at a higher semester
+          Admission requirements for entering a teaching degree at a higher semester 
         </span>
         <input
           aria-labelledby="foo"
@@ -235,7 +235,7 @@ exports[`Admission requirement fields should match snapshot 1`] = `
         <span
           className="components-base-control__label css-1bhsfm8-StyledVisualLabel-baseLabelTypography-labelStyles ej5x27r0"
         >
-          Language skills for Faculty of Humanities, Social Sciences, and Theology only
+          Language skills for Faculty of Humanities, Social Sciences, and Theology only 
         </span>
       </div>
       <p

@@ -1,6 +1,7 @@
 import { useFacultyTerms } from 'hooks/useTaxonomyTerm';
 
 import {
+    ADDITIONAL_DEGREE_NAME,
     ADMISSION_REQUIREMENT_FREE,
     FACULTY_NATURAL_SCIENCES,
     FACULTY_PHILOSOPHY,
@@ -8,16 +9,28 @@ import {
 } from './constants';
 import useDegreeProgramProperty from './useDegreeProgramProperty';
 
-import {
-    AdmissionRequirement,
-    Degree,
-    DEGREE_ABBREVIATION_GERMAN,
-    DegreeAbbreviationGerman,
-    MultilingualLink,
-    MultilingualString,
-} from 'defs';
+import { AdmissionRequirement, Degree, DEGREE_ABBREVIATION_GERMAN, MultilingualString } from 'defs';
 
 const ALLOWED_FACULTY_SLUGS_FOR_COMBINATION = [FACULTY_PHILOSOPHY, FACULTY_NATURAL_SCIENCES];
+
+function isBachelorContext(degree: Degree): boolean {
+    const parentDegree = degree.parent?.abbreviation?.de ?? '';
+
+    return (
+        degree.abbreviation.de === DEGREE_ABBREVIATION_GERMAN.BACHELOR ||
+        parentDegree === DEGREE_ABBREVIATION_GERMAN.BACHELOR ||
+        degree.name.de === ADDITIONAL_DEGREE_NAME
+    );
+}
+
+function isTeachingDegreeContext(degree: Degree): boolean {
+    const parentDegree = degree.parent?.abbreviation?.de ?? '';
+
+    return (
+        degree.abbreviation.de === DEGREE_ABBREVIATION_GERMAN.TEACHING_DEGREE ||
+        parentDegree === DEGREE_ABBREVIATION_GERMAN.TEACHING_DEGREE
+    );
+}
 
 export function useDegreeFeesEnabled() {
     const [feeRequired] = useDegreeProgramProperty<boolean>('fee_required');
@@ -33,14 +46,10 @@ export function useCombinationOfDegreeProgramEnabled() {
         return false;
     }
 
-    const parentDegree = degree.parent?.abbreviation?.de ?? '';
-
     return (
         !!facultyTerms.find((facultyItem) =>
             ALLOWED_FACULTY_SLUGS_FOR_COMBINATION.includes(facultyItem.slug),
-        ) &&
-        (degree.abbreviation.de === DEGREE_ABBREVIATION_GERMAN.BACHELOR ||
-            parentDegree === DEGREE_ABBREVIATION_GERMAN.BACHELOR)
+        ) && isBachelorContext(degree)
     );
 }
 
@@ -51,15 +60,7 @@ export function useAdmissionRequirementsForBachelorAndTeachingDegreesEnable() {
         return false;
     }
 
-    const acceptedDegrees: DegreeAbbreviationGerman[] = [
-        DEGREE_ABBREVIATION_GERMAN.BACHELOR,
-        DEGREE_ABBREVIATION_GERMAN.TEACHING_DEGREE,
-    ];
-    const parentDegree = degree.parent?.abbreviation?.de ?? '';
-
-    return (
-        acceptedDegrees.includes(degree.abbreviation.de) || acceptedDegrees.includes(parentDegree)
-    );
+    return isBachelorContext(degree) || isTeachingDegreeContext(degree);
 }
 
 export function useAdmissionRequirementsTeachingDegreeAtHigherSemesterEnabled() {
@@ -100,15 +101,8 @@ export function useLanguageSkillsForFacultyOfHumanitiesOnlyEnabled() {
         return false;
     }
 
-    const acceptedDegrees: DegreeAbbreviationGerman[] = [
-        DEGREE_ABBREVIATION_GERMAN.BACHELOR,
-        DEGREE_ABBREVIATION_GERMAN.TEACHING_DEGREE,
-    ];
-    const parentDegree = degree.parent?.abbreviation?.de ?? '';
-
     return (
-        (acceptedDegrees.includes(degree.abbreviation.de) ||
-            acceptedDegrees.includes(parentDegree)) &&
+        (isBachelorContext(degree) || isTeachingDegreeContext(degree)) &&
         !!facultyTerms.find((facultyItem) => facultyItem.slug === FACULTY_PHILOSOPHY)
     );
 }

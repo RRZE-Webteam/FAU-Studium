@@ -61,6 +61,19 @@ jest.mock('contexts/DegreeProgramEditFormProvider', () => ({
             german_language_skills_for_international_students: {
                 id: '',
             },
+            degree: {
+                id: '',
+                name: {
+                    id: '',
+                    de: '',
+                    en: '',
+                },
+                abbreviation: {
+                    id: '',
+                    de: '',
+                    en: '',
+                },
+            },
             language_skills_humanities_faculty: '',
             application_deadline_winter_semester: '',
         },
