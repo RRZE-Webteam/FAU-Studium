@@ -2,7 +2,6 @@ import React, { RefObject, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 import {
-    BlockBreadcrumb,
     BlockEditorKeyboardShortcuts,
     BlockEditorProvider,
     BlockList,
@@ -26,7 +25,6 @@ interface ContentFieldProps {
 
 const StyledEditorWrapper = styled.div`
     margin: 0 0 12px !important;
-    padding-top: 34px !important;
 
     .content-field-blocks-list {
         border: 1px solid #757575;
@@ -106,8 +104,6 @@ const ContentField = ({ content, onChange }: ContentFieldProps) => {
                             </ObserveTyping>
                         </WritingFlow>
                     </BlockTools>
-
-                    <BlockBreadcrumb />
                 </StyledEditorWrapper>
                 <Popover.Slot />
             </SlotFillProvider>

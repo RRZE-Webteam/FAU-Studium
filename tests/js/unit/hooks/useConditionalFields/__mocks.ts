@@ -1,10 +1,22 @@
 import useDegreeProgramProperty from 'hooks/useDegreeProgramProperty';
+import * as useTaxonomyTerm from 'hooks/useTaxonomyTerm';
 
-import { Degree, DegreeProgramData } from 'defs';
+import { Degree, DegreeProgramData, WpTerm } from 'defs';
 
 export const mockUseDegreeProgramProperty = useDegreeProgramProperty as jest.MockedFunction<
     typeof useDegreeProgramProperty
 >;
+
+const mockedFacultySlug = (name: string) => {
+    if (name.match(/phil/i)) {
+        return 'phil';
+    }
+    if (name.match(/nat/i)) {
+        return 'nat';
+    }
+
+    return '';
+};
 
 export function mockFacultyAndDegreeProgram(
     faculty?: DegreeProgramData['faculty'],
@@ -21,6 +33,16 @@ export function mockFacultyAndDegreeProgram(
 
         return [undefined, () => {}];
     });
+
+    jest.spyOn(
+        useTaxonomyTerm,
+        'useFacultyTerms' as keyof typeof useTaxonomyTerm,
+    ).mockImplementation(
+        () =>
+            faculty?.map((facultyItem) => {
+                return { slug: mockedFacultySlug(facultyItem.name.de) } as WpTerm;
+            }) ?? [],
+    );
 }
 
 export function mockDegreeAndBachelorOrTeachingAdmissionRequirements(

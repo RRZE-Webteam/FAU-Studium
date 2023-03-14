@@ -1,3 +1,5 @@
+import { useFacultyTerms } from 'hooks/useTaxonomyTerm';
+
 import {
     ADMISSION_REQUIREMENT_FREE,
     FACULTY_NATURAL_SCIENCES,
@@ -15,7 +17,7 @@ import {
     MultilingualString,
 } from 'defs';
 
-const ALLOWED_FACULTIES_FOR_COMBINATION = [FACULTY_PHILOSOPHY, FACULTY_NATURAL_SCIENCES];
+const ALLOWED_FACULTY_SLUGS_FOR_COMBINATION = [FACULTY_PHILOSOPHY, FACULTY_NATURAL_SCIENCES];
 
 export function useDegreeFeesEnabled() {
     const [feeRequired] = useDegreeProgramProperty<boolean>('fee_required');
@@ -24,18 +26,18 @@ export function useDegreeFeesEnabled() {
 }
 
 export function useCombinationOfDegreeProgramEnabled() {
-    const [faculty] = useDegreeProgramProperty<MultilingualLink[]>('faculty');
+    const facultyTerms = useFacultyTerms();
     const [degree] = useDegreeProgramProperty<Degree>('degree');
 
-    if (!faculty || !degree) {
+    if (!facultyTerms.length || !degree) {
         return false;
     }
 
     const parentDegree = degree.parent?.abbreviation?.de ?? '';
 
     return (
-        !!faculty.find((facultyItem) =>
-            ALLOWED_FACULTIES_FOR_COMBINATION.includes(facultyItem.name.de),
+        !!facultyTerms.find((facultyItem) =>
+            ALLOWED_FACULTY_SLUGS_FOR_COMBINATION.includes(facultyItem.slug),
         ) &&
         (degree.abbreviation.de === DEGREE_ABBREVIATION_GERMAN.BACHELOR ||
             parentDegree === DEGREE_ABBREVIATION_GERMAN.BACHELOR)
@@ -92,9 +94,9 @@ export function useAdmissionRequirementsForMastersDegree() {
 
 export function useLanguageSkillsForFacultyOfHumanitiesOnlyEnabled() {
     const [degree] = useDegreeProgramProperty<Degree>('degree');
-    const [faculty] = useDegreeProgramProperty<MultilingualLink[]>('faculty');
+    const facultyTerms = useFacultyTerms();
 
-    if (!degree || !faculty) {
+    if (!degree || !facultyTerms.length) {
         return false;
     }
 
@@ -107,7 +109,7 @@ export function useLanguageSkillsForFacultyOfHumanitiesOnlyEnabled() {
     return (
         (acceptedDegrees.includes(degree.abbreviation.de) ||
             acceptedDegrees.includes(parentDegree)) &&
-        !!faculty.find((facultyItem) => facultyItem.name.de === FACULTY_PHILOSOPHY)
+        !!facultyTerms.find((facultyItem) => facultyItem.slug === FACULTY_PHILOSOPHY)
     );
 }
 

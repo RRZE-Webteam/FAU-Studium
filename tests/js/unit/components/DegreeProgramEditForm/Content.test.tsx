@@ -48,6 +48,8 @@ jest.mock(
         )),
         Panel: jest.fn(({ children }) => <>{children}</>),
         PanelBody: jest.fn(({ children }) => <>{children}</>),
+        FlexItem: jest.fn(({ children }) => <>{children}</>),
+        Flex: jest.fn(({ children }) => <>{children}</>),
     })),
 );
 

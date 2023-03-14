@@ -1,10 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
 
-import { __experimentalHeading as Heading, BaseControl } from '@wordpress/components';
+import { BaseControl } from '@wordpress/components';
 import { _x } from '@wordpress/i18n';
 
 import FormFieldWrapper from 'components/Layouts/FormFieldWrapper';
+import FormSubHeading from 'components/Layouts/FormSubHeading';
 import FormWrapper from 'components/Layouts/FormWrapper';
 import TermSelector from 'components/TermSelector';
 import { useEditDegreeProgram } from 'contexts/DegreeProgramEditFormProvider';
@@ -25,10 +25,6 @@ import MultilingualContainer from './MultilingualContainer';
 
 import { MultilingualLink } from 'defs';
 
-const StyledHeading = styled(Heading)`
-    margin-bottom: 12px;
-`;
-
 const AdmissionRequirements = () => {
     const { values, handleChange } = useEditDegreeProgram();
     const bachelorOrTeachingEnabled = useAdmissionRequirementsForBachelorAndTeachingDegreesEnable();
@@ -40,66 +36,60 @@ const AdmissionRequirements = () => {
     const applicationSummerDeadlineEnabled = useApplicationDeadlineSummerSemesterEnabled();
 
     return (
-        <>
+        <FormWrapper>
             {(bachelorOrTeachingEnabled || teachingDegreeHigherSemesterEnabled) && (
-                <div>
-                    <StyledHeading level={4}>Bachelor/Lehramt</StyledHeading>
+                <>
+                    <FormSubHeading>Bachelor/Lehramt</FormSubHeading>
 
-                    <FormWrapper>
-                        {bachelorOrTeachingEnabled && (
-                            <FormFieldWrapper fill="half">
-                                <TermSelector
-                                    id="bachelor_teaching_admission_requirement"
-                                    label={_x(
-                                        "Admission requirements for Bachelor's/teaching degrees",
-                                        'backoffice: degree program edit form',
-                                        'fau-degree-program',
-                                    )}
-                                    taxonomy="bachelorOrTeachingDegreeAdmissionRequirement"
-                                    value={
-                                        values.admission_requirements.bachelor_or_teaching_degree.id
-                                    }
-                                    onChange={(term) => {
-                                        handleChange<MultilingualLink>(
-                                            'admission_requirements.bachelor_or_teaching_degree',
-                                            transformTermToAdmissionRequirement(term),
-                                        );
-                                    }}
-                                />
-                            </FormFieldWrapper>
-                        )}
+                    {bachelorOrTeachingEnabled && (
+                        <FormFieldWrapper fill="half">
+                            <TermSelector
+                                id="bachelor_teaching_admission_requirement"
+                                label={_x(
+                                    "Admission requirements for Bachelor's/teaching degrees",
+                                    'backoffice: degree program edit form',
+                                    'fau-degree-program',
+                                )}
+                                taxonomy="bachelorOrTeachingDegreeAdmissionRequirement"
+                                value={values.admission_requirements.bachelor_or_teaching_degree.id}
+                                onChange={(term) => {
+                                    handleChange<MultilingualLink>(
+                                        'admission_requirements.bachelor_or_teaching_degree',
+                                        transformTermToAdmissionRequirement(term),
+                                    );
+                                }}
+                            />
+                        </FormFieldWrapper>
+                    )}
 
-                        {teachingDegreeHigherSemesterEnabled && (
-                            <FormFieldWrapper fill="half">
-                                <TermSelector
-                                    id="teaching_higher_semester_admission_requirement"
-                                    label={_x(
-                                        'Admission requirements for entering a teaching degree at a higher semester',
-                                        'backoffice: degree program edit form',
-                                        'fau-degree-program',
-                                    )}
-                                    taxonomy="teachingDegreeHigherSemesterAdmissionRequirement"
-                                    value={
-                                        values.admission_requirements
-                                            .teaching_degree_higher_semester.id
-                                    }
-                                    onChange={(term) => {
-                                        handleChange<MultilingualLink>(
-                                            'admission_requirements.teaching_degree_higher_semester',
-                                            transformTermToAdmissionRequirement(term),
-                                        );
-                                    }}
-                                />
-                            </FormFieldWrapper>
-                        )}
-                    </FormWrapper>
-                </div>
+                    {teachingDegreeHigherSemesterEnabled && (
+                        <FormFieldWrapper fill="half">
+                            <TermSelector
+                                id="teaching_higher_semester_admission_requirement"
+                                label={_x(
+                                    'Admission requirements for entering a teaching degree at a higher semester',
+                                    'backoffice: degree program edit form',
+                                    'fau-degree-program',
+                                )}
+                                taxonomy="teachingDegreeHigherSemesterAdmissionRequirement"
+                                value={
+                                    values.admission_requirements.teaching_degree_higher_semester.id
+                                }
+                                onChange={(term) => {
+                                    handleChange<MultilingualLink>(
+                                        'admission_requirements.teaching_degree_higher_semester',
+                                        transformTermToAdmissionRequirement(term),
+                                    );
+                                }}
+                            />
+                        </FormFieldWrapper>
+                    )}
+                </>
             )}
 
-            <div>
-                <StyledHeading level={4}>Master</StyledHeading>
-
-                {mastersEnabled && (
+            <FormSubHeading>Master</FormSubHeading>
+            {mastersEnabled && (
+                <FormFieldWrapper>
                     <TermSelector
                         id="master_admission_requirement"
                         label={_x(
@@ -116,9 +106,11 @@ const AdmissionRequirements = () => {
                             );
                         }}
                     />
-                )}
+                </FormFieldWrapper>
+            )}
 
-                {mastersEnabled && (
+            {mastersEnabled && (
+                <FormFieldWrapper>
                     <BaseControl
                         label={_x(
                             "Content-related admission requirements for Master's degree",
@@ -143,8 +135,10 @@ const AdmissionRequirements = () => {
                             )}
                         </MultilingualContainer>
                     </BaseControl>
-                )}
+                </FormFieldWrapper>
+            )}
 
+            <FormFieldWrapper>
                 <BaseControl
                     label={_x(
                         'Application deadline winter semester',
@@ -159,8 +153,10 @@ const AdmissionRequirements = () => {
                         content={values.application_deadline_winter_semester}
                     />
                 </BaseControl>
+            </FormFieldWrapper>
 
-                {applicationSummerDeadlineEnabled && (
+            {applicationSummerDeadlineEnabled && (
+                <FormFieldWrapper>
                     <BaseControl
                         label={_x(
                             'Application deadline summer semester',
@@ -175,12 +171,11 @@ const AdmissionRequirements = () => {
                             content={values.application_deadline_summer_semester}
                         />
                     </BaseControl>
-                )}
-            </div>
+                </FormFieldWrapper>
+            )}
 
-            <div>
-                <StyledHeading level={4}>Für Bachelor/Lehramt/Master</StyledHeading>
-
+            <FormSubHeading>Für Bachelor/Lehramt/Master</FormSubHeading>
+            <FormFieldWrapper>
                 <BaseControl
                     label={_x(
                         'Details and notes',
@@ -203,7 +198,9 @@ const AdmissionRequirements = () => {
                         )}
                     </MultilingualContainer>
                 </BaseControl>
+            </FormFieldWrapper>
 
+            <FormFieldWrapper>
                 <BaseControl
                     label={_x(
                         'Language skills',
@@ -223,8 +220,10 @@ const AdmissionRequirements = () => {
                         )}
                     </MultilingualContainer>
                 </BaseControl>
+            </FormFieldWrapper>
 
-                {humanitiesFacultyLanguageSkillsEnabled && (
+            {humanitiesFacultyLanguageSkillsEnabled && (
+                <FormFieldWrapper>
                     <BaseControl
                         label={_x(
                             'Language skills for Faculty of Humanities, Social Sciences, and Theology only',
@@ -240,8 +239,10 @@ const AdmissionRequirements = () => {
                             content={values.language_skills_humanities_faculty}
                         />
                     </BaseControl>
-                )}
+                </FormFieldWrapper>
+            )}
 
+            <FormFieldWrapper>
                 <TermSelector
                     id="german_language_skills_for_international_students"
                     label={_x(
@@ -258,8 +259,8 @@ const AdmissionRequirements = () => {
                         );
                     }}
                 />
-            </div>
-        </>
+            </FormFieldWrapper>
+        </FormWrapper>
     );
 };
 
