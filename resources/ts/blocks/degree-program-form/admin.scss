@@ -2,6 +2,11 @@
   box-sizing: border-box;
 }
 
+// Hide "Details" icon in the edit post header
+.edit-post-header-toolbar__left .components-dropdown.table-of-contents {
+  display: none;
+}
+
 .editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper > :where(:not(.alignleft):not(.alignright):not(.alignfull)),
 .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
   max-width: none !important;
