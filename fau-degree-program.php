@@ -36,6 +36,7 @@ use Fau\DegreeProgram\Infrastructure\EventDispatcherModule;
 use Fau\DegreeProgram\Infrastructure\Migration\MigrationModule;
 use Fau\DegreeProgram\Infrastructure\QueueModule;
 use Fau\DegreeProgram\Infrastructure\LoggerModule;
+use Fau\DegreeProgram\Infrastructure\Patches\PatchesModule;
 use Fau\DegreeProgram\Infrastructure\Repository\RepositoryModule;
 use Fau\DegreeProgram\Infrastructure\RestApi\RestApiModule;
 use Fau\DegreeProgram\Infrastructure\Revision\Notification\RevisionNotificationModule;
@@ -149,6 +150,7 @@ function initialize(): void
             new AuthorizationModule(),
             new MigrationModule(),
             new RevisionNotificationModule(),
+            new PatchesModule(),
         );
     } catch (Throwable $throwable) {
         handleException($throwable);
