@@ -16,12 +16,6 @@ const withSearchedDegreeProgramPosts = withSelect(
         const [search, setSearch] = useState('');
         const { getCurrentPost } = select(editorStore.name);
         const { getEntityRecords } = select(coreStore.name);
-        if (search.length === 0) {
-            return {
-                searchedEntities: [],
-                setSearch,
-            };
-        }
 
         const currentPost = getCurrentPost();
 

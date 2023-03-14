@@ -26,7 +26,7 @@ const withRelatedDegreeProgramProps = createHigherOrderComponent(
                     onChange={(posts: Array<Post>) => {
                         setRelatedDegreePrograms(posts.map((post) => post.id));
                     }}
-                    maxSuggestions={20}
+                    maxSuggestions={100}
                     {...others}
                 />
             );

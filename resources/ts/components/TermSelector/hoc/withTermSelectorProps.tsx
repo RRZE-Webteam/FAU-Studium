@@ -15,7 +15,7 @@ const withTermSelectorProps = createHigherOrderComponent(
                 <BaseControl id={id} help={help ?? ''}>
                     <WrappedComponent
                         entityToToken={(term: WpTerm) => decodeEntities(term.name)}
-                        maxSuggestions={20}
+                        maxSuggestions={100}
                         {...others}
                     />
                 </BaseControl>
