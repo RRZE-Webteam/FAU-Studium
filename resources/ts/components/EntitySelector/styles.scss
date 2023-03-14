@@ -1,31 +1,39 @@
-.components-form-token-field__input-container {
-  & > .components-flex {
-    position: relative;
+.entity-selector {
+  position: relative;
 
-    &::after {
-      content: '\f140';
-      font-family: dashicons;
-      display: inline-block;
-      line-height: 1;
-      font-weight: 400;
-      font-style: normal;
-      position: absolute;
-      top: 50%;
-      right: 5px;
-      font-size: 16px;
-      transform: translateY(-50%);
+  .components-form-token-field__input-container {
+    & > .components-flex {
+      position: relative;
+
+      &::after {
+        content: '\f140';
+        font-family: dashicons;
+        display: inline-block;
+        line-height: 1;
+        font-weight: 400;
+        font-style: normal;
+        position: absolute;
+        top: 50%;
+        right: 5px;
+        font-size: 16px;
+        transform: translateY(-50%);
+      }
+    }
+
+    &.is-active > .components-flex::after {
+      transform: translateY(-50%) scaleY(-1);
     }
   }
 
-  &.is-active > .components-flex::after {
-    transform: translateY(-50%) scaleY(-1);
+  &__max-items-notice {
+    position: absolute;
+    width: 100%;
+    bottom: -40px;
+    z-index: 10;
+    margin: 0;
+    background: #fff8ea;
+    padding: 6px;
+    border-radius: 2px;
+    color: #9b7937;
   }
-}
-
-.entity-selector--max-items-notice {
-  margin: 0;
-  background: #fff8ea;
-  padding: 6px;
-  border-radius: 2px;
-  color: #9b7937;
 }

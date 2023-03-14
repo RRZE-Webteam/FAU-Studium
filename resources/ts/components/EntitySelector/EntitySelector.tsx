@@ -26,6 +26,7 @@ export default function EntitySelector({
     searchedEntities,
     setSearch,
 }: EntitySelectorProps) {
+    const [isFocused, setIsFocused] = useState<boolean>(false);
     const [values, setValues] = useState<Array<string>>([]);
     const debouncedSearch = useDebounce(setSearch, 500);
 
@@ -62,23 +63,29 @@ export default function EntitySelector({
     };
 
     return (
-        <>
-            <FormTokenField
-                label={label}
-                messages={messages}
-                maxLength={maxLength}
-                value={values}
-                suggestions={suggestions}
-                onChange={onChangeTokens}
-                onInputChange={debouncedSearch}
-                maxSuggestions={maxSuggestions}
-                __experimentalShowHowTo={false}
-                __experimentalValidateInput={isTokenValid}
-                __experimentalExpandOnFocus
-            />
+        <div className="entity-selector">
+            <div
+                tabIndex={-1}
+                onFocus={() => setIsFocused(true)}
+                onBlur={() => setIsFocused(false)}
+            >
+                <FormTokenField
+                    label={label}
+                    messages={messages}
+                    maxLength={maxLength}
+                    value={values}
+                    suggestions={suggestions}
+                    onChange={onChangeTokens}
+                    onInputChange={debouncedSearch}
+                    maxSuggestions={maxSuggestions}
+                    __experimentalShowHowTo={false}
+                    __experimentalValidateInput={isTokenValid}
+                    __experimentalExpandOnFocus
+                />
+            </div>
 
-            {maxLength && values.length >= maxLength && (
-                <p className="entity-selector--max-items-notice">
+            {isFocused && maxLength && values.length >= maxLength && (
+                <p className="entity-selector__max-items-notice">
                     {sprintf(
                         // translators: %d is maximum number of items that can be selected
                         _nx(
@@ -92,6 +99,6 @@ export default function EntitySelector({
                     )}
                 </p>
             )}
-        </>
+        </div>
     );
 }
