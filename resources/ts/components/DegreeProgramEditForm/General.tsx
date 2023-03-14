@@ -134,11 +134,12 @@ const General = () => {
                             }}
                             value={values.standard_duration || undefined}
                             label={_x(
-                                'Standard duration of study',
+                                'Duration of studies in semester',
                                 'backoffice: degree program edit form',
                                 'fau-degree-program',
                             )}
                             min={1}
+                            max={20}
                         />
                     </FormFieldWrapper>
 

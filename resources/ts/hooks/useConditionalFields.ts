@@ -12,6 +12,7 @@ import {
     DEGREE_ABBREVIATION_GERMAN,
     DegreeAbbreviationGerman,
     MultilingualLink,
+    MultilingualString,
 } from 'defs';
 
 const ALLOWED_FACULTIES_FOR_COMBINATION = [FACULTY_PHILOSOPHY, FACULTY_NATURAL_SCIENCES];
@@ -111,11 +112,11 @@ export function useLanguageSkillsForFacultyOfHumanitiesOnlyEnabled() {
 }
 
 export function useApplicationDeadlineSummerSemesterEnabled() {
-    const [semester] = useDegreeProgramProperty<MultilingualLink>('semester_dates');
+    const [semester] = useDegreeProgramProperty<MultilingualString[]>('start');
 
     if (!semester) {
         return false;
     }
 
-    return semester.name.de === SEMESTER_SUMMER;
+    return !!semester.find((semesterItem) => semesterItem.de === SEMESTER_SUMMER);
 }
