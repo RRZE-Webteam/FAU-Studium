@@ -2,267 +2,257 @@
 
 exports[`Admission requirement fields should match snapshot 1`] = `
 <div
-  className="components-flex sc-gswNZR Cyxsy css-zp26ix-View-Flex-base-ItemsRow e19lxcc00"
-  data-wp-c16t={true}
-  data-wp-component="Flex"
+  className="components-panel"
 >
   <div
-    className="components-flex-item sc-bcXHqe fYNEJJ css-mw3lhz-View-Item-sx-Base e19lxcc00"
-    data-wp-c16t={true}
-    data-wp-component="FlexItem"
-    fill="full"
+    className="components-panel__body is-opened"
   >
-    <h4
-      className="components-truncate components-text components-heading css-acp9sk-View-Text-sx-Base-block e19lxcc00"
+    <div
+      className="components-flex sc-gswNZR Cyxsy css-zp26ix-View-Flex-base-ItemsRow e19lxcc00"
       data-wp-c16t={true}
-      data-wp-component="Heading"
-    >
-      Bachelor/Lehramt
-    </h4>
-  </div>
-  <div
-    className="components-flex-item sc-bcXHqe iwVSrR css-mw3lhz-View-Item-sx-Base e19lxcc00"
-    data-wp-c16t={true}
-    data-wp-component="FlexItem"
-    fill="half"
-  >
-    <form>
-      <label
-        htmlFor="foo"
-      >
-        <span>
-          Admission requirements for Bachelor's/teaching degrees 
-        </span>
-        <input
-          aria-labelledby="foo"
-        />
-      </label>
-    </form>
-  </div>
-  <div
-    className="components-flex-item sc-bcXHqe iwVSrR css-mw3lhz-View-Item-sx-Base e19lxcc00"
-    data-wp-c16t={true}
-    data-wp-component="FlexItem"
-    fill="half"
-  >
-    <form>
-      <label
-        htmlFor="foo"
-      >
-        <span>
-          Admission requirements for entering a teaching degree at a higher semester 
-        </span>
-        <input
-          aria-labelledby="foo"
-        />
-      </label>
-    </form>
-  </div>
-  <div
-    className="components-flex-item sc-bcXHqe fYNEJJ css-mw3lhz-View-Item-sx-Base e19lxcc00"
-    data-wp-c16t={true}
-    data-wp-component="FlexItem"
-    fill="full"
-  >
-    <h4
-      className="components-truncate components-text components-heading css-acp9sk-View-Text-sx-Base-block e19lxcc00"
-      data-wp-c16t={true}
-      data-wp-component="Heading"
-    >
-      Master
-    </h4>
-  </div>
-  <div
-    className="components-flex-item sc-bcXHqe fYNEJJ css-mw3lhz-View-Item-sx-Base e19lxcc00"
-    data-wp-c16t={true}
-    data-wp-component="FlexItem"
-    fill="full"
-  >
-    <form>
-      <label
-        htmlFor="foo"
-      >
-        <span>
-          Admission requirements for Master's degree
-        </span>
-        <input
-          aria-labelledby="foo"
-        />
-      </label>
-    </form>
-  </div>
-  <div
-    className="components-flex-item sc-bcXHqe fYNEJJ css-mw3lhz-View-Item-sx-Base e19lxcc00"
-    data-wp-c16t={true}
-    data-wp-component="FlexItem"
-    fill="full"
-  >
-    <div
-      className="components-base-control css-ij2po-Wrapper-boxSizingReset ej5x27r4"
+      data-wp-component="Flex"
     >
       <div
-        className="components-base-control__field css-10urnh1-StyledField-deprecatedMarginField ej5x27r3"
+        className="components-flex-item sc-bcXHqe iwVSrR css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        data-wp-c16t={true}
+        data-wp-component="FlexItem"
+        fill="half"
       >
-        <span
-          className="components-base-control__label css-1bhsfm8-StyledVisualLabel-baseLabelTypography-labelStyles ej5x27r0"
-        >
-          Content-related admission requirements for Master's degree
-        </span>
+        <form>
+          <label
+            htmlFor="foo"
+          >
+            <span>
+              Admission requirements for Bachelor's/teaching degrees 
+            </span>
+            <input
+              aria-labelledby="foo"
+            />
+          </label>
+        </form>
       </div>
-      <p
-        className="components-base-control__help css-v0euhr-StyledHelp-deprecatedMarginHelp ej5x27r1"
-      >
-        vorausgegangene Bachelorstudiengänge, Qualifikationswerte, etc.
-      </p>
-    </div>
-  </div>
-  <div
-    className="components-flex-item sc-bcXHqe fYNEJJ css-mw3lhz-View-Item-sx-Base e19lxcc00"
-    data-wp-c16t={true}
-    data-wp-component="FlexItem"
-    fill="full"
-  >
-    <div
-      className="components-base-control css-ij2po-Wrapper-boxSizingReset ej5x27r4"
-    >
       <div
-        className="components-base-control__field css-10urnh1-StyledField-deprecatedMarginField ej5x27r3"
+        className="components-flex-item sc-bcXHqe iwVSrR css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        data-wp-c16t={true}
+        data-wp-component="FlexItem"
+        fill="half"
       >
-        <span
-          className="components-base-control__label css-1bhsfm8-StyledVisualLabel-baseLabelTypography-labelStyles ej5x27r0"
-        >
-          Application deadline winter semester
-        </span>
+        <form>
+          <label
+            htmlFor="foo"
+          >
+            <span>
+              Admission requirements for entering a teaching degree at a higher semester 
+            </span>
+            <input
+              aria-labelledby="foo"
+            />
+          </label>
+        </form>
       </div>
-    </div>
-  </div>
-  <div
-    className="components-flex-item sc-bcXHqe fYNEJJ css-mw3lhz-View-Item-sx-Base e19lxcc00"
-    data-wp-c16t={true}
-    data-wp-component="FlexItem"
-    fill="full"
-  >
-    <div
-      className="components-base-control css-ij2po-Wrapper-boxSizingReset ej5x27r4"
-    >
       <div
-        className="components-base-control__field css-10urnh1-StyledField-deprecatedMarginField ej5x27r3"
+        className="components-flex-item sc-bcXHqe fYNEJJ css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        data-wp-c16t={true}
+        data-wp-component="FlexItem"
+        fill="full"
       >
-        <span
-          className="components-base-control__label css-1bhsfm8-StyledVisualLabel-baseLabelTypography-labelStyles ej5x27r0"
-        >
-          Application deadline summer semester
-        </span>
+        <hr />
       </div>
-    </div>
-  </div>
-  <div
-    className="components-flex-item sc-bcXHqe fYNEJJ css-mw3lhz-View-Item-sx-Base e19lxcc00"
-    data-wp-c16t={true}
-    data-wp-component="FlexItem"
-    fill="full"
-  >
-    <h4
-      className="components-truncate components-text components-heading css-acp9sk-View-Text-sx-Base-block e19lxcc00"
-      data-wp-c16t={true}
-      data-wp-component="Heading"
-    >
-      Für Bachelor/Lehramt/Master
-    </h4>
-  </div>
-  <div
-    className="components-flex-item sc-bcXHqe fYNEJJ css-mw3lhz-View-Item-sx-Base e19lxcc00"
-    data-wp-c16t={true}
-    data-wp-component="FlexItem"
-    fill="full"
-  >
-    <div
-      className="components-base-control css-ij2po-Wrapper-boxSizingReset ej5x27r4"
-    >
       <div
-        className="components-base-control__field css-10urnh1-StyledField-deprecatedMarginField ej5x27r3"
+        className="components-flex-item sc-bcXHqe fYNEJJ css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        data-wp-c16t={true}
+        data-wp-component="FlexItem"
+        fill="full"
       >
-        <span
-          className="components-base-control__label css-1bhsfm8-StyledVisualLabel-baseLabelTypography-labelStyles ej5x27r0"
-        >
-          Details and notes
-        </span>
+        <form>
+          <label
+            htmlFor="foo"
+          >
+            <span>
+              Admission requirements for Master's degree
+            </span>
+            <input
+              aria-labelledby="foo"
+            />
+          </label>
+        </form>
       </div>
-      <p
-        className="components-base-control__help css-v0euhr-StyledHelp-deprecatedMarginHelp ej5x27r1"
-      >
-        evtl. zusätzliche Infos zu Bewerbung und Einschreibung.
-      </p>
-    </div>
-  </div>
-  <div
-    className="components-flex-item sc-bcXHqe fYNEJJ css-mw3lhz-View-Item-sx-Base e19lxcc00"
-    data-wp-c16t={true}
-    data-wp-component="FlexItem"
-    fill="full"
-  >
-    <div
-      className="components-base-control css-ij2po-Wrapper-boxSizingReset ej5x27r4"
-    >
       <div
-        className="components-base-control__field css-10urnh1-StyledField-deprecatedMarginField ej5x27r3"
+        className="components-flex-item sc-bcXHqe fYNEJJ css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        data-wp-c16t={true}
+        data-wp-component="FlexItem"
+        fill="full"
       >
-        <span
-          className="components-base-control__label css-1bhsfm8-StyledVisualLabel-baseLabelTypography-labelStyles ej5x27r0"
+        <div
+          className="components-base-control css-ij2po-Wrapper-boxSizingReset ej5x27r4"
         >
-          Language skills
-        </span>
+          <div
+            className="components-base-control__field css-10urnh1-StyledField-deprecatedMarginField ej5x27r3"
+          >
+            <span
+              className="components-base-control__label css-1bhsfm8-StyledVisualLabel-baseLabelTypography-labelStyles ej5x27r0"
+            >
+              Content-related admission requirements for Master's degree
+            </span>
+          </div>
+          <p
+            className="components-base-control__help css-v0euhr-StyledHelp-deprecatedMarginHelp ej5x27r1"
+          >
+            vorausgegangene Bachelorstudiengänge, Qualifikationswerte, etc.
+          </p>
+        </div>
       </div>
-      <p
-        className="components-base-control__help css-v0euhr-StyledHelp-deprecatedMarginHelp ej5x27r1"
-      >
-        Sprachkenntnisse, die für den Studiengang erforderlich sind.
-      </p>
-    </div>
-  </div>
-  <div
-    className="components-flex-item sc-bcXHqe fYNEJJ css-mw3lhz-View-Item-sx-Base e19lxcc00"
-    data-wp-c16t={true}
-    data-wp-component="FlexItem"
-    fill="full"
-  >
-    <div
-      className="components-base-control css-ij2po-Wrapper-boxSizingReset ej5x27r4"
-    >
       <div
-        className="components-base-control__field css-10urnh1-StyledField-deprecatedMarginField ej5x27r3"
+        className="components-flex-item sc-bcXHqe fYNEJJ css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        data-wp-c16t={true}
+        data-wp-component="FlexItem"
+        fill="full"
       >
-        <span
-          className="components-base-control__label css-1bhsfm8-StyledVisualLabel-baseLabelTypography-labelStyles ej5x27r0"
-        >
-          Language skills for Faculty of Humanities, Social Sciences, and Theology only 
-        </span>
+        <hr />
       </div>
-      <p
-        className="components-base-control__help css-v0euhr-StyledHelp-deprecatedMarginHelp ej5x27r1"
+      <div
+        className="components-flex-item sc-bcXHqe fYNEJJ css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        data-wp-c16t={true}
+        data-wp-component="FlexItem"
+        fill="full"
       >
-        Sprachkenntnisse, die auch in den ersten Semestern noch erworben werden können.
-      </p>
+        <div
+          className="components-base-control css-ij2po-Wrapper-boxSizingReset ej5x27r4"
+        >
+          <div
+            className="components-base-control__field css-10urnh1-StyledField-deprecatedMarginField ej5x27r3"
+          >
+            <span
+              className="components-base-control__label css-1bhsfm8-StyledVisualLabel-baseLabelTypography-labelStyles ej5x27r0"
+            >
+              Application deadline winter semester
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        className="components-flex-item sc-bcXHqe fYNEJJ css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        data-wp-c16t={true}
+        data-wp-component="FlexItem"
+        fill="full"
+      >
+        <div
+          className="components-base-control css-ij2po-Wrapper-boxSizingReset ej5x27r4"
+        >
+          <div
+            className="components-base-control__field css-10urnh1-StyledField-deprecatedMarginField ej5x27r3"
+          >
+            <span
+              className="components-base-control__label css-1bhsfm8-StyledVisualLabel-baseLabelTypography-labelStyles ej5x27r0"
+            >
+              Application deadline summer semester
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        className="components-flex-item sc-bcXHqe fYNEJJ css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        data-wp-c16t={true}
+        data-wp-component="FlexItem"
+        fill="full"
+      >
+        <hr />
+      </div>
+      <div
+        className="components-flex-item sc-bcXHqe fYNEJJ css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        data-wp-c16t={true}
+        data-wp-component="FlexItem"
+        fill="full"
+      >
+        <div
+          className="components-base-control css-ij2po-Wrapper-boxSizingReset ej5x27r4"
+        >
+          <div
+            className="components-base-control__field css-10urnh1-StyledField-deprecatedMarginField ej5x27r3"
+          >
+            <span
+              className="components-base-control__label css-1bhsfm8-StyledVisualLabel-baseLabelTypography-labelStyles ej5x27r0"
+            >
+              Details and notes
+            </span>
+          </div>
+          <p
+            className="components-base-control__help css-v0euhr-StyledHelp-deprecatedMarginHelp ej5x27r1"
+          >
+            evtl. zusätzliche Infos zu Bewerbung und Einschreibung.
+          </p>
+        </div>
+      </div>
+      <div
+        className="components-flex-item sc-bcXHqe fYNEJJ css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        data-wp-c16t={true}
+        data-wp-component="FlexItem"
+        fill="full"
+      >
+        <div
+          className="components-base-control css-ij2po-Wrapper-boxSizingReset ej5x27r4"
+        >
+          <div
+            className="components-base-control__field css-10urnh1-StyledField-deprecatedMarginField ej5x27r3"
+          >
+            <span
+              className="components-base-control__label css-1bhsfm8-StyledVisualLabel-baseLabelTypography-labelStyles ej5x27r0"
+            >
+              Language skills
+            </span>
+          </div>
+          <p
+            className="components-base-control__help css-v0euhr-StyledHelp-deprecatedMarginHelp ej5x27r1"
+          >
+            Sprachkenntnisse, die für den Studiengang erforderlich sind.
+          </p>
+        </div>
+      </div>
+      <div
+        className="components-flex-item sc-bcXHqe fYNEJJ css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        data-wp-c16t={true}
+        data-wp-component="FlexItem"
+        fill="full"
+      >
+        <div
+          className="components-base-control css-ij2po-Wrapper-boxSizingReset ej5x27r4"
+        >
+          <div
+            className="components-base-control__field css-10urnh1-StyledField-deprecatedMarginField ej5x27r3"
+          >
+            <span
+              className="components-base-control__label css-1bhsfm8-StyledVisualLabel-baseLabelTypography-labelStyles ej5x27r0"
+            >
+              Language skills for Faculty of Humanities, Social Sciences, and Theology only 
+            </span>
+          </div>
+          <p
+            className="components-base-control__help css-v0euhr-StyledHelp-deprecatedMarginHelp ej5x27r1"
+          >
+            Sprachkenntnisse, die auch in den ersten Semestern noch erworben werden können.
+          </p>
+        </div>
+      </div>
+      <div
+        className="components-flex-item sc-bcXHqe fYNEJJ css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        data-wp-c16t={true}
+        data-wp-component="FlexItem"
+        fill="full"
+      >
+        <form>
+          <label
+            htmlFor="foo"
+          >
+            <span>
+              Language certificates/German language skills for international applicants
+            </span>
+            <input
+              aria-labelledby="foo"
+            />
+          </label>
+        </form>
+      </div>
     </div>
-  </div>
-  <div
-    className="components-flex-item sc-bcXHqe fYNEJJ css-mw3lhz-View-Item-sx-Base e19lxcc00"
-    data-wp-c16t={true}
-    data-wp-component="FlexItem"
-    fill="full"
-  >
-    <form>
-      <label
-        htmlFor="foo"
-      >
-        <span>
-          Language certificates/German language skills for international applicants
-        </span>
-        <input
-          aria-labelledby="foo"
-        />
-      </label>
-    </form>
   </div>
 </div>
 `;

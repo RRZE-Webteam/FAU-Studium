@@ -6,6 +6,7 @@ import {
     FACULTY_NATURAL_SCIENCES,
     FACULTY_PHILOSOPHY,
     SEMESTER_SUMMER,
+    SEMESTER_WINTER,
 } from './constants';
 import useDegreeProgramProperty from './useDegreeProgramProperty';
 
@@ -107,12 +108,20 @@ export function useLanguageSkillsForFacultyOfHumanitiesOnlyEnabled() {
     );
 }
 
-export function useApplicationDeadlineSummerSemesterEnabled() {
-    const [semester] = useDegreeProgramProperty<MultilingualString[]>('start');
+function useSemestersContain(name: string): boolean {
+    const [semesters] = useDegreeProgramProperty<MultilingualString[]>('start');
 
-    if (!semester) {
+    if (!semesters) {
         return false;
     }
 
-    return !!semester.find((semesterItem) => semesterItem.de === SEMESTER_SUMMER);
+    return !!semesters.find((semester) => semester.de === name);
+}
+
+export function useApplicationDeadlineSummerSemesterEnabled() {
+    return useSemestersContain(SEMESTER_SUMMER);
+}
+
+export function useApplicationDeadlineWinterSemesterEnabled() {
+    return useSemestersContain(SEMESTER_WINTER);
 }

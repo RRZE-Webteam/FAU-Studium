@@ -1,0 +1,28 @@
+.component-multilingual-container {
+
+  .components-tab-panel__tabs-item {
+    position: relative;
+    height: auto !important;
+
+    &.is-empty {
+      &::after {
+        mask-image: url(../../../svg/empty-set.svg);
+        background-color: #717171;
+        border-radius: 100%;
+        display: inline-block;
+        margin-left: 3px;
+        visibility: visible;
+        width: 1em;
+        height: 1em;
+      }
+
+      small {
+        color: #717171;
+      }
+    }
+  }
+}
+
+.components-base-control__label + .component-multilingual-container {
+  margin-top: -5px;
+}

@@ -86,12 +86,6 @@ describe('Admission requirement fields', () => {
         cleanup();
     });
 
-    it('should render', () => {
-        render(<AdmissionRequirements />);
-
-        expect(screen.getByText('Für Bachelor/Lehramt/Master')).toBeInTheDocument();
-    });
-
     it('should not include conditional fields by default', () => {
         render(<AdmissionRequirements />);
 
