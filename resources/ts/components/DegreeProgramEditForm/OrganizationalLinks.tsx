@@ -54,7 +54,7 @@ const OrganizationalLinks = () => {
                             type="url"
                         />
                     </FormFieldWrapper>
-                    <FormFieldWrapper fill="half">
+                    <FormFieldWrapper fill="third">
                         <BaseControl
                             id="url"
                             label={_x(
@@ -76,7 +76,7 @@ const OrganizationalLinks = () => {
                             </MultilingualContainer>
                         </BaseControl>
                     </FormFieldWrapper>
-                    <FormFieldWrapper fill="half">
+                    <FormFieldWrapper fill="third">
                         <BaseControl
                             id="examination_regulations"
                             label={_x(
@@ -95,6 +95,31 @@ const OrganizationalLinks = () => {
                                             );
                                         }}
                                         value={values.examination_regulations[languageCode]}
+                                    />
+                                )}
+                            </MultilingualContainer>
+                        </BaseControl>
+                    </FormFieldWrapper>
+                    <FormFieldWrapper fill="third">
+                        <BaseControl
+                            id="department"
+                            label={_x(
+                                'Department (URL)',
+                                'backoffice: degree program edit form',
+                                'fau-degree-program',
+                            )}
+                        >
+                            <MultilingualContainer value={values.department}>
+                                {(languageCode) => (
+                                    <TextControl
+                                        onChange={(value: string) => {
+                                            handleChange<string>(
+                                                `department.${languageCode}`,
+                                                value,
+                                            );
+                                        }}
+                                        value={values.department[languageCode]}
+                                        type="url"
                                     />
                                 )}
                             </MultilingualContainer>

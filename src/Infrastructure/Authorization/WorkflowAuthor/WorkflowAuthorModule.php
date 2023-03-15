@@ -37,6 +37,9 @@ final class WorkflowAuthorModule implements ServiceModule, ExecutableModule
         ];
     }
 
+    /**
+     * phpcs:disable Inpsyde.CodeQuality.FunctionLength.TooLong
+     */
     public function run(ContainerInterface $container): bool
     {
 
@@ -75,7 +78,11 @@ final class WorkflowAuthorModule implements ServiceModule, ExecutableModule
             2
         );
 
-        $workflowAuthorTaxonomy = WorkflowAuthorTaxonomy::public()->merge([
+        $workflowAuthorTaxonomy = WorkflowAuthorTaxonomy::hidden()->merge([
+            'show_in_rest' => true,
+            'show_ui' => true,
+            'show_in_menu' => true,
+            'rewrite' => false,
             'capabilities' => [
                 'manage_terms' => Capabilities::MANAGE_WORKFLOW_AUTHORS_TERMS,
                 'edit_terms' => Capabilities::EDIT_WORKFLOW_AUTHORS_TERMS,
