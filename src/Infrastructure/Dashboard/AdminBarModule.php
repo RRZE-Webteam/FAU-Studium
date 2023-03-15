@@ -45,7 +45,11 @@ final class AdminBarModule implements ExecutableModule
             ->withMenuItem(
                 MenuItem::new(
                     'invalidate-cache',
-                    _x('Invalidate cache', 'backoffice: admin bar menu item', 'fau-degree-program'),
+                    _x(
+                        'Invalidate degree program caches',
+                        'backoffice: admin bar menu item',
+                        'fau-degree-program'
+                    ),
                     $cacheInvalidationAction->buildUrl()
                 )
             );
