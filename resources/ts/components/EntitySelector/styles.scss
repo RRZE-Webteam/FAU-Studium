@@ -2,6 +2,8 @@
   position: relative;
 
   .components-form-token-field__input-container {
+    position: relative;
+
     & > .components-flex {
       position: relative;
 
@@ -23,6 +25,13 @@
     &.is-active > .components-flex::after {
       transform: translateY(-50%) scaleY(-1);
     }
+  }
+
+  .components-form-token-field__suggestions-list {
+    position: absolute;
+    background: #fff;
+    z-index: 10;
+    box-shadow: 0 5px 5px 2px rgb(0 0 0 / 50%);
   }
 
   &__max-items-notice {

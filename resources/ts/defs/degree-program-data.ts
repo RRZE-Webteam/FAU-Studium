@@ -51,7 +51,7 @@ export interface DegreeProgramData {
     examination_regulations: MultilingualString;
     module_handbook: string;
     url: MultilingualString;
-    readonly department: MultilingualLink;
+    readonly department: MultilingualString;
     readonly student_advice: MultilingualLink;
     subject_specific_advice: MultilingualLink;
     readonly service_centers: MultilingualLink;
@@ -63,6 +63,7 @@ export interface DegreeProgramData {
     area_of_study: Array<MultilingualLink>;
     combinations: Array<number>;
     limited_combinations: Array<number>;
+    notes_for_international_applicants: MultilingualLink;
 }
 
 export const DEGREE_ABBREVIATION_ENGLISH = {

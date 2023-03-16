@@ -12,6 +12,12 @@ use WP_Post;
 
 final class WordPressRevisionNotificationRepository implements RevisionNotificationRepository
 {
+    public function __construct(
+        private DegreeProgramEditorRepository $degreeProgramEditorRepository,
+        private WorkflowAuthorsRepository $authorsRepository,
+    ) {
+    }
+
     /**
      * @return array<int>
      */
@@ -141,11 +147,15 @@ final class WordPressRevisionNotificationRepository implements RevisionNotificat
     /**
      * @param int $postId
      * @return array<int> user IDs
-     * @TODO: this is dirty implementation which takes care only about authors.
-     *        The method should be updated after user roles implementation.
      */
     private function findUsersSubscribedToPostChanges(int $postId): array
     {
+        /** @var array<int> | null $allEditors */
+        static $allEditors = null;
+        if (!$allEditors) {
+            $allEditors = $this->degreeProgramEditorRepository->fetchAllIds();
+        }
+
         /** @var array<int, array<int, int>> $cache
          *  We use the user ID as key and value to increase the performance.
          */
@@ -154,17 +164,19 @@ final class WordPressRevisionNotificationRepository implements RevisionNotificat
             return $cache[$postId];
         }
 
+        $cache[$postId] = [];
+
         $post = get_post($postId);
 
         if (!$post instanceof WP_Post) {
-            return [];
+            return $cache[$postId];
         }
 
-        $cache[$postId] = [];
+        $authors = $this->authorsRepository->fetchAuthorIds($postId);
+        $ids = array_merge($allEditors, $authors);
 
-        if ($post->post_author) {
-            $userId = (int) $post->post_author;
-            $cache[$postId][$userId] = $userId;
+        foreach ($ids as $id) {
+            $cache[$postId][$id] = $id;
         }
 
         return $cache[$postId];

@@ -143,6 +143,7 @@ final class CacheBasedRevisionRepository implements DegreeProgramRevisionReposit
                 DegreeProgram::MODULE_HANDBOOK => $rawRevision->moduleHandbook(),
             ],
             self::multilingualStringToFlatArray(DegreeProgram::URL, $rawRevision->url()),
+            self::multilingualStringToFlatArray(DegreeProgram::DEPARTMENT, $rawRevision->department()),
             self::multilingualStringToFlatArray(DegreeProgram::EXAMINATION_REGULATIONS, $rawRevision->examinationRegulations()),
             [
                 DegreeProgram::SUBJECT_SPECIFIC_ADVICE => $this->structureToContextualId($rawRevision->subjectSpecificAdvice()),

@@ -25,6 +25,29 @@ class WorkflowAuthorsRepository
         return $terms ? : null;
     }
 
+    /**
+     * @return array<int>
+     */
+    public function fetchAuthorIds(int $postId): array
+    {
+        $terms = $this->fetchForPost($postId);
+        if (!$terms) {
+            return [];
+        }
+
+        $result = [];
+        foreach ($terms as $term) {
+            $user = get_user_by('login', $term->name);
+            if (!$user instanceof WP_User) {
+                continue;
+            }
+
+            $result[] = $user->ID;
+        }
+
+        return $result;
+    }
+
     public function isUserListedInAllowedEditors(WP_User $user, int $postId): bool
     {
         $workflowAuthors = $this->fetchForPost($postId);

@@ -186,8 +186,12 @@ final class SettingsModule implements ServiceModule, ExecutableModule
                 _x('Semester dates', 'backoffice: setting title', 'fau-degree-program')
             ),
             new BilingualLinkSettingsField(
-                DegreeProgram::DEPARTMENT,
-                _x('Department', 'backoffice: setting title', 'fau-degree-program')
+                DegreeProgram::NOTES_FOR_INTERNATIONAL_APPLICANTS,
+                _x(
+                    'Notes for international applicants',
+                    'backoffice: setting title',
+                    'fau-degree-program'
+                )
             ),
             new BilingualLinkSettingsField(
                 DegreeProgram::STUDENT_ADVICE,

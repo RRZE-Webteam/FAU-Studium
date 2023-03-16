@@ -57,27 +57,6 @@
   overflow: hidden;
 }
 
-.components-tab-panel__tabs-item {
-  position: relative;
-
-  &.is-empty {
-    &::after {
-      mask-image: url(../../../svg/empty-set.svg);
-      background-color: #717171;
-      border-radius: 100%;
-      display: inline-block;
-      margin-left: 3px;
-      visibility: visible;
-      width: 1em;
-      height: 1em;
-    }
-
-    small {
-      color: #717171;
-    }
-  }
-}
-
 label[class^="components-"][class*="__label"],
 span[class^="components-"][class*="__label"] {
   text-transform: none !important;
