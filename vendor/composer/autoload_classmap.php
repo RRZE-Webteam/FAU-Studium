@@ -177,6 +177,7 @@ return array(
     'Fau\\DegreeProgram\\Infrastructure\\Patches\\PatchesModule' => $baseDir . '/src/Infrastructure/Patches/PatchesModule.php',
     'Fau\\DegreeProgram\\Infrastructure\\QueueModule' => $baseDir . '/src/Infrastructure/QueueModule.php',
     'Fau\\DegreeProgram\\Infrastructure\\Repository\\CacheBasedRevisionRepository' => $baseDir . '/src/Infrastructure/Repository/CacheBasedRevisionRepository.php',
+    'Fau\\DegreeProgram\\Infrastructure\\Repository\\DegreeProgramEditorRepository' => $baseDir . '/src/Infrastructure/Repository/DegreeProgramEditorRepository.php',
     'Fau\\DegreeProgram\\Infrastructure\\Repository\\RepositoryModule' => $baseDir . '/src/Infrastructure/Repository/RepositoryModule.php',
     'Fau\\DegreeProgram\\Infrastructure\\Repository\\RevisionMetaRepository' => $baseDir . '/src/Infrastructure/Repository/RevisionMetaRepository.php',
     'Fau\\DegreeProgram\\Infrastructure\\Repository\\TermsRepository' => $baseDir . '/src/Infrastructure/Repository/TermsRepository.php',

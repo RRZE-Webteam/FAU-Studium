@@ -256,6 +256,7 @@ class ComposerStaticInit1a9e8c79685c13de2a576d24bc11b2ed
         'Fau\\DegreeProgram\\Infrastructure\\Patches\\PatchesModule' => __DIR__ . '/../..' . '/src/Infrastructure/Patches/PatchesModule.php',
         'Fau\\DegreeProgram\\Infrastructure\\QueueModule' => __DIR__ . '/../..' . '/src/Infrastructure/QueueModule.php',
         'Fau\\DegreeProgram\\Infrastructure\\Repository\\CacheBasedRevisionRepository' => __DIR__ . '/../..' . '/src/Infrastructure/Repository/CacheBasedRevisionRepository.php',
+        'Fau\\DegreeProgram\\Infrastructure\\Repository\\DegreeProgramEditorRepository' => __DIR__ . '/../..' . '/src/Infrastructure/Repository/DegreeProgramEditorRepository.php',
         'Fau\\DegreeProgram\\Infrastructure\\Repository\\RepositoryModule' => __DIR__ . '/../..' . '/src/Infrastructure/Repository/RepositoryModule.php',
         'Fau\\DegreeProgram\\Infrastructure\\Repository\\RevisionMetaRepository' => __DIR__ . '/../..' . '/src/Infrastructure/Repository/RevisionMetaRepository.php',
         'Fau\\DegreeProgram\\Infrastructure\\Repository\\TermsRepository' => __DIR__ . '/../..' . '/src/Infrastructure/Repository/TermsRepository.php',
