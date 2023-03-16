@@ -159,6 +159,7 @@ return array(
     'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\Settings\\SettingsPage' => $baseDir . '/src/Infrastructure/Dashboard/Settings/SettingsPage.php',
     'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\Settings\\SettingsRegistrar' => $baseDir . '/src/Infrastructure/Dashboard/Settings/SettingsRegistrar.php',
     'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\Settings\\SettingsSection' => $baseDir . '/src/Infrastructure/Dashboard/Settings/SettingsSection.php',
+    'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\Settings\\TabbedSettingPage' => $baseDir . '/src/Infrastructure/Dashboard/Settings/TabbedSettingPage.php',
     'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\Settings\\TextSettingsField' => $baseDir . '/src/Infrastructure/Dashboard/Settings/TextSettingsField.php',
     'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\TermMeta\\EnglishNameTermMetaField' => $baseDir . '/src/Infrastructure/Dashboard/TermMeta/EnglishNameTermMetaField.php',
     'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\TermMeta\\InputTermMetaField' => $baseDir . '/src/Infrastructure/Dashboard/TermMeta/InputTermMetaField.php',
