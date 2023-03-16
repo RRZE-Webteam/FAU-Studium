@@ -34,6 +34,9 @@ final class WorkflowAuthorModule implements ServiceModule, ExecutableModule
             UpdateWorkflowAuthorsWhenUserRoleRemoved::class => static fn(ContainerInterface $container) => new UpdateWorkflowAuthorsWhenUserRoleRemoved(
                 $container->get(WorkflowAuthorsRepository::class)
             ),
+            UpdateWorkflowAuthorsWhenUserUpdated::class => static fn(ContainerInterface $container) => new UpdateWorkflowAuthorsWhenUserUpdated(
+                $container->get(WorkflowAuthorsRepository::class)
+            ),
         ];
     }
 
@@ -76,6 +79,11 @@ final class WorkflowAuthorModule implements ServiceModule, ExecutableModule
             [$container->get(UpdateWorkflowAuthorsWhenUserRoleRemoved::class), 'update'],
             10,
             2
+        );
+
+        add_action(
+            'profile_update',
+            [$container->get(UpdateWorkflowAuthorsWhenUserUpdated::class), 'update'],
         );
 
         $workflowAuthorTaxonomy = WorkflowAuthorTaxonomy::hidden()->merge([

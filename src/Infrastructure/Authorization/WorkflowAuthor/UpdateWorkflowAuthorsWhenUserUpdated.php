@@ -8,29 +8,29 @@ use Fau\DegreeProgram\Infrastructure\Authorization\Roles\DegreeProgramAuthor;
 use Fau\DegreeProgram\Infrastructure\Repository\WorkflowAuthorsRepository;
 use WP_User;
 
-class UpdateWorkflowAuthorsWhenUserRoleRemoved
+class UpdateWorkflowAuthorsWhenUserUpdated
 {
     public function __construct(private WorkflowAuthorsRepository $workflowAuthorsRepository)
     {
     }
 
     /**
-     * @wp-hook remove_user_role
+     * @wp-hook profile_update
      * @param int $userId
-     * @param string $role
      * @return void
      */
-    public function update(int $userId, string $role): void
+    public function update(int $userId): void
     {
-        if ($role !== DegreeProgramAuthor::KEY) {
+        $user = get_user_by('ID', $userId);
+
+        if (!$user instanceof WP_User) {
             return;
         }
 
-        $user = get_user_by('id', $userId);
-        if (! $user instanceof WP_User) {
+        if (!in_array(DegreeProgramAuthor::KEY, $user->roles, true)) {
             return;
         }
 
-        $this->workflowAuthorsRepository->delete($user);
+        $this->workflowAuthorsRepository->update($user);
     }
 }

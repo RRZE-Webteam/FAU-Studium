@@ -6,6 +6,7 @@ namespace Fau\DegreeProgram\Infrastructure\Authorization\WorkflowAuthor;
 
 use Fau\DegreeProgram\Infrastructure\Authorization\Roles\DegreeProgramAuthor;
 use Fau\DegreeProgram\Infrastructure\Repository\WorkflowAuthorsRepository;
+use WP_User;
 
 class UpdateWorkflowAuthorsWhenUserAdded
 {
@@ -21,16 +22,17 @@ class UpdateWorkflowAuthorsWhenUserAdded
      */
     public function update(int $userId, array $userdata): void
     {
+        $user = get_user_by('ID', $userId);
+
+        if (!$user instanceof WP_User) {
+            return;
+        }
+
         $role = $userdata['role'] ?? '';
         if ($role !== DegreeProgramAuthor::KEY) {
             return;
         }
 
-        $username = $userdata['user_login'];
-        if (! $username) {
-            return;
-        }
-
-        $this->workflowAuthorsRepository->create($username);
+        $this->workflowAuthorsRepository->create($user);
     }
 }
