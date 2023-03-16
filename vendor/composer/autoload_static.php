@@ -207,6 +207,7 @@ class ComposerStaticInit1a9e8c79685c13de2a576d24bc11b2ed
         'Fau\\DegreeProgram\\Infrastructure\\Authorization\\WorkflowAuthor\\UpdateWorkflowAuthorsWhenUserRemovedFromSite' => __DIR__ . '/../..' . '/src/Infrastructure/Authorization/WorkflowAuthor/UpdateWorkflowAuthorsWhenUserRemovedFromSite.php',
         'Fau\\DegreeProgram\\Infrastructure\\Authorization\\WorkflowAuthor\\UpdateWorkflowAuthorsWhenUserRoleAdded' => __DIR__ . '/../..' . '/src/Infrastructure/Authorization/WorkflowAuthor/UpdateWorkflowAuthorsWhenUserRoleAdded.php',
         'Fau\\DegreeProgram\\Infrastructure\\Authorization\\WorkflowAuthor\\UpdateWorkflowAuthorsWhenUserRoleRemoved' => __DIR__ . '/../..' . '/src/Infrastructure/Authorization/WorkflowAuthor/UpdateWorkflowAuthorsWhenUserRoleRemoved.php',
+        'Fau\\DegreeProgram\\Infrastructure\\Authorization\\WorkflowAuthor\\UpdateWorkflowAuthorsWhenUserUpdated' => __DIR__ . '/../..' . '/src/Infrastructure/Authorization/WorkflowAuthor/UpdateWorkflowAuthorsWhenUserUpdated.php',
         'Fau\\DegreeProgram\\Infrastructure\\Authorization\\WorkflowAuthor\\WorkflowAuthorModule' => __DIR__ . '/../..' . '/src/Infrastructure/Authorization/WorkflowAuthor/WorkflowAuthorModule.php',
         'Fau\\DegreeProgram\\Infrastructure\\Authorization\\WorkflowAuthor\\WorkflowAuthorTaxonomy' => __DIR__ . '/../..' . '/src/Infrastructure/Authorization/WorkflowAuthor/WorkflowAuthorTaxonomy.php',
         'Fau\\DegreeProgram\\Infrastructure\\Cache\\CacheModule' => __DIR__ . '/../..' . '/src/Infrastructure/Cache/CacheModule.php',
