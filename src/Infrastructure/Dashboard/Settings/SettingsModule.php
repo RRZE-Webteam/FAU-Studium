@@ -26,6 +26,7 @@ final class SettingsModule implements ServiceModule, ExecutableModule
 
     private const FAU_CONTENT_ITEM_TITLES = 'fau_content_item_titles';
     private const FAU_DEGREE_PROGRAM_SHARED_PROPERTIES = 'fau_degree_program_shared_properties';
+    private const FAU_DEGREE_PROGRAM_SETTINGS = 'fau_degree_program_settings';
 
     public function services(): array
     {
@@ -43,6 +44,7 @@ final class SettingsModule implements ServiceModule, ExecutableModule
                 [
                     self::FAU_CONTENT_ITEM_TITLES,
                     self::FAU_DEGREE_PROGRAM_SHARED_PROPERTIES,
+                    self::FAU_DEGREE_PROGRAM_SETTINGS,
                 ],
             ),
         ];
@@ -56,26 +58,35 @@ final class SettingsModule implements ServiceModule, ExecutableModule
         );
 
         $container->get(SettingsRegistrar::class)->registerSettings(
-            SettingsPage::default(
-                self::FAU_CONTENT_ITEM_TITLES,
-                _x(
-                    'FAU Content',
-                    'backoffice: setting page title',
-                    'fau-degree-program'
-                ),
-                Capabilities::MANAGE_DEGREE_PROGRAM_SETTINGS,
-                self::contentItemTitlesSection(),
-            ),
-            SettingsPage::default(
-                self::FAU_DEGREE_PROGRAM_SHARED_PROPERTIES,
+            TabbedSettingPage::default(
+                self::FAU_DEGREE_PROGRAM_SETTINGS,
                 _x(
                     'FAU Degree Program',
                     'backoffice: setting page title',
                     'fau-degree-program'
                 ),
                 Capabilities::MANAGE_DEGREE_PROGRAM_SETTINGS,
-                self::degreeProgramSharedPropertiesSection(),
-            )
+                SettingsPage::default(
+                    self::FAU_DEGREE_PROGRAM_SHARED_PROPERTIES,
+                    _x(
+                        'General',
+                        'backoffice: setting page tab title',
+                        'fau-degree-program'
+                    ),
+                    Capabilities::MANAGE_DEGREE_PROGRAM_SETTINGS,
+                    self::degreeProgramSharedPropertiesSection(),
+                ),
+                SettingsPage::default(
+                    self::FAU_CONTENT_ITEM_TITLES,
+                    _x(
+                        'Content',
+                        'backoffice: setting page tab title',
+                        'fau-degree-program'
+                    ),
+                    Capabilities::MANAGE_DEGREE_PROGRAM_SETTINGS,
+                    self::contentItemTitlesSection(),
+                ),
+            ),
         );
 
         return true;

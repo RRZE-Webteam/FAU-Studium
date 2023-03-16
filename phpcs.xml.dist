@@ -12,6 +12,7 @@
     <config name="ignore_warnings_on_exit" value="1"/>
 
     <rule ref="Inpsyde">
+        <exclude name="WordPress.WP.I18n.MissingArgDomain" />
     </rule>
 
     <rule ref="Inpsyde.CodeQuality.Psr4">
