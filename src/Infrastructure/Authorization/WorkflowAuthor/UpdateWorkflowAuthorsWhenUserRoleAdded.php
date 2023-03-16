@@ -31,6 +31,6 @@ class UpdateWorkflowAuthorsWhenUserRoleAdded
             return;
         }
 
-        $this->workflowAuthorsRepository->create($user->user_login);
+        $this->workflowAuthorsRepository->create($user);
     }
 }

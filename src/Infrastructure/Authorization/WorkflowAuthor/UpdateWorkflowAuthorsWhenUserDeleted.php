@@ -22,6 +22,6 @@ class UpdateWorkflowAuthorsWhenUserDeleted
      */
     public function update(int $userId, ?int $reassignToUserId, WP_User $user): void
     {
-        $this->workflowAuthorsRepository->delete($user->user_login);
+        $this->workflowAuthorsRepository->delete($user);
     }
 }

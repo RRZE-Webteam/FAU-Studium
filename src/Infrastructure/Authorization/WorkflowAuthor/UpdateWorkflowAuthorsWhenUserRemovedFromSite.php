@@ -25,6 +25,6 @@ class UpdateWorkflowAuthorsWhenUserRemovedFromSite
             return;
         }
 
-        $this->workflowAuthorsRepository->delete($user->user_login);
+        $this->workflowAuthorsRepository->delete($user);
     }
 }
