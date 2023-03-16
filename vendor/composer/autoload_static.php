@@ -238,6 +238,7 @@ class ComposerStaticInit1a9e8c79685c13de2a576d24bc11b2ed
         'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\Settings\\SettingsPage' => __DIR__ . '/../..' . '/src/Infrastructure/Dashboard/Settings/SettingsPage.php',
         'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\Settings\\SettingsRegistrar' => __DIR__ . '/../..' . '/src/Infrastructure/Dashboard/Settings/SettingsRegistrar.php',
         'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\Settings\\SettingsSection' => __DIR__ . '/../..' . '/src/Infrastructure/Dashboard/Settings/SettingsSection.php',
+        'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\Settings\\TabbedSettingPage' => __DIR__ . '/../..' . '/src/Infrastructure/Dashboard/Settings/TabbedSettingPage.php',
         'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\Settings\\TextSettingsField' => __DIR__ . '/../..' . '/src/Infrastructure/Dashboard/Settings/TextSettingsField.php',
         'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\TermMeta\\EnglishNameTermMetaField' => __DIR__ . '/../..' . '/src/Infrastructure/Dashboard/TermMeta/EnglishNameTermMetaField.php',
         'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\TermMeta\\InputTermMetaField' => __DIR__ . '/../..' . '/src/Infrastructure/Dashboard/TermMeta/InputTermMetaField.php',
