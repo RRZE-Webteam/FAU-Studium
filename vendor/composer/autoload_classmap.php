@@ -128,6 +128,7 @@ return array(
     'Fau\\DegreeProgram\\Infrastructure\\Authorization\\WorkflowAuthor\\UpdateWorkflowAuthorsWhenUserRemovedFromSite' => $baseDir . '/src/Infrastructure/Authorization/WorkflowAuthor/UpdateWorkflowAuthorsWhenUserRemovedFromSite.php',
     'Fau\\DegreeProgram\\Infrastructure\\Authorization\\WorkflowAuthor\\UpdateWorkflowAuthorsWhenUserRoleAdded' => $baseDir . '/src/Infrastructure/Authorization/WorkflowAuthor/UpdateWorkflowAuthorsWhenUserRoleAdded.php',
     'Fau\\DegreeProgram\\Infrastructure\\Authorization\\WorkflowAuthor\\UpdateWorkflowAuthorsWhenUserRoleRemoved' => $baseDir . '/src/Infrastructure/Authorization/WorkflowAuthor/UpdateWorkflowAuthorsWhenUserRoleRemoved.php',
+    'Fau\\DegreeProgram\\Infrastructure\\Authorization\\WorkflowAuthor\\UpdateWorkflowAuthorsWhenUserUpdated' => $baseDir . '/src/Infrastructure/Authorization/WorkflowAuthor/UpdateWorkflowAuthorsWhenUserUpdated.php',
     'Fau\\DegreeProgram\\Infrastructure\\Authorization\\WorkflowAuthor\\WorkflowAuthorModule' => $baseDir . '/src/Infrastructure/Authorization/WorkflowAuthor/WorkflowAuthorModule.php',
     'Fau\\DegreeProgram\\Infrastructure\\Authorization\\WorkflowAuthor\\WorkflowAuthorTaxonomy' => $baseDir . '/src/Infrastructure/Authorization/WorkflowAuthor/WorkflowAuthorTaxonomy.php',
     'Fau\\DegreeProgram\\Infrastructure\\Cache\\CacheModule' => $baseDir . '/src/Infrastructure/Cache/CacheModule.php',
