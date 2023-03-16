@@ -19,7 +19,7 @@ final class SettingsRegistrar
     /**
      * phpcs:disable Inpsyde.CodeQuality.NestingLevel.High
      */
-    public function registerSettings(SettingsPage ...$pages): void
+    public function registerSettings(SettingsPage|TabbedSettingPage ...$pages): void
     {
         foreach ($pages as $page) {
             add_action('admin_menu', function () use ($page) {
@@ -27,18 +27,35 @@ final class SettingsRegistrar
             });
 
             add_action('admin_init', function () use ($page) {
-                foreach ($page->sections() as $section) {
-                    $this->addSection($section, $page->id());
-
-                    foreach ($section->fields() as $field) {
-                        $this->addSetting($field, $page->id(), $section->id());
-                    }
+                if ($page instanceof SettingsPage) {
+                    $this->registerSectionsForPage($page);
+                    return;
                 }
+
+                $tabs = array_filter(
+                    $page->pages(),
+                    static fn ($tab) => current_user_can($tab->capability()),
+                );
+
+                $this->registerSectionsForPage(...$tabs);
             });
         }
     }
 
-    private function addPage(SettingsPage $page): void
+    private function registerSectionsForPage(SettingsPage ...$pages): void
+    {
+        foreach ($pages as $page) {
+            foreach ($page->sections() as $section) {
+                $this->addSection($section, $page->id());
+
+                foreach ($section->fields() as $field) {
+                    $this->addSetting($field, $page->id(), $section->id());
+                }
+            }
+        }
+    }
+
+    private function addPage(SettingsPage|TabbedSettingPage $page): void
     {
         add_options_page(
             $page->title(),
@@ -50,11 +67,22 @@ final class SettingsRegistrar
                     return;
                 }
 
+                $args = [
+                    'id' => $page->id(),
+                ];
+
+                if ($page instanceof TabbedSettingPage) {
+                    $args['tabs'] = $page->pages();
+                    $args['currentTab'] = filter_input(
+                        INPUT_GET,
+                        'tab',
+                        FILTER_SANITIZE_SPECIAL_CHARS
+                    );
+                }
+
                 echo $this->settingsRenderer->render(
                     $page->template(),
-                    [
-                        'id' => $page->id(),
-                    ]
+                    $args,
                 );
             },
         );
