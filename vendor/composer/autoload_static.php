@@ -225,6 +225,7 @@ class ComposerStaticInit1a9e8c79685c13de2a576d24bc11b2ed
         'Fau\\DegreeProgram\\Infrastructure\\Content\\SortableDegreeTaxonomyColumn' => __DIR__ . '/../..' . '/src/Infrastructure/Content/SortableDegreeTaxonomyColumn.php',
         'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\AdminBarModule' => __DIR__ . '/../..' . '/src/Infrastructure/Dashboard/AdminBarModule.php',
         'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\DegreeProgramEditor\\AssetsLoader' => __DIR__ . '/../..' . '/src/Infrastructure/Dashboard/DegreeProgramEditor/AssetsLoader.php',
+        'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\DegreeProgramEditor\\CodeEditingDisabler' => __DIR__ . '/../..' . '/src/Infrastructure/Dashboard/DegreeProgramEditor/CodeEditingDisabler.php',
         'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\DegreeProgramEditor\\DegreeProgramEditorModule' => __DIR__ . '/../..' . '/src/Infrastructure/Dashboard/DegreeProgramEditor/DegreeProgramEditorModule.php',
         'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\DegreeProgramEditor\\InlineEditingDisabler' => __DIR__ . '/../..' . '/src/Infrastructure/Dashboard/DegreeProgramEditor/InlineEditingDisabler.php',
         'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\DegreeProgramEditor\\PostTypeEditor' => __DIR__ . '/../..' . '/src/Infrastructure/Dashboard/DegreeProgramEditor/PostTypeEditor.php',
