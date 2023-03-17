@@ -44,9 +44,9 @@ const BlockDeselectListener = ({ editorRef }: { editorRef: RefObject<HTMLDivElem
     };
 
     useEffect(() => {
-        document.body.addEventListener('click', blurListener);
+        document.body.addEventListener('click', blurListener, { capture: true });
 
-        return () => document.body.removeEventListener('click', blurListener);
+        return () => document.body.removeEventListener('click', blurListener, { capture: true });
     }, []);
 
     return null;
@@ -90,23 +90,25 @@ const ContentField = ({ content, onChange }: ContentFieldProps) => {
             }}
             settings={settings}
         >
-            <SlotFillProvider>
-                <StyledEditorWrapper ref={editorRef} className="editor-styles-wrapper">
-                    <BlockEditorKeyboardShortcuts.Register />
-                    <BlockTools>
-                        <WritingFlow>
-                            <ObserveTyping>
-                                <BlockList
-                                    renderAppender={DefaultBlockAppender}
-                                    className="content-field-blocks-list"
-                                />
-                                <BlockDeselectListener editorRef={editorRef} />
-                            </ObserveTyping>
-                        </WritingFlow>
-                    </BlockTools>
-                </StyledEditorWrapper>
-                <Popover.Slot />
-            </SlotFillProvider>
+            <div ref={editorRef}>
+                <SlotFillProvider>
+                    <StyledEditorWrapper className="editor-styles-wrapper">
+                        <BlockEditorKeyboardShortcuts.Register />
+                        <BlockTools>
+                            <WritingFlow>
+                                <ObserveTyping>
+                                    <BlockList
+                                        renderAppender={DefaultBlockAppender}
+                                        className="content-field-blocks-list"
+                                    />
+                                    <BlockDeselectListener editorRef={editorRef} />
+                                </ObserveTyping>
+                            </WritingFlow>
+                        </BlockTools>
+                    </StyledEditorWrapper>
+                    <Popover.Slot />
+                </SlotFillProvider>
+            </div>
         </BlockEditorProvider>
     );
 };
