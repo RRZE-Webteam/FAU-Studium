@@ -146,6 +146,7 @@ return array(
     'Fau\\DegreeProgram\\Infrastructure\\Content\\SortableDegreeTaxonomyColumn' => $baseDir . '/src/Infrastructure/Content/SortableDegreeTaxonomyColumn.php',
     'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\AdminBarModule' => $baseDir . '/src/Infrastructure/Dashboard/AdminBarModule.php',
     'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\DegreeProgramEditor\\AssetsLoader' => $baseDir . '/src/Infrastructure/Dashboard/DegreeProgramEditor/AssetsLoader.php',
+    'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\DegreeProgramEditor\\CodeEditingDisabler' => $baseDir . '/src/Infrastructure/Dashboard/DegreeProgramEditor/CodeEditingDisabler.php',
     'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\DegreeProgramEditor\\DegreeProgramEditorModule' => $baseDir . '/src/Infrastructure/Dashboard/DegreeProgramEditor/DegreeProgramEditorModule.php',
     'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\DegreeProgramEditor\\InlineEditingDisabler' => $baseDir . '/src/Infrastructure/Dashboard/DegreeProgramEditor/InlineEditingDisabler.php',
     'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\DegreeProgramEditor\\PostTypeEditor' => $baseDir . '/src/Infrastructure/Dashboard/DegreeProgramEditor/PostTypeEditor.php',
