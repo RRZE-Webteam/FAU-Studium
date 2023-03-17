@@ -6,6 +6,5 @@
   "assets/ts/degree-program-editor.php": "../ts/degree-program-editor.asset.php",
   "assets/ts/main.js": "../ts/main.js",
   "assets/ts/main.php": "../ts/main.asset.php",
-  "assets/css/dashboard-settings.css": "../css/dashboard-settings.css",
-  "assets/images/empty-set.svg": "../images/empty-set.c2714ebe.svg"
+  "assets/css/dashboard-settings.css": "../css/dashboard-settings.css"
 }
