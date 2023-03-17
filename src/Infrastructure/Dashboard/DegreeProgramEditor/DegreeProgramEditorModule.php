@@ -26,6 +26,7 @@ final class DegreeProgramEditorModule implements ServiceModule, ExecutableModule
             PostTypeEditor::class => static fn () => new PostTypeEditor(),
             TaxonomyVisibilityModifier::class => static fn () => new TaxonomyVisibilityModifier(),
             InlineEditingDisabler::class => static fn() => new InlineEditingDisabler(),
+            CodeEditingDisabler::class => static fn() => new CodeEditingDisabler(),
         ];
     }
 
@@ -55,6 +56,11 @@ final class DegreeProgramEditorModule implements ServiceModule, ExecutableModule
             [$container->get(InlineEditingDisabler::class), 'disableForDegreeProgram'],
             10,
             2
+        );
+
+        add_filter(
+            'block_editor_settings_all',
+            [$container->get(CodeEditingDisabler::class), 'disableForDegreeProgram'],
         );
 
         return true;
