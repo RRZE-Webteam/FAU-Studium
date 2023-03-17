@@ -37,7 +37,7 @@ const MultilingualContainer = ({ children, value }: MultilingualContainerProps) 
                             <small>
                                 &nbsp; (
                                 {_x(
-                                    'no content',
+                                    'empty',
                                     'backoffice: Multilingual container',
                                     'fau-degree-program',
                                 )}
