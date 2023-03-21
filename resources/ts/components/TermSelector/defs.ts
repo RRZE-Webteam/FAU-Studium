@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 import { FormTokenFieldProps } from '@wordpress/components/build-types/form-token-field/types';
 
 import { TaxonomySlug, WpTerm } from 'defs/term';
@@ -6,7 +8,7 @@ export type Term = WpTerm;
 
 export interface SelectorProps {
     id: string;
-    label: string;
+    label: ReactNode;
     help?: string;
     messages?: FormTokenFieldProps['messages'];
     taxonomy: TaxonomySlug;

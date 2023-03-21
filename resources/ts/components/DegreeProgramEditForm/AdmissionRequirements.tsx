@@ -3,6 +3,7 @@ import React from 'react';
 import { BaseControl, Panel, PanelBody } from '@wordpress/components';
 import { _x, sprintf } from '@wordpress/i18n';
 
+import FormFieldLabel from 'components/Layouts/FormFieldLabel';
 import FormFieldWrapper from 'components/Layouts/FormFieldWrapper';
 import FormWrapper from 'components/Layouts/FormWrapper';
 import TermSelector from 'components/TermSelector';
@@ -48,21 +49,25 @@ const AdmissionRequirements = () => {
                                 <FormFieldWrapper fill="half">
                                     <TermSelector
                                         id="bachelor_teaching_admission_requirement"
-                                        label={sprintf(
-                                            _x(
-                                                // translators: %s is the "(optional)" word
-                                                "Admission requirements for Bachelor's/teaching degrees %s",
-                                                'backoffice: degree program edit form',
-                                                'fau-degree-program',
-                                            ),
-                                            values.degree.name.de === ADDITIONAL_DEGREE_NAME
-                                                ? _x(
-                                                      '(optional)',
-                                                      'backoffice: degree program edit form',
-                                                      'fau-degree-program',
-                                                  )
-                                                : '',
-                                        )}
+                                        label={
+                                            <FormFieldLabel
+                                                label={sprintf(
+                                                    _x(
+                                                        // translators: %s is the "(optional)" word
+                                                        "Admission requirements for Bachelor's/teaching degrees %s",
+                                                        'backoffice: degree program edit form',
+                                                        'fau-degree-program',
+                                                    ),
+                                                    values.degree.name.de === ADDITIONAL_DEGREE_NAME
+                                                        ? _x(
+                                                              '(optional)',
+                                                              'backoffice: degree program edit form',
+                                                              'fau-degree-program',
+                                                          )
+                                                        : '',
+                                                )}
+                                            />
+                                        }
                                         taxonomy="bachelorOrTeachingDegreeAdmissionRequirement"
                                         value={
                                             values.admission_requirements
@@ -82,21 +87,25 @@ const AdmissionRequirements = () => {
                                 <FormFieldWrapper fill="half">
                                     <TermSelector
                                         id="teaching_higher_semester_admission_requirement"
-                                        label={sprintf(
-                                            _x(
-                                                // translators: %s is the "(optional)" word
-                                                'Admission requirements for entering a teaching degree at a higher semester %s',
-                                                'backoffice: degree program edit form',
-                                                'fau-degree-program',
-                                            ),
-                                            values.degree.name.de === ADDITIONAL_DEGREE_NAME
-                                                ? _x(
-                                                      '(optional)',
-                                                      'backoffice: degree program edit form',
-                                                      'fau-degree-program',
-                                                  )
-                                                : '',
-                                        )}
+                                        label={
+                                            <FormFieldLabel
+                                                label={sprintf(
+                                                    _x(
+                                                        // translators: %s is the "(optional)" word
+                                                        'Admission requirements for entering a teaching degree at a higher semester %s',
+                                                        'backoffice: degree program edit form',
+                                                        'fau-degree-program',
+                                                    ),
+                                                    values.degree.name.de === ADDITIONAL_DEGREE_NAME
+                                                        ? _x(
+                                                              '(optional)',
+                                                              'backoffice: degree program edit form',
+                                                              'fau-degree-program',
+                                                          )
+                                                        : '',
+                                                )}
+                                            />
+                                        }
                                         taxonomy="teachingDegreeHigherSemesterAdmissionRequirement"
                                         value={
                                             values.admission_requirements
@@ -120,11 +129,15 @@ const AdmissionRequirements = () => {
                             <FormFieldWrapper>
                                 <TermSelector
                                     id="master_admission_requirement"
-                                    label={_x(
-                                        "Admission requirements for Master's degree",
-                                        'backoffice: degree program edit form',
-                                        'fau-degree-program',
-                                    )}
+                                    label={
+                                        <FormFieldLabel
+                                            label={_x(
+                                                "Admission requirements for Master's degree",
+                                                'backoffice: degree program edit form',
+                                                'fau-degree-program',
+                                            )}
+                                        />
+                                    }
                                     taxonomy="masterDegreeAdmissionRequirement"
                                     value={values.admission_requirements.master.id}
                                     onChange={(term) => {
@@ -138,12 +151,16 @@ const AdmissionRequirements = () => {
 
                             <FormFieldWrapper>
                                 <BaseControl
-                                    label={_x(
-                                        "Content-related admission requirements for Master's degree",
-                                        'backoffice: degree program edit form',
-                                        'fau-degree-program',
-                                    )}
-                                    help="vorausgegangene Bachelorstudiengänge, Qualifikationswerte, etc."
+                                    label={
+                                        <FormFieldLabel
+                                            label={_x(
+                                                "Content-related admission requirements for Master's degree",
+                                                'backoffice: degree program edit form',
+                                                'fau-degree-program',
+                                            )}
+                                            help="vorausgegangene Bachelorstudiengänge, Qualifikationswerte, etc."
+                                        />
+                                    }
                                 >
                                     <MultilingualContainer
                                         value={values.content_related_master_requirements}
@@ -173,11 +190,15 @@ const AdmissionRequirements = () => {
                     {applicationWinterDeadlineEnabled && (
                         <FormFieldWrapper>
                             <BaseControl
-                                label={_x(
-                                    'Application deadline winter semester',
-                                    'backoffice: degree program edit form',
-                                    'fau-degree-program',
-                                )}
+                                label={
+                                    <FormFieldLabel
+                                        label={_x(
+                                            'Application deadline winter semester',
+                                            'backoffice: degree program edit form',
+                                            'fau-degree-program',
+                                        )}
+                                    />
+                                }
                             >
                                 <ContentField
                                     onChange={(value: string) => {
@@ -195,11 +216,15 @@ const AdmissionRequirements = () => {
                     {applicationSummerDeadlineEnabled && (
                         <FormFieldWrapper>
                             <BaseControl
-                                label={_x(
-                                    'Application deadline summer semester',
-                                    'backoffice: degree program edit form',
-                                    'fau-degree-program',
-                                )}
+                                label={
+                                    <FormFieldLabel
+                                        label={_x(
+                                            'Application deadline summer semester',
+                                            'backoffice: degree program edit form',
+                                            'fau-degree-program',
+                                        )}
+                                    />
+                                }
                             >
                                 <ContentField
                                     onChange={(value: string) => {
@@ -220,12 +245,16 @@ const AdmissionRequirements = () => {
 
                     <FormFieldWrapper>
                         <BaseControl
-                            label={_x(
-                                'Details and notes',
-                                'backoffice: degree program edit form',
-                                'fau-degree-program',
-                            )}
-                            help="evtl. zusätzliche Infos zu Bewerbung und Einschreibung."
+                            label={
+                                <FormFieldLabel
+                                    label={_x(
+                                        'Details and notes',
+                                        'backoffice: degree program edit form',
+                                        'fau-degree-program',
+                                    )}
+                                    help="evtl. zusätzliche Infos zu Bewerbung und Einschreibung."
+                                />
+                            }
                         >
                             <MultilingualContainer value={values.details_and_notes}>
                                 {(languageCode) => (
@@ -245,12 +274,16 @@ const AdmissionRequirements = () => {
 
                     <FormFieldWrapper>
                         <BaseControl
-                            label={_x(
-                                'Language skills',
-                                'backoffice: degree program edit form',
-                                'fau-degree-program',
-                            )}
-                            help="Sprachkenntnisse, die für den Studiengang erforderlich sind."
+                            label={
+                                <FormFieldLabel
+                                    label={_x(
+                                        'Language skills',
+                                        'backoffice: degree program edit form',
+                                        'fau-degree-program',
+                                    )}
+                                    help="Sprachkenntnisse, die für den Studiengang erforderlich sind."
+                                />
+                            }
                         >
                             <MultilingualContainer value={values.language_skills}>
                                 {(languageCode) => (
@@ -271,22 +304,26 @@ const AdmissionRequirements = () => {
                     {humanitiesFacultyLanguageSkillsEnabled && (
                         <FormFieldWrapper>
                             <BaseControl
-                                label={sprintf(
-                                    _x(
-                                        // translators: %s is the "(optional)" word
-                                        'Language skills for Faculty of Humanities, Social Sciences, and Theology only %s',
-                                        'backoffice: degree program edit form',
-                                        'fau-degree-program',
-                                    ),
-                                    values.degree.name.de === ADDITIONAL_DEGREE_NAME
-                                        ? _x(
-                                              '(optional)',
-                                              'backoffice: degree program edit form',
-                                              'fau-degree-program',
-                                          )
-                                        : '',
-                                )}
-                                help="Sprachkenntnisse, die auch in den ersten Semestern noch erworben werden können."
+                                label={
+                                    <FormFieldLabel
+                                        label={sprintf(
+                                            _x(
+                                                // translators: %s is the "(optional)" word
+                                                'Language skills for Faculty of Humanities, Social Sciences, and Theology only %s',
+                                                'backoffice: degree program edit form',
+                                                'fau-degree-program',
+                                            ),
+                                            values.degree.name.de === ADDITIONAL_DEGREE_NAME
+                                                ? _x(
+                                                      '(optional)',
+                                                      'backoffice: degree program edit form',
+                                                      'fau-degree-program',
+                                                  )
+                                                : '',
+                                        )}
+                                        help="Sprachkenntnisse, die auch in den ersten Semestern noch erworben werden können."
+                                    />
+                                }
                             >
                                 <ContentField
                                     onChange={(value: string) => {
@@ -304,11 +341,15 @@ const AdmissionRequirements = () => {
                     <FormFieldWrapper>
                         <TermSelector
                             id="german_language_skills_for_international_students"
-                            label={_x(
-                                'Language certificates/German language skills for international applicants',
-                                'backoffice: degree program edit form',
-                                'fau-degree-program',
-                            )}
+                            label={
+                                <FormFieldLabel
+                                    label={_x(
+                                        'Language certificates/German language skills for international applicants',
+                                        'backoffice: degree program edit form',
+                                        'fau-degree-program',
+                                    )}
+                                />
+                            }
                             taxonomy="germanLanguageSkillsForInternationalStudents"
                             value={values.german_language_skills_for_international_students.id}
                             onChange={(term) => {

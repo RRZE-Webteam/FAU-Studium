@@ -3,6 +3,7 @@ import React from 'react';
 import { BaseControl, Panel, PanelBody } from '@wordpress/components';
 import { _x } from '@wordpress/i18n';
 
+import FormFieldLabel from 'components/Layouts/FormFieldLabel';
 import FormFieldWrapper from 'components/Layouts/FormFieldWrapper';
 import FormWrapper from 'components/Layouts/FormWrapper';
 import { useEditDegreeProgram } from 'contexts/DegreeProgramEditFormProvider';
@@ -49,20 +50,24 @@ const Content = () => {
                         (item) => (
                             <FormFieldWrapper key={item}>
                                 <BaseControl
-                                    label={`${values.content[item].title.de} ${
-                                        values.content[item].title.en
-                                            ? `(${values.content[item].title.en})`
-                                            : ''
-                                    }${
-                                        OPTIONAL_FIELDS.includes(item)
-                                            ? _x(
-                                                  ' (optional)',
-                                                  'backoffice: optional field suffix',
-                                                  'fau-degree-program',
-                                              )
-                                            : ''
-                                    }`}
-                                    help={CONTENT_ITEMS[item]}
+                                    label={
+                                        <FormFieldLabel
+                                            label={`${values.content[item].title.de} ${
+                                                values.content[item].title.en
+                                                    ? `(${values.content[item].title.en})`
+                                                    : ''
+                                            }${
+                                                OPTIONAL_FIELDS.includes(item)
+                                                    ? _x(
+                                                          ' (optional)',
+                                                          'backoffice: optional field suffix',
+                                                          'fau-degree-program',
+                                                      )
+                                                    : ''
+                                            }`}
+                                            help={CONTENT_ITEMS[item]}
+                                        />
+                                    }
                                 >
                                     <MultilingualContainer value={values.content[item].description}>
                                         {(languageCode: LanguageCode) => (

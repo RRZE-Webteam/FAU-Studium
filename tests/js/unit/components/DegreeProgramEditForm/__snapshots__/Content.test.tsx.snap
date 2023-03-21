@@ -2,53 +2,109 @@
 
 exports[`Content fields should match snapshot 1`] = `
 [
+  <span />,
   <span>
-    Vorstellung des Fachs und der Studieninhalte; ±200 Wörter
+    <span
+      className="sc-bcXHqe bKtfDB"
+    >
+      about (about)
+    </span>
+    <p
+      className="sc-gswNZR hgMeoo"
+    >
+      Vorstellung des Fachs und der Studieninhalte; ±200 Wörter
+    </p>
   </span>,
+  <span />,
   <span>
-    about (about)
+    <span
+      className="sc-bcXHqe bKtfDB"
+    >
+      structure (structure)
+    </span>
+    <p
+      className="sc-gswNZR hgMeoo"
+    >
+      Vorstellung des Fachs und der Studieninhalte; ±200 Wörter
+    </p>
   </span>,
+  <span />,
   <span>
-    Vorstellung des Fachs und der Studieninhalte; ±200 Wörter
+    <span
+      className="sc-bcXHqe bKtfDB"
+    >
+      specializations (specializations) (optional)
+    </span>
+    <p
+      className="sc-gswNZR hgMeoo"
+    >
+      Spezialisierungsmöglichkeiten und Schwerpunkte während des Studiums; ±200 Wörter
+    </p>
   </span>,
+  <span />,
   <span>
-    structure (structure)
+    <span
+      className="sc-bcXHqe bKtfDB"
+    >
+      qualities_and_skills (qualities_and_skills) (optional)
+    </span>
+    <p
+      className="sc-gswNZR hgMeoo"
+    >
+      Fähigkeiten und Vorlieben der Studieninteressierten, nicht formelle Voraussetzungen; ±200 Wörter
+    </p>
   </span>,
+  <span />,
   <span>
-    Spezialisierungsmöglichkeiten und Schwerpunkte während des Studiums; ±200 Wörter
+    <span
+      className="sc-bcXHqe bKtfDB"
+    >
+      why_should_study (why_should_study) (optional)
+    </span>
+    <p
+      className="sc-gswNZR hgMeoo"
+    >
+      Einzigartigkeit bzw. Besonderheiten (z. B. Kooperationspartner, Verbundstudiumsangebot) des Studiengangs an der FAU; ±200 Wörter
+    </p>
   </span>,
+  <span />,
   <span>
-    specializations (specializations) (optional)
+    <span
+      className="sc-bcXHqe bKtfDB"
+    >
+      career_prospects (career_prospects) (optional)
+    </span>
+    <p
+      className="sc-gswNZR hgMeoo"
+    >
+      mögliche Tätigkeitsfelder nach Abschluss des Studiums; ±200 Wörter
+    </p>
   </span>,
+  <span />,
   <span>
-    Fähigkeiten und Vorlieben der Studieninteressierten, nicht formelle Voraussetzungen; ±200 Wörter
+    <span
+      className="sc-bcXHqe bKtfDB"
+    >
+      special_features (special_features) (optional)
+    </span>
+    <p
+      className="sc-gswNZR hgMeoo"
+    >
+      Möglichkeiten von Auslandsaufenthalten, Kooperationen mit Forschungsprojekten, etc.; ±200 Wörter
+    </p>
   </span>,
+  <span />,
   <span>
-    qualities_and_skills (qualities_and_skills) (optional)
-  </span>,
-  <span>
-    Einzigartigkeit bzw. Besonderheiten (z. B. Kooperationspartner, Verbundstudiumsangebot) des Studiengangs an der FAU; ±200 Wörter
-  </span>,
-  <span>
-    why_should_study (why_should_study) (optional)
-  </span>,
-  <span>
-    mögliche Tätigkeitsfelder nach Abschluss des Studiums; ±200 Wörter
-  </span>,
-  <span>
-    career_prospects (career_prospects) (optional)
-  </span>,
-  <span>
-    Möglichkeiten von Auslandsaufenthalten, Kooperationen mit Forschungsprojekten, etc.; ±200 Wörter
-  </span>,
-  <span>
-    special_features (special_features) (optional)
-  </span>,
-  <span>
-    Videos oder Links zu schriftlichen Testimonials, Einbindung von studycheck-Bewertungen
-  </span>,
-  <span>
-    testimonials (testimonials) (optional)
+    <span
+      className="sc-bcXHqe bKtfDB"
+    >
+      testimonials (testimonials) (optional)
+    </span>
+    <p
+      className="sc-gswNZR hgMeoo"
+    >
+      Videos oder Links zu schriftlichen Testimonials, Einbindung von studycheck-Bewertungen
+    </p>
   </span>,
 ]
 `;
