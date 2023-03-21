@@ -5,12 +5,7 @@ import {
     transformTermToMultilingualString,
 } from 'util/transforms';
 
-import {
-    DegreeAbbreviationEnglish,
-    DegreeAbbreviationGerman,
-    MultilingualLinkMeta,
-    WpTerm,
-} from 'defs';
+import { DegreeAbbreviationGerman, MultilingualLinkMeta, WpTerm } from 'defs';
 
 const mockTerm: WpTerm<{ name_en: string }> = {
     description: '',
@@ -37,13 +32,13 @@ const mockTerm2: WpTerm<MultilingualLinkMeta> = {
 const mockDegreeTerm: WpTerm<{
     name_en: string;
     abbreviation: DegreeAbbreviationGerman;
-    abbreviation_en: DegreeAbbreviationEnglish;
+    abbreviation_en: string;
 }> = {
     ...mockTerm,
     meta: {
         name_en: 'bachelor',
         abbreviation: 'BA',
-        abbreviation_en: 'B.A.',
+        abbreviation_en: 'BA',
     },
 };
 

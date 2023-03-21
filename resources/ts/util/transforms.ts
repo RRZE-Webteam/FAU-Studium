@@ -3,7 +3,6 @@ import { propertyId } from './idHelpers';
 import {
     AdmissionRequirement,
     Degree,
-    DegreeAbbreviationEnglish,
     DegreeAbbreviationGerman,
     MultilingualLink,
     MultilingualString,
@@ -13,7 +12,7 @@ import { MultilingualLinkMeta, WpTerm } from 'defs/term';
 const EMPTY_MULTILINGUAL_STRING = {
     id: '',
     de: '' as DegreeAbbreviationGerman,
-    en: '' as DegreeAbbreviationEnglish,
+    en: '',
 };
 
 export function transformTermToMultilingualString(
@@ -63,7 +62,7 @@ export function transformTermToDegree(
         {
             name_en: string;
             abbreviation: DegreeAbbreviationGerman;
-            abbreviation_en: DegreeAbbreviationEnglish;
+            abbreviation_en: string;
         },
         Degree
     > | null,
