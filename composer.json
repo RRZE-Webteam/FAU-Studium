@@ -22,7 +22,7 @@
     },
     "require-dev": {
         "inpsyde/php-coding-standards": "@stable",
-        "inpsyde/wp-stubs": "dev-main",
+        "inpsyde/wp-stubs-versions": "dev-latest",
         "johnpbloch/wordpress-core": "^6.1",
         "phpunit/phpunit": "^9.5",
         "vimeo/psalm": "^5.7",
@@ -32,6 +32,13 @@
         {
             "type": "vcs",
             "url": "https://github.com/RRZE-Webteam/FAU-Studium-Common"
+        },
+        {
+            "type": "composer",
+            "url": "https://raw.githubusercontent.com/inpsyde/wp-stubs/main",
+            "only": [
+                "inpsyde/wp-stubs-versions"
+            ]
         }
     ],
     "minimum-stability": "dev",
