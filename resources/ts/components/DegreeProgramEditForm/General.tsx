@@ -11,6 +11,7 @@ import {
 import { _x } from '@wordpress/i18n';
 
 import ImageField from 'components/ImageField';
+import FormFieldLabel from 'components/Layouts/FormFieldLabel';
 import FormFieldWrapper from 'components/Layouts/FormFieldWrapper';
 import FormWrapper from 'components/Layouts/FormWrapper';
 import LimitedInputControl from 'components/LimitedInputControl';
@@ -39,12 +40,16 @@ const General = () => {
                     <FormFieldWrapper fill="half">
                         <BaseControl
                             id="featured_image"
-                            help="Wird für die Detailansicht verwendet."
-                            label={_x(
-                                'Featured image',
-                                'backoffice: degree program edit form',
-                                'fau-degree-program',
-                            )}
+                            label={
+                                <FormFieldLabel
+                                    label={_x(
+                                        'Featured image',
+                                        'backoffice: degree program edit form',
+                                        'fau-degree-program',
+                                    )}
+                                    help="Wird für die Detailansicht verwendet."
+                                />
+                            }
                         >
                             <ImageField path="featured_image" />
                         </BaseControl>
@@ -52,12 +57,16 @@ const General = () => {
                     <FormFieldWrapper fill="half">
                         <BaseControl
                             id="teaser_image"
-                            help="Wird für die Kacheln auf der Auswahlseite verwendet."
-                            label={_x(
-                                'Teaser Image',
-                                'backoffice: degree program edit form',
-                                'fau-degree-program',
-                            )}
+                            label={
+                                <FormFieldLabel
+                                    label={_x(
+                                        'Teaser Image',
+                                        'backoffice: degree program edit form',
+                                        'fau-degree-program',
+                                    )}
+                                    help="Wird für die Kacheln auf der Auswahlseite verwendet."
+                                />
+                            }
                         >
                             <ImageField path="teaser_image" />
                         </BaseControl>
@@ -66,12 +75,16 @@ const General = () => {
                     <FormFieldWrapper fill="half">
                         <BaseControl
                             id="title"
-                            label={_x(
-                                'Title',
-                                'backoffice: degree program edit form',
-                                'fau-degree-program',
-                            )}
-                            help="Studiengangsbezeichnung, ohne Abschluss."
+                            label={
+                                <FormFieldLabel
+                                    label={_x(
+                                        'Title',
+                                        'backoffice: degree program edit form',
+                                        'fau-degree-program',
+                                    )}
+                                    help="Studiengangsbezeichnung, ohne Abschluss."
+                                />
+                            }
                         >
                             <MultilingualContainer value={values.title}>
                                 {(languageCode) => (
@@ -88,12 +101,16 @@ const General = () => {
                     <FormFieldWrapper fill="half">
                         <BaseControl
                             id="subtitle"
-                            label={_x(
-                                'Subtitle (optional)',
-                                'backoffice: degree program edit form',
-                                'fau-degree-program',
-                            )}
-                            help="Z. B. Aufzählung der Studienschwerpunkte bei Wirtschaftswissenschaften."
+                            label={
+                                <FormFieldLabel
+                                    label={_x(
+                                        'Subtitle (optional)',
+                                        'backoffice: degree program edit form',
+                                        'fau-degree-program',
+                                    )}
+                                    help="Z. B. Aufzählung der Studienschwerpunkte bei Wirtschaftswissenschaften."
+                                />
+                            }
                         >
                             <MultilingualContainer value={values.subtitle}>
                                 {(languageCode) => (
@@ -111,11 +128,15 @@ const General = () => {
                     <FormFieldWrapper fill="third">
                         <MultiTermSelector
                             id="area_of_study"
-                            label={_x(
-                                'Area of study',
-                                'backoffice: degree program edit form',
-                                'fau-degree-program',
-                            )}
+                            label={
+                                <FormFieldLabel
+                                    label={_x(
+                                        'Area of study',
+                                        'backoffice: degree program edit form',
+                                        'fau-degree-program',
+                                    )}
+                                />
+                            }
                             taxonomy="areaOfStudy"
                             value={values.area_of_study.map((term) => term.id)}
                             onChange={(terms) => {
@@ -133,11 +154,15 @@ const General = () => {
                                 handleChange<number>('standard_duration', parseInt(value, 10));
                             }}
                             value={values.standard_duration || undefined}
-                            label={_x(
-                                'Duration of studies in semester',
-                                'backoffice: degree program edit form',
-                                'fau-degree-program',
-                            )}
+                            label={
+                                <FormFieldLabel
+                                    label={_x(
+                                        'Duration of studies in semester',
+                                        'backoffice: degree program edit form',
+                                        'fau-degree-program',
+                                    )}
+                                />
+                            }
                             min={1}
                             max={20}
                         />
@@ -146,11 +171,15 @@ const General = () => {
                     <FormFieldWrapper fill="third">
                         <MultiTermSelector
                             id="semester"
-                            label={_x(
-                                'Start of degree program',
-                                'backoffice: degree program edit form',
-                                'fau-degree-program',
-                            )}
+                            label={
+                                <FormFieldLabel
+                                    label={_x(
+                                        'Start of degree program',
+                                        'backoffice: degree program edit form',
+                                        'fau-degree-program',
+                                    )}
+                                />
+                            }
                             taxonomy="semester"
                             value={values.start.map((term) => term.id)}
                             onChange={(terms) => {
@@ -164,12 +193,16 @@ const General = () => {
                     <FormFieldWrapper fill="third">
                         <TermSelector
                             id="number_of_students"
-                            label={_x(
-                                'Number of students',
-                                'backoffice: degree program edit form',
-                                'fau-degree-program',
-                            )}
-                            help="Gesamtzahl der Studierenden, nicht nur Erstsemester."
+                            label={
+                                <FormFieldLabel
+                                    label={_x(
+                                        'Number of students',
+                                        'backoffice: degree program edit form',
+                                        'fau-degree-program',
+                                    )}
+                                    help="Gesamtzahl der Studierenden, nicht nur Erstsemester."
+                                />
+                            }
                             taxonomy="numberOfStudents"
                             value={values.number_of_students.id}
                             onChange={(term) => {
@@ -191,11 +224,15 @@ const General = () => {
                     <FormFieldWrapper fill="third">
                         <TermSelector
                             id="teaching-language"
-                            label={_x(
-                                'Teaching language',
-                                'backoffice: degree program edit form',
-                                'fau-degree-program',
-                            )}
+                            label={
+                                <FormFieldLabel
+                                    label={_x(
+                                        'Teaching language',
+                                        'backoffice: degree program edit form',
+                                        'fau-degree-program',
+                                    )}
+                                />
+                            }
                             taxonomy="teachingLanguage"
                             value={values.teaching_language.id}
                             onChange={(term) => {
@@ -209,11 +246,15 @@ const General = () => {
                     <FormFieldWrapper fill="third">
                         <MultiTermSelector
                             id="attribute"
-                            label={_x(
-                                'Attributes',
-                                'backoffice: degree program edit form',
-                                'fau-degree-program',
-                            )}
+                            label={
+                                <FormFieldLabel
+                                    label={_x(
+                                        'Attributes',
+                                        'backoffice: degree program edit form',
+                                        'fau-degree-program',
+                                    )}
+                                />
+                            }
                             taxonomy="attribute"
                             value={values.attributes.map((term) => term.id)}
                             onChange={(terms) => {
@@ -227,11 +268,15 @@ const General = () => {
                     <FormFieldWrapper fill="third">
                         <TermSelector
                             id="degree"
-                            label={_x(
-                                'Degree',
-                                'backoffice: degree program edit form',
-                                'fau-degree-program',
-                            )}
+                            label={
+                                <FormFieldLabel
+                                    label={_x(
+                                        'Degree',
+                                        'backoffice: degree program edit form',
+                                        'fau-degree-program',
+                                    )}
+                                />
+                            }
                             taxonomy="degree"
                             value={values.degree.id}
                             onChange={(term) => {
@@ -242,11 +287,15 @@ const General = () => {
                     <FormFieldWrapper fill="third">
                         <MultiTermSelector
                             id="faculty"
-                            label={_x(
-                                'Faculty',
-                                'backoffice: degree program edit form',
-                                'fau-degree-program',
-                            )}
+                            label={
+                                <FormFieldLabel
+                                    label={_x(
+                                        'Faculty',
+                                        'backoffice: degree program edit form',
+                                        'fau-degree-program',
+                                    )}
+                                />
+                            }
                             taxonomy="faculty"
                             value={values.faculty.map((term) => term.id)}
                             onChange={(terms) => {
@@ -260,11 +309,15 @@ const General = () => {
                     <FormFieldWrapper fill="third">
                         <MultiTermSelector
                             id="study-location"
-                            label={_x(
-                                'Study location',
-                                'backoffice: degree program edit form',
-                                'fau-degree-program',
-                            )}
+                            label={
+                                <FormFieldLabel
+                                    label={_x(
+                                        'Study location',
+                                        'backoffice: degree program edit form',
+                                        'fau-degree-program',
+                                    )}
+                                />
+                            }
                             taxonomy="studyLocation"
                             value={values.location.map((term) => term.id)}
                             onChange={(terms) => {
@@ -278,11 +331,15 @@ const General = () => {
                     <FormFieldWrapper fill="half">
                         <MultiTermSelector
                             id="subject-group"
-                            label={_x(
-                                'Subject groups',
-                                'backoffice: degree program edit form',
-                                'fau-degree-program',
-                            )}
+                            label={
+                                <FormFieldLabel
+                                    label={_x(
+                                        'Subject groups',
+                                        'backoffice: degree program edit form',
+                                        'fau-degree-program',
+                                    )}
+                                />
+                            }
                             taxonomy="subjectGroup"
                             value={values.subject_groups.map((term) => term.id)}
                             onChange={(terms) => {
@@ -296,11 +353,15 @@ const General = () => {
                     <FormFieldWrapper fill="half">
                         <MultiTermSelector
                             id="keywords"
-                            label={_x(
-                                'Keywords',
-                                'backoffice: degree program edit form',
-                                'fau-degree-program',
-                            )}
+                            label={
+                                <FormFieldLabel
+                                    label={_x(
+                                        'Keywords',
+                                        'backoffice: degree program edit form',
+                                        'fau-degree-program',
+                                    )}
+                                />
+                            }
                             taxonomy="keyword"
                             value={values.keywords.map((term) => term.id)}
                             onChange={(terms) => {
@@ -314,12 +375,16 @@ const General = () => {
                     <FormFieldWrapper fill="full">
                         <BaseControl
                             id="videos"
-                            label={_x(
-                                'Videos',
-                                'backoffice: degree program edit form',
-                                'fau-degree-program',
-                            )}
-                            help="Videos über den Studiengang, das Studienfach, ein Thema des Fachs (z. B. 2-Minuten-Wissen), Erfahrungsberichte."
+                            label={
+                                <FormFieldLabel
+                                    label={_x(
+                                        'Videos',
+                                        'backoffice: degree program edit form',
+                                        'fau-degree-program',
+                                    )}
+                                    help="Videos über den Studiengang, das Studienfach, ein Thema des Fachs (z. B. 2-Minuten-Wissen), Erfahrungsberichte."
+                                />
+                            }
                         >
                             <TextControlCollection
                                 value={values.videos}
@@ -331,12 +396,16 @@ const General = () => {
                     </FormFieldWrapper>
                     <FormFieldWrapper fill="full">
                         <BaseControl
-                            label={_x(
-                                'Meta description',
-                                'backoffice: degree program edit form',
-                                'fau-degree-program',
-                            )}
-                            help="Text für die Anzeige bei Suchmaschinen."
+                            label={
+                                <FormFieldLabel
+                                    label={_x(
+                                        'Meta description',
+                                        'backoffice: degree program edit form',
+                                        'fau-degree-program',
+                                    )}
+                                    help="Text für die Anzeige bei Suchmaschinen."
+                                />
+                            }
                         >
                             <MultilingualContainer value={values.meta_description}>
                                 {(languageCode) => (

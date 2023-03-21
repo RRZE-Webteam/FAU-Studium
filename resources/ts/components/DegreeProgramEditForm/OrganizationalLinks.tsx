@@ -3,6 +3,7 @@ import React from 'react';
 import { BaseControl, Panel, PanelBody, TextControl, ToggleControl } from '@wordpress/components';
 import { _x } from '@wordpress/i18n';
 
+import FormFieldLabel from 'components/Layouts/FormFieldLabel';
 import FormFieldWrapper from 'components/Layouts/FormFieldWrapper';
 import FormWrapper from 'components/Layouts/FormWrapper';
 
@@ -24,11 +25,15 @@ const OrganizationalLinks = () => {
                     <FormFieldWrapper fill="half">
                         <TermSelector
                             id="examinations_office"
-                            label={_x(
-                                'Examinations Office',
-                                'backoffice: degree program edit form',
-                                'fau-degree-program',
-                            )}
+                            label={
+                                <FormFieldLabel
+                                    label={_x(
+                                        'Examinations Office',
+                                        'backoffice: degree program edit form',
+                                        'fau-degree-program',
+                                    )}
+                                />
+                            }
                             taxonomy="examinationsOffice"
                             value={values.examinations_office.id}
                             onChange={(term) => {
@@ -42,11 +47,15 @@ const OrganizationalLinks = () => {
                     <FormFieldWrapper fill="half">
                         <TextControl
                             id="module_handbook"
-                            label={_x(
-                                'Module handbook (URL)',
-                                'backoffice: degree program edit form',
-                                'fau-degree-program',
-                            )}
+                            label={
+                                <FormFieldLabel
+                                    label={_x(
+                                        'Module handbook (URL)',
+                                        'backoffice: degree program edit form',
+                                        'fau-degree-program',
+                                    )}
+                                />
+                            }
                             onChange={(handbook: string) => {
                                 handleChange<string>('module_handbook', handbook);
                             }}
@@ -57,11 +66,15 @@ const OrganizationalLinks = () => {
                     <FormFieldWrapper fill="third">
                         <BaseControl
                             id="url"
-                            label={_x(
-                                'Degree program (URL)',
-                                'backoffice: degree program edit form',
-                                'fau-degree-program',
-                            )}
+                            label={
+                                <FormFieldLabel
+                                    label={_x(
+                                        'Degree program (URL)',
+                                        'backoffice: degree program edit form',
+                                        'fau-degree-program',
+                                    )}
+                                />
+                            }
                         >
                             <MultilingualContainer value={values.url}>
                                 {(languageCode) => (
@@ -79,11 +92,15 @@ const OrganizationalLinks = () => {
                     <FormFieldWrapper fill="third">
                         <BaseControl
                             id="examination_regulations"
-                            label={_x(
-                                'Degree program and examination regulations',
-                                'backoffice: degree program edit form',
-                                'fau-degree-program',
-                            )}
+                            label={
+                                <FormFieldLabel
+                                    label={_x(
+                                        'Degree program and examination regulations',
+                                        'backoffice: degree program edit form',
+                                        'fau-degree-program',
+                                    )}
+                                />
+                            }
                         >
                             <MultilingualContainer value={values.examination_regulations}>
                                 {(languageCode) => (
@@ -103,11 +120,15 @@ const OrganizationalLinks = () => {
                     <FormFieldWrapper fill="third">
                         <BaseControl
                             id="department"
-                            label={_x(
-                                'Department (URL)',
-                                'backoffice: degree program edit form',
-                                'fau-degree-program',
-                            )}
+                            label={
+                                <FormFieldLabel
+                                    label={_x(
+                                        'Department (URL)',
+                                        'backoffice: degree program edit form',
+                                        'fau-degree-program',
+                                    )}
+                                />
+                            }
                         >
                             <MultilingualContainer value={values.department}>
                                 {(languageCode) => (
@@ -128,11 +149,15 @@ const OrganizationalLinks = () => {
                     <FormFieldWrapper fill="half">
                         <TermSelector
                             id="subject_specific_advice"
-                            label={_x(
-                                'Subject-specific advice',
-                                'backoffice: degree program edit form',
-                                'fau-degree-program',
-                            )}
+                            label={
+                                <FormFieldLabel
+                                    label={_x(
+                                        'Subject-specific advice',
+                                        'backoffice: degree program edit form',
+                                        'fau-degree-program',
+                                    )}
+                                />
+                            }
                             taxonomy="subjectSpecificAdvice"
                             value={values.subject_specific_advice.id}
                             onChange={(term) => {
@@ -146,11 +171,15 @@ const OrganizationalLinks = () => {
                     <FormFieldWrapper fill="half">
                         <TextControl
                             id="student_representatives"
-                            label={_x(
-                                'Student’s Representatives/FSI (URL)',
-                                'backoffice: degree program edit form',
-                                'fau-degree-program',
-                            )}
+                            label={
+                                <FormFieldLabel
+                                    label={_x(
+                                        'Student’s Representatives/FSI (URL)',
+                                        'backoffice: degree program edit form',
+                                        'fau-degree-program',
+                                    )}
+                                />
+                            }
                             onChange={(representatives: string) => {
                                 handleChange<string>('student_representatives', representatives);
                             }}
@@ -162,11 +191,15 @@ const OrganizationalLinks = () => {
                     <FormFieldWrapper fill="full">
                         <BaseControl
                             id="fee_required"
-                            label={_x(
-                                'Fee required',
-                                'backoffice: degree program edit form',
-                                'fau-degree-program',
-                            )}
+                            label={
+                                <FormFieldLabel
+                                    label={_x(
+                                        'Fee required',
+                                        'backoffice: degree program edit form',
+                                        'fau-degree-program',
+                                    )}
+                                />
+                            }
                         >
                             <div>
                                 <ToggleControl
@@ -179,12 +212,16 @@ const OrganizationalLinks = () => {
                         </BaseControl>
                         {degreeFeesEnabled && (
                             <BaseControl
-                                label={_x(
-                                    'Degree Program Fees',
-                                    'backoffice: degree program edit form',
-                                    'fau-degree-program',
-                                )}
-                                help="Studiengangsgebühren, nicht Semesterbeiträge."
+                                label={
+                                    <FormFieldLabel
+                                        label={_x(
+                                            'Degree Program Fees',
+                                            'backoffice: degree program edit form',
+                                            'fau-degree-program',
+                                        )}
+                                        help="Studiengangsgebühren, nicht Semesterbeiträge."
+                                    />
+                                }
                             >
                                 <MultilingualContainer value={values.degree_program_fees}>
                                     {(languageCode) => (

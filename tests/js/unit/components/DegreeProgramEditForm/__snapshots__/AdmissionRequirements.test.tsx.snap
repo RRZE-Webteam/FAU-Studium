@@ -8,12 +8,12 @@ exports[`Admission requirement fields should match snapshot 1`] = `
     className="components-panel__body is-opened"
   >
     <div
-      className="components-flex sc-gswNZR Cyxsy css-zp26ix-View-Flex-base-ItemsRow e19lxcc00"
+      className="components-flex sc-hLBbgP bCBYrY css-zp26ix-View-Flex-base-ItemsRow e19lxcc00"
       data-wp-c16t={true}
       data-wp-component="Flex"
     >
       <div
-        className="components-flex-item sc-bcXHqe iwVSrR css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        className="components-flex-item sc-dkrFOg dXOgOj css-mw3lhz-View-Item-sx-Base e19lxcc00"
         data-wp-c16t={true}
         data-wp-component="FlexItem"
         fill="half"
@@ -23,7 +23,11 @@ exports[`Admission requirement fields should match snapshot 1`] = `
             htmlFor="foo"
           >
             <span>
-              Admission requirements for Bachelor's/teaching degrees 
+              <span
+                className="sc-bcXHqe bKtfDB"
+              >
+                Admission requirements for Bachelor's/teaching degrees 
+              </span>
             </span>
             <input
               aria-labelledby="foo"
@@ -32,7 +36,7 @@ exports[`Admission requirement fields should match snapshot 1`] = `
         </form>
       </div>
       <div
-        className="components-flex-item sc-bcXHqe iwVSrR css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        className="components-flex-item sc-dkrFOg dXOgOj css-mw3lhz-View-Item-sx-Base e19lxcc00"
         data-wp-c16t={true}
         data-wp-component="FlexItem"
         fill="half"
@@ -42,7 +46,11 @@ exports[`Admission requirement fields should match snapshot 1`] = `
             htmlFor="foo"
           >
             <span>
-              Admission requirements for entering a teaching degree at a higher semester 
+              <span
+                className="sc-bcXHqe bKtfDB"
+              >
+                Admission requirements for entering a teaching degree at a higher semester 
+              </span>
             </span>
             <input
               aria-labelledby="foo"
@@ -51,7 +59,7 @@ exports[`Admission requirement fields should match snapshot 1`] = `
         </form>
       </div>
       <div
-        className="components-flex-item sc-bcXHqe fYNEJJ css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        className="components-flex-item sc-dkrFOg kpsgMX css-mw3lhz-View-Item-sx-Base e19lxcc00"
         data-wp-c16t={true}
         data-wp-component="FlexItem"
         fill="full"
@@ -59,7 +67,7 @@ exports[`Admission requirement fields should match snapshot 1`] = `
         <hr />
       </div>
       <div
-        className="components-flex-item sc-bcXHqe fYNEJJ css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        className="components-flex-item sc-dkrFOg kpsgMX css-mw3lhz-View-Item-sx-Base e19lxcc00"
         data-wp-c16t={true}
         data-wp-component="FlexItem"
         fill="full"
@@ -69,7 +77,11 @@ exports[`Admission requirement fields should match snapshot 1`] = `
             htmlFor="foo"
           >
             <span>
-              Admission requirements for Master's degree
+              <span
+                className="sc-bcXHqe bKtfDB"
+              >
+                Admission requirements for Master's degree
+              </span>
             </span>
             <input
               aria-labelledby="foo"
@@ -78,7 +90,7 @@ exports[`Admission requirement fields should match snapshot 1`] = `
         </form>
       </div>
       <div
-        className="components-flex-item sc-bcXHqe fYNEJJ css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        className="components-flex-item sc-dkrFOg kpsgMX css-mw3lhz-View-Item-sx-Base e19lxcc00"
         data-wp-c16t={true}
         data-wp-component="FlexItem"
         fill="full"
@@ -92,18 +104,22 @@ exports[`Admission requirement fields should match snapshot 1`] = `
             <span
               className="components-base-control__label css-1bhsfm8-StyledVisualLabel-baseLabelTypography-labelStyles ej5x27r0"
             >
-              Content-related admission requirements for Master's degree
+              <span
+                className="sc-bcXHqe bKtfDB"
+              >
+                Content-related admission requirements for Master's degree
+              </span>
+              <p
+                className="sc-gswNZR hgMeoo"
+              >
+                vorausgegangene Bachelorstudiengänge, Qualifikationswerte, etc.
+              </p>
             </span>
           </div>
-          <p
-            className="components-base-control__help css-v0euhr-StyledHelp-deprecatedMarginHelp ej5x27r1"
-          >
-            vorausgegangene Bachelorstudiengänge, Qualifikationswerte, etc.
-          </p>
         </div>
       </div>
       <div
-        className="components-flex-item sc-bcXHqe fYNEJJ css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        className="components-flex-item sc-dkrFOg kpsgMX css-mw3lhz-View-Item-sx-Base e19lxcc00"
         data-wp-c16t={true}
         data-wp-component="FlexItem"
         fill="full"
@@ -111,7 +127,7 @@ exports[`Admission requirement fields should match snapshot 1`] = `
         <hr />
       </div>
       <div
-        className="components-flex-item sc-bcXHqe fYNEJJ css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        className="components-flex-item sc-dkrFOg kpsgMX css-mw3lhz-View-Item-sx-Base e19lxcc00"
         data-wp-c16t={true}
         data-wp-component="FlexItem"
         fill="full"
@@ -125,13 +141,17 @@ exports[`Admission requirement fields should match snapshot 1`] = `
             <span
               className="components-base-control__label css-1bhsfm8-StyledVisualLabel-baseLabelTypography-labelStyles ej5x27r0"
             >
-              Application deadline winter semester
+              <span
+                className="sc-bcXHqe bKtfDB"
+              >
+                Application deadline winter semester
+              </span>
             </span>
           </div>
         </div>
       </div>
       <div
-        className="components-flex-item sc-bcXHqe fYNEJJ css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        className="components-flex-item sc-dkrFOg kpsgMX css-mw3lhz-View-Item-sx-Base e19lxcc00"
         data-wp-c16t={true}
         data-wp-component="FlexItem"
         fill="full"
@@ -145,13 +165,17 @@ exports[`Admission requirement fields should match snapshot 1`] = `
             <span
               className="components-base-control__label css-1bhsfm8-StyledVisualLabel-baseLabelTypography-labelStyles ej5x27r0"
             >
-              Application deadline summer semester
+              <span
+                className="sc-bcXHqe bKtfDB"
+              >
+                Application deadline summer semester
+              </span>
             </span>
           </div>
         </div>
       </div>
       <div
-        className="components-flex-item sc-bcXHqe fYNEJJ css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        className="components-flex-item sc-dkrFOg kpsgMX css-mw3lhz-View-Item-sx-Base e19lxcc00"
         data-wp-c16t={true}
         data-wp-component="FlexItem"
         fill="full"
@@ -159,7 +183,7 @@ exports[`Admission requirement fields should match snapshot 1`] = `
         <hr />
       </div>
       <div
-        className="components-flex-item sc-bcXHqe fYNEJJ css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        className="components-flex-item sc-dkrFOg kpsgMX css-mw3lhz-View-Item-sx-Base e19lxcc00"
         data-wp-c16t={true}
         data-wp-component="FlexItem"
         fill="full"
@@ -173,18 +197,22 @@ exports[`Admission requirement fields should match snapshot 1`] = `
             <span
               className="components-base-control__label css-1bhsfm8-StyledVisualLabel-baseLabelTypography-labelStyles ej5x27r0"
             >
-              Details and notes
+              <span
+                className="sc-bcXHqe bKtfDB"
+              >
+                Details and notes
+              </span>
+              <p
+                className="sc-gswNZR hgMeoo"
+              >
+                evtl. zusätzliche Infos zu Bewerbung und Einschreibung.
+              </p>
             </span>
           </div>
-          <p
-            className="components-base-control__help css-v0euhr-StyledHelp-deprecatedMarginHelp ej5x27r1"
-          >
-            evtl. zusätzliche Infos zu Bewerbung und Einschreibung.
-          </p>
         </div>
       </div>
       <div
-        className="components-flex-item sc-bcXHqe fYNEJJ css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        className="components-flex-item sc-dkrFOg kpsgMX css-mw3lhz-View-Item-sx-Base e19lxcc00"
         data-wp-c16t={true}
         data-wp-component="FlexItem"
         fill="full"
@@ -198,18 +226,22 @@ exports[`Admission requirement fields should match snapshot 1`] = `
             <span
               className="components-base-control__label css-1bhsfm8-StyledVisualLabel-baseLabelTypography-labelStyles ej5x27r0"
             >
-              Language skills
+              <span
+                className="sc-bcXHqe bKtfDB"
+              >
+                Language skills
+              </span>
+              <p
+                className="sc-gswNZR hgMeoo"
+              >
+                Sprachkenntnisse, die für den Studiengang erforderlich sind.
+              </p>
             </span>
           </div>
-          <p
-            className="components-base-control__help css-v0euhr-StyledHelp-deprecatedMarginHelp ej5x27r1"
-          >
-            Sprachkenntnisse, die für den Studiengang erforderlich sind.
-          </p>
         </div>
       </div>
       <div
-        className="components-flex-item sc-bcXHqe fYNEJJ css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        className="components-flex-item sc-dkrFOg kpsgMX css-mw3lhz-View-Item-sx-Base e19lxcc00"
         data-wp-c16t={true}
         data-wp-component="FlexItem"
         fill="full"
@@ -223,18 +255,22 @@ exports[`Admission requirement fields should match snapshot 1`] = `
             <span
               className="components-base-control__label css-1bhsfm8-StyledVisualLabel-baseLabelTypography-labelStyles ej5x27r0"
             >
-              Language skills for Faculty of Humanities, Social Sciences, and Theology only 
+              <span
+                className="sc-bcXHqe bKtfDB"
+              >
+                Language skills for Faculty of Humanities, Social Sciences, and Theology only 
+              </span>
+              <p
+                className="sc-gswNZR hgMeoo"
+              >
+                Sprachkenntnisse, die auch in den ersten Semestern noch erworben werden können.
+              </p>
             </span>
           </div>
-          <p
-            className="components-base-control__help css-v0euhr-StyledHelp-deprecatedMarginHelp ej5x27r1"
-          >
-            Sprachkenntnisse, die auch in den ersten Semestern noch erworben werden können.
-          </p>
         </div>
       </div>
       <div
-        className="components-flex-item sc-bcXHqe fYNEJJ css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        className="components-flex-item sc-dkrFOg kpsgMX css-mw3lhz-View-Item-sx-Base e19lxcc00"
         data-wp-c16t={true}
         data-wp-component="FlexItem"
         fill="full"
@@ -244,7 +280,11 @@ exports[`Admission requirement fields should match snapshot 1`] = `
             htmlFor="foo"
           >
             <span>
-              Language certificates/German language skills for international applicants
+              <span
+                className="sc-bcXHqe bKtfDB"
+              >
+                Language certificates/German language skills for international applicants
+              </span>
             </span>
             <input
               aria-labelledby="foo"
