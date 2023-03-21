@@ -1,4 +1,3 @@
-import { DegreeAbbreviationEnglish } from './degree-program-data';
 import { DegreeProgramEditorServerDataType } from './server-data';
 
 export interface WpTerm<Meta extends Record<string, string> = never, ParentType = never> {
@@ -26,7 +25,7 @@ export type MultilingualLinkMeta = {
 export type DegreeMeta = {
     name_en: string;
     abbreviation: string;
-    abbreviation_en: DegreeAbbreviationEnglish;
+    abbreviation_en: string;
 };
 
 export type TaxonomySlug = keyof DegreeProgramEditorServerDataType['taxonomySlugs'];

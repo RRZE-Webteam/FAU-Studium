@@ -66,23 +66,16 @@ export interface DegreeProgramData {
     notes_for_international_applicants: MultilingualLink;
 }
 
-export const DEGREE_ABBREVIATION_ENGLISH = {
-    BACHELOR: 'B.A.',
-    MASTERS: 'M.A.',
-    TEACHING_DEGREE: 'B.S.E.',
-} as const;
-
 export const DEGREE_ABBREVIATION_GERMAN = {
     BACHELOR: 'BA',
     MASTERS: 'MA',
     TEACHING_DEGREE: 'LA',
 } as const;
 
-export type DegreeAbbreviationEnglish = ObjectValues<typeof DEGREE_ABBREVIATION_ENGLISH> | '';
 export type DegreeAbbreviationGerman = ObjectValues<typeof DEGREE_ABBREVIATION_GERMAN> | '';
 
 export interface DegreeProgramAbbreviation extends MultilingualString {
-    en: DegreeAbbreviationEnglish;
+    en: string;
     de: DegreeAbbreviationGerman;
 }
 
