@@ -149,11 +149,7 @@ const General = () => {
                     </FormFieldWrapper>
 
                     <FormFieldWrapper fill="third">
-                        <NumberControl
-                            onChange={(value: string) => {
-                                handleChange<number>('standard_duration', parseInt(value, 10));
-                            }}
-                            value={values.standard_duration || undefined}
+                        <BaseControl
                             label={
                                 <FormFieldLabel
                                     label={_x(
@@ -163,9 +159,16 @@ const General = () => {
                                     )}
                                 />
                             }
-                            min={1}
-                            max={20}
-                        />
+                        >
+                            <NumberControl
+                                onChange={(value: string) => {
+                                    handleChange<number>('standard_duration', parseInt(value, 10));
+                                }}
+                                value={values.standard_duration || undefined}
+                                min={1}
+                                max={20}
+                            />
+                        </BaseControl>
                     </FormFieldWrapper>
 
                     <FormFieldWrapper fill="third">
