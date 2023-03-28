@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { find, uniq } from 'lodash';
 
 import { FormTokenField } from '@wordpress/components';
@@ -33,6 +33,7 @@ export default function EntitySelector<Entity extends GenericEntity>({
 }: EntitySelectorProps<Entity>) {
     const [isFocused, setIsFocused] = useState<boolean>(false);
     const [values, setValues] = useState<Array<string>>([]);
+    const wrapperRef = useRef<HTMLDivElement>(null);
     const debouncedSearch = useDebounce(setSearch, 500);
 
     useEffect(() => {
@@ -78,8 +79,30 @@ export default function EntitySelector<Entity extends GenericEntity>({
         return find(availableEntities, (entity) => entityToToken(entity) === token);
     };
 
+    /**
+     * This is to fix a bug in Firefox where elements that are scrolled get focus,
+     * This causes a problem where the focus is not moved to next input when pressing keyboard `tab` key
+     *
+     * @link https://bugzilla.mozilla.org/show_bug.cgi?id=616594
+     */
+    useEffect(() => {
+        if (!wrapperRef.current || !isFocused) {
+            return;
+        }
+
+        const suggestionsList = wrapperRef.current.querySelector<HTMLUListElement>(
+            '.components-form-token-field__suggestions-list',
+        );
+
+        if (!suggestionsList) {
+            return;
+        }
+
+        suggestionsList.tabIndex = -1;
+    }, [isFocused]);
+
     return (
-        <div className="entity-selector">
+        <div className="entity-selector" ref={wrapperRef}>
             <div
                 tabIndex={-1}
                 onFocus={() => setIsFocused(true)}
@@ -93,6 +116,7 @@ export default function EntitySelector<Entity extends GenericEntity>({
                     suggestions={suggestions}
                     onChange={onChangeTokens}
                     onInputChange={debouncedSearch}
+                    onFocus={() => setIsFocused(true)}
                     maxSuggestions={maxSuggestions}
                     __experimentalShowHowTo={false}
                     __experimentalValidateInput={isTokenValid}
