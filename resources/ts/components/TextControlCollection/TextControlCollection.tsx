@@ -23,6 +23,7 @@ interface Props {
     value: string[];
     emptyMessage?: string;
     onChange(val: string[]): void;
+    type?: 'text' | 'url';
 }
 
 const transformRawValue = (value: string[]): FieldItem[] => {
@@ -53,7 +54,12 @@ const StyledNoItemsMessage = styled.p`
     border-radius: 2px;
 `;
 
-const TextControlCollection = ({ emptyMessage = undefined, value, onChange }: Props) => {
+const TextControlCollection = ({
+    emptyMessage = undefined,
+    value,
+    onChange,
+    type = 'text',
+}: Props) => {
     const initialValue = value.length ? value : [''];
     const [fields, setFields] = useState<FieldItem[]>(transformRawValue(initialValue));
 
@@ -76,6 +82,7 @@ const TextControlCollection = ({ emptyMessage = undefined, value, onChange }: Pr
                                     }),
                                 );
                             }}
+                            type={type}
                         />
 
                         <Button
@@ -129,6 +136,7 @@ const TextControlCollection = ({ emptyMessage = undefined, value, onChange }: Pr
 
 TextControlCollection.defaultProps = {
     emptyMessage: undefined,
-};
+    type: 'text',
+} as Partial<Props>;
 
 export default TextControlCollection;
