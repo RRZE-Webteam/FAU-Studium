@@ -391,6 +391,7 @@ const General = () => {
                                 onChange={(value) => {
                                     handleChange<string[]>('videos', value);
                                 }}
+                                type="url"
                             />
                         </BaseControl>
                     </FormFieldWrapper>

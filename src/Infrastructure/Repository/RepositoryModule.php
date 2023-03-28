@@ -16,6 +16,7 @@ use Fau\DegreeProgram\Common\Infrastructure\Repository\IdGenerator;
 use Fau\DegreeProgram\Common\Infrastructure\Repository\WordPressDatabaseDegreeProgramCollectionRepository;
 use Fau\DegreeProgram\Common\Infrastructure\Repository\WordPressDatabaseDegreeProgramRepository;
 use Fau\DegreeProgram\Common\Infrastructure\Repository\WordPressDatabaseDegreeProgramViewRepository;
+use Fau\DegreeProgram\Common\Infrastructure\Sanitizer\DegreeProgramFieldsSanitizer;
 use Fau\DegreeProgram\Common\Infrastructure\Sanitizer\HtmlDegreeProgramSanitizer;
 use Fau\DegreeProgram\Infrastructure\Revision\RevisionModule;
 use Inpsyde\Modularity\Module\ModuleClassNameIdTrait;
@@ -38,6 +39,7 @@ class RepositoryModule implements ServiceModule
             DegreeProgramRepository::class => static fn(ContainerInterface $container) => new WordPressDatabaseDegreeProgramRepository(
                 $container->get(IdGenerator::class),
                 $container->get(EventDispatcherInterface::class),
+                $container->get(HtmlDegreeProgramSanitizer::class),
             ),
             self::VIEW_REPOSITORY_UNCACHED => static fn(ContainerInterface $container) => new WordPressDatabaseDegreeProgramViewRepository(
                 $container->get(DegreeProgramRepository::class),
