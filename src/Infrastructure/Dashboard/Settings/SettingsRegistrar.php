@@ -77,7 +77,7 @@ final class SettingsRegistrar
                         INPUT_GET,
                         'tab',
                         FILTER_SANITIZE_SPECIAL_CHARS
-                    );
+                    ) ?: $page->pages()[0]->id(); // Fall back to the first tab if empty
                 }
 
                 echo $this->settingsRenderer->render(
