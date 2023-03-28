@@ -9,13 +9,18 @@ import { EntitySelectorProps } from 'defs';
 
 import './styles.scss';
 
+type GenericEntity = {
+    id: number;
+    parent?: number;
+};
+
 /**
  * Entity selector.
  * Heavily based on FlatTermSelector.
  *
  * @link https://github.com/WordPress/gutenberg/blob/c02421f8cd6e90966b7e8cd487d311ee31a6aada/packages/editor/src/components/post-taxonomies/flat-term-selector.js
  */
-export default function EntitySelector({
+export default function EntitySelector<Entity extends GenericEntity>({
     label,
     messages,
     maxLength,
@@ -25,7 +30,7 @@ export default function EntitySelector({
     entities,
     searchedEntities,
     setSearch,
-}: EntitySelectorProps) {
+}: EntitySelectorProps<Entity>) {
     const [isFocused, setIsFocused] = useState<boolean>(false);
     const [values, setValues] = useState<Array<string>>([]);
     const debouncedSearch = useDebounce(setSearch, 500);
@@ -42,7 +47,18 @@ export default function EntitySelector({
             return [];
         }
 
-        return searchedEntities.map(entityToToken);
+        let results: Array<Entity> = [];
+        const topLevelEntities = searchedEntities.filter((entity) => !entity?.parent);
+
+        topLevelEntities.forEach((entity) => {
+            const children = searchedEntities.filter(
+                (childEntity) => childEntity.parent === entity.id,
+            );
+
+            results = [...results, entity, ...children];
+        });
+
+        return results.map(entityToToken);
     }, [searchedEntities, values]);
 
     const onChangeTokens = (tokens) => {

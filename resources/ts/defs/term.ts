@@ -6,6 +6,7 @@ export interface WpTerm<Meta extends Record<string, string> = never, ParentType 
     name: string;
     slug: string;
     taxonomy: string;
+    parent?: number;
     parent_object?: ParentType;
     meta: [Meta] extends [never] ? object : Meta;
 }
