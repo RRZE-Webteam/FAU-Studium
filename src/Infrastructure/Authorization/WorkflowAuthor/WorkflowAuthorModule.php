@@ -91,6 +91,7 @@ final class WorkflowAuthorModule implements ServiceModule, ExecutableModule
             'show_ui' => true,
             'show_in_menu' => true,
             'rewrite' => false,
+            'show_admin_column' => true,
             'capabilities' => [
                 'manage_terms' => Capabilities::MANAGE_WORKFLOW_AUTHORS_TERMS,
                 'edit_terms' => Capabilities::EDIT_WORKFLOW_AUTHORS_TERMS,
