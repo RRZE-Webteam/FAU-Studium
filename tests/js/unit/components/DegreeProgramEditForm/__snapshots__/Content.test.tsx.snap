@@ -12,7 +12,7 @@ exports[`Content fields should match snapshot 1`] = `
     <p
       className="sc-gswNZR hgMeoo"
     >
-      Vorstellung des Fachs und der Studieninhalte; ±200 Wörter
+      kurze Beschreibung des Studiengangs allgemein; ±200 Wörter
     </p>
   </span>,
   <span />,
