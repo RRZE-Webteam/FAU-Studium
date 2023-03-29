@@ -15,7 +15,7 @@ import MultilingualContainer from './MultilingualContainer';
 import { DegreeProgramData, LanguageCode } from 'defs';
 
 const CONTENT_ITEMS = {
-    about: 'Vorstellung des Fachs und der Studieninhalte; ±200 Wörter',
+    about: 'kurze Beschreibung des Studiengangs allgemein; ±200 Wörter',
     structure: 'Vorstellung des Fachs und der Studieninhalte; ±200 Wörter',
     specializations:
         'Spezialisierungsmöglichkeiten und Schwerpunkte während des Studiums; ±200 Wörter',
