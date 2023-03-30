@@ -26,7 +26,16 @@ final class WordPressRevisionNotificationRepository implements RevisionNotificat
         $lastRevisions = $this->fetchLastRevisions();
         $result = [];
         foreach ($lastRevisions as $degreeProgramId => $revisionIds) {
-            $result += $this->findUsersSubscribedToPostChanges($degreeProgramId);
+            $authorIds = array_map(
+                static fn ($revisionId) => (int) get_post_field('post_author', $revisionId),
+                $revisionIds
+            );
+
+            // Exclude revision authors themselves from list of "users to be notified"
+            $result += array_filter(
+                $this->findUsersSubscribedToPostChanges($degreeProgramId),
+                static fn ($userId) => !in_array($userId, $authorIds, true)
+            );
         }
 
         return $result;
