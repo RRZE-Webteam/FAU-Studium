@@ -1,13 +1,6 @@
 import React from 'react';
 
-import {
-    __experimentalNumberControl as NumberControl,
-    BaseControl,
-    Panel,
-    PanelBody,
-    TextareaControl,
-    TextControl,
-} from '@wordpress/components';
+import { BaseControl, Panel, PanelBody, TextareaControl, TextControl } from '@wordpress/components';
 import { _x } from '@wordpress/i18n';
 
 import ImageField from 'components/ImageField';
@@ -149,29 +142,6 @@ const General = () => {
                     </FormFieldWrapper>
 
                     <FormFieldWrapper fill="third">
-                        <BaseControl
-                            label={
-                                <FormFieldLabel
-                                    label={_x(
-                                        'Duration of studies in semester',
-                                        'backoffice: degree program edit form',
-                                        'fau-degree-program',
-                                    )}
-                                />
-                            }
-                        >
-                            <NumberControl
-                                onChange={(value: string) => {
-                                    handleChange<number>('standard_duration', parseInt(value, 10));
-                                }}
-                                value={values.standard_duration || undefined}
-                                min={1}
-                                max={20}
-                            />
-                        </BaseControl>
-                    </FormFieldWrapper>
-
-                    <FormFieldWrapper fill="third">
                         <MultiTermSelector
                             id="semester"
                             label={
@@ -287,7 +257,7 @@ const General = () => {
                             }}
                         />
                     </FormFieldWrapper>
-                    <FormFieldWrapper fill="third">
+                    <FormFieldWrapper fill="half">
                         <MultiTermSelector
                             id="faculty"
                             label={
@@ -309,7 +279,7 @@ const General = () => {
                             }}
                         />
                     </FormFieldWrapper>
-                    <FormFieldWrapper fill="third">
+                    <FormFieldWrapper fill="half">
                         <MultiTermSelector
                             id="study-location"
                             label={
@@ -398,6 +368,29 @@ const General = () => {
                             />
                         </BaseControl>
                     </FormFieldWrapper>
+
+                    <FormFieldWrapper fill="full">
+                        <BaseControl
+                            label={
+                                <FormFieldLabel
+                                    label={_x(
+                                        'Duration of studies in semester',
+                                        'backoffice: degree program edit form',
+                                        'fau-degree-program',
+                                    )}
+                                    help="Nur Zahl."
+                                />
+                            }
+                        >
+                            <TextareaControl
+                                onChange={(value: string) => {
+                                    handleChange<string>('standard_duration', value);
+                                }}
+                                value={values.standard_duration}
+                            />
+                        </BaseControl>
+                    </FormFieldWrapper>
+
                     <FormFieldWrapper fill="full">
                         <BaseControl
                             label={

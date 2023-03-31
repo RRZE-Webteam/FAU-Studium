@@ -99,7 +99,7 @@ final class CacheBasedRevisionRepository implements DegreeProgramRevisionReposit
             self::multilingualStringToFlatArray(DegreeProgram::TITLE, $rawRevision->title()),
             self::multilingualStringToFlatArray(DegreeProgram::SUBTITLE, $rawRevision->subtitle()),
             [
-                DegreeProgram::STANDARD_DURATION => (string) ($rawRevision->standardDuration() ?: ''),
+                DegreeProgram::STANDARD_DURATION => $rawRevision->standardDuration() ?: '',
                 DegreeProgram::FEE_REQUIRED => $rawRevision->isFeeRequired() ? 'yes' : 'no',
                 DegreeProgram::START => $this->arrayLikeStructureToContextualIdList($rawRevision->start()),
                 DegreeProgram::NUMBER_OF_STUDENTS => $this->structureToContextualId($rawRevision->numberOfStudents()),

@@ -8,7 +8,7 @@ export interface DegreeProgramData {
     teaser_image: Image;
     title: MultilingualString;
     subtitle: MultilingualString;
-    standard_duration: number;
+    standard_duration: string;
     fee_required: boolean;
     start: Array<MultilingualString>;
     number_of_students: {
