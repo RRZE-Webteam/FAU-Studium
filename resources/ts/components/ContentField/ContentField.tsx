@@ -90,7 +90,7 @@ const ContentField = ({ content, onChange }: ContentFieldProps) => {
             }}
             settings={settings}
         >
-            <div ref={editorRef}>
+            <div ref={editorRef} className="fau-content-field">
                 <SlotFillProvider>
                     <StyledEditorWrapper className="editor-styles-wrapper">
                         <BlockEditorKeyboardShortcuts.Register />
