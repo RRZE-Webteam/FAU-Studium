@@ -55,7 +55,7 @@ class WorkflowAuthorsRepository
             return false;
         }
 
-        $workflowAuthorUsernames = wp_list_pluck($workflowAuthors, 'name');
+        $workflowAuthorUsernames = wp_list_pluck($workflowAuthors, 'slug');
         return in_array($user->user_login, $workflowAuthorUsernames, true);
     }
 
