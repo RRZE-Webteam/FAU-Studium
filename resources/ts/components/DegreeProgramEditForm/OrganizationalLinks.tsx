@@ -22,7 +22,29 @@ const OrganizationalLinks = () => {
         <Panel>
             <PanelBody>
                 <FormWrapper>
-                    <FormFieldWrapper fill="half">
+                    <FormFieldWrapper fill="third">
+                        <TermSelector
+                            id="apply_now_link"
+                            label={
+                                <FormFieldLabel
+                                    label={_x(
+                                        '"Apply now" link',
+                                        'backoffice: degree program edit form',
+                                        'fau-degree-program',
+                                    )}
+                                />
+                            }
+                            taxonomy="applyNowLink"
+                            value={values.apply_now_link.id}
+                            onChange={(term) => {
+                                handleChange<MultilingualLink>(
+                                    'apply_now_link',
+                                    transformTermToMultilingualLink(term),
+                                );
+                            }}
+                        />
+                    </FormFieldWrapper>
+                    <FormFieldWrapper fill="third">
                         <TermSelector
                             id="examinations_office"
                             label={
@@ -44,7 +66,7 @@ const OrganizationalLinks = () => {
                             }}
                         />
                     </FormFieldWrapper>
-                    <FormFieldWrapper fill="half">
+                    <FormFieldWrapper fill="third">
                         <TextControl
                             id="module_handbook"
                             label={
