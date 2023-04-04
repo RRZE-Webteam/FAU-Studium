@@ -22,7 +22,14 @@ final class EditPostCapabilitiesModifier extends CapabilitiesModifier
         }
 
         $requestedCapability = $arguments[0] ?? '';
-        if ($requestedCapability !== 'edit_post') {
+        // 'read_post' maps to 'edit_others_degree_programs' for drafts
+        if (
+            !in_array(
+                $requestedCapability,
+                ['edit_post', 'read_post'],
+                true
+            )
+        ) {
             return false;
         }
 
