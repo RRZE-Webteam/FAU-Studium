@@ -60,6 +60,7 @@ final class DegreeProgram
     public const COMBINATIONS_CHANGESET = 'combinations_changeset';
     public const LIMITED_COMBINATIONS_CHANGESET = 'limited_combinations_changeset';
     public const NOTES_FOR_INTERNATIONAL_APPLICANTS = 'notes_for_international_applicants';
+    public const APPLY_NOW_LINK = 'apply_now_link';
 
     private IntegersListChangeset $combinationsChangeset;
     private IntegersListChangeset $limitedCombinationsChangeset;
@@ -75,14 +76,10 @@ final class DegreeProgram
         private MultilingualString $title,
         private MultilingualString $subtitle,
         /**
-         * Number of semesters
+         * Duration of studies in semester
          * Regelstudienzeit
          */
         private string $standardDuration,
-        /**
-         * Kostenpflichtig
-         */
-        private bool $feeRequired,
         /**
          * @var MultilingualList $start One or several semesters
          * Example: Summer Term, Winter Term
@@ -120,6 +117,14 @@ final class DegreeProgram
         private MultilingualList $subjectGroups,
         private ArrayOfStrings $videos,
         private MultilingualString $metaDescription,
+        /**
+         * Schlagworte
+         */
+        private MultilingualList $keywords,
+        /**
+         * Studienbereich
+         */
+        private MultilingualLinks $areaOfStudy,
         //--- Content (“Inhalte”) ---//
         private Content $content,
         //--- Admission requirements, application and enrollment (“Zugangsvoraussetzungen, Bewerbung und Einschreibung”) ---//
@@ -158,10 +163,12 @@ final class DegreeProgram
         //--- Organization (organizational notes/links) (“Organisation (Organisatorische Hinweise/Links)”) --- //
         /**
          * Semesterstart
+         * Shared property
          */
         private MultilingualLink $startOfSemester,
         /**
          * Semestertermine
+         * Shared property
          */
         private MultilingualLink $semesterDates,
         /**
@@ -183,6 +190,7 @@ final class DegreeProgram
         private MultilingualString $department,
         /**
          * Allgemeine Studienberatung
+         * Shared property
          */
         private MultilingualLink $studentAdvice,
         /**
@@ -191,6 +199,7 @@ final class DegreeProgram
         private MultilingualLink $subjectSpecificAdvice,
         /**
          * Beratungs- und Servicestellen der FAU
+         * Shared property
          */
         private MultilingualLink $serviceCenters,
         /**
@@ -199,25 +208,31 @@ final class DegreeProgram
         private string $studentRepresentatives,
         /**
          * Semesterbeitrag
+         * Shared property
          */
         private MultilingualLink $semesterFee,
+        /**
+         * Kostenpflichtig
+         */
+        private bool $feeRequired,
         /**
          * Studiengangsgebühren
          */
         private MultilingualString $degreeProgramFees,
         /**
          * Wege ins Ausland
+         * Shared property
          */
         private MultilingualLink $abroadOpportunities,
-        //--- Properties for filtering --- //
         /**
-         * Schlagworte
+         * Hinweise für internationale Bewerber
+         * Shared property
          */
-        private MultilingualList $keywords,
+        private MultilingualLink $notesForInternationalApplicants,
         /**
-         * Studienbereich
+         * Bewerben
          */
-        private MultilingualLinks $areaOfStudy,
+        private MultilingualLink $applyNowLink,
         //--- Degree program combinations --- //
         /**
          * Kombinationsmöglichkeiten
@@ -227,10 +242,6 @@ final class DegreeProgram
          * Eingeschränkt Kombinationsmöglichkeiten
          */
         private DegreeProgramIds $limitedCombinations,
-        /**
-         * Hinweise für internationale Bewerber
-         */
-        private MultilingualLink $notesForInternationalApplicants,
     ) {
 
         $this->combinationsChangeset = IntegersListChangeset::new(
@@ -315,6 +326,7 @@ final class DegreeProgram
         $this->combinations = DegreeProgramIds::fromArray($data[self::COMBINATIONS]);
         $this->limitedCombinations = DegreeProgramIds::fromArray($data[self::LIMITED_COMBINATIONS]);
         $this->notesForInternationalApplicants = MultilingualLink::fromArray($data[self::NOTES_FOR_INTERNATIONAL_APPLICANTS]);
+        $this->applyNowLink = MultilingualLink::fromArray($data[self::APPLY_NOW_LINK]);
 
         $this->combinationsChangeset = $this
             ->combinationsChangeset
@@ -376,6 +388,7 @@ final class DegreeProgram
      *     combinations_changeset: IntegersListChangeset,
      *     limited_combinations_changeset: IntegersListChangeset,
      *     notes_for_international_applicants: MultilingualLink,
+     *     apply_now_link: MultilingualLink,
      * }
      * @internal Only for repositories usage
      */
@@ -431,6 +444,7 @@ final class DegreeProgram
             self::COMBINATIONS_CHANGESET => $this->combinationsChangeset,
             self::LIMITED_COMBINATIONS_CHANGESET => $this->limitedCombinationsChangeset,
             self::NOTES_FOR_INTERNATIONAL_APPLICANTS => $this->notesForInternationalApplicants,
+            self::APPLY_NOW_LINK => $this->applyNowLink,
         ];
     }
 

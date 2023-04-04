@@ -63,6 +63,7 @@ return array(
     'Fau\\DegreeProgram\\Common\\Infrastructure\\Cli\\DegreeProgramCacheCommand' => $vendorDir . '/inpsyde/fau-degree-program-common/src/Infrastructure/Cli/DegreeProgramCacheCommand.php',
     'Fau\\DegreeProgram\\Common\\Infrastructure\\Content\\Meta\\MetaFieldsList' => $vendorDir . '/inpsyde/fau-degree-program-common/src/Infrastructure/Content/Meta/MetaFieldsList.php',
     'Fau\\DegreeProgram\\Common\\Infrastructure\\Content\\PostType\\DegreeProgramPostType' => $vendorDir . '/inpsyde/fau-degree-program-common/src/Infrastructure/Content/PostType/DegreeProgramPostType.php',
+    'Fau\\DegreeProgram\\Common\\Infrastructure\\Content\\Taxonomy\\ApplyNowLinkTaxonomy' => $vendorDir . '/inpsyde/fau-degree-program-common/src/Infrastructure/Content/Taxonomy/ApplyNowLinkTaxonomy.php',
     'Fau\\DegreeProgram\\Common\\Infrastructure\\Content\\Taxonomy\\AreaOfStudyTaxonomy' => $vendorDir . '/inpsyde/fau-degree-program-common/src/Infrastructure/Content/Taxonomy/AreaOfStudyTaxonomy.php',
     'Fau\\DegreeProgram\\Common\\Infrastructure\\Content\\Taxonomy\\AttributeTaxonomy' => $vendorDir . '/inpsyde/fau-degree-program-common/src/Infrastructure/Content/Taxonomy/AttributeTaxonomy.php',
     'Fau\\DegreeProgram\\Common\\Infrastructure\\Content\\Taxonomy\\BachelorOrTeachingDegreeAdmissionRequirementTaxonomy' => $vendorDir . '/inpsyde/fau-degree-program-common/src/Infrastructure/Content/Taxonomy/BachelorOrTeachingDegreeAdmissionRequirementTaxonomy.php',
