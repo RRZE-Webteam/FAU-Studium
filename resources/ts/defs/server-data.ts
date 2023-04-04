@@ -5,6 +5,7 @@ export type DegreeProgramEditorServerDataType = Readonly<{
     propertyName: string;
     languages: Record<LanguageCode, string>;
     taxonomySlugs: {
+        applyNowLink: string;
         areaOfStudy: string;
         attribute: string;
         bachelorOrTeachingDegreeAdmissionRequirement: string;

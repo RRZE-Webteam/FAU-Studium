@@ -9,6 +9,7 @@ if (global.window) {
             en: 'English',
         },
         taxonomySlugs: {
+            applyNowLink: 'apply_now_link',
             areaOfStudy: 'area_of_study',
             attribute: 'attribute',
             bachelorOrTeachingDegreeAdmissionRequirement: 'bachelor_or_teaching_adm_req',

@@ -417,7 +417,15 @@ final class TranslatedDegreeProgramController extends WP_REST_Controller
                 ),
                 'type' => 'array',
             ],
-            DegreeProgramViewTranslated::APPLICATION => [
+            DegreeProgramViewTranslated::ADMISSION_REQUIREMENT_LINK => [
+                'description' => _x(
+                    'Application.',
+                    'rest_api: schema item description',
+                    'fau-degree-program'
+                ),
+                'type' => 'string',
+            ],
+            DegreeProgramViewTranslated::ADMISSION_REQUIREMENTS_LIST => [
                 'description' => _x(
                     'Application.',
                     'rest_api: schema item description',

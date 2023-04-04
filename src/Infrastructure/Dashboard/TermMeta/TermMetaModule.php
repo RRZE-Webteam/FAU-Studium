@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Fau\DegreeProgram\Infrastructure\Dashboard\TermMeta;
 
 use Fau\DegreeProgram\Common\Domain\Degree;
+use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\ApplyNowLinkTaxonomy;
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\AreaOfStudyTaxonomy;
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\AttributeTaxonomy;
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\BachelorOrTeachingDegreeAdmissionRequirementTaxonomy;
@@ -118,6 +119,10 @@ final class TermMetaModule implements ServiceModule, ExecutableModule
         $termMetaRegistrar->register(
             TeachingLanguageTaxonomy::KEY,
             new EnglishNameTermMetaField(),
+        );
+        $termMetaRegistrar->register(
+            ApplyNowLinkTaxonomy::KEY,
+            ...(new MultilingualLinkTermMetaFields())->getArrayCopy(),
         );
 
         return true;

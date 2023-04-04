@@ -64,6 +64,7 @@ export interface DegreeProgramData {
     combinations: Array<number>;
     limited_combinations: Array<number>;
     notes_for_international_applicants: MultilingualLink;
+    apply_now_link: MultilingualLink;
 }
 
 export const DEGREE_ABBREVIATION_GERMAN = {
