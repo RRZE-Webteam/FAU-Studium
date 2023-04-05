@@ -23,6 +23,7 @@ import {
 } from 'util/transforms';
 
 import ContentField from '../ContentField';
+import DayMonthPicker from '../DayMonthPicker';
 import FormSeparator from '../Layouts/FormSeparator';
 import MultilingualContainer from './MultilingualContainer';
 
@@ -197,17 +198,18 @@ const AdmissionRequirements = () => {
                                             'backoffice: degree program edit form',
                                             'fau-degree-program',
                                         )}
+                                        help="Datum im Format TT.MM. angeben. Weitere Termine können im Feld „Details und Anmerkungen“ eingetragen werden."
                                     />
                                 }
                             >
-                                <ContentField
+                                <DayMonthPicker
                                     onChange={(value: string) => {
                                         handleChange<string>(
                                             'application_deadline_winter_semester',
                                             value,
                                         );
                                     }}
-                                    content={values.application_deadline_winter_semester}
+                                    value={values.application_deadline_winter_semester}
                                 />
                             </BaseControl>
                         </FormFieldWrapper>
@@ -223,17 +225,18 @@ const AdmissionRequirements = () => {
                                             'backoffice: degree program edit form',
                                             'fau-degree-program',
                                         )}
+                                        help="Datum im Format TT.MM. angeben. Weitere Termine können im Feld „Details und Anmerkungen“ eingetragen werden."
                                     />
                                 }
                             >
-                                <ContentField
+                                <DayMonthPicker
                                     onChange={(value: string) => {
                                         handleChange<string>(
                                             'application_deadline_summer_semester',
                                             value,
                                         );
                                     }}
-                                    content={values.application_deadline_summer_semester}
+                                    value={values.application_deadline_summer_semester}
                                 />
                             </BaseControl>
                         </FormFieldWrapper>
