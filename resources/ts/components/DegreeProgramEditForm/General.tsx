@@ -19,6 +19,7 @@ import {
     transformTermToMultilingualString,
 } from 'util/transforms';
 
+import ContentField from '../ContentField';
 import MultilingualContainer from './MultilingualContainer';
 
 import { Degree, MultilingualLink, MultilingualString } from 'defs';
@@ -30,41 +31,6 @@ const General = () => {
         <Panel>
             <PanelBody>
                 <FormWrapper>
-                    <FormFieldWrapper fill="half">
-                        <BaseControl
-                            id="featured_image"
-                            label={
-                                <FormFieldLabel
-                                    label={_x(
-                                        'Featured image',
-                                        'backoffice: degree program edit form',
-                                        'fau-degree-program',
-                                    )}
-                                    help="Wird für die Detailansicht verwendet."
-                                />
-                            }
-                        >
-                            <ImageField path="featured_image" />
-                        </BaseControl>
-                    </FormFieldWrapper>
-                    <FormFieldWrapper fill="half">
-                        <BaseControl
-                            id="teaser_image"
-                            label={
-                                <FormFieldLabel
-                                    label={_x(
-                                        'Teaser Image',
-                                        'backoffice: degree program edit form',
-                                        'fau-degree-program',
-                                    )}
-                                    help="Wird für die Kacheln auf der Auswahlseite verwendet."
-                                />
-                            }
-                        >
-                            <ImageField path="teaser_image" />
-                        </BaseControl>
-                    </FormFieldWrapper>
-
                     <FormFieldWrapper fill="half">
                         <BaseControl
                             id="title"
@@ -112,6 +78,70 @@ const General = () => {
                                             handleChange<string>(`subtitle.${languageCode}`, value);
                                         }}
                                         value={values.subtitle[languageCode]}
+                                    />
+                                )}
+                            </MultilingualContainer>
+                        </BaseControl>
+                    </FormFieldWrapper>
+
+                    <FormFieldWrapper fill="half">
+                        <BaseControl
+                            id="featured_image"
+                            label={
+                                <FormFieldLabel
+                                    label={_x(
+                                        'Featured image',
+                                        'backoffice: degree program edit form',
+                                        'fau-degree-program',
+                                    )}
+                                    help="Wird für die Detailansicht verwendet."
+                                />
+                            }
+                        >
+                            <ImageField path="featured_image" />
+                        </BaseControl>
+                    </FormFieldWrapper>
+                    <FormFieldWrapper fill="half">
+                        <BaseControl
+                            id="teaser_image"
+                            label={
+                                <FormFieldLabel
+                                    label={_x(
+                                        'Teaser Image',
+                                        'backoffice: degree program edit form',
+                                        'fau-degree-program',
+                                    )}
+                                    help="Wird für die Kacheln auf der Auswahlseite verwendet."
+                                />
+                            }
+                        >
+                            <ImageField path="teaser_image" />
+                        </BaseControl>
+                    </FormFieldWrapper>
+
+                    <FormFieldWrapper fill="full">
+                        <BaseControl
+                            label={
+                                <FormFieldLabel
+                                    label={_x(
+                                        'Entry text (promotional)',
+                                        'backoffice: degree program edit form',
+                                        'fau-degree-program',
+                                    )}
+                                    help="Ca. 300 Zeichen."
+                                />
+                            }
+                        >
+                            <MultilingualContainer value={values.entry_text}>
+                                {(languageCode) => (
+                                    <ContentField
+                                        content={values.entry_text[languageCode]}
+                                        onChange={(content: string) => {
+                                            handleChange<string>(
+                                                `entry_text.${languageCode}`,
+                                                content,
+                                            );
+                                        }}
                                     />
                                 )}
                             </MultilingualContainer>

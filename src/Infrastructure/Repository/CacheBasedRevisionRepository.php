@@ -144,8 +144,8 @@ final class CacheBasedRevisionRepository implements DegreeProgramRevisionReposit
             ],
             self::multilingualStringToFlatArray(DegreeProgram::URL, $rawRevision->url()),
             self::multilingualStringToFlatArray(DegreeProgram::DEPARTMENT, $rawRevision->department()),
-            self::multilingualStringToFlatArray(DegreeProgram::EXAMINATION_REGULATIONS, $rawRevision->examinationRegulations()),
             [
+                DegreeProgram::EXAMINATION_REGULATIONS => $rawRevision->examinationRegulations(),
                 DegreeProgram::SUBJECT_SPECIFIC_ADVICE => $this->structureToContextualId($rawRevision->subjectSpecificAdvice()),
                 DegreeProgram::STUDENT_REPRESENTATIVES => $rawRevision->studentRepresentatives(),
             ],
@@ -155,7 +155,9 @@ final class CacheBasedRevisionRepository implements DegreeProgramRevisionReposit
                 DegreeProgram::AREA_OF_STUDY => $this->arrayLikeStructureToContextualIdList($rawRevision->areaOfStudy()),
                 DegreeProgram::COMBINATIONS => $this->combinationsToContextualIdList($rawRevision->combinations()),
                 DegreeProgram::LIMITED_COMBINATIONS => $this->combinationsToContextualIdList($rawRevision->limitedCombinations()),
+                DegreeProgram::APPLY_NOW_LINK => $this->structureToContextualId($rawRevision->applyNowLink()),
             ],
+            self::multilingualStringToFlatArray(DegreeProgram::ENTRY_TEXT, $rawRevision->entryText()),
         );
 
         $cache[$revisionId->asInt()] = DegreeProgramRevision::fromArray($data);

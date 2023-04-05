@@ -48,7 +48,7 @@ export interface DegreeProgramData {
     readonly start_of_semester: MultilingualLink;
     readonly semester_dates: MultilingualLink;
     examinations_office: MultilingualLink;
-    examination_regulations: MultilingualString;
+    examination_regulations: string;
     module_handbook: string;
     url: MultilingualString;
     readonly department: MultilingualString;
@@ -65,6 +65,7 @@ export interface DegreeProgramData {
     limited_combinations: Array<number>;
     notes_for_international_applicants: MultilingualLink;
     apply_now_link: MultilingualLink;
+    entry_text: MultilingualString;
 }
 
 export const DEGREE_ABBREVIATION_GERMAN = {

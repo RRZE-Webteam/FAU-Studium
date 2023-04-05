@@ -85,7 +85,7 @@ const OrganizationalLinks = () => {
                             type="url"
                         />
                     </FormFieldWrapper>
-                    <FormFieldWrapper fill="third">
+                    <FormFieldWrapper fill="half">
                         <BaseControl
                             id="url"
                             label={
@@ -111,35 +111,7 @@ const OrganizationalLinks = () => {
                             </MultilingualContainer>
                         </BaseControl>
                     </FormFieldWrapper>
-                    <FormFieldWrapper fill="third">
-                        <BaseControl
-                            id="examination_regulations"
-                            label={
-                                <FormFieldLabel
-                                    label={_x(
-                                        'Degree program and examination regulations',
-                                        'backoffice: degree program edit form',
-                                        'fau-degree-program',
-                                    )}
-                                />
-                            }
-                        >
-                            <MultilingualContainer value={values.examination_regulations}>
-                                {(languageCode) => (
-                                    <TextControl
-                                        onChange={(value: string) => {
-                                            handleChange<string>(
-                                                `examination_regulations.${languageCode}`,
-                                                value,
-                                            );
-                                        }}
-                                        value={values.examination_regulations[languageCode]}
-                                    />
-                                )}
-                            </MultilingualContainer>
-                        </BaseControl>
-                    </FormFieldWrapper>
-                    <FormFieldWrapper fill="third">
+                    <FormFieldWrapper fill="half">
                         <BaseControl
                             id="department"
                             label={
@@ -168,7 +140,7 @@ const OrganizationalLinks = () => {
                             </MultilingualContainer>
                         </BaseControl>
                     </FormFieldWrapper>
-                    <FormFieldWrapper fill="half">
+                    <FormFieldWrapper fill="third">
                         <TermSelector
                             id="subject_specific_advice"
                             label={
@@ -190,7 +162,7 @@ const OrganizationalLinks = () => {
                             }}
                         />
                     </FormFieldWrapper>
-                    <FormFieldWrapper fill="half">
+                    <FormFieldWrapper fill="third">
                         <TextControl
                             id="student_representatives"
                             label={
@@ -208,6 +180,28 @@ const OrganizationalLinks = () => {
                             value={values.student_representatives}
                             type="url"
                         />
+                    </FormFieldWrapper>
+                    <FormFieldWrapper fill="third">
+                        <BaseControl
+                            id="examination_regulations"
+                            label={
+                                <FormFieldLabel
+                                    label={_x(
+                                        'Degree program and examination regulations (URL)',
+                                        'backoffice: degree program edit form',
+                                        'fau-degree-program',
+                                    )}
+                                />
+                            }
+                        >
+                            <TextControl
+                                onChange={(value: string) => {
+                                    handleChange<string>(`examination_regulations`, value);
+                                }}
+                                value={values.examination_regulations}
+                                type="url"
+                            />
+                        </BaseControl>
                     </FormFieldWrapper>
 
                     <FormFieldWrapper fill="full">
