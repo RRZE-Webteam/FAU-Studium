@@ -55,6 +55,7 @@ final class DegreeProgram
     public const ABROAD_OPPORTUNITIES = 'abroad_opportunities';
     public const KEYWORDS = 'keywords';
     public const AREA_OF_STUDY = 'area_of_study';
+    public const ENTRY_TEXT = 'entry_text';
     public const COMBINATIONS = 'combinations';
     public const LIMITED_COMBINATIONS = 'limited_combinations';
     public const COMBINATIONS_CHANGESET = 'combinations_changeset';
@@ -125,6 +126,10 @@ final class DegreeProgram
          * Studienbereich
          */
         private MultilingualLinks $areaOfStudy,
+        /**
+         * Einstiegtext (werbend)
+         */
+        private MultilingualString $entryText,
         //--- Content (“Inhalte”) ---//
         private Content $content,
         //--- Admission requirements, application and enrollment (“Zugangsvoraussetzungen, Bewerbung und Einschreibung”) ---//
@@ -178,7 +183,7 @@ final class DegreeProgram
         /**
          * Studien- und Prüfungsordnung
          */
-        private MultilingualString $examinationRegulations,
+        private string $examinationRegulations,
         /**
          * Modulhandbuch
          */
@@ -310,7 +315,7 @@ final class DegreeProgram
         $this->startOfSemester = MultilingualLink::fromArray($data[self::START_OF_SEMESTER]);
         $this->semesterDates = MultilingualLink::fromArray($data[self::SEMESTER_DATES]);
         $this->examinationsOffice = MultilingualLink::fromArray($data[self::EXAMINATIONS_OFFICE]);
-        $this->examinationRegulations = MultilingualString::fromArray($data[self::EXAMINATION_REGULATIONS]);
+        $this->examinationRegulations = $data[self::EXAMINATION_REGULATIONS];
         $this->moduleHandbook = $data[self::MODULE_HANDBOOK];
         $this->url = MultilingualString::fromArray($data[self::URL]);
         $this->department = MultilingualString::fromArray($data[self::DEPARTMENT]);
@@ -327,6 +332,8 @@ final class DegreeProgram
         $this->limitedCombinations = DegreeProgramIds::fromArray($data[self::LIMITED_COMBINATIONS]);
         $this->notesForInternationalApplicants = MultilingualLink::fromArray($data[self::NOTES_FOR_INTERNATIONAL_APPLICANTS]);
         $this->applyNowLink = MultilingualLink::fromArray($data[self::APPLY_NOW_LINK]);
+        $this->entryText = MultilingualString::fromArray($data[self::ENTRY_TEXT])
+            ->mapTranslations([$contentSanitizer, 'sanitizeContentField']);
 
         $this->combinationsChangeset = $this
             ->combinationsChangeset
@@ -370,7 +377,7 @@ final class DegreeProgram
      *     start_of_semester: MultilingualLink,
      *     semester_dates: MultilingualLink,
      *     examinations_office: MultilingualLink,
-     *     examination_regulations: MultilingualString,
+     *     examination_regulations: string,
      *     module_handbook: string,
      *     url: MultilingualString,
      *     department: MultilingualString,
@@ -389,6 +396,7 @@ final class DegreeProgram
      *     limited_combinations_changeset: IntegersListChangeset,
      *     notes_for_international_applicants: MultilingualLink,
      *     apply_now_link: MultilingualLink,
+     *     entry_text: MultilingualString,
      * }
      * @internal Only for repositories usage
      */
@@ -445,6 +453,7 @@ final class DegreeProgram
             self::LIMITED_COMBINATIONS_CHANGESET => $this->limitedCombinationsChangeset,
             self::NOTES_FOR_INTERNATIONAL_APPLICANTS => $this->notesForInternationalApplicants,
             self::APPLY_NOW_LINK => $this->applyNowLink,
+            self::ENTRY_TEXT => $this->entryText,
         ];
     }
 
