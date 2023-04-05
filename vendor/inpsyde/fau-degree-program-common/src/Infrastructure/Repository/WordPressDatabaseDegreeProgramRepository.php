@@ -128,6 +128,7 @@ final class WordPressDatabaseDegreeProgramRepository extends BilingualRepository
             metaDescription: $this->bilingualPostMeta($post, DegreeProgram::META_DESCRIPTION),
             keywords: $this->bilingualTermsList($post, KeywordTaxonomy::KEY),
             areaOfStudy: $this->bilingualTermLinks($post, AreaOfStudyTaxonomy::KEY),
+            entryText: $this->bilingualPostMeta($post, DegreeProgram::ENTRY_TEXT),
             content: Content::new(
                 about: $this->contentItem($post, Content::ABOUT),
                 structure: $this->contentItem($post, Content::STRUCTURE),
@@ -190,9 +191,10 @@ final class WordPressDatabaseDegreeProgramRepository extends BilingualRepository
             examinationsOffice: $this->bilingualLinkFromTerm(
                 $this->firstTerm($post, ExaminationsOfficeTaxonomy::KEY)
             ),
-            examinationRegulations: $this->bilingualPostMeta(
-                $post,
-                DegreeProgram::EXAMINATION_REGULATIONS
+            examinationRegulations: (string) get_post_meta(
+                $postId,
+                DegreeProgram::EXAMINATION_REGULATIONS,
+                true
             ),
             moduleHandbook: (string) get_post_meta(
                 $postId,
@@ -391,6 +393,10 @@ final class WordPressDatabaseDegreeProgramRepository extends BilingualRepository
                 $this->fieldsSanitizer->sanitizeUrlField(
                     $degreeProgramViewRaw->studentRepresentatives()
                 ),
+            DegreeProgram::EXAMINATION_REGULATIONS =>
+                $this->fieldsSanitizer->sanitizeUrlField(
+                    $degreeProgramViewRaw->examinationRegulations()
+                ),
         ];
 
         foreach ($metas as $key => $value) {
@@ -403,7 +409,6 @@ final class WordPressDatabaseDegreeProgramRepository extends BilingualRepository
             $this->fieldsSanitizer->sanitizeMultiLingualTextField(
                 $degreeProgramViewRaw->metaDescription()
             ),
-            $degreeProgramViewRaw->examinationRegulations(),
             $content->about()->description(),
             $content->structure()->description(),
             $content->specializations()->description(),
@@ -424,6 +429,7 @@ final class WordPressDatabaseDegreeProgramRepository extends BilingualRepository
             $this->fieldsSanitizer->sanitizeMultilingualUrlField(
                 $degreeProgramViewRaw->department()
             ),
+            $degreeProgramViewRaw->entryText(),
         ];
 
         foreach ($bilingualMetas as $bilingualMeta) {
