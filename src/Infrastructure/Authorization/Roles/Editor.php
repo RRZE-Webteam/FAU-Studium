@@ -6,24 +6,13 @@ namespace Fau\DegreeProgram\Infrastructure\Authorization\Roles;
 
 use Fau\DegreeProgram\Infrastructure\Authorization\Capabilities;
 
-class DegreeProgramEditor implements DegreeProgramRole
+final class Editor implements CoreRole
 {
-    public const KEY = 'degree_program_editor';
-
     public function key(): string
     {
-        return self::KEY;
+        return 'editor';
     }
 
-    public function label(): string
-    {
-        return _x('Degree Program Editor', 'backend: user role label', 'fau-degree-program');
-    }
-
-    /**
-     * Granted capabilities
-     * @return array<string, boolean>
-     */
     public function capabilities(): array
     {
         return array_fill_keys([

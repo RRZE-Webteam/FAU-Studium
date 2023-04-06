@@ -12,7 +12,8 @@ final class TabbedSettingPage
     private function __construct(
         private string $id,
         private string $title,
-        private string $capability,
+        private string $readCapability,
+        private string $editCapability,
         private string $template,
         SettingsPage ...$pages
     ) {
@@ -23,7 +24,8 @@ final class TabbedSettingPage
     public static function new(
         string $id,
         string $title,
-        string $capability,
+        string $readCapability,
+        string $editCapability,
         string $template,
         SettingsPage ...$pages
     ): self {
@@ -31,7 +33,8 @@ final class TabbedSettingPage
         return new self(
             $id,
             $title,
-            $capability,
+            $readCapability,
+            $editCapability,
             $template,
             ...$pages,
         );
@@ -40,14 +43,16 @@ final class TabbedSettingPage
     public static function default(
         string $id,
         string $title,
-        string $capability,
+        string $readCapability,
+        string $editCapability,
         SettingsPage ...$pages,
     ): self {
 
         return new self(
             $id,
             $title,
-            $capability,
+            $readCapability,
+            $editCapability,
             'tabbed-page',
             ...$pages
         );
@@ -63,9 +68,14 @@ final class TabbedSettingPage
         return $this->title;
     }
 
-    public function capability(): string
+    public function readCapability(): string
     {
-        return $this->capability;
+        return $this->readCapability;
+    }
+
+    public function editCapability(): string
+    {
+        return $this->editCapability;
     }
 
     public function template(): string

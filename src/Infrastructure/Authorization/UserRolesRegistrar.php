@@ -6,14 +6,14 @@ namespace Fau\DegreeProgram\Infrastructure\Authorization;
 
 use Fau\DegreeProgram\Infrastructure\Authorization\Roles\DegreeProgramAuthor;
 use Fau\DegreeProgram\Infrastructure\Authorization\Roles\DegreeProgramEditor;
-use Fau\DegreeProgram\Infrastructure\Authorization\Roles\Role;
+use Fau\DegreeProgram\Infrastructure\Authorization\Roles\DegreeProgramRole;
 
 class UserRolesRegistrar
 {
     public static function register(): void
     {
         /**
-         * @var Role[] $roles
+         * @var DegreeProgramRole[] $roles
          */
         $roles = [
             new DegreeProgramAuthor(),

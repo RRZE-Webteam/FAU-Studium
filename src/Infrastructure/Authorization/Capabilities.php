@@ -23,7 +23,8 @@ interface Capabilities
     public const DELETE_PUBLISHED_DEGREE_PROGRAMS = 'delete_published_degree_programs';
     public const DELETE_OTHERS_DEGREE_PROGRAMS = 'delete_others_degree_programs';
 
-    public const MANAGE_DEGREE_PROGRAM_SETTINGS = 'manage_degree_program_settings';
+    public const READ_DEGREE_PROGRAM_SETTINGS = 'read_degree_program_settings';
+    public const EDIT_DEGREE_PROGRAM_SETTINGS = 'edit_degree_program_settings';
 
     public const MANAGE_DEGREE_PROGRAM_TERMS = 'manage_degree_program_terms';
     public const EDIT_DEGREE_PROGRAM_TERMS = 'edit_degree_program_terms';

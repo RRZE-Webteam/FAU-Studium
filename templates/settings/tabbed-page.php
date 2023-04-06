@@ -5,11 +5,12 @@ declare(strict_types=1);
 use Fau\DegreeProgram\Infrastructure\Dashboard\Settings\SettingsPage;
 
 /**
- * @var array{id: string, tabs: SettingsPage[], currentTab: string} $data
+ * @var array{id: string, editable: bool, tabs: SettingsPage[], currentTab: string} $data
  */
 
 [
     'id' => $id,
+    'editable' => $editable,
     'tabs' => $tabs,
     'currentTab' => $currentTab,
 ] = $data;
@@ -30,6 +31,7 @@ use Fau\DegreeProgram\Infrastructure\Dashboard\Settings\SettingsPage;
         <?php endforeach ?>
     </nav>
 
+    <?php if ($editable) : ?>
     <form action="options.php" method="post">
         <?php
         settings_fields($currentTab);
@@ -37,4 +39,10 @@ use Fau\DegreeProgram\Infrastructure\Dashboard\Settings\SettingsPage;
         submit_button(__('Save Changes'));
         ?>
     </form>
+    <?php else : ?>
+        <?php
+        settings_fields($currentTab);
+        do_settings_sections($currentTab);
+        ?>
+    <?php endif ?>
 </div>

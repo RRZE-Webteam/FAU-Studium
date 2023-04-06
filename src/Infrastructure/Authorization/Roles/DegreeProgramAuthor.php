@@ -6,7 +6,7 @@ namespace Fau\DegreeProgram\Infrastructure\Authorization\Roles;
 
 use Fau\DegreeProgram\Infrastructure\Authorization\Capabilities;
 
-class DegreeProgramAuthor implements Role
+class DegreeProgramAuthor implements DegreeProgramRole
 {
     public const KEY = 'degree_program_author';
 
