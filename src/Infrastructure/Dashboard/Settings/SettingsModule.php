@@ -65,7 +65,8 @@ final class SettingsModule implements ServiceModule, ExecutableModule
                     'backoffice: setting page title',
                     'fau-degree-program'
                 ),
-                Capabilities::MANAGE_DEGREE_PROGRAM_SETTINGS,
+                Capabilities::READ_DEGREE_PROGRAM_SETTINGS,
+                Capabilities::EDIT_DEGREE_PROGRAM_SETTINGS,
                 SettingsPage::default(
                     self::FAU_DEGREE_PROGRAM_SHARED_PROPERTIES,
                     _x(
@@ -73,7 +74,8 @@ final class SettingsModule implements ServiceModule, ExecutableModule
                         'backoffice: setting page tab title',
                         'fau-degree-program'
                     ),
-                    Capabilities::MANAGE_DEGREE_PROGRAM_SETTINGS,
+                    Capabilities::READ_DEGREE_PROGRAM_SETTINGS,
+                    Capabilities::EDIT_DEGREE_PROGRAM_SETTINGS,
                     self::degreeProgramSharedPropertiesSection(),
                 ),
                 SettingsPage::default(
@@ -83,7 +85,8 @@ final class SettingsModule implements ServiceModule, ExecutableModule
                         'backoffice: setting page tab title',
                         'fau-degree-program'
                     ),
-                    Capabilities::MANAGE_DEGREE_PROGRAM_SETTINGS,
+                    Capabilities::READ_DEGREE_PROGRAM_SETTINGS,
+                    Capabilities::EDIT_DEGREE_PROGRAM_SETTINGS,
                     self::contentItemTitlesSection(),
                 ),
             ),

@@ -8,8 +8,6 @@ interface Role
 {
     public function key(): string;
 
-    public function label(): string;
-
     /**
      * @return array<string, bool>
      */

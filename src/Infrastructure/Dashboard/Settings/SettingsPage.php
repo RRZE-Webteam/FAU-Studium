@@ -12,7 +12,8 @@ final class SettingsPage
     private function __construct(
         private string $id,
         private string $title,
-        private string $capability,
+        private string $readCapability,
+        private string $editCapability,
         private string $template,
         SettingsSection ...$sections,
     ) {
@@ -23,7 +24,8 @@ final class SettingsPage
     public static function new(
         string $id,
         string $title,
-        string $capability,
+        string $readCapability,
+        string $editCapability,
         string $template,
         SettingsSection ...$sections,
     ): self {
@@ -31,7 +33,8 @@ final class SettingsPage
         return new self(
             $id,
             $title,
-            $capability,
+            $readCapability,
+            $editCapability,
             $template,
             ...$sections
         );
@@ -40,14 +43,16 @@ final class SettingsPage
     public static function default(
         string $id,
         string $title,
-        string $capability,
+        string $readCapability,
+        string $editCapability,
         SettingsSection ...$sections,
     ): self {
 
         return new self(
             $id,
             $title,
-            $capability,
+            $readCapability,
+            $editCapability,
             'page',
             ...$sections
         );
@@ -63,9 +68,14 @@ final class SettingsPage
         return $this->title;
     }
 
-    public function capability(): string
+    public function readCapability(): string
     {
-        return $this->capability;
+        return $this->readCapability;
+    }
+
+    public function editCapability(): string
+    {
+        return $this->editCapability;
     }
 
     public function template(): string

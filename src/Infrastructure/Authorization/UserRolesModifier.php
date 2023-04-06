@@ -4,41 +4,30 @@ declare(strict_types=1);
 
 namespace Fau\DegreeProgram\Infrastructure\Authorization;
 
+use Fau\DegreeProgram\Infrastructure\Authorization\Roles\Administrator;
+use Fau\DegreeProgram\Infrastructure\Authorization\Roles\CoreRole;
+use Fau\DegreeProgram\Infrastructure\Authorization\Roles\Editor;
 use WP_Role;
 
 class UserRolesModifier
 {
     public static function modify(): void
     {
-        $administrator = get_role('administrator');
-        if (! $administrator instanceof WP_Role) {
-            return;
-        }
-
-        $capabilities = [
-            Capabilities::READ_DEGREE_PROGRAM,
-            Capabilities::READ_PRIVATE_DEGREE_PROGRAMS,
-            Capabilities::CREATE_DEGREE_PROGRAMS,
-            Capabilities::EDIT_DEGREE_PROGRAM,
-            Capabilities::EDIT_DEGREE_PROGRAMS,
-            Capabilities::EDIT_OTHERS_DEGREE_PROGRAMS,
-            Capabilities::EDIT_PUBLISHED_DEGREE_PROGRAMS,
-            Capabilities::EDIT_PRIVATE_DEGREE_PROGRAMS,
-            Capabilities::PUBLISH_DEGREE_PROGRAMS,
-            Capabilities::DELETE_DEGREE_PROGRAMS,
-            Capabilities::DELETE_PUBLISHED_DEGREE_PROGRAMS,
-            Capabilities::DELETE_OTHERS_DEGREE_PROGRAMS,
-            Capabilities::ASSIGN_DEGREE_PROGRAM_TERMS,
-            Capabilities::MANAGE_DEGREE_PROGRAM_TERMS,
-            Capabilities::EDIT_DEGREE_PROGRAM_TERMS,
-            Capabilities::DELETE_DEGREE_PROGRAM_TERMS,
-            Capabilities::MANAGE_WORKFLOW_AUTHORS_TERMS,
-            Capabilities::ASSIGN_WORKFLOW_AUTHORS_TERMS,
-            Capabilities::MANAGE_DEGREE_PROGRAM_SETTINGS,
+        /** @var CoreRole[] $roles */
+        $roles = [
+            new Administrator(),
+            new Editor(),
         ];
 
-        foreach ($capabilities as $capability) {
-            $administrator->add_cap($capability, true);
+        foreach ($roles as $role) {
+            $wpRole = get_role($role->key());
+            if (!$wpRole instanceof WP_Role) {
+                return;
+            }
+
+            foreach ($role->capabilities() as $capability => $grant) {
+                $wpRole->add_cap($capability, $grant);
+            }
         }
     }
 }

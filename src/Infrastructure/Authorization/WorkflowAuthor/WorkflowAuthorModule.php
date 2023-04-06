@@ -89,7 +89,7 @@ final class WorkflowAuthorModule implements ServiceModule, ExecutableModule
         $workflowAuthorTaxonomy = WorkflowAuthorTaxonomy::hidden()->merge([
             'show_in_rest' => true,
             'show_ui' => true,
-            'show_in_menu' => true,
+            'show_in_menu' => false,
             'rewrite' => false,
             'show_admin_column' => true,
             'capabilities' => [

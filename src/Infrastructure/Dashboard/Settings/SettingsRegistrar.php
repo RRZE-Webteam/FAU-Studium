@@ -34,7 +34,7 @@ final class SettingsRegistrar
 
                 $tabs = array_filter(
                     $page->pages(),
-                    static fn ($tab) => current_user_can($tab->capability()),
+                    static fn ($tab) => current_user_can($tab->readCapability()),
                 );
 
                 $this->registerSectionsForPage(...$tabs);
@@ -49,7 +49,7 @@ final class SettingsRegistrar
                 $this->addSection($section, $page->id());
 
                 foreach ($section->fields() as $field) {
-                    $this->addSetting($field, $page->id(), $section->id());
+                    $this->addSetting($field, $page->id(), $page->editCapability(), $section->id());
                 }
             }
         }
@@ -60,15 +60,16 @@ final class SettingsRegistrar
         add_options_page(
             $page->title(),
             $page->title(),
-            $page->capability(),
+            $page->readCapability(),
             $page->id(),
             function () use ($page) {
-                if (!current_user_can($page->capability())) {
+                if (!current_user_can($page->readCapability())) {
                     return;
                 }
 
                 $args = [
                     'id' => $page->id(),
+                    'editable' => current_user_can($page->editCapability()),
                 ];
 
                 if ($page instanceof TabbedSettingPage) {
@@ -116,6 +117,7 @@ final class SettingsRegistrar
     private function addSetting(
         SettingsField $field,
         string $pageId,
+        string $editCapability,
         string $sectionId,
     ): void {
 
@@ -125,21 +127,34 @@ final class SettingsRegistrar
             [
                 'type' => $field->type(),
                 'description' => $field->description(),
-                'sanitize_callback' => $field->sanitizer(),
+                'sanitize_callback' => static function (
+                    mixed $value
+                ) use (
+                    $field,
+                    $editCapability
+                ): mixed {
+                    if (!current_user_can($editCapability)) {
+                        wp_die('Fordidden.');
+                    }
+
+                    return $field->sanitizer()($value);
+                },
                 'show_in_rest' => $field->showInRest(),
                 'default' => $field->default(),
             ]
         );
 
+        $templateData = $field->templateData(
+            get_option($field->id(), $field->default())
+        );
+        $templateData['editable'] = current_user_can($editCapability);
         add_settings_field(
             $field->id(),
             $field->title(),
-            function () use ($field) {
+            function () use ($field, $templateData) {
                 echo $this->settingsRenderer->render(
                     $field->templateName(),
-                    $field->templateData(
-                        get_option($field->id(), $field->default())
-                    )
+                    $templateData
                 );
             },
             $pageId,

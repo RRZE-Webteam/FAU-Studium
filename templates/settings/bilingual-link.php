@@ -21,7 +21,8 @@ declare(strict_types=1);
  *          link_url: string,
  *          link_url_en: string,
  *         },
- *     title: string
+ *     title: string,
+ *     editable: bool
  *   } $data
  */
 
@@ -30,6 +31,7 @@ declare(strict_types=1);
     'value' => $value,
     'title' => $title,
     'sub_fields' => $subFields,
+    'editable' => $editable,
 ] = $data;
 ?>
 
@@ -38,6 +40,7 @@ declare(strict_types=1);
            name="<?= esc_attr(sprintf('%s[%s]', $id, $subFieldId)) ?>"
            value="<?= esc_attr($value[$subFieldId]) ?>"
            aria-label="<?= esc_attr($title . ': ' . $subFieldTitle) ?>"
+           <?php wp_readonly(!$editable) ?>
     >
     <p class="description">
         <?= esc_html($subFieldTitle) ?>
