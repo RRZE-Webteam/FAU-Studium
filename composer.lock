@@ -79,12 +79,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/RRZE-Webteam/FAU-Studium-Common.git",
-                "reference": "7e16b871395c6bc1ab70d07e381af3b338bd643d"
+                "reference": "8ae9b2e9c6b7ed97a6b89862c384dae5470ba7cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RRZE-Webteam/FAU-Studium-Common/zipball/7e16b871395c6bc1ab70d07e381af3b338bd643d",
-                "reference": "7e16b871395c6bc1ab70d07e381af3b338bd643d",
+                "url": "https://api.github.com/repos/RRZE-Webteam/FAU-Studium-Common/zipball/8ae9b2e9c6b7ed97a6b89862c384dae5470ba7cd",
+                "reference": "8ae9b2e9c6b7ed97a6b89862c384dae5470ba7cd",
                 "shasum": ""
             },
             "require": {
@@ -151,7 +151,7 @@
                 "source": "https://github.com/RRZE-Webteam/FAU-Studium-Common/tree/main",
                 "issues": "https://github.com/RRZE-Webteam/FAU-Studium-Common/issues"
             },
-            "time": "2023-04-05T11:53:53+00:00"
+            "time": "2023-04-07T19:51:33+00:00"
         },
         {
             "name": "inpsyde/modularity",
@@ -2098,16 +2098,16 @@
         },
         {
             "name": "phpstan/phpdoc-parser",
-            "version": "1.17.1",
+            "version": "1.18.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpdoc-parser.git",
-                "reference": "d3753fcb3abc6f78f5de6f72153d4b9c99c72dee"
+                "reference": "22dcdfd725ddf99583bfe398fc624ad6c5004a0f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/d3753fcb3abc6f78f5de6f72153d4b9c99c72dee",
-                "reference": "d3753fcb3abc6f78f5de6f72153d4b9c99c72dee",
+                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/22dcdfd725ddf99583bfe398fc624ad6c5004a0f",
+                "reference": "22dcdfd725ddf99583bfe398fc624ad6c5004a0f",
                 "shasum": ""
             },
             "require": {
@@ -2137,9 +2137,9 @@
             "description": "PHPDoc parser with support for nullable, intersection and generic types",
             "support": {
                 "issues": "https://github.com/phpstan/phpdoc-parser/issues",
-                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.17.1"
+                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.18.1"
             },
-            "time": "2023-04-04T11:11:22+00:00"
+            "time": "2023-04-07T11:51:11+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
