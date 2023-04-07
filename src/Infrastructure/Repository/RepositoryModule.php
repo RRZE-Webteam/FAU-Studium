@@ -7,6 +7,7 @@ namespace Fau\DegreeProgram\Infrastructure\Repository;
 use Fau\DegreeProgram\Application\Revision\DegreeProgramRevisionRepository;
 use Fau\DegreeProgram\Application\Revision\RevisionNotificationRepository;
 use Fau\DegreeProgram\Common\Application\Cache\CacheKeyGenerator;
+use Fau\DegreeProgram\Common\Application\ConditionalFieldsFilter;
 use Fau\DegreeProgram\Common\Application\Repository\CachedDegreeProgramViewRepository;
 use Fau\DegreeProgram\Common\Application\Repository\DegreeProgramCollectionRepository;
 use Fau\DegreeProgram\Common\Application\Repository\DegreeProgramViewRepository;
@@ -16,9 +17,7 @@ use Fau\DegreeProgram\Common\Infrastructure\Repository\IdGenerator;
 use Fau\DegreeProgram\Common\Infrastructure\Repository\WordPressDatabaseDegreeProgramCollectionRepository;
 use Fau\DegreeProgram\Common\Infrastructure\Repository\WordPressDatabaseDegreeProgramRepository;
 use Fau\DegreeProgram\Common\Infrastructure\Repository\WordPressDatabaseDegreeProgramViewRepository;
-use Fau\DegreeProgram\Common\Infrastructure\Sanitizer\DegreeProgramFieldsSanitizer;
 use Fau\DegreeProgram\Common\Infrastructure\Sanitizer\HtmlDegreeProgramSanitizer;
-use Fau\DegreeProgram\Infrastructure\Revision\RevisionModule;
 use Inpsyde\Modularity\Module\ModuleClassNameIdTrait;
 use Inpsyde\Modularity\Module\ServiceModule;
 use Psr\Container\ContainerInterface;
@@ -36,6 +35,7 @@ class RepositoryModule implements ServiceModule
     {
         return [
             IdGenerator::class => static fn() => new IdGenerator(),
+            ConditionalFieldsFilter::class => static fn() => new ConditionalFieldsFilter(),
             DegreeProgramRepository::class => static fn(ContainerInterface $container) => new WordPressDatabaseDegreeProgramRepository(
                 $container->get(IdGenerator::class),
                 $container->get(EventDispatcherInterface::class),
@@ -44,6 +44,7 @@ class RepositoryModule implements ServiceModule
             self::VIEW_REPOSITORY_UNCACHED => static fn(ContainerInterface $container) => new WordPressDatabaseDegreeProgramViewRepository(
                 $container->get(DegreeProgramRepository::class),
                 $container->get(HtmlDegreeProgramSanitizer::class),
+                $container->get(ConditionalFieldsFilter::class),
             ),
             DegreeProgramViewRepository::class => static fn(ContainerInterface $container) => new CachedDegreeProgramViewRepository(
                 $container->get(self::VIEW_REPOSITORY_UNCACHED),
