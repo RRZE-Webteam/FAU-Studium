@@ -72,6 +72,7 @@ const AdmissionRequirements = () => {
                                             values.admission_requirements
                                                 .bachelor_or_teaching_degree.id
                                         }
+                                        childOnly
                                         onChange={(term) => {
                                             handleChange<MultilingualLink>(
                                                 'admission_requirements.bachelor_or_teaching_degree',
@@ -109,6 +110,7 @@ const AdmissionRequirements = () => {
                                             values.admission_requirements
                                                 .teaching_degree_higher_semester.id
                                         }
+                                        childOnly
                                         onChange={(term) => {
                                             handleChange<MultilingualLink>(
                                                 'admission_requirements.teaching_degree_higher_semester',
@@ -136,6 +138,7 @@ const AdmissionRequirements = () => {
                                     id="master_admission_requirement"
                                     taxonomy="masterDegreeAdmissionRequirement"
                                     value={values.admission_requirements.master.id}
+                                    childOnly
                                     onChange={(term) => {
                                         handleChange<MultilingualLink>(
                                             'admission_requirements.master',

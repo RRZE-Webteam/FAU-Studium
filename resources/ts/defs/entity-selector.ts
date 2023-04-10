@@ -8,6 +8,7 @@ export type EntitySelectorProps<Entity = object> = Readonly<{
     maxLength?: number;
     maxSuggestions: number;
     entities: Array<Entity>;
+    childOnly?: boolean;
     onChange(value: Array<Entity>): void;
     entityToToken(entity: Entity): string;
     searchedEntities: Array<Entity>;

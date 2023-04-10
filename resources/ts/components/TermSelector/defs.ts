@@ -12,6 +12,7 @@ export interface SelectorProps {
     help?: string;
     messages?: FormTokenFieldProps['messages'];
     taxonomy: TaxonomySlug;
+    childOnly?: boolean;
 }
 
 export interface TermSelectorProps extends SelectorProps {

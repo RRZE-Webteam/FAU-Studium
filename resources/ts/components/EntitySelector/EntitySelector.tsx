@@ -30,6 +30,7 @@ export default function EntitySelector<Entity extends GenericEntity>({
     entities,
     searchedEntities,
     setSearch,
+    childOnly,
 }: EntitySelectorProps<Entity>) {
     const [isFocused, setIsFocused] = useState<boolean>(false);
     const [values, setValues] = useState<Array<string>>([]);
@@ -76,7 +77,8 @@ export default function EntitySelector<Entity extends GenericEntity>({
 
     const isTokenValid = (token: string): boolean => {
         const availableEntities = [...entities, ...searchedEntities];
-        return find(availableEntities, (entity) => entityToToken(entity) === token);
+        const foundEntity = find(availableEntities, (entity) => entityToToken(entity) === token);
+        return childOnly ? foundEntity && foundEntity?.parent : foundEntity;
     };
 
     /**
