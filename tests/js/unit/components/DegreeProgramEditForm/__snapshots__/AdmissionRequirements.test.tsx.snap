@@ -18,22 +18,33 @@ exports[`Admission requirement fields should match snapshot 1`] = `
         data-wp-component="FlexItem"
         fill="half"
       >
-        <form>
-          <label
-            htmlFor="foo"
+        <div
+          className="components-base-control css-ij2po-Wrapper-boxSizingReset ej5x27r4"
+        >
+          <div
+            className="components-base-control__field css-10urnh1-StyledField-deprecatedMarginField ej5x27r3"
           >
-            <span>
+            <span
+              className="components-base-control__label css-1bhsfm8-StyledVisualLabel-baseLabelTypography-labelStyles ej5x27r0"
+            >
               <span
                 className="sc-bcXHqe bKtfDB"
               >
                 Admission requirements for Bachelor's/teaching degrees 
               </span>
             </span>
-            <input
-              aria-labelledby="foo"
-            />
-          </label>
-        </form>
+            <form>
+              <label
+                htmlFor="foo"
+              >
+                <span />
+                <input
+                  aria-labelledby="foo"
+                />
+              </label>
+            </form>
+          </div>
+        </div>
       </div>
       <div
         className="components-flex-item sc-dkrFOg dXOgOj css-mw3lhz-View-Item-sx-Base e19lxcc00"
@@ -41,22 +52,33 @@ exports[`Admission requirement fields should match snapshot 1`] = `
         data-wp-component="FlexItem"
         fill="half"
       >
-        <form>
-          <label
-            htmlFor="foo"
+        <div
+          className="components-base-control css-ij2po-Wrapper-boxSizingReset ej5x27r4"
+        >
+          <div
+            className="components-base-control__field css-10urnh1-StyledField-deprecatedMarginField ej5x27r3"
           >
-            <span>
+            <span
+              className="components-base-control__label css-1bhsfm8-StyledVisualLabel-baseLabelTypography-labelStyles ej5x27r0"
+            >
               <span
                 className="sc-bcXHqe bKtfDB"
               >
                 Admission requirements for entering a teaching degree at a higher semester 
               </span>
             </span>
-            <input
-              aria-labelledby="foo"
-            />
-          </label>
-        </form>
+            <form>
+              <label
+                htmlFor="foo"
+              >
+                <span />
+                <input
+                  aria-labelledby="foo"
+                />
+              </label>
+            </form>
+          </div>
+        </div>
       </div>
       <div
         className="components-flex-item sc-dkrFOg kpsgMX css-mw3lhz-View-Item-sx-Base e19lxcc00"
@@ -72,22 +94,33 @@ exports[`Admission requirement fields should match snapshot 1`] = `
         data-wp-component="FlexItem"
         fill="full"
       >
-        <form>
-          <label
-            htmlFor="foo"
+        <div
+          className="components-base-control css-ij2po-Wrapper-boxSizingReset ej5x27r4"
+        >
+          <div
+            className="components-base-control__field css-10urnh1-StyledField-deprecatedMarginField ej5x27r3"
           >
-            <span>
+            <span
+              className="components-base-control__label css-1bhsfm8-StyledVisualLabel-baseLabelTypography-labelStyles ej5x27r0"
+            >
               <span
                 className="sc-bcXHqe bKtfDB"
               >
                 Admission requirements for Master's degree
               </span>
             </span>
-            <input
-              aria-labelledby="foo"
-            />
-          </label>
-        </form>
+            <form>
+              <label
+                htmlFor="foo"
+              >
+                <span />
+                <input
+                  aria-labelledby="foo"
+                />
+              </label>
+            </form>
+          </div>
+        </div>
       </div>
       <div
         className="components-flex-item sc-dkrFOg kpsgMX css-mw3lhz-View-Item-sx-Base e19lxcc00"
@@ -318,22 +351,33 @@ exports[`Admission requirement fields should match snapshot 1`] = `
         data-wp-component="FlexItem"
         fill="full"
       >
-        <form>
-          <label
-            htmlFor="foo"
+        <div
+          className="components-base-control css-ij2po-Wrapper-boxSizingReset ej5x27r4"
+        >
+          <div
+            className="components-base-control__field css-10urnh1-StyledField-deprecatedMarginField ej5x27r3"
           >
-            <span>
+            <span
+              className="components-base-control__label css-1bhsfm8-StyledVisualLabel-baseLabelTypography-labelStyles ej5x27r0"
+            >
               <span
                 className="sc-bcXHqe bKtfDB"
               >
                 Language certificates/German language skills for international applicants
               </span>
             </span>
-            <input
-              aria-labelledby="foo"
-            />
-          </label>
-        </form>
+            <form>
+              <label
+                htmlFor="foo"
+              >
+                <span />
+                <input
+                  aria-labelledby="foo"
+                />
+              </label>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   </div>

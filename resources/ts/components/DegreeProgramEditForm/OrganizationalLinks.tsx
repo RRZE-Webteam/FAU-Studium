@@ -1,10 +1,9 @@
 import React from 'react';
 
-import { BaseControl, Panel, PanelBody, TextControl, ToggleControl } from '@wordpress/components';
+import { Panel, PanelBody, TextControl, ToggleControl } from '@wordpress/components';
 import { _x } from '@wordpress/i18n';
 
-import FormFieldLabel from 'components/Layouts/FormFieldLabel';
-import FormFieldWrapper from 'components/Layouts/FormFieldWrapper';
+import FormField from 'components/FormField/FormField';
 import FormWrapper from 'components/Layouts/FormWrapper';
 
 import { useEditDegreeProgram } from '../../contexts/DegreeProgramEditFormProvider';
@@ -22,18 +21,17 @@ const OrganizationalLinks = () => {
         <Panel>
             <PanelBody>
                 <FormWrapper>
-                    <FormFieldWrapper fill="third">
+                    <FormField
+                        name="apply_now_link"
+                        label={_x(
+                            '"Apply now" link',
+                            'backoffice: degree program edit form',
+                            'fau-degree-program',
+                        )}
+                        fill="third"
+                    >
                         <TermSelector
                             id="apply_now_link"
-                            label={
-                                <FormFieldLabel
-                                    label={_x(
-                                        '"Apply now" link',
-                                        'backoffice: degree program edit form',
-                                        'fau-degree-program',
-                                    )}
-                                />
-                            }
                             taxonomy="applyNowLink"
                             value={values.apply_now_link.id}
                             onChange={(term) => {
@@ -43,19 +41,18 @@ const OrganizationalLinks = () => {
                                 );
                             }}
                         />
-                    </FormFieldWrapper>
-                    <FormFieldWrapper fill="third">
+                    </FormField>
+                    <FormField
+                        name="examinations_office"
+                        label={_x(
+                            'Examinations Office',
+                            'backoffice: degree program edit form',
+                            'fau-degree-program',
+                        )}
+                        fill="third"
+                    >
                         <TermSelector
                             id="examinations_office"
-                            label={
-                                <FormFieldLabel
-                                    label={_x(
-                                        'Examinations Office',
-                                        'backoffice: degree program edit form',
-                                        'fau-degree-program',
-                                    )}
-                                />
-                            }
                             taxonomy="examinationsOffice"
                             value={values.examinations_office.id}
                             onChange={(term) => {
@@ -65,93 +62,78 @@ const OrganizationalLinks = () => {
                                 );
                             }}
                         />
-                    </FormFieldWrapper>
-                    <FormFieldWrapper fill="third">
+                    </FormField>
+                    <FormField
+                        name="module_handbook"
+                        label={_x(
+                            'Module handbook (URL)',
+                            'backoffice: degree program edit form',
+                            'fau-degree-program',
+                        )}
+                        fill="third"
+                    >
                         <TextControl
                             id="module_handbook"
-                            label={
-                                <FormFieldLabel
-                                    label={_x(
-                                        'Module handbook (URL)',
-                                        'backoffice: degree program edit form',
-                                        'fau-degree-program',
-                                    )}
-                                />
-                            }
                             onChange={(handbook: string) => {
                                 handleChange<string>('module_handbook', handbook);
                             }}
                             value={values.module_handbook}
                             type="url"
                         />
-                    </FormFieldWrapper>
-                    <FormFieldWrapper fill="half">
-                        <BaseControl
-                            id="url"
-                            label={
-                                <FormFieldLabel
-                                    label={_x(
-                                        'Degree program (URL)',
-                                        'backoffice: degree program edit form',
-                                        'fau-degree-program',
-                                    )}
+                    </FormField>
+                    <FormField
+                        name="url"
+                        label={_x(
+                            'Degree program (URL)',
+                            'backoffice: degree program edit form',
+                            'fau-degree-program',
+                        )}
+                        fill="half"
+                    >
+                        <MultilingualContainer value={values.url}>
+                            {(languageCode) => (
+                                <TextControl
+                                    onChange={(value: string) => {
+                                        handleChange<string>(`url.${languageCode}`, value);
+                                    }}
+                                    value={values.url[languageCode]}
+                                    type="url"
                                 />
-                            }
-                        >
-                            <MultilingualContainer value={values.url}>
-                                {(languageCode) => (
-                                    <TextControl
-                                        onChange={(value: string) => {
-                                            handleChange<string>(`url.${languageCode}`, value);
-                                        }}
-                                        value={values.url[languageCode]}
-                                        type="url"
-                                    />
-                                )}
-                            </MultilingualContainer>
-                        </BaseControl>
-                    </FormFieldWrapper>
-                    <FormFieldWrapper fill="half">
-                        <BaseControl
-                            id="department"
-                            label={
-                                <FormFieldLabel
-                                    label={_x(
-                                        'Department (URL)',
-                                        'backoffice: degree program edit form',
-                                        'fau-degree-program',
-                                    )}
+                            )}
+                        </MultilingualContainer>
+                    </FormField>
+                    <FormField
+                        name="department"
+                        label={_x(
+                            'Department (URL)',
+                            'backoffice: degree program edit form',
+                            'fau-degree-program',
+                        )}
+                        fill="half"
+                    >
+                        <MultilingualContainer value={values.department}>
+                            {(languageCode) => (
+                                <TextControl
+                                    onChange={(value: string) => {
+                                        handleChange<string>(`department.${languageCode}`, value);
+                                    }}
+                                    value={values.department[languageCode]}
+                                    type="url"
                                 />
-                            }
-                        >
-                            <MultilingualContainer value={values.department}>
-                                {(languageCode) => (
-                                    <TextControl
-                                        onChange={(value: string) => {
-                                            handleChange<string>(
-                                                `department.${languageCode}`,
-                                                value,
-                                            );
-                                        }}
-                                        value={values.department[languageCode]}
-                                        type="url"
-                                    />
-                                )}
-                            </MultilingualContainer>
-                        </BaseControl>
-                    </FormFieldWrapper>
-                    <FormFieldWrapper fill="third">
+                            )}
+                        </MultilingualContainer>
+                    </FormField>
+                    <FormField
+                        name="subject_specific_advice"
+                        label={_x(
+                            'Subject-specific advice',
+                            'backoffice: degree program edit form',
+                            'fau-degree-program',
+                        )}
+                        fill="third"
+                    >
                         <TermSelector
                             id="subject_specific_advice"
-                            label={
-                                <FormFieldLabel
-                                    label={_x(
-                                        'Subject-specific advice',
-                                        'backoffice: degree program edit form',
-                                        'fau-degree-program',
-                                    )}
-                                />
-                            }
                             taxonomy="subjectSpecificAdvice"
                             value={values.subject_specific_advice.id}
                             onChange={(term) => {
@@ -161,100 +143,85 @@ const OrganizationalLinks = () => {
                                 );
                             }}
                         />
-                    </FormFieldWrapper>
-                    <FormFieldWrapper fill="third">
+                    </FormField>
+                    <FormField
+                        name="student_representatives"
+                        label={_x(
+                            'Student’s Representatives/FSI (URL)',
+                            'backoffice: degree program edit form',
+                            'fau-degree-program',
+                        )}
+                        fill="third"
+                    >
                         <TextControl
                             id="student_representatives"
-                            label={
-                                <FormFieldLabel
-                                    label={_x(
-                                        'Student’s Representatives/FSI (URL)',
-                                        'backoffice: degree program edit form',
-                                        'fau-degree-program',
-                                    )}
-                                />
-                            }
                             onChange={(representatives: string) => {
                                 handleChange<string>('student_representatives', representatives);
                             }}
                             value={values.student_representatives}
                             type="url"
                         />
-                    </FormFieldWrapper>
-                    <FormFieldWrapper fill="third">
-                        <BaseControl
-                            id="examination_regulations"
-                            label={
-                                <FormFieldLabel
-                                    label={_x(
-                                        'Degree program and examination regulations (URL)',
-                                        'backoffice: degree program edit form',
-                                        'fau-degree-program',
-                                    )}
-                                />
-                            }
-                        >
-                            <TextControl
-                                onChange={(value: string) => {
-                                    handleChange<string>(`examination_regulations`, value);
-                                }}
-                                value={values.examination_regulations}
-                                type="url"
-                            />
-                        </BaseControl>
-                    </FormFieldWrapper>
-
-                    <FormFieldWrapper fill="full">
-                        <BaseControl
-                            id="fee_required"
-                            label={
-                                <FormFieldLabel
-                                    label={_x(
-                                        'Fee required',
-                                        'backoffice: degree program edit form',
-                                        'fau-degree-program',
-                                    )}
-                                />
-                            }
-                        >
-                            <div>
-                                <ToggleControl
-                                    checked={values.fee_required}
-                                    onChange={(checked: boolean) => {
-                                        handleChange<boolean>('fee_required', checked);
-                                    }}
-                                />
-                            </div>
-                        </BaseControl>
-                        {degreeFeesEnabled && (
-                            <BaseControl
-                                label={
-                                    <FormFieldLabel
-                                        label={_x(
-                                            'Degree Program Fees',
-                                            'backoffice: degree program edit form',
-                                            'fau-degree-program',
-                                        )}
-                                        help="Studiengangsgebühren, nicht Semesterbeiträge."
-                                    />
-                                }
-                            >
-                                <MultilingualContainer value={values.degree_program_fees}>
-                                    {(languageCode) => (
-                                        <TextControl
-                                            onChange={(degreeProgramFees: string) => {
-                                                handleChange<string>(
-                                                    `degree_program_fees.${languageCode}`,
-                                                    degreeProgramFees,
-                                                );
-                                            }}
-                                            value={values.degree_program_fees[languageCode]}
-                                        />
-                                    )}
-                                </MultilingualContainer>
-                            </BaseControl>
+                    </FormField>
+                    <FormField
+                        name="examination_regulations"
+                        label={_x(
+                            'Degree program and examination regulations (URL)',
+                            'backoffice: degree program edit form',
+                            'fau-degree-program',
                         )}
-                    </FormFieldWrapper>
+                        fill="third"
+                    >
+                        <TextControl
+                            onChange={(value: string) => {
+                                handleChange<string>(`examination_regulations`, value);
+                            }}
+                            value={values.examination_regulations}
+                            type="url"
+                        />
+                    </FormField>
+
+                    <FormField
+                        name="fee_required"
+                        label={_x(
+                            'Fee required',
+                            'backoffice: degree program edit form',
+                            'fau-degree-program',
+                        )}
+                        fill="full"
+                    >
+                        <ToggleControl
+                            checked={values.fee_required}
+                            onChange={(checked: boolean) => {
+                                handleChange<boolean>('fee_required', checked);
+                            }}
+                        />
+                    </FormField>
+
+                    {degreeFeesEnabled && (
+                        <FormField
+                            name="degree_program_fees"
+                            label={_x(
+                                'Degree Program Fees',
+                                'backoffice: degree program edit form',
+                                'fau-degree-program',
+                            )}
+                            help="Studiengangsgebühren, nicht Semesterbeiträge."
+                        >
+                            <MultilingualContainer value={values.degree_program_fees}>
+                                {(languageCode) => (
+                                    <TextControl
+                                        onChange={(degreeProgramFees: string) => {
+                                            handleChange<string>(
+                                                `degree_program_fees.${languageCode}`,
+                                                degreeProgramFees,
+                                            );
+                                        }}
+                                        value={values.degree_program_fees[languageCode]}
+                                    />
+                                )}
+                            </MultilingualContainer>
+                        </FormField>
+                    )}
                 </FormWrapper>
             </PanelBody>
         </Panel>

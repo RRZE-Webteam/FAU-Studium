@@ -19,6 +19,7 @@ const mockContentItem = (label: string): ContentItem => ({
     },
 });
 
+jest.mock('nanoid', () => ({ nanoid: () => `key_${Math.random()}` }));
 jest.mock('components/DegreeProgramCombinations', () => () => <></>);
 jest.mock('contexts/DegreeProgramEditFormProvider', () => ({
     useEditDegreeProgram: () => ({
@@ -37,6 +38,16 @@ jest.mock('contexts/DegreeProgramEditFormProvider', () => ({
         handleChange: () => {},
     }),
 }));
+
+jest.mock('contexts/DegreeProgramValidationProvider', () => ({
+    useValidation: () => ({
+        errors: new Map(),
+        getFieldErrors: jest.fn(() => new Map()),
+        removeError: jest.fn(() => {}),
+        fieldHasErrors: jest.fn(() => {}),
+    }),
+}));
+
 jest.mock(
     '@wordpress/components',
     jest.fn(() => ({

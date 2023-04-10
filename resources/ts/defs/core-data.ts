@@ -29,7 +29,10 @@ export type CoreDataSelectors = {
 };
 
 export type EditorStoreSelectors = {
+    getCurrentPostId(): number;
     getCurrentPost(): Post | null;
+    isSavingPost(): boolean;
+    isAutosavingPost(): boolean;
 };
 
 export type MapSelect<Selectors> = (

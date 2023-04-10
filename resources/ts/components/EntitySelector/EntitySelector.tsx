@@ -21,7 +21,7 @@ type GenericEntity = {
  * @link https://github.com/WordPress/gutenberg/blob/c02421f8cd6e90966b7e8cd487d311ee31a6aada/packages/editor/src/components/post-taxonomies/flat-term-selector.js
  */
 export default function EntitySelector<Entity extends GenericEntity>({
-    label,
+    label = '',
     messages,
     maxLength,
     onChange,

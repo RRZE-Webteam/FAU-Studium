@@ -3,8 +3,7 @@ import React from 'react';
 import { Flex, FlexBlock, Spinner } from '@wordpress/components';
 import { _x } from '@wordpress/i18n';
 
-import FormFieldLabel from 'components/Layouts/FormFieldLabel';
-import FormFieldWrapper from 'components/Layouts/FormFieldWrapper';
+import FormField from 'components/FormField/FormField';
 import { useCombinationOfDegreeProgramEnabled } from 'hooks/useConditionalFields';
 
 import useDegreeProgramProperty from '../../hooks/useDegreeProgramProperty';
@@ -32,19 +31,17 @@ export default function DegreeProgramCombinations(): JSX.Element | null {
 
     return (
         <>
-            <FormFieldWrapper>
+            <FormField
+                name="combinations"
+                label={_x(
+                    'Combinations (optional)',
+                    'backoffice: field label',
+                    'fau-degree-program',
+                )}
+            >
                 <RelatedDegreePrograms
                     relatedDegreeProgramIds={combinations}
                     setRelatedDegreePrograms={setCombinations}
-                    label={
-                        <FormFieldLabel
-                            label={_x(
-                                'Combinations (optional)',
-                                'backoffice: field label',
-                                'fau-degree-program',
-                            )}
-                        />
-                    }
                     messages={{
                         added: _x(
                             'Combination added',
@@ -68,20 +65,18 @@ export default function DegreeProgramCombinations(): JSX.Element | null {
                         ),
                     }}
                 />
-            </FormFieldWrapper>
-            <FormFieldWrapper>
+            </FormField>
+            <FormField
+                name="limited_combinations"
+                label={_x(
+                    'Limited Combinations (optional)',
+                    'backoffice: field label',
+                    'fau-degree-program',
+                )}
+            >
                 <RelatedDegreePrograms
                     relatedDegreeProgramIds={limitedCombinations}
                     setRelatedDegreePrograms={setLimitedCombinations}
-                    label={
-                        <FormFieldLabel
-                            label={_x(
-                                'Limited Combinations (optional)',
-                                'backoffice: field label',
-                                'fau-degree-program',
-                            )}
-                        />
-                    }
                     messages={{
                         added: _x(
                             'Limited combination added',
@@ -105,7 +100,7 @@ export default function DegreeProgramCombinations(): JSX.Element | null {
                         ),
                     }}
                 />
-            </FormFieldWrapper>
+            </FormField>
         </>
     );
 }
