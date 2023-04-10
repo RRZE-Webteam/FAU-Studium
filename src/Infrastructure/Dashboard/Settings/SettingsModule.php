@@ -22,6 +22,8 @@ final class SettingsModule implements ServiceModule, ExecutableModule
 {
     use ModuleClassNameIdTrait;
 
+    public const MAX_REVISIONS_TO_KEEP_KEY = 'max_revisions_to_keep';
+
     private const SETTINGS_FIELD_RENDERER = 'settings_field_renderer';
 
     private const FAU_CONTENT_ITEM_TITLES = 'fau_content_item_titles';
@@ -234,6 +236,16 @@ final class SettingsModule implements ServiceModule, ExecutableModule
                     'backoffice: setting title',
                     'fau-degree-program'
                 )
+            ),
+            new NumericSettingsField(
+                self::MAX_REVISIONS_TO_KEEP_KEY,
+                _x(
+                    'Maximum number of revisions',
+                    'backoffice: setting field',
+                    'fau-degree-program'
+                ),
+                min: 1,
+                step: 1,
             ),
         );
     }
