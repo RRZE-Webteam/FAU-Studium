@@ -9,6 +9,7 @@ use Fau\DegreeProgram\Application\Revision\DegreeProgramRevisionRepository;
 use Fau\DegreeProgram\Common\Application\Repository\DegreeProgramViewRepository;
 use Fau\DegreeProgram\Common\Domain\Event\DegreeProgramUpdated;
 use Fau\DegreeProgram\Common\Infrastructure\Content\PostType\DegreeProgramPostType;
+use Fau\DegreeProgram\Infrastructure\Repository\RevisionMetaRepository;
 use Fau\DegreeProgram\Infrastructure\Revision\Notification\RevisionNotifier;
 use Inpsyde\Modularity\Module\ExecutableModule;
 use Inpsyde\Modularity\Module\ModuleClassNameIdTrait;
@@ -50,6 +51,9 @@ class RevisionModule implements ServiceModule, ExecutableModule
             DailyRevisionNotificationRunner::class => static fn(ContainerInterface $container) => new DailyRevisionNotificationRunner(
                 $container->get(RevisionNotifier::class),
             ),
+            RevisionsToKeep::class => static fn(ContainerInterface $container) => new RevisionsToKeep(
+                $container->get(RevisionMetaRepository::class),
+            ),
         ];
     }
 
@@ -86,6 +90,11 @@ class RevisionModule implements ServiceModule, ExecutableModule
             [$container->get(RestoreRevision::class), 'restore'],
             10,
             2
+        );
+
+        add_filter(
+            'wp_' . DegreeProgramPostType::KEY . '_revisions_to_keep',
+            [$container->get(RevisionsToKeep::class), 'limit'],
         );
 
         $this->scheduleNotificationRunner($container->get(DailyRevisionNotificationRunner::class));
