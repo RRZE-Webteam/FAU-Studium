@@ -5,6 +5,7 @@ import { cleanup, render, screen } from '@testing-library/react';
 import AdmissionRequirements from 'components/DegreeProgramEditForm/AdmissionRequirements';
 import * as useConditionalFields from 'hooks/useConditionalFields';
 
+jest.mock('nanoid', () => ({ nanoid: () => `key_${Math.random()}` }));
 jest.mock('hooks/useConditionalFields', () => {
     const conditionalHooks = jest.requireActual('hooks/useConditionalFields');
     return Object.keys(conditionalHooks).reduce(
@@ -78,6 +79,15 @@ jest.mock('contexts/DegreeProgramEditFormProvider', () => ({
             application_deadline_winter_semester: '',
         },
         handleChange: () => {},
+    }),
+}));
+
+jest.mock('contexts/DegreeProgramValidationProvider', () => ({
+    useValidation: () => ({
+        errors: new Map(),
+        getFieldErrors: jest.fn(() => new Map()),
+        removeError: jest.fn(() => {}),
+        fieldHasErrors: jest.fn(() => {}),
     }),
 }));
 

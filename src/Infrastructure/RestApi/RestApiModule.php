@@ -45,6 +45,7 @@ final class RestApiModule implements ServiceModule, ExecutableModule
             DegreeProgramController::class => static fn(ContainerInterface $container) => new DegreeProgramController(
                 $container->get(DegreeProgramRetriever::class),
                 $container->get(DegreeProgramUpdater::class),
+                $container->get(DegreeProgramDataValidator::class),
                 $container->get(LoggerInterface::class),
             ),
             TranslatedDegreeProgramController::class => static fn(ContainerInterface $container) => new TranslatedDegreeProgramController(
@@ -71,13 +72,18 @@ final class RestApiModule implements ServiceModule, ExecutableModule
                 $translatedDegreeProgramController,
                 $termsParentObjectController,
             ): void {
+                $schema = JsonSchemaDegreeProgramDataValidator::SCHEMA;
+                $schema['arg_options'] = [
+                    'validate_callback' => [$degreeProgramController, 'validate'],
+                ];
+
                 register_rest_field(
                     DegreeProgramPostType::KEY,
                     self::DEGREE_PROGRAM_REST_PROPERTY,
                     [
                         'get_callback' => [$degreeProgramController, 'get'],
                         'update_callback' => [$degreeProgramController, 'update'],
-                        'schema' => JsonSchemaDegreeProgramDataValidator::SCHEMA,
+                        'schema' => $schema,
                     ]
                 );
 

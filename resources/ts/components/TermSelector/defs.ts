@@ -8,7 +8,7 @@ export type Term = WpTerm;
 
 export interface SelectorProps {
     id: string;
-    label: ReactNode;
+    label?: ReactNode;
     help?: string;
     messages?: FormTokenFieldProps['messages'];
     taxonomy: TaxonomySlug;

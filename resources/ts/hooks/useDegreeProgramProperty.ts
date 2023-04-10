@@ -3,6 +3,7 @@ import { get, set } from 'lodash';
 
 import { useEntityProp } from '@wordpress/core-data';
 
+import { useValidation } from 'contexts/DegreeProgramValidationProvider';
 import serverData from 'util/serverData';
 
 import { DegreeProgramDataPaths } from '../defs';
@@ -36,12 +37,15 @@ export default function useDegreeProgramProperty<Value>(
         serverData().postType,
         serverData().propertyName,
     );
+    const { removeError } = useValidation();
 
     return [
         get(degreeProgramData, path),
-        (val: Value) =>
+        (val: Value) => {
+            removeError(path);
             setDegreeProgramData(
                 produce<Value>(degreeProgramData, (draft) => set(draft, path, val)),
-            ),
+            );
+        },
     ];
 }

@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 import { FormTokenFieldProps } from '@wordpress/components/build-types/form-token-field/types';
 
 export type EntitySelectorProps<Entity = object> = Readonly<{
-    label: ReactNode;
+    label?: ReactNode;
     messages: FormTokenFieldProps['messages'];
     maxLength?: number;
     maxSuggestions: number;

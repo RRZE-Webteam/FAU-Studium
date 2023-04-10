@@ -6,7 +6,7 @@ namespace Fau\DegreeProgram\Tests;
 
 use Fau\DegreeProgram\Application\DegreeProgramUpdater;
 use Fau\DegreeProgram\Common\Domain\DegreeProgramId;
-use Fau\DegreeProgram\Common\LanguageExtension\ArrayOfStrings;
+use Fau\DegreeProgram\Common\Domain\Violations;
 use Fau\DegreeProgram\Common\Tests\FixtureDegreeProgramDataProviderTrait;
 use Fau\DegreeProgram\Common\Tests\Repository\StubDegreeProgramRepository;
 use Fau\DegreeProgram\Common\Tests\Sanitizer\StubSanitizer;
@@ -26,7 +26,7 @@ final class UpdateDegreeProgramTest extends TestCase
 
         $updater = new DegreeProgramUpdater(
             $repository,
-            new StubDataValidator(ArrayOfStrings::new()),
+            new StubDataValidator(Violations::new()),
             new StubSanitizer(),
         );
 
@@ -46,7 +46,7 @@ final class UpdateDegreeProgramTest extends TestCase
 
         $updater = new DegreeProgramUpdater(
             $repository,
-            new StubDataValidator(ArrayOfStrings::new()),
+            new StubDataValidator(Violations::new()),
             new StubSanitizer(),
         );
 

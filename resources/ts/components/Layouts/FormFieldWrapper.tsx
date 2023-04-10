@@ -15,4 +15,6 @@ const FormFieldWrapper: React.FC<PropsWithChildren<FormFieldWrapperProps>> = ({
     );
 };
 
+export { FormFieldWrapperProps };
+
 export default FormFieldWrapper;

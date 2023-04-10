@@ -1,10 +1,9 @@
 import React from 'react';
 
-import { BaseControl, Panel, PanelBody } from '@wordpress/components';
+import { Panel, PanelBody } from '@wordpress/components';
 import { _x } from '@wordpress/i18n';
 
-import FormFieldLabel from 'components/Layouts/FormFieldLabel';
-import FormFieldWrapper from 'components/Layouts/FormFieldWrapper';
+import FormField from 'components/FormField/FormField';
 import FormWrapper from 'components/Layouts/FormWrapper';
 import { useEditDegreeProgram } from 'contexts/DegreeProgramEditFormProvider';
 
@@ -48,48 +47,42 @@ const Content = () => {
                 <FormWrapper>
                     {(Object.keys(CONTENT_ITEMS) as Array<keyof typeof CONTENT_ITEMS>).map(
                         (item) => (
-                            <FormFieldWrapper key={item}>
-                                <BaseControl
-                                    label={
-                                        <FormFieldLabel
-                                            label={`${values.content[item].title.de} ${
-                                                values.content[item].title.en
-                                                    ? `(${values.content[item].title.en})`
-                                                    : ''
-                                            }${
-                                                OPTIONAL_FIELDS.includes(item)
-                                                    ? _x(
-                                                          ' (optional)',
-                                                          'backoffice: optional field suffix',
-                                                          'fau-degree-program',
-                                                      )
-                                                    : ''
-                                            }`}
-                                            help={CONTENT_ITEMS[item]}
-                                        />
-                                    }
-                                >
-                                    <MultilingualContainer value={values.content[item].description}>
-                                        {(languageCode: LanguageCode) => (
-                                            <>
-                                                <ContentField
-                                                    content={
-                                                        values.content[item].description[
-                                                            languageCode
-                                                        ]
-                                                    }
-                                                    onChange={(content) =>
-                                                        handleChange<string>(
-                                                            `content.${item}.description.${languageCode}`,
-                                                            content,
-                                                        )
-                                                    }
-                                                />
-                                            </>
-                                        )}
-                                    </MultilingualContainer>
-                                </BaseControl>
-                            </FormFieldWrapper>
+                            <FormField
+                                key={item}
+                                name={`content.${item}.description`}
+                                label={`${values.content[item].title.de} ${
+                                    values.content[item].title.en
+                                        ? `(${values.content[item].title.en})`
+                                        : ''
+                                }${
+                                    OPTIONAL_FIELDS.includes(item)
+                                        ? _x(
+                                              ' (optional)',
+                                              'backoffice: optional field suffix',
+                                              'fau-degree-program',
+                                          )
+                                        : ''
+                                }`}
+                                help={CONTENT_ITEMS[item]}
+                            >
+                                <MultilingualContainer value={values.content[item].description}>
+                                    {(languageCode: LanguageCode) => (
+                                        <>
+                                            <ContentField
+                                                content={
+                                                    values.content[item].description[languageCode]
+                                                }
+                                                onChange={(content) =>
+                                                    handleChange<string>(
+                                                        `content.${item}.description.${languageCode}`,
+                                                        content,
+                                                    )
+                                                }
+                                            />
+                                        </>
+                                    )}
+                                </MultilingualContainer>
+                            </FormField>
                         ),
                     )}
                     <DegreeProgramCombinations />

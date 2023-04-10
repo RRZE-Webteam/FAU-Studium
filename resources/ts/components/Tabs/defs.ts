@@ -1,11 +1,11 @@
 import { ReactNode } from 'react';
 
-import { TabPanelProps } from '@wordpress/components/build-types/tab-panel/types';
+export interface TabItem {
+    name: string;
 
-import { ArrayElement } from '../../defs/generic';
+    title: string | JSX.Element;
 
-type Tab = ArrayElement<TabPanelProps['tabs']>;
+    className?: string | undefined;
 
-export interface TabItem extends Tab {
     component: ReactNode;
 }

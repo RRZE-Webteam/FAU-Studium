@@ -4,14 +4,7 @@ import produce from 'immer';
 import { nanoid } from 'nanoid';
 import styled from 'styled-components';
 
-import {
-    BaseControl,
-    Button,
-    Flex,
-    Icon,
-    TextControl,
-    VisuallyHidden,
-} from '@wordpress/components';
+import { Button, Flex, Icon, TextControl, VisuallyHidden } from '@wordpress/components';
 import { _x } from '@wordpress/i18n';
 
 interface FieldItem {
@@ -70,50 +63,48 @@ const TextControlCollection = ({
 
     return (
         <div>
-            <BaseControl>
-                {fields.map((field, index) => (
-                    <StyledFieldRow key={field.id}>
-                        <TextControl
-                            value={field.value}
-                            onChange={(text: string) => {
-                                setFields(
-                                    produce(fields, (draft) => {
-                                        draft[index].value = text;
-                                    }),
-                                );
-                            }}
-                            type={type}
-                        />
+            {fields.map((field, index) => (
+                <StyledFieldRow key={field.id}>
+                    <TextControl
+                        value={field.value}
+                        onChange={(text: string) => {
+                            setFields(
+                                produce(fields, (draft) => {
+                                    draft[index].value = text;
+                                }),
+                            );
+                        }}
+                        type={type}
+                    />
 
-                        <Button
-                            isDestructive
-                            onClick={() => {
-                                setFields([...fields.filter((f) => f.id !== field.id)]);
-                            }}
-                        >
-                            <Icon icon="no" />
-                            <VisuallyHidden>
-                                {_x(
-                                    'Remove',
-                                    'backoffice: TextControlCollection',
-                                    'fau-degree-program',
-                                )}
-                            </VisuallyHidden>
-                        </Button>
-                    </StyledFieldRow>
-                ))}
-
-                {fields.length === 0 && (
-                    <StyledNoItemsMessage>
-                        {emptyMessage ??
-                            _x(
-                                'No items added yet',
-                                'backoffice: text control collection',
+                    <Button
+                        isDestructive
+                        onClick={() => {
+                            setFields([...fields.filter((f) => f.id !== field.id)]);
+                        }}
+                    >
+                        <Icon icon="no" />
+                        <VisuallyHidden>
+                            {_x(
+                                'Remove',
+                                'backoffice: TextControlCollection',
                                 'fau-degree-program',
                             )}
-                    </StyledNoItemsMessage>
-                )}
-            </BaseControl>
+                        </VisuallyHidden>
+                    </Button>
+                </StyledFieldRow>
+            ))}
+
+            {fields.length === 0 && (
+                <StyledNoItemsMessage>
+                    {emptyMessage ??
+                        _x(
+                            'No items added yet',
+                            'backoffice: text control collection',
+                            'fau-degree-program',
+                        )}
+                </StyledNoItemsMessage>
+            )}
 
             <Button
                 onClick={() => {

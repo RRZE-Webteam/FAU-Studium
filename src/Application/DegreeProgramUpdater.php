@@ -18,6 +18,9 @@ final class DegreeProgramUpdater
     ) {
     }
 
+    /**
+     * @param array<string, mixed> $data
+     */
     public function updateDegreeProgram(
         int $id,
         array $data
