@@ -248,6 +248,7 @@ const General = () => {
                             id="degree"
                             taxonomy="degree"
                             value={values.degree.id}
+                            childOnly
                             onChange={(term) => {
                                 handleChange<Degree>('degree', transformTermToDegree(term));
                             }}
