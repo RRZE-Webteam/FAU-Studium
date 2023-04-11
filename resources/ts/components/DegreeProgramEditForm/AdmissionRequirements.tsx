@@ -89,7 +89,7 @@ const AdmissionRequirements = () => {
                                     label={sprintf(
                                         _x(
                                             // translators: %s is the "(optional)" word
-                                            'Admission requirements for entering a teaching degree at a higher semester %s',
+                                            "Admission requirements for entering a Bachelor's/teaching degree at a higher semester %s",
                                             'backoffice: degree program edit form',
                                             'fau-degree-program',
                                         ),
