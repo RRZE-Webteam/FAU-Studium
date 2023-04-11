@@ -105,7 +105,7 @@ describe('Admission requirement fields', () => {
         ).toBeNull();
         expect(
             screen.queryByText(
-                /Admission requirements for entering a teaching degree at a higher semester/i,
+                /Admission requirements for entering a Bachelor's\/teaching degree at a higher semester/i,
             ),
         ).toBeNull();
         expect(screen.queryByText(/^Admission requirements for Master's degree/i)).toBeNull();
@@ -136,7 +136,7 @@ describe('Admission requirement fields', () => {
         ).toBeInTheDocument();
         expect(
             screen.queryByText(
-                /Admission requirements for entering a teaching degree at a higher semester/i,
+                /Admission requirements for entering a Bachelor's\/teaching degree at a higher semester/i,
             ),
         ).toBeInTheDocument();
         expect(
