@@ -7,6 +7,8 @@ import styled from 'styled-components';
 import { Button, Flex, Icon, TextControl, VisuallyHidden } from '@wordpress/components';
 import { _x } from '@wordpress/i18n';
 
+import { useFieldContext } from '../FormField/FormField';
+
 interface FieldItem {
     id: string;
     value: string;
@@ -61,6 +63,8 @@ const TextControlCollection = ({
         onChange(fields.filter((f) => !!f.value).map((f) => f.value));
     }, [fields]);
 
+    const { required } = useFieldContext();
+
     return (
         <div>
             {fields.map((field, index) => (
@@ -75,6 +79,7 @@ const TextControlCollection = ({
                             );
                         }}
                         type={type}
+                        aria-required={required}
                     />
 
                     <Button

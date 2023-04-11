@@ -5,6 +5,8 @@ import { FormTokenField } from '@wordpress/components';
 import { useDebounce } from '@wordpress/compose';
 import { _nx, sprintf } from '@wordpress/i18n';
 
+import { useFieldContext } from '../FormField/FormField';
+
 import { EntitySelectorProps } from 'defs';
 
 import './styles.scss';
@@ -109,6 +111,8 @@ export default function EntitySelector<Entity extends GenericEntity>({
                 tabIndex={-1}
                 onFocus={() => setIsFocused(true)}
                 onBlur={() => setIsFocused(false)}
+                role="listbox"
+                aria-required={useFieldContext().required}
             >
                 <FormTokenField
                     label={label}

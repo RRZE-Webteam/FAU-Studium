@@ -33,11 +33,7 @@ export default function DegreeProgramCombinations(): JSX.Element | null {
         <>
             <FormField
                 name="combinations"
-                label={_x(
-                    'Combinations (optional)',
-                    'backoffice: field label',
-                    'fau-degree-program',
-                )}
+                label={_x('Combinations', 'backoffice: field label', 'fau-degree-program')}
             >
                 <RelatedDegreePrograms
                     relatedDegreeProgramIds={combinations}
@@ -68,11 +64,7 @@ export default function DegreeProgramCombinations(): JSX.Element | null {
             </FormField>
             <FormField
                 name="limited_combinations"
-                label={_x(
-                    'Limited Combinations (optional)',
-                    'backoffice: field label',
-                    'fau-degree-program',
-                )}
+                label={_x('Limited Combinations', 'backoffice: field label', 'fau-degree-program')}
             >
                 <RelatedDegreePrograms
                     relatedDegreeProgramIds={limitedCombinations}

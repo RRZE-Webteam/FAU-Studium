@@ -6,10 +6,11 @@ import { _x } from '@wordpress/i18n';
 import serverData from 'util/serverData';
 
 import { LanguageCode } from '../../defs/common';
+import { useFieldContext } from '../FormField/FormField';
 import { TabItem } from '../Tabs';
 
 type MultilingualContainerProps = {
-    children: (languageCode: LanguageCode) => ReactNode;
+    children: (languageCode: LanguageCode, required: boolean) => ReactNode;
     value: Record<LanguageCode, string>;
 };
 
@@ -25,6 +26,7 @@ const tabs: TabPanel.Tab[] = (Object.keys(serverData().languages) as Array<Langu
 );
 
 const MultilingualContainer = ({ children, value }: MultilingualContainerProps) => {
+    const { required } = useFieldContext();
     return (
         <TabPanel
             tabs={tabs.map((tab: { name: LanguageCode; title: string; className: string }) => {
@@ -52,7 +54,7 @@ const MultilingualContainer = ({ children, value }: MultilingualContainerProps) 
             })}
             className="component-multilingual-container"
         >
-            {(tab: TabItem) => <>{children(tab.name as LanguageCode)}</>}
+            {(tab: TabItem) => <>{children(tab.name as LanguageCode, required)}</>}
         </TabPanel>
     );
 };

@@ -8,11 +8,12 @@ const TextInput = () => {
 
     return (
         <LimitedInputControl value={text} maxChars={10}>
-            {({ updatedValue }) => (
+            {({ updatedValue, required }) => (
                 <input
                     type="text"
                     value={text}
                     onChange={(e) => setText(updatedValue(e.target.value))}
+                    aria-required={required}
                 />
             )}
         </LimitedInputControl>
