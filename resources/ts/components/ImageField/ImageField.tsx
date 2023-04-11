@@ -7,6 +7,7 @@ import { Button, Flex, Spinner } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
 import { useEditDegreeProgram } from '../../contexts/DegreeProgramEditFormProvider';
+import { useFieldContext } from '../FormField/FormField';
 import useMedia from './useMedia';
 
 import { Image } from 'defs';
@@ -87,7 +88,11 @@ export default function ImageField({ path, title = '' }: ImageFieldProps) {
 
     return (
         <MediaUploadCheck>
-            <StyledWrapper hasImage={hasMedia()}>
+            <StyledWrapper
+                hasImage={hasMedia()}
+                aria-required={useFieldContext().required}
+                role="combobox"
+            >
                 <MediaPlaceholder
                     value={[values[path].id]}
                     onSelect={handleOnSelect}

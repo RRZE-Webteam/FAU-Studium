@@ -3,14 +3,15 @@ import React from 'react';
 import { Panel, PanelBody, TextControl, ToggleControl } from '@wordpress/components';
 import { _x } from '@wordpress/i18n';
 
+import TextControlFormField from 'components/FormField/FieldContextAwareTextControl';
 import FormField from 'components/FormField/FormField';
 import FormWrapper from 'components/Layouts/FormWrapper';
+import TermSelector from 'components/TermSelector';
 
 import { useEditDegreeProgram } from '../../contexts/DegreeProgramEditFormProvider';
 import { MultilingualLink } from '../../defs';
 import { useDegreeFeesEnabled } from '../../hooks/useConditionalFields';
 import { transformTermToMultilingualLink } from '../../util/transforms';
-import TermSelector from '../TermSelector';
 import MultilingualContainer from './MultilingualContainer';
 
 const OrganizationalLinks = () => {
@@ -29,6 +30,7 @@ const OrganizationalLinks = () => {
                             'fau-degree-program',
                         )}
                         fill="third"
+                        required
                     >
                         <TermSelector
                             id="apply_now_link"
@@ -50,6 +52,7 @@ const OrganizationalLinks = () => {
                             'fau-degree-program',
                         )}
                         fill="third"
+                        required
                     >
                         <TermSelector
                             id="examinations_office"
@@ -71,8 +74,9 @@ const OrganizationalLinks = () => {
                             'fau-degree-program',
                         )}
                         fill="third"
+                        required
                     >
-                        <TextControl
+                        <TextControlFormField
                             id="module_handbook"
                             onChange={(handbook: string) => {
                                 handleChange<string>('module_handbook', handbook);
@@ -89,15 +93,17 @@ const OrganizationalLinks = () => {
                             'fau-degree-program',
                         )}
                         fill="half"
+                        required
                     >
                         <MultilingualContainer value={values.url}>
-                            {(languageCode) => (
+                            {(languageCode, required) => (
                                 <TextControl
                                     onChange={(value: string) => {
                                         handleChange<string>(`url.${languageCode}`, value);
                                     }}
                                     value={values.url[languageCode]}
                                     type="url"
+                                    aria-required={required}
                                 />
                             )}
                         </MultilingualContainer>
@@ -110,15 +116,17 @@ const OrganizationalLinks = () => {
                             'fau-degree-program',
                         )}
                         fill="half"
+                        required
                     >
                         <MultilingualContainer value={values.department}>
-                            {(languageCode) => (
+                            {(languageCode, required) => (
                                 <TextControl
                                     onChange={(value: string) => {
                                         handleChange<string>(`department.${languageCode}`, value);
                                     }}
                                     value={values.department[languageCode]}
                                     type="url"
+                                    aria-required={required}
                                 />
                             )}
                         </MultilingualContainer>
@@ -131,6 +139,7 @@ const OrganizationalLinks = () => {
                             'fau-degree-program',
                         )}
                         fill="third"
+                        required
                     >
                         <TermSelector
                             id="subject_specific_advice"
@@ -152,8 +161,9 @@ const OrganizationalLinks = () => {
                             'fau-degree-program',
                         )}
                         fill="third"
+                        required
                     >
-                        <TextControl
+                        <TextControlFormField
                             id="student_representatives"
                             onChange={(representatives: string) => {
                                 handleChange<string>('student_representatives', representatives);
@@ -170,8 +180,9 @@ const OrganizationalLinks = () => {
                             'fau-degree-program',
                         )}
                         fill="third"
+                        required
                     >
-                        <TextControl
+                        <TextControlFormField
                             onChange={(value: string) => {
                                 handleChange<string>(`examination_regulations`, value);
                             }}
@@ -206,9 +217,10 @@ const OrganizationalLinks = () => {
                                 'fau-degree-program',
                             )}
                             help="Studiengangsgebühren, nicht Semesterbeiträge."
+                            required
                         >
                             <MultilingualContainer value={values.degree_program_fees}>
-                                {(languageCode) => (
+                                {(languageCode, required) => (
                                     <TextControl
                                         onChange={(degreeProgramFees: string) => {
                                             handleChange<string>(
@@ -217,6 +229,7 @@ const OrganizationalLinks = () => {
                                             );
                                         }}
                                         value={values.degree_program_fees[languageCode]}
+                                        aria-required={required}
                                     />
                                 )}
                             </MultilingualContainer>

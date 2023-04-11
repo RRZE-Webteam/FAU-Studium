@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { Panel, PanelBody } from '@wordpress/components';
-import { _x } from '@wordpress/i18n';
 
 import FormField from 'components/FormField/FormField';
 import FormWrapper from 'components/Layouts/FormWrapper';
@@ -29,14 +28,7 @@ const CONTENT_ITEMS = {
         'Videos oder Links zu schriftlichen Testimonials, Einbindung von studycheck-Bewertungen',
 } as Record<keyof DegreeProgramData['content'], string>;
 
-const OPTIONAL_FIELDS = [
-    'specializations',
-    'qualities_and_skills',
-    'why_should_study',
-    'career_prospects',
-    'special_features',
-    'testimonials',
-];
+const REQUIRED_FIELDS = ['about', 'structure'];
 
 const Content = () => {
     const { values, handleChange } = useEditDegreeProgram();
@@ -54,19 +46,12 @@ const Content = () => {
                                     values.content[item].title.en
                                         ? `(${values.content[item].title.en})`
                                         : ''
-                                }${
-                                    OPTIONAL_FIELDS.includes(item)
-                                        ? _x(
-                                              ' (optional)',
-                                              'backoffice: optional field suffix',
-                                              'fau-degree-program',
-                                          )
-                                        : ''
                                 }`}
                                 help={CONTENT_ITEMS[item]}
+                                required={REQUIRED_FIELDS.includes(item)}
                             >
                                 <MultilingualContainer value={values.content[item].description}>
-                                    {(languageCode: LanguageCode) => (
+                                    {(languageCode: LanguageCode, required) => (
                                         <>
                                             <ContentField
                                                 content={
@@ -78,6 +63,7 @@ const Content = () => {
                                                         content,
                                                     )
                                                 }
+                                                required={required}
                                             />
                                         </>
                                     )}

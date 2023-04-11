@@ -45,4 +45,8 @@
     border-radius: 2px;
     color: #9b7937;
   }
+
+  .components-form-token-field__label:empty {
+    display: none;
+  }
 }

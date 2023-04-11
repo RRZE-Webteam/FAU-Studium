@@ -15,12 +15,15 @@ import { parse, serialize } from '@wordpress/blocks';
 import { Popover, SlotFillProvider } from '@wordpress/components';
 import { useDispatch } from '@wordpress/data';
 
+import { useFieldContext } from '../FormField/FormField';
 import useBlockEditorSettings from './useBlockEditorSettings';
 
 interface ContentFieldProps {
     content: string;
 
     onChange(content: string): void;
+
+    required?: boolean;
 }
 
 const StyledEditorWrapper = styled.div`
@@ -58,8 +61,9 @@ const BlockDeselectListener = ({ editorRef }: { editorRef: RefObject<HTMLDivElem
  *
  * @param content Serialized blocks string
  * @param onChange Callback to update content
+ * @param required Is required?
  */
-const ContentField = ({ content, onChange }: ContentFieldProps) => {
+const ContentField = ({ content, onChange, required }: ContentFieldProps) => {
     const [currentBlocks, setCurrentBlocks] = useState(parse(content));
     const editorRef = useRef<HTMLDivElement>(null);
 
@@ -76,6 +80,7 @@ const ContentField = ({ content, onChange }: ContentFieldProps) => {
     };
 
     const settings = useBlockEditorSettings();
+    const { required: fieldRequired } = useFieldContext();
 
     return (
         <BlockEditorProvider
@@ -97,11 +102,13 @@ const ContentField = ({ content, onChange }: ContentFieldProps) => {
                         <BlockTools>
                             <WritingFlow>
                                 <ObserveTyping>
-                                    <BlockList
-                                        renderAppender={DefaultBlockAppender}
-                                        className="content-field-blocks-list"
-                                    />
-                                    <BlockDeselectListener editorRef={editorRef} />
+                                    <div role="textbox" aria-required={required ?? fieldRequired}>
+                                        <BlockList
+                                            renderAppender={DefaultBlockAppender}
+                                            className="content-field-blocks-list"
+                                        />
+                                        <BlockDeselectListener editorRef={editorRef} />
+                                    </div>
                                 </ObserveTyping>
                             </WritingFlow>
                         </BlockTools>
@@ -111,6 +118,10 @@ const ContentField = ({ content, onChange }: ContentFieldProps) => {
             </div>
         </BlockEditorProvider>
     );
+};
+
+ContentField.defaultProps = {
+    required: false,
 };
 
 export default ContentField;

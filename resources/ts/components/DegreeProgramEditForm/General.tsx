@@ -19,6 +19,7 @@ import {
 } from 'util/transforms';
 
 import ContentField from '../ContentField';
+import TextareaControlFormField from '../FormField/FieldContextAwareTextareaControl';
 import MultilingualContainer from './MultilingualContainer';
 
 import { Degree, MultilingualLink, MultilingualString } from 'defs';
@@ -39,14 +40,16 @@ const General = () => {
                         )}
                         help="Studiengangsbezeichnung, ohne Abschluss."
                         fill="half"
+                        required
                     >
                         <MultilingualContainer value={values.title}>
-                            {(languageCode) => (
+                            {(languageCode, required) => (
                                 <TextControl
                                     onChange={(value: string) => {
                                         handleChange<string>(`title.${languageCode}`, value);
                                     }}
                                     value={values.title[languageCode]}
+                                    aria-required={required}
                                 />
                             )}
                         </MultilingualContainer>
@@ -54,7 +57,7 @@ const General = () => {
                     <FormField
                         name="subtitle"
                         label={_x(
-                            'Subtitle (optional)',
+                            'Subtitle',
                             'backoffice: degree program edit form',
                             'fau-degree-program',
                         )}
@@ -62,12 +65,13 @@ const General = () => {
                         fill="half"
                     >
                         <MultilingualContainer value={values.subtitle}>
-                            {(languageCode) => (
+                            {(languageCode, required) => (
                                 <TextControl
                                     onChange={(value: string) => {
                                         handleChange<string>(`subtitle.${languageCode}`, value);
                                     }}
                                     value={values.subtitle[languageCode]}
+                                    aria-required={required}
                                 />
                             )}
                         </MultilingualContainer>
@@ -82,6 +86,7 @@ const General = () => {
                             'fau-degree-program',
                         )}
                         help="Wird für die Detailansicht verwendet."
+                        required
                     >
                         <ImageField path="featured_image" />
                     </FormField>
@@ -94,6 +99,7 @@ const General = () => {
                             'fau-degree-program',
                         )}
                         help="Wird für die Kacheln auf der Auswahlseite verwendet."
+                        required
                     >
                         <ImageField path="teaser_image" />
                     </FormField>
@@ -107,14 +113,16 @@ const General = () => {
                             'fau-degree-program',
                         )}
                         help="Ca. 300 Zeichen."
+                        required
                     >
                         <MultilingualContainer value={values.entry_text}>
-                            {(languageCode) => (
+                            {(languageCode, required) => (
                                 <ContentField
                                     content={values.entry_text[languageCode]}
                                     onChange={(content: string) => {
                                         handleChange<string>(`entry_text.${languageCode}`, content);
                                     }}
+                                    required={required}
                                 />
                             )}
                         </MultilingualContainer>
@@ -128,6 +136,7 @@ const General = () => {
                             'backoffice: degree program edit form',
                             'fau-degree-program',
                         )}
+                        required
                     >
                         <MultiTermSelector
                             id="area_of_study"
@@ -150,6 +159,7 @@ const General = () => {
                         )}
                         name="start"
                         fill="third"
+                        required
                     >
                         <MultiTermSelector
                             id="semester"
@@ -172,6 +182,7 @@ const General = () => {
                         )}
                         help="Gesamtzahl der Studierenden, nicht nur Erstsemester."
                         fill="third"
+                        required
                     >
                         <TermSelector
                             id="number_of_students"
@@ -201,6 +212,7 @@ const General = () => {
                             'fau-degree-program',
                         )}
                         fill="third"
+                        required
                     >
                         <TermSelector
                             id="teaching-language"
@@ -222,6 +234,7 @@ const General = () => {
                             'fau-degree-program',
                         )}
                         fill="third"
+                        required
                     >
                         <MultiTermSelector
                             id="attribute"
@@ -243,6 +256,7 @@ const General = () => {
                             'fau-degree-program',
                         )}
                         fill="third"
+                        required
                     >
                         <TermSelector
                             id="degree"
@@ -262,6 +276,7 @@ const General = () => {
                             'fau-degree-program',
                         )}
                         fill="half"
+                        required
                     >
                         <MultiTermSelector
                             id="faculty"
@@ -283,6 +298,7 @@ const General = () => {
                             'fau-degree-program',
                         )}
                         fill="half"
+                        required
                     >
                         <MultiTermSelector
                             id="study-location"
@@ -304,6 +320,7 @@ const General = () => {
                             'fau-degree-program',
                         )}
                         fill="half"
+                        required
                     >
                         <MultiTermSelector
                             id="subject-group"
@@ -325,6 +342,7 @@ const General = () => {
                             'fau-degree-program',
                         )}
                         fill="half"
+                        required
                     >
                         <MultiTermSelector
                             id="keywords"
@@ -347,6 +365,7 @@ const General = () => {
                         )}
                         help="Videos über den Studiengang, das Studienfach, ein Thema des Fachs (z. B. 2-Minuten-Wissen), Erfahrungsberichte."
                         fill="full"
+                        required
                     >
                         <TextControlCollection
                             value={values.videos}
@@ -366,8 +385,9 @@ const General = () => {
                         )}
                         help="Nur Zahl."
                         fill="full"
+                        required
                     >
-                        <TextareaControl
+                        <TextareaControlFormField
                             onChange={(value: string) => {
                                 handleChange<string>('standard_duration', value);
                             }}
@@ -384,14 +404,16 @@ const General = () => {
                         )}
                         help="Text für die Anzeige bei Suchmaschinen."
                         fill="full"
+                        required
                     >
                         <MultilingualContainer value={values.meta_description}>
-                            {(languageCode) => (
+                            {(languageCode, required) => (
                                 <LimitedInputControl
                                     value={values.meta_description[languageCode]}
                                     maxChars={160}
+                                    required={required}
                                 >
-                                    {({ updatedValue }) => (
+                                    {({ updatedValue, required: controlRequired }) => (
                                         <TextareaControl
                                             value={values.meta_description[languageCode]}
                                             onChange={(text: string) => {
@@ -400,6 +422,7 @@ const General = () => {
                                                     updatedValue(text),
                                                 );
                                             }}
+                                            aria-required={controlRequired}
                                         />
                                     )}
                                 </LimitedInputControl>

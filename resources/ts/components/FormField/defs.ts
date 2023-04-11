@@ -12,4 +12,5 @@ export interface FormFieldProps {
     help?: string;
     displayError?: boolean;
     wrapBaseControl?: boolean;
+    required?: boolean;
 }
