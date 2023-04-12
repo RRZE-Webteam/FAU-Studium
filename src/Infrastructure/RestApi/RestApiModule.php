@@ -15,7 +15,10 @@ use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\BachelorOrTeachingD
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\DegreeTaxonomy;
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\MasterDegreeAdmissionRequirementTaxonomy;
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\TeachingDegreeHigherSemesterAdmissionRequirementTaxonomy;
+use Fau\DegreeProgram\Common\Infrastructure\Repository\FacultyRepository;
 use Fau\DegreeProgram\Common\Infrastructure\Sanitizer\SerializedBlocksDegreeProgramSanitizer;
+use Fau\DegreeProgram\Common\Infrastructure\Validator\CompositeValidator;
+use Fau\DegreeProgram\Common\Infrastructure\Validator\ConditionalFieldsValidator;
 use Fau\DegreeProgram\Common\Infrastructure\Validator\JsonSchemaDegreeProgramDataValidator;
 use Fau\DegreeProgram\Infrastructure\Repository\TermsRepository;
 use Inpsyde\Modularity\Module\ExecutableModule;
@@ -36,7 +39,10 @@ final class RestApiModule implements ServiceModule, ExecutableModule
             DegreeProgramRetriever::class => static fn(ContainerInterface $container) => new DegreeProgramRetriever(
                 $container->get(DegreeProgramViewRepository::class)
             ),
-            DegreeProgramDataValidator::class => static fn() => new JsonSchemaDegreeProgramDataValidator(),
+            DegreeProgramDataValidator::class => static fn(ContainerInterface $container) => new CompositeValidator(
+                new JsonSchemaDegreeProgramDataValidator(),
+                new ConditionalFieldsValidator($container->get(FacultyRepository::class)),
+            ),
             DegreeProgramUpdater::class => static fn(ContainerInterface $container) => new DegreeProgramUpdater(
                 $container->get(DegreeProgramRepository::class),
                 $container->get(DegreeProgramDataValidator::class),
