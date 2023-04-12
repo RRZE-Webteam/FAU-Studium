@@ -13,6 +13,7 @@ use Fau\DegreeProgram\Common\Application\Repository\DegreeProgramCollectionRepos
 use Fau\DegreeProgram\Common\Application\Repository\DegreeProgramViewRepository;
 use Fau\DegreeProgram\Common\Domain\DegreeProgramRepository;
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\TaxonomiesList;
+use Fau\DegreeProgram\Common\Infrastructure\Repository\FacultyRepository;
 use Fau\DegreeProgram\Common\Infrastructure\Repository\IdGenerator;
 use Fau\DegreeProgram\Common\Infrastructure\Repository\WordPressDatabaseDegreeProgramCollectionRepository;
 use Fau\DegreeProgram\Common\Infrastructure\Repository\WordPressDatabaseDegreeProgramRepository;
@@ -36,6 +37,7 @@ class RepositoryModule implements ServiceModule
         return [
             IdGenerator::class => static fn() => new IdGenerator(),
             ConditionalFieldsFilter::class => static fn() => new ConditionalFieldsFilter(),
+            FacultyRepository::class => static fn() => new FacultyRepository(),
             DegreeProgramRepository::class => static fn(ContainerInterface $container) => new WordPressDatabaseDegreeProgramRepository(
                 $container->get(IdGenerator::class),
                 $container->get(EventDispatcherInterface::class),
@@ -45,6 +47,7 @@ class RepositoryModule implements ServiceModule
                 $container->get(DegreeProgramRepository::class),
                 $container->get(HtmlDegreeProgramSanitizer::class),
                 $container->get(ConditionalFieldsFilter::class),
+                $container->get(FacultyRepository::class),
             ),
             DegreeProgramViewRepository::class => static fn(ContainerInterface $container) => new CachedDegreeProgramViewRepository(
                 $container->get(self::VIEW_REPOSITORY_UNCACHED),
