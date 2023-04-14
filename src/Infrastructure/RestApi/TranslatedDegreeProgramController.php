@@ -85,7 +85,8 @@ final class TranslatedDegreeProgramController extends WP_REST_Controller
     {
         $criteria = CollectionCriteria::new()
             ->withPage((int) $request->get_param('page'))
-            ->withPerPage((int) $request->get_param('per_page'));
+            ->withPerPage((int) $request->get_param('per_page'))
+            ->withSearchKeyword((string) $request->get_param('search'));
 
         $views = $this->degreeProgramCollectionRepository->findTranslatedCollection(
             $criteria,
