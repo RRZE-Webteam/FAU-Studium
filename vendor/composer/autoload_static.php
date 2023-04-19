@@ -267,6 +267,7 @@ class ComposerStaticInit1a9e8c79685c13de2a576d24bc11b2ed
         'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\TermMeta\\UrlTermMetaField' => __DIR__ . '/../..' . '/src/Infrastructure/Dashboard/TermMeta/UrlTermMetaField.php',
         'Fau\\DegreeProgram\\Infrastructure\\EventDispatcherModule' => __DIR__ . '/../..' . '/src/Infrastructure/EventDispatcherModule.php',
         'Fau\\DegreeProgram\\Infrastructure\\LoggerModule' => __DIR__ . '/../..' . '/src/Infrastructure/LoggerModule.php',
+        'Fau\\DegreeProgram\\Infrastructure\\Migration\\Migration0010AddInfoBrochureAndStudentInitiativesFields' => __DIR__ . '/../..' . '/src/Infrastructure/Migration/Migration0010AddInfoBrochureAndStudentInitiativesFields.php',
         'Fau\\DegreeProgram\\Infrastructure\\Migration\\Migration002TransformVideosMeta' => __DIR__ . '/../..' . '/src/Infrastructure/Migration/Migration002TransformVideosMeta.php',
         'Fau\\DegreeProgram\\Infrastructure\\Migration\\MigrationModule' => __DIR__ . '/../..' . '/src/Infrastructure/Migration/MigrationModule.php',
         'Fau\\DegreeProgram\\Infrastructure\\Patches\\FAU171ThemePatch' => __DIR__ . '/../..' . '/src/Infrastructure/Patches/FAU171ThemePatch.php',

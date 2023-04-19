@@ -188,6 +188,7 @@ return array(
     'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\TermMeta\\UrlTermMetaField' => $baseDir . '/src/Infrastructure/Dashboard/TermMeta/UrlTermMetaField.php',
     'Fau\\DegreeProgram\\Infrastructure\\EventDispatcherModule' => $baseDir . '/src/Infrastructure/EventDispatcherModule.php',
     'Fau\\DegreeProgram\\Infrastructure\\LoggerModule' => $baseDir . '/src/Infrastructure/LoggerModule.php',
+    'Fau\\DegreeProgram\\Infrastructure\\Migration\\Migration0010AddInfoBrochureAndStudentInitiativesFields' => $baseDir . '/src/Infrastructure/Migration/Migration0010AddInfoBrochureAndStudentInitiativesFields.php',
     'Fau\\DegreeProgram\\Infrastructure\\Migration\\Migration002TransformVideosMeta' => $baseDir . '/src/Infrastructure/Migration/Migration002TransformVideosMeta.php',
     'Fau\\DegreeProgram\\Infrastructure\\Migration\\MigrationModule' => $baseDir . '/src/Infrastructure/Migration/MigrationModule.php',
     'Fau\\DegreeProgram\\Infrastructure\\Patches\\FAU171ThemePatch' => $baseDir . '/src/Infrastructure/Patches/FAU171ThemePatch.php',
