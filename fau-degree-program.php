@@ -10,6 +10,7 @@
  * Update URI:  false
  * GitHub Plugin URI: RRZE-Webteam/FAU-Studium
  * License:     GPL-2.0-or-later
+ * Text Domain: fau-degree-program
  * Domain Path: /languages
  */
 
