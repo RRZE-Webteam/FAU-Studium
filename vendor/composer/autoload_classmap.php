@@ -221,6 +221,7 @@ return array(
     'Fau\\DegreeProgram\\Infrastructure\\Revision\\RevisionModule' => $baseDir . '/src/Infrastructure/Revision/RevisionModule.php',
     'Fau\\DegreeProgram\\Infrastructure\\Revision\\RevisionsToKeep' => $baseDir . '/src/Infrastructure/Revision/RevisionsToKeep.php',
     'Fau\\DegreeProgram\\Infrastructure\\SanitizerModule' => $baseDir . '/src/Infrastructure/SanitizerModule.php',
+    'Fau\\DegreeProgram\\Infrastructure\\TranslationModule' => $baseDir . '/src/Infrastructure/TranslationModule.php',
     'Inpsyde\\Assets\\Asset' => $vendorDir . '/inpsyde/assets/src/Asset.php',
     'Inpsyde\\Assets\\AssetFactory' => $vendorDir . '/inpsyde/assets/src/AssetFactory.php',
     'Inpsyde\\Assets\\AssetManager' => $vendorDir . '/inpsyde/assets/src/AssetManager.php',

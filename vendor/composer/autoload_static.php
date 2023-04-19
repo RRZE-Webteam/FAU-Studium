@@ -300,6 +300,7 @@ class ComposerStaticInit1a9e8c79685c13de2a576d24bc11b2ed
         'Fau\\DegreeProgram\\Infrastructure\\Revision\\RevisionModule' => __DIR__ . '/../..' . '/src/Infrastructure/Revision/RevisionModule.php',
         'Fau\\DegreeProgram\\Infrastructure\\Revision\\RevisionsToKeep' => __DIR__ . '/../..' . '/src/Infrastructure/Revision/RevisionsToKeep.php',
         'Fau\\DegreeProgram\\Infrastructure\\SanitizerModule' => __DIR__ . '/../..' . '/src/Infrastructure/SanitizerModule.php',
+        'Fau\\DegreeProgram\\Infrastructure\\TranslationModule' => __DIR__ . '/../..' . '/src/Infrastructure/TranslationModule.php',
         'Inpsyde\\Assets\\Asset' => __DIR__ . '/..' . '/inpsyde/assets/src/Asset.php',
         'Inpsyde\\Assets\\AssetFactory' => __DIR__ . '/..' . '/inpsyde/assets/src/AssetFactory.php',
         'Inpsyde\\Assets\\AssetManager' => __DIR__ . '/..' . '/inpsyde/assets/src/AssetManager.php',
