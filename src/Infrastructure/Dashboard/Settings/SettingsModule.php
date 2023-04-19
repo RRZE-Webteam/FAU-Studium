@@ -210,6 +210,14 @@ final class SettingsModule implements ServiceModule, ExecutableModule
                 )
             ),
             new BilingualLinkSettingsField(
+                DegreeProgram::STUDENT_INITIATIVES,
+                _x(
+                    'Students\' Union/Student Initiatives',
+                    'backoffice: setting title',
+                    'fau-degree-program'
+                )
+            ),
+            new BilingualLinkSettingsField(
                 DegreeProgram::STUDENT_ADVICE,
                 _x(
                     'Student Advice and Career Service',

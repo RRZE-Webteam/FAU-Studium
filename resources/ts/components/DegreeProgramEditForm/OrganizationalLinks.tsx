@@ -111,7 +111,7 @@ const OrganizationalLinks = () => {
                     <FormField
                         name="department"
                         label={_x(
-                            'Department (URL)',
+                            'Department/Institute (URL)',
                             'backoffice: degree program edit form',
                             'fau-degree-program',
                         )}
@@ -154,9 +154,9 @@ const OrganizationalLinks = () => {
                         />
                     </FormField>
                     <FormField
-                        name="student_representatives"
+                        name="info_brochure"
                         label={_x(
-                            'Student’s Representatives/FSI (URL)',
+                            'Info brochure degree program (URL)',
                             'backoffice: degree program edit form',
                             'fau-degree-program',
                         )}
@@ -164,11 +164,11 @@ const OrganizationalLinks = () => {
                         required
                     >
                         <TextControlFormField
-                            id="student_representatives"
+                            id="info_brochure"
                             onChange={(representatives: string) => {
-                                handleChange<string>('student_representatives', representatives);
+                                handleChange<string>('info_brochure', representatives);
                             }}
-                            value={values.student_representatives}
+                            value={values.info_brochure}
                             type="url"
                         />
                     </FormField>
