@@ -55,7 +55,7 @@ export interface DegreeProgramData {
     readonly student_advice: MultilingualLink;
     subject_specific_advice: MultilingualLink;
     readonly service_centers: MultilingualLink;
-    student_representatives: string;
+    info_brochure: string;
     readonly semester_fee: MultilingualLink;
     degree_program_fees: MultilingualString;
     readonly abroad_opportunities: MultilingualLink;
@@ -64,6 +64,7 @@ export interface DegreeProgramData {
     combinations: Array<number>;
     limited_combinations: Array<number>;
     notes_for_international_applicants: MultilingualLink;
+    student_initiatives: MultilingualLink;
     apply_now_link: MultilingualLink;
     entry_text: MultilingualString;
 }

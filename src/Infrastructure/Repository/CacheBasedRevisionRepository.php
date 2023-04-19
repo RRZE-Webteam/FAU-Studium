@@ -147,7 +147,7 @@ final class CacheBasedRevisionRepository implements DegreeProgramRevisionReposit
             [
                 DegreeProgram::EXAMINATION_REGULATIONS => $rawRevision->examinationRegulations(),
                 DegreeProgram::SUBJECT_SPECIFIC_ADVICE => $this->structureToContextualId($rawRevision->subjectSpecificAdvice()),
-                DegreeProgram::STUDENT_REPRESENTATIVES => $rawRevision->studentRepresentatives(),
+                DegreeProgram::INFO_BROCHURE => $rawRevision->infoBrochure(),
             ],
             self::multilingualStringToFlatArray(DegreeProgram::DEGREE_PROGRAM_FEES, $rawRevision->degreeProgramFees()),
             [

@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace Fau\DegreeProgram\Infrastructure\Migration;
 
+use Fau\DegreeProgram\Common\Application\Cache\CacheKeyGenerator;
 use Inpsyde\Modularity\Module\ExecutableModule;
 use Inpsyde\Modularity\Module\ModuleClassNameIdTrait;
 use Inpsyde\Modularity\Module\ServiceModule;
 use Psr\Container\ContainerInterface;
+use Psr\SimpleCache\CacheInterface;
 
 final class MigrationModule implements ServiceModule, ExecutableModule
 {
@@ -19,6 +21,14 @@ final class MigrationModule implements ServiceModule, ExecutableModule
     {
         return [
             Migration002TransformVideosMeta::class => static fn() => new Migration002TransformVideosMeta(),
+            Migration0010AddInfoBrochureAndStudentInitiativesFields::class => static function (
+                ContainerInterface $container
+            ): Migration0010AddInfoBrochureAndStudentInitiativesFields {
+                return new Migration0010AddInfoBrochureAndStudentInitiativesFields(
+                    $container->get(CacheKeyGenerator::class),
+                    $container->get(CacheInterface::class),
+                );
+            },
         ];
     }
 

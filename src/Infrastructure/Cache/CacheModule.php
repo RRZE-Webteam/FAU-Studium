@@ -41,6 +41,7 @@ final class CacheModule implements ServiceModule, ExecutableModule
         DegreeProgram::START_OF_SEMESTER,
         DegreeProgram::SEMESTER_DATES,
         DegreeProgram::NOTES_FOR_INTERNATIONAL_APPLICANTS,
+        DegreeProgram::STUDENT_INITIATIVES,
         DegreeProgram::STUDENT_ADVICE,
     ];
 

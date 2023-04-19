@@ -571,9 +571,9 @@ final class TranslatedDegreeProgramController extends WP_REST_Controller
                 ),
                 'type' => 'object',
             ],
-            DegreeProgram::STUDENT_REPRESENTATIVES => [
+            DegreeProgram::INFO_BROCHURE => [
                 'description' => _x(
-                    'Student’s Representatives/FSI.',
+                    'Info brochure degree program.',
                     'rest_api: schema item description',
                     'fau-degree-program'
                 ),
@@ -630,6 +630,14 @@ final class TranslatedDegreeProgramController extends WP_REST_Controller
             DegreeProgram::NOTES_FOR_INTERNATIONAL_APPLICANTS => [
                 'description' => _x(
                     'Notes for international applicants.',
+                    'rest_api: schema item description',
+                    'fau-degree-program'
+                ),
+                'type' => 'object',
+            ],
+            DegreeProgram::STUDENT_INITIATIVES => [
+                'description' => _x(
+                    'Students\' Union/Student Initiatives.',
                     'rest_api: schema item description',
                     'fau-degree-program'
                 ),

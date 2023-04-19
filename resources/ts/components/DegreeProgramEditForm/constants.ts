@@ -39,7 +39,7 @@ export const FIELDS_BY_TABS: Record<TabNames, Array<DegreeProgramDataPaths>> = {
         'url',
         'department',
         'subject_specific_advice',
-        'student_representatives',
+        'info_brochure',
         'examination_regulations',
         'fee_required',
         'degree_program_fees',
