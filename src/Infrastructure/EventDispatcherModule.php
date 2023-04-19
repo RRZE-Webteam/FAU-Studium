@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Fau\DegreeProgram\Infrastructure;
 
+use Fau\DegreeProgram\Common\Infrastructure\EventDispatcher\WordPressHookEventDispatcher;
 use Inpsyde\Modularity\Module\ModuleClassNameIdTrait;
 use Inpsyde\Modularity\Module\ServiceModule;
 use Psr\EventDispatcher\EventDispatcherInterface;
-use Fau\DegreeProgram\Common\Infrastructure\EventDispatcher\WordPressHookEventDispatcher;
 
 final class EventDispatcherModule implements ServiceModule
 {

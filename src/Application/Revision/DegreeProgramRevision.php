@@ -4,13 +4,6 @@ declare(strict_types=1);
 
 namespace Fau\DegreeProgram\Application\Revision;
 
-use Fau\DegreeProgram\Common\Application\DegreeProgramViewRaw;
-use Fau\DegreeProgram\Common\Domain\DegreeProgram;
-use Fau\DegreeProgram\Common\Domain\Image;
-use Fau\DegreeProgram\Common\Domain\MultilingualList;
-use Fau\DegreeProgram\Common\Domain\MultilingualString;
-use Fau\DegreeProgram\Common\Infrastructure\Repository\IdGenerator;
-
 final class DegreeProgramRevision
 {
     public const STATUS = 'status';

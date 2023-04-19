@@ -1,0 +1,913 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: FAU Degree Program Management 0.0.9\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2023-04-19T07:40:04+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.7.1\n"
+"X-Domain: fau-degree-program\n"
+
+#. Plugin Name of the plugin
+msgid "FAU Degree Program Management"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://github.com/RRZE-Webteam/FAU-Studium"
+msgstr ""
+
+#. Description of the plugin
+msgid "Add and edit degree programs and expose them via the REST API."
+msgstr ""
+
+#. Author of the plugin
+msgid "Inpsyde GmbH"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://inpsyde.com/"
+msgstr ""
+
+#: src/Infrastructure/Authorization/Roles/DegreeProgramAuthor.php:20
+msgctxt "backend: user role label"
+msgid "Degree Program Author"
+msgstr ""
+
+#: src/Infrastructure/Authorization/Roles/DegreeProgramEditor.php:20
+msgctxt "backend: user role label"
+msgid "Degree Program Editor"
+msgstr ""
+
+#: src/Infrastructure/Authorization/WorkflowAuthor/WorkflowAuthorTaxonomy.php:26
+msgctxt "backoffice: taxonomy plural name"
+msgid "Workflow authors"
+msgstr ""
+
+#: src/Infrastructure/Authorization/WorkflowAuthor/WorkflowAuthorTaxonomy.php:35
+msgctxt "backoffice: taxonomy singular name"
+msgid "Workflow author"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/AdminBarModule.php:28
+msgctxt "backoffice: admin notice"
+msgid "Degree program cache invalidated."
+msgstr ""
+
+#: src/Infrastructure/Dashboard/AdminBarModule.php:35
+msgctxt "backoffice: admin notice"
+msgid "Could not invalidate degree program cache."
+msgstr ""
+
+#: src/Infrastructure/Dashboard/AdminBarModule.php:48
+msgctxt "backoffice: admin bar menu item"
+msgid "Invalidate degree program caches"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/Settings/BilingualLinkSettingsField.php:56
+msgctxt "backoffice: field label"
+msgid "Name"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/Settings/BilingualLinkSettingsField.php:58
+msgctxt "backoffice: field label"
+msgid "English name"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/Settings/BilingualLinkSettingsField.php:60
+msgctxt "backoffice: field label"
+msgid "Link text"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/Settings/BilingualLinkSettingsField.php:62
+msgctxt "backoffice: field label"
+msgid "English link text"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/Settings/BilingualLinkSettingsField.php:64
+msgctxt "backoffice: field label"
+msgid "Link URL"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/Settings/BilingualLinkSettingsField.php:66
+msgctxt "backoffice: field label"
+msgid "English link URL"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:65
+msgctxt "backoffice: setting page title"
+msgid "FAU Degree Program"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:74
+msgctxt "backoffice: setting page tab title"
+msgid "General"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:85
+msgctxt "backoffice: setting page tab title"
+msgid "Content"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:107
+msgctxt "backoffice: setting page section"
+msgid "Content item (accordion) titles"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:114
+msgctxt "backoffice: setting title"
+msgid "About"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:122
+msgctxt "backoffice: setting title"
+msgid "Structure"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:130
+msgctxt "backoffice: setting title"
+msgid "Specializations"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:138
+msgctxt "backoffice: setting title"
+msgid "Qualities and skills"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:150
+msgctxt "backoffice: setting title"
+msgid "Why study at FAU"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:160
+msgctxt "backoffice: setting title"
+msgid "Career prospects"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:170
+msgctxt "backoffice: setting title"
+msgid "Special Features"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:178
+msgctxt "backoffice: setting title"
+msgid "Testimonials"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:191
+msgctxt "backoffice: setting page section"
+msgid "Degree program shared properties"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:198
+msgctxt "backoffice: setting title"
+msgid "Start of semester"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:202
+msgctxt "backoffice: setting title"
+msgid "Semester dates"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:206
+msgctxt "backoffice: setting title"
+msgid "Notes for international applicants"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:214
+msgctxt "backoffice: setting title"
+msgid "Students' Union/Student Initiatives"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:222
+msgctxt "backoffice: setting title"
+msgid "Student Advice and Career Service"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:230
+msgctxt "backoffice: setting title"
+msgid "Counseling and Service Centers at FAU"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:238
+msgctxt "backoffice: setting title"
+msgid "Semester fee"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:242
+msgctxt "backoffice: setting title"
+msgid "Opportunities for spending time abroad"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:250
+msgctxt "backoffice: setting field"
+msgid "Maximum number of revisions"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/TermMeta/EnglishNameTermMetaField.php:16
+msgctxt "backoffice: term field name"
+msgid "English name"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/TermMeta/EnglishNameTermMetaField.php:21
+msgctxt "backoffice: term field description"
+msgid "Name used for English translation."
+msgstr ""
+
+#: src/Infrastructure/Dashboard/TermMeta/MultilingualLinkTermMetaFields.php:21
+msgctxt "backoffice: term field name"
+msgid "Link text"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/TermMeta/MultilingualLinkTermMetaFields.php:29
+msgctxt "backoffice: term field name"
+msgid "Link URL"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/TermMeta/MultilingualLinkTermMetaFields.php:38
+msgctxt "backoffice: term field name"
+msgid "English link text"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/TermMeta/MultilingualLinkTermMetaFields.php:43
+msgctxt "backoffice: term field description"
+msgid "Link text used for English translation."
+msgstr ""
+
+#: src/Infrastructure/Dashboard/TermMeta/MultilingualLinkTermMetaFields.php:51
+msgctxt "backoffice: term field name"
+msgid "English link URL"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/TermMeta/MultilingualLinkTermMetaFields.php:56
+msgctxt "backoffice: term field description"
+msgid "Link URL used for English translation."
+msgstr ""
+
+#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:139
+msgctxt "backoffice: term field name"
+msgid "Abbreviation"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:148
+msgctxt "backoffice: term field name"
+msgid "English abbreviation"
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:99
+msgctxt "rest_api: response status"
+msgid "Something went wrong. Please try again later."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:119
+msgctxt "rest_api: response status"
+msgid "The page number requested is larger than the number of pages available."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:168
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:188
+msgctxt "rest_api: response status"
+msgid "Degree program not found."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:256
+msgctxt "rest_api: schema item description"
+msgid "Language code."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:278
+msgctxt "rest_api: schema item description"
+msgid "Unique identifier for the degree program."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:286
+msgctxt "rest_api: schema item description"
+msgid "Feature image."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:294
+msgctxt "rest_api: schema item description"
+msgid "Teaser image."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:302
+msgctxt "rest_api: schema item description"
+msgid "Title."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:310
+msgctxt "rest_api: schema item description"
+msgid "Subtitle."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:318
+msgctxt "rest_api: schema item description"
+msgid "Standard duration of study."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:326
+msgctxt "rest_api: schema item description"
+msgid "Fee required."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:334
+msgctxt "rest_api: schema item description"
+msgid "Start of degree program."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:342
+msgctxt "rest_api: schema item description"
+msgid "Number of students."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:350
+msgctxt "rest_api: schema item description"
+msgid "Teaching language."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:358
+msgctxt "rest_api: schema item description"
+msgid "Attributes."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:366
+msgctxt "rest_api: schema item description"
+msgid "Degree."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:374
+msgctxt "rest_api: schema item description"
+msgid "Faculty."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:382
+msgctxt "rest_api: schema item description"
+msgid "Study location."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:390
+msgctxt "rest_api: schema item description"
+msgid "Subject groups."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:398
+msgctxt "rest_api: schema item description"
+msgid "Videos."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:406
+msgctxt "rest_api: schema item description"
+msgid "Meta description."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:414
+msgctxt "rest_api: schema item description"
+msgid "Content."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:422
+msgctxt "rest_api: schema item description"
+msgid "Admission requirement link."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:430
+msgctxt "rest_api: schema item description"
+msgid "Admission requirements."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:438
+msgctxt "rest_api: schema item description"
+msgid "Content-related admission requirements for Master’s degree."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:446
+msgctxt "rest_api: schema item description"
+msgid "Application deadline winter semester."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:454
+msgctxt "rest_api: schema item description"
+msgid "Application deadline summer semester."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:462
+msgctxt "rest_api: schema item description"
+msgid "Details and notes."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:470
+msgctxt "rest_api: schema item description"
+msgid "Language skills."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:478
+msgctxt "rest_api: schema item description"
+msgid "Language skills for Faculty of Humanities, Social Sciences, and Theology only."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:487
+msgctxt "rest_api: schema item description"
+msgid "Language certificates/German language skills for international applicants."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:495
+msgctxt "rest_api: schema item description"
+msgid "Start of semester."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:503
+msgctxt "rest_api: schema item description"
+msgid "Semester dates."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:511
+msgctxt "rest_api: schema item description"
+msgid "Examinations Office."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:519
+msgctxt "rest_api: schema item description"
+msgid "Degree program and examination regulations."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:527
+msgctxt "rest_api: schema item description"
+msgid "Module handbook."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:535
+msgctxt "rest_api: schema item description"
+msgid "Degree program URL."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:543
+msgctxt "rest_api: schema item description"
+msgid "Department."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:551
+msgctxt "rest_api: schema item description"
+msgid "Student Advice and Career Service."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:559
+msgctxt "rest_api: schema item description"
+msgid "Subject-specific advice."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:567
+msgctxt "rest_api: schema item description"
+msgid "Counseling and Service Centers at FAU."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:575
+msgctxt "rest_api: schema item description"
+msgid "Info brochure degree program."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:583
+msgctxt "rest_api: schema item description"
+msgid "Semester fee."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:591
+msgctxt "rest_api: schema item description"
+msgid "Degree program fees."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:599
+msgctxt "rest_api: schema item description"
+msgid "Opportunities for spending time abroad."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:607
+msgctxt "rest_api: schema item description"
+msgid "Degree program possible combinations."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:615
+msgctxt "rest_api: schema item description"
+msgid "Degree program limited possible combinations."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:623
+msgctxt "rest_api: schema item description"
+msgid "Available translations."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:631
+msgctxt "rest_api: schema item description"
+msgid "Notes for international applicants."
+msgstr ""
+
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:639
+msgctxt "rest_api: schema item description"
+msgid "Students' Union/Student Initiatives."
+msgstr ""
+
+#: src/Infrastructure/Revision/Notification/RevisionNotificationSender.php:13
+msgctxt "backoffice: revision notification"
+msgid "Degree programs revision notification"
+msgstr ""
+
+#. translators: %s - amount of revisions
+#: templates/revision-notification/degree-program.php:34
+msgid "%d revision was created."
+msgid_plural "%d revisions were created."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %1$s - link to revision, %2$s - revision date, %3$s - revision author
+#: templates/revision-notification/revision.php:25
+msgctxt "backoffice: revision notification"
+msgid "Revision at <a href=\"%1$s\">%2$s</a> by %3$s."
+msgstr ""
+
+#. translators: %s - formatted date and time of previous notification
+#: templates/revision-notification/summary.php:35
+msgctxt "backoffice: revision notification"
+msgid "We inform about degree programs changes from %s."
+msgstr ""
+
+#: templates/revision-notification/summary.php:45
+msgctxt "backoffice: revision notification"
+msgid "We inform about degree programs changes from the very beginning."
+msgstr ""
+
+#. translators: %s - amount of changed degree programs
+#: templates/revision-notification/summary.php:56
+msgctxt "backoffice: revision notification"
+msgid "During the period, %d degree program was changed."
+msgid_plural "During the period, %d degree programs were changed."
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/settings/bilingual-text.php:26
+msgctxt "backoffice: settings field description"
+msgid "German variant."
+msgstr ""
+
+#: templates/settings/bilingual-text.php:43
+msgctxt "backoffice: settings field description"
+msgid "English variant."
+msgstr ""
+
+#: templates/settings/page.php:23
+msgid "Save Settings"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:2
+msgid "Description details …"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:2
+msgid "Description term …"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:11
+msgctxt "backoffice: field label"
+msgid "Combinations"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:11
+msgctxt "backoffice: field label"
+msgid "Combination added"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:11
+msgctxt "backoffice: field label"
+msgid "Combination removed"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:11
+msgctxt "backoffice: field label"
+msgid "Remove combination"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:11
+msgctxt "backoffice: field label"
+msgid "Invalid combination"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:11
+msgctxt "backoffice: field label"
+msgid "Limited Combinations"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:11
+msgctxt "backoffice: field label"
+msgid "Limited combination added"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:11
+msgctxt "backoffice: field label"
+msgid "Limited combination removed"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:11
+msgctxt "backoffice: field label"
+msgid "Remove limited combination"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:11
+msgctxt "backoffice: field label"
+msgid "Invalid limited combination"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:11
+msgctxt "backoffice: degree program edit form"
+msgid "Admission requirements for Bachelor's/teaching degrees"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:11
+msgctxt "backoffice: degree program edit form"
+msgid "Admission requirements for entering a Bachelor's/teaching degree at a higher semester"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:11
+msgctxt "backoffice: degree program edit form"
+msgid "Admission requirements for Master's degree"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:11
+msgctxt "backoffice: degree program edit form"
+msgid "Content-related admission requirements for Master's degree"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:11
+msgctxt "backoffice: degree program edit form"
+msgid "Application deadline winter semester"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:11
+msgctxt "backoffice: degree program edit form"
+msgid "Application deadline summer semester"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:11
+msgctxt "backoffice: degree program edit form"
+msgid "Details and notes"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:11
+msgctxt "backoffice: degree program edit form"
+msgid "Language skills"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:11
+msgctxt "backoffice: degree program edit form"
+msgid "Language skills for Faculty of Humanities, Social Sciences, and Theology only"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:11
+msgctxt "backoffice: degree program edit form"
+msgid "Language certificates/German language skills for international applicants"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:11
+msgctxt "backoffice: Degree program edit form"
+msgid "At a glance"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:11
+msgctxt "backoffice: Degree program edit form"
+msgid "Content"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:11
+msgctxt "backoffice: Degree program edit form"
+msgid "Admission requirements, application and enrollment"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:11
+msgctxt "backoffice: Degree program edit form"
+msgid "Organizational notes/links"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:13
+msgctxt "backoffice: degree program edit form"
+msgid "Title"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:13
+msgctxt "backoffice: degree program edit form"
+msgid "Subtitle"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:13
+msgctxt "backoffice: degree program edit form"
+msgid "Featured image"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:13
+msgctxt "backoffice: degree program edit form"
+msgid "Teaser Image"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:13
+msgctxt "backoffice: degree program edit form"
+msgid "Entry text (promotional)"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:13
+msgctxt "backoffice: degree program edit form"
+msgid "Area of study"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:13
+msgctxt "backoffice: degree program edit form"
+msgid "Start of degree program"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:13
+msgctxt "backoffice: degree program edit form"
+msgid "Number of students"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:13
+msgctxt "backoffice: degree program edit form"
+msgid "Teaching language"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:13
+msgctxt "backoffice: degree program edit form"
+msgid "Attributes"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:13
+msgctxt "backoffice: degree program edit form"
+msgid "Degree"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:13
+msgctxt "backoffice: degree program edit form"
+msgid "Faculty"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:13
+msgctxt "backoffice: degree program edit form"
+msgid "Study location"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:13
+msgctxt "backoffice: degree program edit form"
+msgid "Subject groups"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:13
+msgctxt "backoffice: degree program edit form"
+msgid "Keywords"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:13
+msgctxt "backoffice: degree program edit form"
+msgid "Videos"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:13
+msgctxt "backoffice: degree program edit form"
+msgid "Duration of studies in semester"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:13
+msgctxt "backoffice: degree program edit form"
+msgid "Meta description"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:13
+msgctxt "backoffice: Multilingual container"
+msgid "empty"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:13
+msgctxt "backoffice: degree program edit form"
+msgid "\"Apply now\" link"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:13
+msgctxt "backoffice: degree program edit form"
+msgid "Examinations Office"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:13
+msgctxt "backoffice: degree program edit form"
+msgid "Module handbook (URL)"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:13
+msgctxt "backoffice: degree program edit form"
+msgid "Degree program (URL)"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:13
+msgctxt "backoffice: degree program edit form"
+msgid "Department/Institute (URL)"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:13
+msgctxt "backoffice: degree program edit form"
+msgid "Subject-specific advice"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:13
+msgctxt "backoffice: degree program edit form"
+msgid "Info brochure degree program (URL)"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:13
+msgctxt "backoffice: degree program edit form"
+msgid "Degree program and examination regulations (URL)"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:13
+msgctxt "backoffice: degree program edit form"
+msgid "Fee required"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:13
+msgctxt "backoffice: degree program edit form"
+msgid "Degree Program Fees"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:15
+msgctxt "backoffice: selector message"
+msgid "You can only select %d item"
+msgid_plural "You can only select %d items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: assets/ts/degree-program-editor.js:19
+msgctxt "backoffice: degree program edit form"
+msgid "(optional)"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:51
+msgctxt "backoffice: limited text input"
+msgid "%s characters left"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:68
+msgctxt "backoffice: TextControlCollection"
+msgid "Remove"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:68
+msgctxt "backoffice: text control collection"
+msgid "No items added yet"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:68
+msgctxt "backoffice: TextControlCollection"
+msgid "Add"
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:68
+msgid "Please select a featured image."
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:68
+msgid "Please select a teaser image."
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:68
+msgid "This field can not be empty."
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:68
+msgid "English variant of this field can not be empty."
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:68
+msgid "Please select at least one item."
+msgstr ""
+
+#: assets/ts/degree-program-editor.js:68
+msgid "Field does not match pattern."
+msgstr ""
+
+#: resources/ts/blocks/degree-program-form/block.json
+msgctxt "block title"
+msgid "Degree program editor"
+msgstr ""
+
+#: resources/ts/blocks/degree-program-form/block.json
+msgctxt "block description"
+msgid "Displays degree program editor form."
+msgstr ""
+
+#: resources/ts/blocks/description-details/block.json
+msgctxt "block title"
+msgid "Description Details"
+msgstr ""
+
+#: resources/ts/blocks/description-list/block.json
+msgctxt "block title"
+msgid "Description List"
+msgstr ""
+
+#: resources/ts/blocks/description-term/block.json
+msgctxt "block title"
+msgid "Description Term"
+msgstr ""
