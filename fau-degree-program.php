@@ -10,6 +10,7 @@
  * Update URI:  false
  * GitHub Plugin URI: RRZE-Webteam/FAU-Studium
  * License:     GPL-2.0-or-later
+ * Domain Path: /languages
  */
 
 declare(strict_types=1);
@@ -31,15 +32,16 @@ use Fau\DegreeProgram\Infrastructure\Dashboard\DegreeProgramEditor\DegreeProgram
 use Fau\DegreeProgram\Infrastructure\Dashboard\Settings\SettingsModule;
 use Fau\DegreeProgram\Infrastructure\Dashboard\TermMeta\TermMetaModule;
 use Fau\DegreeProgram\Infrastructure\EventDispatcherModule;
-use Fau\DegreeProgram\Infrastructure\Migration\MigrationModule;
-use Fau\DegreeProgram\Infrastructure\QueueModule;
 use Fau\DegreeProgram\Infrastructure\LoggerModule;
+use Fau\DegreeProgram\Infrastructure\Migration\MigrationModule;
 use Fau\DegreeProgram\Infrastructure\Patches\PatchesModule;
+use Fau\DegreeProgram\Infrastructure\QueueModule;
 use Fau\DegreeProgram\Infrastructure\Repository\RepositoryModule;
 use Fau\DegreeProgram\Infrastructure\RestApi\RestApiModule;
 use Fau\DegreeProgram\Infrastructure\Revision\Notification\RevisionNotificationModule;
 use Fau\DegreeProgram\Infrastructure\Revision\RevisionModule;
 use Fau\DegreeProgram\Infrastructure\SanitizerModule;
+use Fau\DegreeProgram\Infrastructure\TranslationModule;
 use Inpsyde\Modularity\Package;
 use Inpsyde\Modularity\Properties\PluginProperties;
 use RuntimeException;
@@ -129,6 +131,7 @@ function initialize(): void
 
         // Initialize plugin
         plugin()->boot(
+            new TranslationModule(),
             new ContentModule(),
             new TermMetaModule(),
             new SettingsModule(),

@@ -9,7 +9,6 @@ use Fau\DegreeProgram\Common\Application\Cache\CacheKeyGenerator;
 use Fau\DegreeProgram\Common\Application\Cache\CacheWarmer;
 use Fau\DegreeProgram\Common\Application\Event\CacheInvalidated;
 use Fau\DegreeProgram\Common\Application\Queue\MessageBus;
-use Fau\DegreeProgram\Common\Application\Repository\DegreeProgramCollectionRepository;
 use Fau\DegreeProgram\Common\Domain\Content;
 use Fau\DegreeProgram\Common\Domain\DegreeProgram;
 use Fau\DegreeProgram\Common\Domain\Event\DegreeProgramUpdated;

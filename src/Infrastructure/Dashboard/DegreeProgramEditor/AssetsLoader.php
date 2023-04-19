@@ -42,6 +42,10 @@ final class AssetsLoader
                         'provide',
                     ],
                 ],
+                'translation' => [
+                    'domain' => 'fau-degree-program',
+                    'path' => $this->pluginProperties->basePath() . 'languages',
+                ],
             ],
             [
                 'handle' => self::BLOCK_ASSET_HANDLE,
