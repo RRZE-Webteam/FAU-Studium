@@ -393,8 +393,8 @@ msgstr "Wir informieren über Änderungen an Studiengängen von Anfang an."
 msgctxt "backoffice: selector message"
 msgid "You can only select %d item"
 msgid_plural "You can only select %d items"
-msgstr[0] "Du kannst nur ein Element auswählen"
-msgstr[1] "Du kannst nur %d Elemente auswählen"
+msgstr[0] "Sie können nur ein Element auswählen"
+msgstr[1] "Sie können nur %d Elemente auswählen"
 
 #: src/Infrastructure/Dashboard/Settings/SettingsModule.php:250
 msgctxt "backoffice: setting field"
@@ -650,15 +650,15 @@ msgstr "Inpsyde GmbH"
 
 #: assets/ts/degree-program-editor.js:68
 msgid "Please select a featured image."
-msgstr "Bitte wähle ein Beitragsbild."
+msgstr "Bitte wählen Sie ein Beitragsbild."
 
 #: assets/ts/degree-program-editor.js:68
 msgid "Please select a teaser image."
-msgstr "Bitte wähle ein Teaserbild."
+msgstr "Bitte wählen Sie ein Teaserbild."
 
 #: assets/ts/degree-program-editor.js:68
 msgid "Please select at least one item."
-msgstr "Bitte wähle mindestens ein Element aus."
+msgstr "Bitte wählen Sie mindestens ein Element aus."
 
 #: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:168
 #: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:188
@@ -669,7 +669,7 @@ msgstr "Studiengang nicht gefunden."
 #: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:99
 msgctxt "rest_api: response status"
 msgid "Something went wrong. Please try again later."
-msgstr "Etwas ging schief. Bitte versuche es später noch einmal."
+msgstr "Etwas ging schief. Bitte versuchen Sie es später noch einmal."
 
 #: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:119
 msgctxt "rest_api: response status"

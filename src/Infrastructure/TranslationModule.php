@@ -23,7 +23,10 @@ final class TranslationModule implements ExecutableModule
             load_plugin_textdomain(
                 'fau-degree-program-common',
                 false,
-                'fau-degree-program/vendor/inpsyde/fau-degree-program-common/languages'
+                sprintf(
+                    '%s/vendor/inpsyde/fau-degree-program-common/languages',
+                    plugin_basename(dirname(__FILE__, 3))
+                )
             );
         });
 
