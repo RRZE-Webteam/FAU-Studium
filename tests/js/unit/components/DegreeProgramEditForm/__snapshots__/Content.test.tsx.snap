@@ -93,18 +93,5 @@ exports[`Content fields should match snapshot 1`] = `
       Möglichkeiten von Auslandsaufenthalten, Kooperationen mit Forschungsprojekten, etc.; ±200 Wörter
     </p>
   </span>,
-  <span />,
-  <span>
-    <span
-      className="sc-bcXHqe bKtfDB"
-    >
-      testimonials (testimonials) (optional)
-    </span>
-    <p
-      className="sc-gswNZR hgMeoo"
-    >
-      Videos oder Links zu schriftlichen Testimonials, Einbindung von studycheck-Bewertungen
-    </p>
-  </span>,
 ]
 `;
