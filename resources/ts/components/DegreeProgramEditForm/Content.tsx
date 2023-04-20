@@ -24,8 +24,6 @@ const CONTENT_ITEMS = {
     career_prospects: 'mögliche Tätigkeitsfelder nach Abschluss des Studiums; ±200 Wörter',
     special_features:
         'Möglichkeiten von Auslandsaufenthalten, Kooperationen mit Forschungsprojekten, etc.; ±200 Wörter',
-    testimonials:
-        'Videos oder Links zu schriftlichen Testimonials, Einbindung von studycheck-Bewertungen',
 } as Record<keyof DegreeProgramData['content'], string>;
 
 const REQUIRED_FIELDS = ['about', 'structure'];
