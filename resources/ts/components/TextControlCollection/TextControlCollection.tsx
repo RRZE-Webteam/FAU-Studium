@@ -19,6 +19,7 @@ interface Props {
     emptyMessage?: string;
     onChange(val: string[]): void;
     type?: 'text' | 'url';
+    maxItems?: number;
 }
 
 const transformRawValue = (value: string[]): FieldItem[] => {
@@ -54,6 +55,7 @@ const TextControlCollection = ({
     value,
     onChange,
     type = 'text',
+    maxItems,
 }: Props) => {
     const initialValue = value.length ? value : [''];
     const [fields, setFields] = useState<FieldItem[]>(transformRawValue(initialValue));
@@ -111,21 +113,23 @@ const TextControlCollection = ({
                 </StyledNoItemsMessage>
             )}
 
-            <Button
-                onClick={() => {
-                    setFields(
-                        produce(fields, (draft) => {
-                            draft.push({
-                                id: nanoid(),
-                                value: '',
-                            });
-                        }),
-                    );
-                }}
-                variant="primary"
-            >
-                {_x('Add', 'backoffice: TextControlCollection', 'fau-degree-program')}
-            </Button>
+            {(!maxItems || fields.length < maxItems) && (
+                <Button
+                    onClick={() => {
+                        setFields(
+                            produce(fields, (draft) => {
+                                draft.push({
+                                    id: nanoid(),
+                                    value: '',
+                                });
+                            }),
+                        );
+                    }}
+                    variant="primary"
+                >
+                    {_x('Add', 'backoffice: TextControlCollection', 'fau-degree-program')}
+                </Button>
+            )}
         </div>
     );
 };
