@@ -373,6 +373,7 @@ const General = () => {
                                 handleChange<string[]>('videos', value);
                             }}
                             type="url"
+                            maxItems={3}
                         />
                     </FormField>
 
