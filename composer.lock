@@ -79,12 +79,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/RRZE-Webteam/FAU-Studium-Common.git",
-                "reference": "892b62873a4701513be79b77e0ef53310b486994"
+                "reference": "902596ce32415dbcf70847339d23abe365f54216"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RRZE-Webteam/FAU-Studium-Common/zipball/892b62873a4701513be79b77e0ef53310b486994",
-                "reference": "892b62873a4701513be79b77e0ef53310b486994",
+                "url": "https://api.github.com/repos/RRZE-Webteam/FAU-Studium-Common/zipball/902596ce32415dbcf70847339d23abe365f54216",
+                "reference": "902596ce32415dbcf70847339d23abe365f54216",
                 "shasum": ""
             },
             "require": {
@@ -151,7 +151,7 @@
                 "source": "https://github.com/RRZE-Webteam/FAU-Studium-Common/tree/main",
                 "issues": "https://github.com/RRZE-Webteam/FAU-Studium-Common/issues"
             },
-            "time": "2023-04-20T13:19:13+00:00"
+            "time": "2023-04-24T13:01:50+00:00"
         },
         {
             "name": "inpsyde/modularity",

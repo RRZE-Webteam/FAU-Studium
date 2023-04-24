@@ -278,7 +278,7 @@ exports[`Admission requirement fields should match snapshot 1`] = `
               <span
                 className="sc-bcXHqe bKtfDB"
               >
-                Details and notes
+                Details and notes (optional)
               </span>
               <p
                 className="sc-gswNZR hgMeoo"
@@ -307,7 +307,7 @@ exports[`Admission requirement fields should match snapshot 1`] = `
               <span
                 className="sc-bcXHqe bKtfDB"
               >
-                Language skills
+                Language skills (optional)
               </span>
               <p
                 className="sc-gswNZR hgMeoo"
