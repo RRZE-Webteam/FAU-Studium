@@ -224,7 +224,6 @@ const AdmissionRequirements = () => {
                             'fau-degree-program',
                         )}
                         help="evtl. zusätzliche Infos zu Bewerbung und Einschreibung."
-                        required
                     >
                         <MultilingualContainer value={values.details_and_notes}>
                             {(languageCode, required) => (
@@ -250,7 +249,6 @@ const AdmissionRequirements = () => {
                             'fau-degree-program',
                         )}
                         help="Sprachkenntnisse, die für den Studiengang erforderlich sind."
-                        required
                     >
                         <MultilingualContainer value={values.language_skills}>
                             {(languageCode, required) => (
