@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-18 07:58+0000\n"
-"PO-Revision-Date: 2023-04-20 14:25+0200\n"
+"PO-Revision-Date: 2023-04-25 12:31+0200\n"
 "Last-Translator: \n"
 "Language-Team: Deutsch\n"
 "Language: de_DE\n"
@@ -918,3 +918,7 @@ msgstr "Einstellungen speichern"
 #: assets/ts/degree-program-editor.js:68
 msgid "This field can not be empty."
 msgstr "Dieses Feld darf nicht leer sein."
+
+#: assets/ts/degree-program-editor.js:68
+msgid "Field"
+msgstr "Feld"
