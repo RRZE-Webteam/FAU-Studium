@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Fau\DegreeProgram\Application;
 
+use Fau\DegreeProgram\Common\Application\Filter\DegreeFilter;
 use Fau\DegreeProgram\Common\Application\Repository\CollectionCriteria;
 use Fau\DegreeProgram\Common\Application\Repository\DegreeProgramCollectionRepository;
 use Fau\DegreeProgram\Common\Application\Repository\PaginationAwareCollection;
@@ -26,7 +27,7 @@ final class DegreeProgramBulkUpdater
         $rawViews = $this->degreeProgramCollectionRepository->findRawCollection(
             CollectionCriteria::new()
             ->withoutPagination()
-            ->withDegree($termId)
+            ->withFilter(new DegreeFilter($termId))
         );
 
         if (!$rawViews instanceof PaginationAwareCollection) {
