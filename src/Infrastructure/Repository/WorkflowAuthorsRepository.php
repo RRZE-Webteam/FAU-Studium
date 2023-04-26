@@ -56,7 +56,17 @@ class WorkflowAuthorsRepository
         }
 
         $workflowAuthorUsernames = wp_list_pluck($workflowAuthors, 'slug');
-        return in_array($user->user_login, $workflowAuthorUsernames, true);
+
+        // Term slugs are sanitized, so sanitize usernames as well.
+        $username = sanitize_term_field(
+            'slug',
+            $user->user_login,
+            0,
+            WorkflowAuthorTaxonomy::KEY,
+            'db'
+        );
+
+        return in_array($username, $workflowAuthorUsernames, true);
     }
 
     public function create(WP_User $user): void
