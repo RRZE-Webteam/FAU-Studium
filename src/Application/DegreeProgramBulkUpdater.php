@@ -27,7 +27,7 @@ final class DegreeProgramBulkUpdater
         $rawViews = $this->degreeProgramCollectionRepository->findRawCollection(
             CollectionCriteria::new()
             ->withoutPagination()
-            ->withFilter(new DegreeFilter($termId))
+            ->addFilter(DegreeFilter::fromInput($termId))
         );
 
         if (!$rawViews instanceof PaginationAwareCollection) {
