@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Fau\DegreeProgram\Infrastructure\RestApi;
 
 use Fau\DegreeProgram\Common\Application\DegreeProgramViewTranslated;
+use Fau\DegreeProgram\Common\Application\Filter\SearchKeywordFilter;
 use Fau\DegreeProgram\Common\Application\Repository\CollectionCriteria;
 use Fau\DegreeProgram\Common\Application\Repository\DegreeProgramCollectionRepository;
 use Fau\DegreeProgram\Common\Application\Repository\DegreeProgramViewRepository;
@@ -86,7 +87,7 @@ final class TranslatedDegreeProgramController extends WP_REST_Controller
         $criteria = CollectionCriteria::new()
             ->withPage((int) $request->get_param('page'))
             ->withPerPage((int) $request->get_param('per_page'))
-            ->withSearchKeyword((string) $request->get_param('search'));
+            ->withFilter(new SearchKeywordFilter($request->get_param('search')));
 
         $views = $this->degreeProgramCollectionRepository->findTranslatedCollection(
             $criteria,

@@ -18,6 +18,7 @@ use Fau\DegreeProgram\Common\Infrastructure\Repository\IdGenerator;
 use Fau\DegreeProgram\Common\Infrastructure\Repository\WordPressDatabaseDegreeProgramCollectionRepository;
 use Fau\DegreeProgram\Common\Infrastructure\Repository\WordPressDatabaseDegreeProgramRepository;
 use Fau\DegreeProgram\Common\Infrastructure\Repository\WordPressDatabaseDegreeProgramViewRepository;
+use Fau\DegreeProgram\Common\Infrastructure\Repository\WpQueryArgsBuilder;
 use Fau\DegreeProgram\Common\Infrastructure\Sanitizer\HtmlDegreeProgramSanitizer;
 use Inpsyde\Modularity\Module\ModuleClassNameIdTrait;
 use Inpsyde\Modularity\Module\ServiceModule;
@@ -54,13 +55,16 @@ class RepositoryModule implements ServiceModule
                 $container->get(CacheKeyGenerator::class),
                 $container->get(CacheInterface::class),
             ),
+            WpQueryArgsBuilder::class => static fn(ContainerInterface $container) => new WpQueryArgsBuilder(
+                $container->get(TaxonomiesList::class)
+            ),
             self::COLLECTION_REPOSITORY_UNCACHED => static fn(ContainerInterface $container) => new WordPressDatabaseDegreeProgramCollectionRepository(
                 $container->get(self::VIEW_REPOSITORY_UNCACHED),
-                $container->get(TaxonomiesList::class),
+                $container->get(WpQueryArgsBuilder::class),
             ),
             DegreeProgramCollectionRepository::class => static fn(ContainerInterface $container) => new WordPressDatabaseDegreeProgramCollectionRepository(
                 $container->get(DegreeProgramViewRepository::class),
-                $container->get(TaxonomiesList::class),
+                $container->get(WpQueryArgsBuilder::class),
             ),
             DegreeProgramRevisionRepository::class => static fn(ContainerInterface $container) => new CacheBasedRevisionRepository(
                 $container->get(CacheKeyGenerator::class),
