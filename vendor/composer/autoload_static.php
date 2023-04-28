@@ -296,6 +296,7 @@ class ComposerStaticInit1a9e8c79685c13de2a576d24bc11b2ed
         'Fau\\DegreeProgram\\Infrastructure\\Repository\\WordPressRevisionNotificationRepository' => __DIR__ . '/../..' . '/src/Infrastructure/Repository/WordPressRevisionNotificationRepository.php',
         'Fau\\DegreeProgram\\Infrastructure\\Repository\\WorkflowAuthorsRepository' => __DIR__ . '/../..' . '/src/Infrastructure/Repository/WorkflowAuthorsRepository.php',
         'Fau\\DegreeProgram\\Infrastructure\\RestApi\\DegreeProgramController' => __DIR__ . '/../..' . '/src/Infrastructure/RestApi/DegreeProgramController.php',
+        'Fau\\DegreeProgram\\Infrastructure\\RestApi\\DegreeProgramRequestFilter' => __DIR__ . '/../..' . '/src/Infrastructure/RestApi/DegreeProgramRequestFilter.php',
         'Fau\\DegreeProgram\\Infrastructure\\RestApi\\RestApiModule' => __DIR__ . '/../..' . '/src/Infrastructure/RestApi/RestApiModule.php',
         'Fau\\DegreeProgram\\Infrastructure\\RestApi\\TermsParentObjectController' => __DIR__ . '/../..' . '/src/Infrastructure/RestApi/TermsParentObjectController.php',
         'Fau\\DegreeProgram\\Infrastructure\\RestApi\\TranslatedDegreeProgramController' => __DIR__ . '/../..' . '/src/Infrastructure/RestApi/TranslatedDegreeProgramController.php',

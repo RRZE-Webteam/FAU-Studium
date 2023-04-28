@@ -217,6 +217,7 @@ return array(
     'Fau\\DegreeProgram\\Infrastructure\\Repository\\WordPressRevisionNotificationRepository' => $baseDir . '/src/Infrastructure/Repository/WordPressRevisionNotificationRepository.php',
     'Fau\\DegreeProgram\\Infrastructure\\Repository\\WorkflowAuthorsRepository' => $baseDir . '/src/Infrastructure/Repository/WorkflowAuthorsRepository.php',
     'Fau\\DegreeProgram\\Infrastructure\\RestApi\\DegreeProgramController' => $baseDir . '/src/Infrastructure/RestApi/DegreeProgramController.php',
+    'Fau\\DegreeProgram\\Infrastructure\\RestApi\\DegreeProgramRequestFilter' => $baseDir . '/src/Infrastructure/RestApi/DegreeProgramRequestFilter.php',
     'Fau\\DegreeProgram\\Infrastructure\\RestApi\\RestApiModule' => $baseDir . '/src/Infrastructure/RestApi/RestApiModule.php',
     'Fau\\DegreeProgram\\Infrastructure\\RestApi\\TermsParentObjectController' => $baseDir . '/src/Infrastructure/RestApi/TermsParentObjectController.php',
     'Fau\\DegreeProgram\\Infrastructure\\RestApi\\TranslatedDegreeProgramController' => $baseDir . '/src/Infrastructure/RestApi/TranslatedDegreeProgramController.php',
