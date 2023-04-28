@@ -27,11 +27,18 @@ use Inpsyde\Modularity\Module\ServiceModule;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 
+/**
+ * @psalm-import-type SchemaType from JsonSchemaDegreeProgramDataValidator
+ */
 final class RestApiModule implements ServiceModule, ExecutableModule
 {
     use ModuleClassNameIdTrait;
 
     public const DEGREE_PROGRAM_REST_PROPERTY = 'degree_program';
+
+    public function __construct(private string $commonConfigDirectory)
+    {
+    }
 
     public function services(): array
     {
@@ -39,8 +46,19 @@ final class RestApiModule implements ServiceModule, ExecutableModule
             DegreeProgramRetriever::class => static fn(ContainerInterface $container) => new DegreeProgramRetriever(
                 $container->get(DegreeProgramViewRepository::class)
             ),
+            JsonSchemaDegreeProgramDataValidator::class => function (): JsonSchemaDegreeProgramDataValidator {
+                /** @var SchemaType $draftSchema */
+                $draftSchema = require $this->commonConfigDirectory . '/schema_draft.php';
+                /** @var SchemaType $publishSchema */
+                $publishSchema = require $this->commonConfigDirectory . '/schema_publish.php';
+
+                return new JsonSchemaDegreeProgramDataValidator(
+                    $draftSchema,
+                    $publishSchema,
+                );
+            },
             DegreeProgramDataValidator::class => static fn(ContainerInterface $container) => new CompositeValidator(
-                new JsonSchemaDegreeProgramDataValidator(),
+                $container->get(JsonSchemaDegreeProgramDataValidator::class),
                 new ConditionalFieldsValidator($container->get(FacultyRepository::class)),
             ),
             DegreeProgramUpdater::class => static fn(ContainerInterface $container) => new DegreeProgramUpdater(
@@ -48,10 +66,13 @@ final class RestApiModule implements ServiceModule, ExecutableModule
                 $container->get(DegreeProgramDataValidator::class),
                 $container->get(SerializedBlocksDegreeProgramSanitizer::class),
             ),
+            DegreeProgramRequestFilter::class => static fn(ContainerInterface $container) => new DegreeProgramRequestFilter(
+                $container->get(DegreeProgramDataValidator::class),
+                $container->get(DegreeProgramViewRepository::class),
+            ),
             DegreeProgramController::class => static fn(ContainerInterface $container) => new DegreeProgramController(
                 $container->get(DegreeProgramRetriever::class),
                 $container->get(DegreeProgramUpdater::class),
-                $container->get(DegreeProgramDataValidator::class),
                 $container->get(LoggerInterface::class),
             ),
             TranslatedDegreeProgramController::class => static fn(ContainerInterface $container) => new TranslatedDegreeProgramController(
@@ -70,6 +91,7 @@ final class RestApiModule implements ServiceModule, ExecutableModule
         $degreeProgramController = $container->get(DegreeProgramController::class);
         $translatedDegreeProgramController = $container->get(TranslatedDegreeProgramController::class);
         $termsParentObjectController = $container->get(TermsParentObjectController::class);
+        $schema = $container->get(JsonSchemaDegreeProgramDataValidator::class)->draftSchema();
 
         add_action(
             'rest_api_init',
@@ -77,11 +99,8 @@ final class RestApiModule implements ServiceModule, ExecutableModule
                 $degreeProgramController,
                 $translatedDegreeProgramController,
                 $termsParentObjectController,
+                $schema
             ): void {
-                $schema = JsonSchemaDegreeProgramDataValidator::SCHEMA;
-                $schema['arg_options'] = [
-                    'validate_callback' => [$degreeProgramController, 'validate'],
-                ];
 
                 register_rest_field(
                     DegreeProgramPostType::KEY,
@@ -112,6 +131,19 @@ final class RestApiModule implements ServiceModule, ExecutableModule
 
                 $translatedDegreeProgramController->register_routes();
             }
+        );
+
+        add_filter(
+            sprintf(
+                'rest_pre_insert_%s',
+                DegreeProgramPostType::KEY
+            ),
+            [
+                $container->get(DegreeProgramRequestFilter::class),
+                'filterPostDataBeforeUpdate',
+            ],
+            10,
+            2
         );
 
         return true;

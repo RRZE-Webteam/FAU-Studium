@@ -7,15 +7,16 @@ namespace Fau\DegreeProgram\Infrastructure\RestApi;
 use Fau\DegreeProgram\Application\DegreeProgramRetriever;
 use Fau\DegreeProgram\Application\DegreeProgramUpdater;
 use Fau\DegreeProgram\Common\Application\DegreeProgramViewRaw;
-use Fau\DegreeProgram\Common\Domain\DegreeProgramDataValidator;
-use Fau\DegreeProgram\Common\Domain\Violations;
+use Fau\DegreeProgram\Common\Domain\DegreeProgram;
 use InvalidArgumentException;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use RuntimeException;
-use WP_Error;
 use WP_Post;
 
+/**
+ * @psalm-import-type DegreeProgramArrayType from DegreeProgram
+ */
 final class DegreeProgramController
 {
     private LoggerInterface $logger;
@@ -23,7 +24,6 @@ final class DegreeProgramController
     public function __construct(
         private DegreeProgramRetriever $degreeProgramRetriever,
         private DegreeProgramUpdater $degreeProgramUpdater,
-        private DegreeProgramDataValidator $degreeProgramDataValidator,
         ?LoggerInterface $logger = null,
     ) {
 
@@ -43,7 +43,7 @@ final class DegreeProgramController
     }
 
     /**
-     * @param array<string, mixed> $data
+     * @psalm-param DegreeProgramArrayType $data
      */
     public function update(
         array $data,
@@ -51,7 +51,15 @@ final class DegreeProgramController
     ): void {
 
         try {
-            $this->degreeProgramUpdater->updateDegreeProgram(
+            if ($post->post_status === 'publish') {
+                $this->degreeProgramUpdater->publish(
+                    $post->ID,
+                    $data,
+                );
+                return;
+            }
+
+            $this->degreeProgramUpdater->updateDraft(
                 $post->ID,
                 $data,
             );
@@ -75,41 +83,5 @@ final class DegreeProgramController
             ]);
             die();
         }
-    }
-
-    /**
-     * @param array<string, mixed> $data
-     * @return true|WP_Error
-     */
-    public function validate(array $data): bool|WP_Error
-    {
-        $violations = $this->degreeProgramDataValidator->validate($data);
-
-        if ($violations->count() === 0) {
-            return true;
-        }
-
-        return new WP_Error(
-            'rest_invalid_param',
-            sprintf(
-                'Invalid degree program data. Violations: %s.',
-                implode('|', array_keys($violations->getArrayCopy()))
-            ),
-            [
-                'status' => 400,
-                'params' => $this->violationsToRestResponse($violations),
-            ],
-        );
-    }
-
-    private function violationsToRestResponse(Violations $violations): array
-    {
-        return array_map(
-            static fn ($violation) => [
-                'code' => $violation->errorCode(),
-                'message' => $violation->errorMessage(),
-            ],
-            $violations->getArrayCopy(),
-        );
     }
 }

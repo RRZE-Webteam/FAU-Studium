@@ -32,7 +32,15 @@ class RestoreRevision
             return;
         }
 
-        $this->degreeProgramUpdater->updateDegreeProgram(
+        if (get_post_status($postId) === 'publish') {
+            $this->degreeProgramUpdater->publish(
+                $postId,
+                $revisionRaw->asArray()
+            );
+            return;
+        }
+
+        $this->degreeProgramUpdater->updateDraft(
             $postId,
             $revisionRaw->asArray()
         );

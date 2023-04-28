@@ -140,7 +140,9 @@ function initialize(): void
             new RepositoryModule(),
             new CommandModule(),
             new DegreeProgramEditorModule(),
-            new RestApiModule(),
+            new RestApiModule(
+                __DIR__ . '/vendor/inpsyde/fau-degree-program-common/config',
+            ),
             new LoggerModule(),
             new SanitizerModule(),
             new EventDispatcherModule(),
