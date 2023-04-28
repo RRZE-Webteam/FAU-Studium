@@ -33,7 +33,7 @@ final class UpdateDegreeProgramTest extends TestCase
         $data = $this->fixtureData();
         $data['id'] = 123;
         $data['title']['de'] = 'Bachelor of Arts FAU';
-        $updater->updateDegreeProgram(123, $data);
+        $updater->publish(123, $data);
 
         $raw = $repository->findRaw(DegreeProgramId::fromInt(123));
         $this->assertSame('Bachelor of Arts FAU', $raw->title()->inGerman());
@@ -51,6 +51,6 @@ final class UpdateDegreeProgramTest extends TestCase
         );
 
         $data = $this->fixtureData();
-        $updater->updateDegreeProgram(123, $data);
+        $updater->publish(123, $data);
     }
 }

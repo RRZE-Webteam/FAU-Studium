@@ -8,7 +8,7 @@ import React, {
 } from 'react';
 
 import { store as coreStore } from '@wordpress/core-data';
-import { select, subscribe, useSelect } from '@wordpress/data';
+import { select, subscribe, useDispatch, useSelect } from '@wordpress/data';
 import { store as editorStore } from '@wordpress/editor';
 
 import { transformErrorMessage } from 'util/errorTransforms';
@@ -35,7 +35,9 @@ interface Props {
 
 type ServerError = {
     code: string;
-    data: Record<string, unknown>;
+    data: {
+        params: Record<DegreeProgramDataPaths, { message: string; code: string }>;
+    };
 };
 
 export const DegreeProgramValidationContext = createContext<ContextValue>({} as ContextValue);
@@ -49,7 +51,7 @@ const transformServerError = (serverError: ServerError): FormValidationErrors =>
 
     const errorDetails:
         | Record<DegreeProgramDataPaths, { message: string; code: string }>
-        | undefined = serverError.data?.details?.[serverData().propertyName]?.data?.params;
+        | undefined = serverError.data?.params;
 
     if (typeof errorDetails === 'undefined') {
         return errors;
@@ -78,6 +80,8 @@ const DegreeProgramValidationProvider = ({ children }: Props) => {
 
         return getCurrentPostId();
     }, []);
+
+    const { editPost } = useDispatch(editorStore);
 
     /**
      * Get an array of errors associated with a field
@@ -134,8 +138,20 @@ const DegreeProgramValidationProvider = ({ children }: Props) => {
         );
 
         if (!serverErrors) {
+            setErrors(new Map());
             return;
         }
+
+        /**
+         * This is a workaround for inconsistent block editor behavior.
+         * The "Publish" button changes the post status, while the "Save draft" button doesn't.
+         * But if you tried to publish the post and got an error,
+         * and then click "Save draft", the post is published.
+         *
+         * @link https://github.com/WordPress/gutenberg/blob/fedf426e8bf6f32ca6ef0b60cf26ecc81f917e03/packages/editor/src/components/post-publish-button/index.js#L256
+         * @link https://github.com/WordPress/gutenberg/blob/fedf426e8bf6f32ca6ef0b60cf26ecc81f917e03/packages/editor/src/components/post-saved-state/index.js#L153
+         */
+        editPost({ status: 'draft' }, { undoIgnore: true });
 
         setErrors(new Map([...transformServerError(serverErrors)]));
     }, [isSaving, postId]);

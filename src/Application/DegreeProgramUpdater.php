@@ -4,11 +4,15 @@ declare(strict_types=1);
 
 namespace Fau\DegreeProgram\Application;
 
+use Fau\DegreeProgram\Common\Domain\DegreeProgram;
 use Fau\DegreeProgram\Common\Domain\DegreeProgramDataValidator;
 use Fau\DegreeProgram\Common\Domain\DegreeProgramId;
 use Fau\DegreeProgram\Common\Domain\DegreeProgramRepository;
 use Fau\DegreeProgram\Common\Domain\DegreeProgramSanitizer;
 
+/**
+ * @psalm-import-type DegreeProgramArrayType from DegreeProgram
+ */
 final class DegreeProgramUpdater
 {
     public function __construct(
@@ -19,9 +23,9 @@ final class DegreeProgramUpdater
     }
 
     /**
-     * @param array<string, mixed> $data
+     * @psalm-param DegreeProgramArrayType $data
      */
-    public function updateDegreeProgram(
+    public function publish(
         int $id,
         array $data
     ): void {
@@ -30,10 +34,30 @@ final class DegreeProgramUpdater
             DegreeProgramId::fromInt($id)
         );
 
-        $degreeProgram->update(
+        $degreeProgram->publish(
             $data,
             $this->degreeProgramDataValidator,
             $this->degreeProgramSanitizer,
+        );
+
+        $this->degreeProgramRepository->save($degreeProgram);
+    }
+
+    /**
+     * @psalm-param DegreeProgramArrayType $data
+     */
+    public function updateDraft(
+        int $id,
+        array $data
+    ): void {
+
+        $degreeProgram = $this->degreeProgramRepository->getById(
+            DegreeProgramId::fromInt($id)
+        );
+
+        $degreeProgram->updateDraft(
+            $data,
+            $this->degreeProgramDataValidator,
         );
 
         $this->degreeProgramRepository->save($degreeProgram);
