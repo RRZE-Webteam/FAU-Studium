@@ -26,15 +26,9 @@ final class WordPressRevisionNotificationRepository implements RevisionNotificat
         $lastRevisions = $this->fetchLastRevisions();
         $result = [];
         foreach ($lastRevisions as $degreeProgramId => $revisionIds) {
-            $authorIds = array_map(
-                static fn ($revisionId) => (int) get_post_field('post_author', $revisionId),
-                $revisionIds
-            );
-
-            // Exclude revision authors themselves from list of "users to be notified"
-            $result += array_filter(
+            $result += $this->excludeRevisionAuthorsFromSubscribedUsers(
+                $revisionIds,
                 $this->findUsersSubscribedToPostChanges($degreeProgramId),
-                static fn ($userId) => !in_array($userId, $authorIds, true)
             );
         }
 
@@ -83,6 +77,33 @@ final class WordPressRevisionNotificationRepository implements RevisionNotificat
 
         $cache[$revisionId] = $revisionIds[$previousIndex] ?? 0;
         return $cache[$revisionId];
+    }
+
+    /**
+     * @param array<int> $revisionIds
+     * @param array<int> $subscribedUsers
+     * @return array<int>
+     */
+    private function excludeRevisionAuthorsFromSubscribedUsers(
+        array $revisionIds,
+        array $subscribedUsers
+    ): array {
+
+        $authorIds = array_unique(
+            array_map(
+                static fn ($revisionId) => (int) get_post_field('post_author', $revisionId),
+                $revisionIds
+            )
+        );
+
+        if (count($authorIds) > 1) {
+            return $subscribedUsers;
+        }
+
+        return array_filter(
+            $subscribedUsers,
+            static fn ($userId) => !in_array($userId, $authorIds, true)
+        );
     }
 
     /**

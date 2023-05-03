@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Fau\DegreeProgram\Infrastructure\Repository;
 
+use Fau\DegreeProgram\Infrastructure\Authorization\Roles\DegreeProgramAuthor;
 use Fau\DegreeProgram\Infrastructure\Authorization\WorkflowAuthor\WorkflowAuthorTaxonomy;
 use WP_Error;
 use WP_Term;
@@ -11,6 +12,8 @@ use WP_User;
 
 class WorkflowAuthorsRepository
 {
+    public const USER_META_KEY = 'user_id';
+
     /**
      * @param int $postId
      * @return WP_Term[]|null
@@ -37,7 +40,12 @@ class WorkflowAuthorsRepository
 
         $result = [];
         foreach ($terms as $term) {
-            $user = get_user_by('login', $term->name);
+            $userId = (int) get_term_meta($term->term_id, self::USER_META_KEY, true);
+            if (!$userId) {
+                continue;
+            }
+
+            $user = get_user_by('id', $userId);
             if (!$user instanceof WP_User) {
                 continue;
             }
@@ -55,40 +63,58 @@ class WorkflowAuthorsRepository
             return false;
         }
 
-        $workflowAuthorUsernames = wp_list_pluck($workflowAuthors, 'slug');
+        foreach ($workflowAuthors as $workflowAuthor) {
+            $userId = (int) get_term_meta($workflowAuthor->term_id, self::USER_META_KEY, true);
 
-        // Term slugs are sanitized, so sanitize usernames as well.
-        $username = sanitize_term_field(
-            'slug',
-            $user->user_login,
-            0,
-            WorkflowAuthorTaxonomy::KEY,
-            'db'
-        );
+            if ($userId === $user->ID) {
+                return true;
+            }
+        }
 
-        return in_array($username, $workflowAuthorUsernames, true);
+        return false;
     }
 
     public function create(WP_User $user): void
     {
-        wp_insert_term(
+        /** @var WP_Error|array{term_id: int} $termData */
+        $termData = wp_insert_term(
             $this->prepareUserDisplayName($user),
             WorkflowAuthorTaxonomy::KEY,
             [
                 'slug' => $user->user_login,
             ]
         );
+
+        if ($termData instanceof WP_Error) {
+            return;
+        }
+
+        update_term_meta($termData['term_id'], self::USER_META_KEY, $user->ID);
     }
 
     public function update(WP_User $user): void
     {
-        $term = get_term_by('slug', $user->user_login, WorkflowAuthorTaxonomy::KEY);
+        /** @var WP_Error|array<WP_Term> $terms */
+        $terms = get_terms(
+            [
+                'taxonomy' => WorkflowAuthorTaxonomy::KEY,
+                'meta_key' => self::USER_META_KEY,
+                'meta_value' => $user->ID,
+            ]
+        );
+
+        if ($terms instanceof WP_Error) {
+            return;
+        }
+
+        $term = $terms[0] ?? null;
 
         if (!$term instanceof WP_Term) {
             return;
         }
 
-        wp_update_term(
+        /** @var WP_Error|array{term_id: int} $termData */
+        $termData = wp_update_term(
             $term->term_id,
             WorkflowAuthorTaxonomy::KEY,
             [
@@ -96,6 +122,12 @@ class WorkflowAuthorsRepository
                 'slug' => $user->user_login,
             ]
         );
+
+        if ($termData instanceof WP_Error) {
+            return;
+        }
+
+        update_term_meta($termData['term_id'], self::USER_META_KEY, $user->ID);
     }
 
     public function delete(WP_User $user): void

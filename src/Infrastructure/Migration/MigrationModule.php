@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Fau\DegreeProgram\Infrastructure\Migration;
 
 use Fau\DegreeProgram\Common\Application\Cache\CacheKeyGenerator;
+use Fau\DegreeProgram\Infrastructure\Repository\WorkflowAuthorsRepository;
 use Inpsyde\Modularity\Module\ExecutableModule;
 use Inpsyde\Modularity\Module\ModuleClassNameIdTrait;
 use Inpsyde\Modularity\Module\ServiceModule;
@@ -28,6 +29,11 @@ final class MigrationModule implements ServiceModule, ExecutableModule
                     $container->get(CacheKeyGenerator::class),
                     $container->get(CacheInterface::class),
                 );
+            },
+            Migration0014WorkflowAuthorsTermMeta::class => static function (
+                ContainerInterface $container
+            ): Migration0014WorkflowAuthorsTermMeta {
+                return new Migration0014WorkflowAuthorsTermMeta();
             },
         ];
     }
