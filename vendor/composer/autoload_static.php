@@ -107,6 +107,7 @@ class ComposerStaticInit1a9e8c79685c13de2a576d24bc11b2ed
         'Fau\\DegreeProgram\\Common\\Application\\DegreeTranslated' => __DIR__ . '/..' . '/inpsyde/fau-degree-program-common/src/Application/DegreeTranslated.php',
         'Fau\\DegreeProgram\\Common\\Application\\Event\\CacheInvalidated' => __DIR__ . '/..' . '/inpsyde/fau-degree-program-common/src/Application/Event/CacheInvalidated.php',
         'Fau\\DegreeProgram\\Common\\Application\\Event\\CacheWarmed' => __DIR__ . '/..' . '/inpsyde/fau-degree-program-common/src/Application/Event/CacheWarmed.php',
+        'Fau\\DegreeProgram\\Common\\Application\\Filter\\AdmissionRequirementTypeFilter' => __DIR__ . '/..' . '/inpsyde/fau-degree-program-common/src/Application/Filter/AdmissionRequirementTypeFilter.php',
         'Fau\\DegreeProgram\\Common\\Application\\Filter\\AreaOfStudyFilter' => __DIR__ . '/..' . '/inpsyde/fau-degree-program-common/src/Application/Filter/AreaOfStudyFilter.php',
         'Fau\\DegreeProgram\\Common\\Application\\Filter\\ArrayOfIdsFilterTrait' => __DIR__ . '/..' . '/inpsyde/fau-degree-program-common/src/Application/Filter/ArrayOfIdsFilterTrait.php',
         'Fau\\DegreeProgram\\Common\\Application\\Filter\\AttributeFilter' => __DIR__ . '/..' . '/inpsyde/fau-degree-program-common/src/Application/Filter/AttributeFilter.php',
