@@ -175,7 +175,6 @@ const AdmissionRequirements = () => {
                                 'fau-degree-program',
                             )}
                             help="Datum im Format TT.MM. angeben. Weitere Termine können im Feld „Details und Anmerkungen“ eingetragen werden."
-                            required
                         >
                             <DayMonthPicker
                                 onChange={(value: string) => {
@@ -198,7 +197,6 @@ const AdmissionRequirements = () => {
                                 'fau-degree-program',
                             )}
                             help="Datum im Format TT.MM. angeben. Weitere Termine können im Feld „Details und Anmerkungen“ eingetragen werden."
-                            required
                         >
                             <DayMonthPicker
                                 onChange={(value: string) => {

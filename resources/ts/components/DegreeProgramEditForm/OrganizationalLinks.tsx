@@ -161,7 +161,6 @@ const OrganizationalLinks = () => {
                             'fau-degree-program',
                         )}
                         fill="third"
-                        required
                     >
                         <TextControlFormField
                             id="info_brochure"
