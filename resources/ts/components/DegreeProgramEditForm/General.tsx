@@ -85,7 +85,7 @@ const General = () => {
                             'backoffice: degree program edit form',
                             'fau-degree-program',
                         )}
-                        help="Wird für die Detailansicht verwendet."
+                        help="Wird für die Detailansicht verwendet. Größe: 1400 × 350 px."
                         required
                     >
                         <ImageField path="featured_image" />
@@ -98,7 +98,7 @@ const General = () => {
                             'backoffice: degree program edit form',
                             'fau-degree-program',
                         )}
-                        help="Wird für die Kacheln auf der Auswahlseite verwendet."
+                        help="Wird für die Kacheln auf der Auswahlseite verwendet. Größe: 500 × 500 px."
                         required
                     >
                         <ImageField path="teaser_image" />
