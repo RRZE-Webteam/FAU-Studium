@@ -246,11 +246,16 @@ final class TranslatedDegreeProgramController extends WP_REST_Controller
      */
     public function get_collection_params(): array
     {
-        ['page' => $page, 'per_page' => $perPage] = parent::get_collection_params();
+        [
+            'page' => $page,
+            'per_page' => $perPage,
+            'search' => $search,
+        ] = parent::get_collection_params();
 
         return [
             'page' => $page,
             'per_page' => $perPage,
+            'search' => $search,
             'lang' => self::languageParam(),
         ];
     }
