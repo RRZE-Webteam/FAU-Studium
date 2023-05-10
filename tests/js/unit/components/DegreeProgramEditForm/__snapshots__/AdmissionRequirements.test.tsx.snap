@@ -177,7 +177,7 @@ exports[`Admission requirement fields should match snapshot 1`] = `
               <span
                 className="sc-bcXHqe bKtfDB"
               >
-                Application deadline winter semester
+                Application deadline winter semester (optional)
               </span>
               <p
                 className="sc-gswNZR hgMeoo"
@@ -192,7 +192,7 @@ exports[`Admission requirement fields should match snapshot 1`] = `
                 className="components-base-control__field css-10urnh1-StyledField-deprecatedMarginField ej5x27r3"
               >
                 <input
-                  aria-required={true}
+                  aria-required={false}
                   className="components-text-control__input"
                   id="inspector-text-control-2"
                   onChange={[Function]}
@@ -224,7 +224,7 @@ exports[`Admission requirement fields should match snapshot 1`] = `
               <span
                 className="sc-bcXHqe bKtfDB"
               >
-                Application deadline summer semester
+                Application deadline summer semester (optional)
               </span>
               <p
                 className="sc-gswNZR hgMeoo"
@@ -239,7 +239,7 @@ exports[`Admission requirement fields should match snapshot 1`] = `
                 className="components-base-control__field css-10urnh1-StyledField-deprecatedMarginField ej5x27r3"
               >
                 <input
-                  aria-required={true}
+                  aria-required={false}
                   className="components-text-control__input"
                   id="inspector-text-control-3"
                   onChange={[Function]}
