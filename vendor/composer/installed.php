@@ -3,7 +3,7 @@
         'name' => 'inpsyde/fau-degree-program',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '4771198e12e5bf3b267865494f29629ccf13bfa3',
+        'reference' => 'a16a898c7b0e023f2a3bd8d04f9b613c1745d757',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -22,7 +22,7 @@
         'inpsyde/fau-degree-program' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '4771198e12e5bf3b267865494f29629ccf13bfa3',
+            'reference' => 'a16a898c7b0e023f2a3bd8d04f9b613c1745d757',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -31,7 +31,7 @@
         'inpsyde/fau-degree-program-common' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '745644e7df471b958b82a254ff854dcac92d1f11',
+            'reference' => '8e51859e8fe55ca158c82acda674bf2f66ec6064',
             'type' => 'library',
             'install_path' => __DIR__ . '/../inpsyde/fau-degree-program-common',
             'aliases' => array(
