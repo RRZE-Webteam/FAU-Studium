@@ -12,6 +12,7 @@ import { ALLOWED_BLOCK_TYPES, ALLOWED_MIME_TYPES } from './constants';
 
 const SETTINGS = {
     allowedBlockTypes: ALLOWED_BLOCK_TYPES,
+    codeEditingEnabled: false,
 };
 
 const useBlockEditorSettings = () => {

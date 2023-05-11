@@ -58,6 +58,7 @@ final class DegreeProgramUpdater
         $degreeProgram->updateDraft(
             $data,
             $this->degreeProgramDataValidator,
+            $this->degreeProgramSanitizer,
         );
 
         $this->degreeProgramRepository->save($degreeProgram);
