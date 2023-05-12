@@ -12,6 +12,7 @@ const StyledErrorWrapper = styled.p`
     color: #cc1818;
     font-size: 12px;
     margin: 5px 0 0;
+    font-family: var(--default-font);
 `;
 
 const FieldError = ({ errors }: Props) => {
