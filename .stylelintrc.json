@@ -3,7 +3,8 @@
     "rules": {
         "scss/at-function-pattern": null,
         "scss/dollar-variable-pattern": null,
-        "annotation-no-unknown": [true,
+        "annotation-no-unknown": [
+            true,
             {
                 "ignoreAnnotations": ["="]
             }

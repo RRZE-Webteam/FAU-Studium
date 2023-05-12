@@ -30,6 +30,7 @@ use Fau\DegreeProgram\Infrastructure\Command\CommandModule;
 use Fau\DegreeProgram\Infrastructure\Content\ContentModule;
 use Fau\DegreeProgram\Infrastructure\Dashboard\AdminBarModule;
 use Fau\DegreeProgram\Infrastructure\Dashboard\DegreeProgramEditor\DegreeProgramEditorModule;
+use Fau\DegreeProgram\Infrastructure\Dashboard\DegreeProgramListTable\DegreeProgramListTableModule;
 use Fau\DegreeProgram\Infrastructure\Dashboard\Settings\SettingsModule;
 use Fau\DegreeProgram\Infrastructure\Dashboard\TermMeta\TermMetaModule;
 use Fau\DegreeProgram\Infrastructure\EventDispatcherModule;
@@ -155,6 +156,7 @@ function initialize(): void
             new MigrationModule(),
             new RevisionNotificationModule(),
             new PatchesModule(),
+            new DegreeProgramListTableModule(),
         );
     } catch (Throwable $throwable) {
         handleException($throwable);
