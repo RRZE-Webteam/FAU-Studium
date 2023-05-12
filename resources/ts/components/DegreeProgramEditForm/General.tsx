@@ -234,7 +234,6 @@ const General = () => {
                             'fau-degree-program',
                         )}
                         fill="third"
-                        required
                     >
                         <MultiTermSelector
                             id="attribute"
