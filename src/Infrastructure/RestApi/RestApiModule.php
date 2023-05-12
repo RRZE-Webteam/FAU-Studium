@@ -146,6 +146,19 @@ final class RestApiModule implements ServiceModule, ExecutableModule
             2
         );
 
+        add_filter(
+            sprintf(
+                'rest_%s_collection_params',
+                DegreeProgramPostType::KEY
+            ),
+            static function (array $params): array {
+                /** @psalm-suppress MixedArrayAssignment */
+                $params['per_page']['maximum'] = 300;
+
+                return $params;
+            }
+        );
+
         return true;
     }
 }
