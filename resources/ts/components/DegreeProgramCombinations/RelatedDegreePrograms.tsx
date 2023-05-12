@@ -21,12 +21,14 @@ const withRelatedDegreeProgramProps = createHigherOrderComponent(
             return (
                 <WrappedComponent
                     entityToToken={(post: DegreeProgramPost) =>
-                        decodeEntities(post.degree_program.title.de)
+                        `${decodeEntities(post.degree_program.title.de)} (${
+                            post.degree_program.degree.abbreviation.de
+                        })`
                     }
                     onChange={(posts: Array<Post>) => {
                         setRelatedDegreePrograms(posts.map((post) => post.id));
                     }}
-                    maxSuggestions={100}
+                    maxSuggestions={300}
                     {...others}
                 />
             );
