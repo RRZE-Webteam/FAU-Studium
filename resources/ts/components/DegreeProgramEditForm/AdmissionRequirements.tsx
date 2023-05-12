@@ -273,7 +273,6 @@ const AdmissionRequirements = () => {
                                 'fau-degree-program',
                             )}
                             help="Sprachkenntnisse, die auch in den ersten Semestern noch erworben werden können."
-                            required={values.degree.name.de !== ADDITIONAL_DEGREE_NAME}
                         >
                             <ContentField
                                 onChange={(value: string) => {

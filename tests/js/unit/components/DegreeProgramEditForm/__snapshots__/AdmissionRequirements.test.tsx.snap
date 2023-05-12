@@ -336,7 +336,7 @@ exports[`Admission requirement fields should match snapshot 1`] = `
               <span
                 className="sc-bcXHqe bKtfDB"
               >
-                Language skills for Faculty of Humanities, Social Sciences, and Theology only
+                Language skills for Faculty of Humanities, Social Sciences, and Theology only (optional)
               </span>
               <p
                 className="sc-gswNZR hgMeoo"
