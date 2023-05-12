@@ -6,6 +6,7 @@ Add and edit degree programs and expose them via the REST API.
 
 * [Installation](#installation)
 * [Requirements](#requirements)
+* [Usage](#usage)
 * [Crafted by Inpsyde](#crafted-by-inpsyde)
 * [License](#license)
 * [Contributing](#contributing)
@@ -33,6 +34,13 @@ This is the preferred way for revision notification because there are no time an
 compared to WordPress Cron which runs within HTTP requests.
 
 The plugin's logger uses [`error_log()`](https://www.php.net/manual/en/function.error-log.php) internally.
+
+## Usage
+
+The plugin supports manually defining the order of degree programs by dragging and dropping
+the items in backend post lists. The order can be specified for all degree programs or degree programs of a particular term, e.g., "Degree".
+
+The "FAU Degree Program Output" plugin respects the order when rendering the "search" shortcode.
 
 ## Crafted by Inpsyde
 
