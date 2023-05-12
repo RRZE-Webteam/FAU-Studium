@@ -19,6 +19,14 @@
         "../ts/degree-program-editor.asset.php"
       ]
     },
+    "ts/degree-program-list-table": {
+      "js": [
+        "../ts/degree-program-list-table.js"
+      ],
+      "php": [
+        "../ts/degree-program-list-table.asset.php"
+      ]
+    },
     "ts/main": {
       "js": [
         "../ts/main.js"
@@ -30,6 +38,11 @@
     "css/dashboard-settings": {
       "css": [
         "../css/dashboard-settings.css"
+      ]
+    },
+    "css/degree-program-list-table": {
+      "css": [
+        "../css/degree-program-list-table.css"
       ]
     }
   }
