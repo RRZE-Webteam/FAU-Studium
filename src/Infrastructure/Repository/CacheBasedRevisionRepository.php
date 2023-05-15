@@ -223,7 +223,7 @@ final class CacheBasedRevisionRepository implements DegreeProgramRevisionReposit
         }
 
         if ($structure instanceof NumberOfStudents) {
-            $name = wp_strip_all_tags($structure->description());
+            $name = $structure->name();
         }
 
         if (

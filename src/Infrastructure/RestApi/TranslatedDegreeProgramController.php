@@ -354,7 +354,7 @@ final class TranslatedDegreeProgramController extends WP_REST_Controller
                     'rest_api: schema item description',
                     'fau-degree-program'
                 ),
-                'type' => 'string',
+                'type' => 'object',
             ],
             DegreeProgram::TEACHING_LANGUAGE => [
                 'description' => _x(

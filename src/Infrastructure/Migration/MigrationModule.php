@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Fau\DegreeProgram\Infrastructure\Migration;
 
 use Fau\DegreeProgram\Common\Application\Cache\CacheKeyGenerator;
+use Fau\DegreeProgram\Common\Infrastructure\Repository\IdGenerator;
 use Fau\DegreeProgram\Infrastructure\Repository\WorkflowAuthorsRepository;
 use Inpsyde\Modularity\Module\ExecutableModule;
 use Inpsyde\Modularity\Module\ModuleClassNameIdTrait;
@@ -30,10 +31,15 @@ final class MigrationModule implements ServiceModule, ExecutableModule
                     $container->get(CacheInterface::class),
                 );
             },
-            Migration0014WorkflowAuthorsTermMeta::class => static function (
+            Migration0014WorkflowAuthorsTermMeta::class => static fn() => new Migration0014WorkflowAuthorsTermMeta(),
+            Migration11ChangeNumberOfStudentsField::class => static function (
                 ContainerInterface $container
-            ): Migration0014WorkflowAuthorsTermMeta {
-                return new Migration0014WorkflowAuthorsTermMeta();
+            ): Migration11ChangeNumberOfStudentsField {
+                return new Migration11ChangeNumberOfStudentsField(
+                    $container->get(CacheKeyGenerator::class),
+                    $container->get(CacheInterface::class),
+                    $container->get(IdGenerator::class),
+                );
             },
         ];
     }

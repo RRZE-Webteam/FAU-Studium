@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Ability to sort degree programs.
 - Extend help text for image fields with image sizes.
+- Name property to NumberOfStudents value object.
 
 ### Changed
 - Sanitize data when saving draft degree program.
