@@ -213,6 +213,7 @@ return array(
     'Fau\\DegreeProgram\\Infrastructure\\Migration\\Migration0010AddInfoBrochureAndStudentInitiativesFields' => $baseDir . '/src/Infrastructure/Migration/Migration0010AddInfoBrochureAndStudentInitiativesFields.php',
     'Fau\\DegreeProgram\\Infrastructure\\Migration\\Migration0014WorkflowAuthorsTermMeta' => $baseDir . '/src/Infrastructure/Migration/Migration0014WorkflowAuthorsTermMeta.php',
     'Fau\\DegreeProgram\\Infrastructure\\Migration\\Migration002TransformVideosMeta' => $baseDir . '/src/Infrastructure/Migration/Migration002TransformVideosMeta.php',
+    'Fau\\DegreeProgram\\Infrastructure\\Migration\\Migration11ChangeNumberOfStudentsField' => $baseDir . '/src/Infrastructure/Migration/Migration11ChangeNumberOfStudentsField.php',
     'Fau\\DegreeProgram\\Infrastructure\\Migration\\MigrationModule' => $baseDir . '/src/Infrastructure/Migration/MigrationModule.php',
     'Fau\\DegreeProgram\\Infrastructure\\Patches\\FAU171ThemePatch' => $baseDir . '/src/Infrastructure/Patches/FAU171ThemePatch.php',
     'Fau\\DegreeProgram\\Infrastructure\\Patches\\Patch' => $baseDir . '/src/Infrastructure/Patches/Patch.php',

@@ -292,6 +292,7 @@ class ComposerStaticInit1a9e8c79685c13de2a576d24bc11b2ed
         'Fau\\DegreeProgram\\Infrastructure\\Migration\\Migration0010AddInfoBrochureAndStudentInitiativesFields' => __DIR__ . '/../..' . '/src/Infrastructure/Migration/Migration0010AddInfoBrochureAndStudentInitiativesFields.php',
         'Fau\\DegreeProgram\\Infrastructure\\Migration\\Migration0014WorkflowAuthorsTermMeta' => __DIR__ . '/../..' . '/src/Infrastructure/Migration/Migration0014WorkflowAuthorsTermMeta.php',
         'Fau\\DegreeProgram\\Infrastructure\\Migration\\Migration002TransformVideosMeta' => __DIR__ . '/../..' . '/src/Infrastructure/Migration/Migration002TransformVideosMeta.php',
+        'Fau\\DegreeProgram\\Infrastructure\\Migration\\Migration11ChangeNumberOfStudentsField' => __DIR__ . '/../..' . '/src/Infrastructure/Migration/Migration11ChangeNumberOfStudentsField.php',
         'Fau\\DegreeProgram\\Infrastructure\\Migration\\MigrationModule' => __DIR__ . '/../..' . '/src/Infrastructure/Migration/MigrationModule.php',
         'Fau\\DegreeProgram\\Infrastructure\\Patches\\FAU171ThemePatch' => __DIR__ . '/../..' . '/src/Infrastructure/Patches/FAU171ThemePatch.php',
         'Fau\\DegreeProgram\\Infrastructure\\Patches\\Patch' => __DIR__ . '/../..' . '/src/Infrastructure/Patches/Patch.php',
