@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: FAU Degree Program Management 0.0.13\n"
+"Project-Id-Version: FAU Degree Program Management 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/fau-degree-program\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-05-02T13:06:38+00:00\n"
+"POT-Creation-Date: 2023-05-15T08:40:19+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: fau-degree-program\n"
@@ -164,47 +164,52 @@ msgctxt "backoffice: setting page section"
 msgid "Degree program shared properties"
 msgstr ""
 
-#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:198
-msgctxt "backoffice: setting title"
-msgid "Start of semester"
-msgstr ""
-
-#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:202
-msgctxt "backoffice: setting title"
-msgid "Semester dates"
-msgstr ""
-
-#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:206
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:199
 msgctxt "backoffice: setting title"
 msgid "Notes for international applicants"
 msgstr ""
 
-#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:214
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:207
 msgctxt "backoffice: setting title"
-msgid "Students' Union/Student Initiatives"
+msgid "\"Tips for application\" link text"
 msgstr ""
 
-#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:222
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:216
 msgctxt "backoffice: setting title"
-msgid "Student Advice and Career Service"
+msgid "Start of semester"
 msgstr ""
 
-#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:230
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:220
 msgctxt "backoffice: setting title"
-msgid "Counseling and Service Centers at FAU"
+msgid "Semester dates"
 msgstr ""
 
-#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:238
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:224
 msgctxt "backoffice: setting title"
 msgid "Semester fee"
 msgstr ""
 
-#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:242
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:228
+msgctxt "backoffice: setting title"
+msgid "Counseling and Service Centers at FAU"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:236
 msgctxt "backoffice: setting title"
 msgid "Opportunities for spending time abroad"
 msgstr ""
 
-#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:250
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:245
+msgctxt "backoffice: setting title"
+msgid "Students' Union/Student Initiatives"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:254
+msgctxt "backoffice: setting title"
+msgid "Student Advice and Career Service"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:263
 msgctxt "backoffice: setting field"
 msgid "Maximum number of revisions"
 msgstr ""
@@ -280,237 +285,237 @@ msgctxt "rest_api: response status"
 msgid "Degree program not found."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:261
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:266
 msgctxt "rest_api: schema item description"
 msgid "Language code."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:283
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:288
 msgctxt "rest_api: schema item description"
 msgid "Unique identifier for the degree program."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:291
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:296
 msgctxt "rest_api: schema item description"
 msgid "Feature image."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:299
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:304
 msgctxt "rest_api: schema item description"
 msgid "Teaser image."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:307
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:312
 msgctxt "rest_api: schema item description"
 msgid "Title."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:315
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:320
 msgctxt "rest_api: schema item description"
 msgid "Subtitle."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:323
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:328
 msgctxt "rest_api: schema item description"
 msgid "Standard duration of study."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:331
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:336
 msgctxt "rest_api: schema item description"
 msgid "Fee required."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:339
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:344
 msgctxt "rest_api: schema item description"
 msgid "Start of degree program."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:347
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:352
 msgctxt "rest_api: schema item description"
 msgid "Number of students."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:355
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:360
 msgctxt "rest_api: schema item description"
 msgid "Teaching language."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:363
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:368
 msgctxt "rest_api: schema item description"
 msgid "Attributes."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:371
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:376
 msgctxt "rest_api: schema item description"
 msgid "Degree."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:379
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:384
 msgctxt "rest_api: schema item description"
 msgid "Faculty."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:387
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:392
 msgctxt "rest_api: schema item description"
 msgid "Study location."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:395
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:400
 msgctxt "rest_api: schema item description"
 msgid "Subject groups."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:403
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:408
 msgctxt "rest_api: schema item description"
 msgid "Videos."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:411
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:416
 msgctxt "rest_api: schema item description"
 msgid "Meta description."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:419
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:424
 msgctxt "rest_api: schema item description"
 msgid "Content."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:427
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:432
 msgctxt "rest_api: schema item description"
 msgid "Admission requirement link."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:435
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:440
 msgctxt "rest_api: schema item description"
 msgid "Admission requirements."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:443
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:448
 msgctxt "rest_api: schema item description"
 msgid "Content-related admission requirements for Master’s degree."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:451
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:456
 msgctxt "rest_api: schema item description"
 msgid "Application deadline winter semester."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:459
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:464
 msgctxt "rest_api: schema item description"
 msgid "Application deadline summer semester."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:467
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:472
 msgctxt "rest_api: schema item description"
 msgid "Details and notes."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:475
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:480
 msgctxt "rest_api: schema item description"
 msgid "Language skills."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:483
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:488
 msgctxt "rest_api: schema item description"
 msgid "Language skills for Faculty of Humanities, Social Sciences, and Theology only."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:492
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:497
 msgctxt "rest_api: schema item description"
 msgid "Language certificates/German language skills for international applicants."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:500
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:505
 msgctxt "rest_api: schema item description"
 msgid "Start of semester."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:508
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:513
 msgctxt "rest_api: schema item description"
 msgid "Semester dates."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:516
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:521
 msgctxt "rest_api: schema item description"
 msgid "Examinations Office."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:524
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:529
 msgctxt "rest_api: schema item description"
 msgid "Degree program and examination regulations."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:532
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:537
 msgctxt "rest_api: schema item description"
 msgid "Module handbook."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:540
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:545
 msgctxt "rest_api: schema item description"
 msgid "Degree program URL."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:548
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:553
 msgctxt "rest_api: schema item description"
 msgid "Department."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:556
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:561
 msgctxt "rest_api: schema item description"
 msgid "Student Advice and Career Service."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:564
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:569
 msgctxt "rest_api: schema item description"
 msgid "Subject-specific advice."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:572
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:577
 msgctxt "rest_api: schema item description"
 msgid "Counseling and Service Centers at FAU."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:580
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:585
 msgctxt "rest_api: schema item description"
 msgid "Info brochure degree program."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:588
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:593
 msgctxt "rest_api: schema item description"
 msgid "Semester fee."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:596
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:601
 msgctxt "rest_api: schema item description"
 msgid "Degree program fees."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:604
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:609
 msgctxt "rest_api: schema item description"
 msgid "Opportunities for spending time abroad."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:612
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:617
 msgctxt "rest_api: schema item description"
 msgid "Degree program possible combinations."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:620
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:625
 msgctxt "rest_api: schema item description"
 msgid "Degree program limited possible combinations."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:628
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:633
 msgctxt "rest_api: schema item description"
 msgid "Available translations."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:636
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:641
 msgctxt "rest_api: schema item description"
 msgid "Notes for international applicants."
 msgstr ""
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:644
+#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:649
 msgctxt "rest_api: schema item description"
 msgid "Students' Union/Student Initiatives."
 msgstr ""
@@ -846,56 +851,56 @@ msgid_plural "You can only select %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: assets/ts/degree-program-editor.js:19
+#: assets/ts/degree-program-editor.js:20
 msgctxt "backoffice: degree program edit form"
 msgid "(optional)"
 msgstr ""
 
-#: assets/ts/degree-program-editor.js:51
+#: assets/ts/degree-program-editor.js:52
 msgctxt "backoffice: limited text input"
 msgid "%s characters left"
 msgstr ""
 
-#: assets/ts/degree-program-editor.js:68
+#: assets/ts/degree-program-editor.js:69
 msgctxt "backoffice: TextControlCollection"
 msgid "Remove"
 msgstr ""
 
-#: assets/ts/degree-program-editor.js:68
+#: assets/ts/degree-program-editor.js:69
 msgctxt "backoffice: text control collection"
 msgid "No items added yet"
 msgstr ""
 
-#: assets/ts/degree-program-editor.js:68
+#: assets/ts/degree-program-editor.js:69
 msgctxt "backoffice: TextControlCollection"
 msgid "Add"
 msgstr ""
 
-#: assets/ts/degree-program-editor.js:68
+#: assets/ts/degree-program-editor.js:69
 msgid "Field"
 msgstr ""
 
-#: assets/ts/degree-program-editor.js:68
+#: assets/ts/degree-program-editor.js:69
 msgid "Please select a featured image."
 msgstr ""
 
-#: assets/ts/degree-program-editor.js:68
+#: assets/ts/degree-program-editor.js:69
 msgid "Please select a teaser image."
 msgstr ""
 
-#: assets/ts/degree-program-editor.js:68
+#: assets/ts/degree-program-editor.js:69
 msgid "This field can not be empty."
 msgstr ""
 
-#: assets/ts/degree-program-editor.js:68
+#: assets/ts/degree-program-editor.js:69
 msgid "English variant of this field can not be empty."
 msgstr ""
 
-#: assets/ts/degree-program-editor.js:68
+#: assets/ts/degree-program-editor.js:69
 msgid "Please select at least one item."
 msgstr ""
 
-#: assets/ts/degree-program-editor.js:68
+#: assets/ts/degree-program-editor.js:69
 msgid "Field does not match pattern."
 msgstr ""
 
