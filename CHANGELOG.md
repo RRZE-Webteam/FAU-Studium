@@ -10,17 +10,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Ability to sort degree programs.
 - Extend help text for image fields with image sizes.
 - Name property to NumberOfStudents value object.
+- "Tips for application" link text setting.
 
 ### Changed
 - Sanitize data when saving draft degree program.
 - Make application deadlines and info brochure fields optional.
 - Make attributes and language skills for Philosophy faculty fields optional.
+- Order setting fields by output order.
 
 
 ### Fixed
 - Missing description for the `search` REST API collection parameter for the `fau/v1/degree-program` endpoint.
 - Use default Gutenberg font for error messages.
 - Improve degree program combination control.
+- Clear content fields with empty paragraphs.
 
 ## [1.0.0] - 2023-05-03
 

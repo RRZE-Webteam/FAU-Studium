@@ -46,7 +46,7 @@ final class RestApiModule implements ServiceModule, ExecutableModule
             DegreeProgramRetriever::class => static fn(ContainerInterface $container) => new DegreeProgramRetriever(
                 $container->get(DegreeProgramViewRepository::class)
             ),
-            JsonSchemaDegreeProgramDataValidator::class => function (): JsonSchemaDegreeProgramDataValidator {
+            JsonSchemaDegreeProgramDataValidator::class => function (ContainerInterface $container): JsonSchemaDegreeProgramDataValidator {
                 /** @var SchemaType $draftSchema */
                 $draftSchema = require $this->commonConfigDirectory . '/schema_draft.php';
                 /** @var SchemaType $publishSchema */
@@ -55,6 +55,7 @@ final class RestApiModule implements ServiceModule, ExecutableModule
                 return new JsonSchemaDegreeProgramDataValidator(
                     $draftSchema,
                     $publishSchema,
+                    $container->get(SerializedBlocksDegreeProgramSanitizer::class),
                 );
             },
             DegreeProgramDataValidator::class => static fn(ContainerInterface $container) => new CompositeValidator(

@@ -193,6 +193,24 @@ final class SettingsModule implements ServiceModule, ExecutableModule
                 'backoffice: setting page section',
                 'fau-degree-program'
             ),
+            // Application-related links
+            new BilingualLinkSettingsField(
+                DegreeProgram::NOTES_FOR_INTERNATIONAL_APPLICANTS,
+                _x(
+                    'Notes for international applicants',
+                    'backoffice: setting title',
+                    'fau-degree-program'
+                )
+            ),
+            new BilingualTextSettingsField(
+                'admission_requirement_link_text',
+                _x(
+                    '"Tips for application" link text',
+                    'backoffice: setting title',
+                    'fau-degree-program'
+                )
+            ),
+            // Organizational links
             new BilingualLinkSettingsField(
                 DegreeProgram::START_OF_SEMESTER,
                 _x('Start of semester', 'backoffice: setting title', 'fau-degree-program')
@@ -202,28 +220,8 @@ final class SettingsModule implements ServiceModule, ExecutableModule
                 _x('Semester dates', 'backoffice: setting title', 'fau-degree-program')
             ),
             new BilingualLinkSettingsField(
-                DegreeProgram::NOTES_FOR_INTERNATIONAL_APPLICANTS,
-                _x(
-                    'Notes for international applicants',
-                    'backoffice: setting title',
-                    'fau-degree-program'
-                )
-            ),
-            new BilingualLinkSettingsField(
-                DegreeProgram::STUDENT_INITIATIVES,
-                _x(
-                    'Students\' Union/Student Initiatives',
-                    'backoffice: setting title',
-                    'fau-degree-program'
-                )
-            ),
-            new BilingualLinkSettingsField(
-                DegreeProgram::STUDENT_ADVICE,
-                _x(
-                    'Student Advice and Career Service',
-                    'backoffice: setting title',
-                    'fau-degree-program'
-                )
+                DegreeProgram::SEMESTER_FEE,
+                _x('Semester fee', 'backoffice: setting title', 'fau-degree-program')
             ),
             new BilingualLinkSettingsField(
                 DegreeProgram::SERVICE_CENTERS,
@@ -234,10 +232,6 @@ final class SettingsModule implements ServiceModule, ExecutableModule
                 )
             ),
             new BilingualLinkSettingsField(
-                DegreeProgram::SEMESTER_FEE,
-                _x('Semester fee', 'backoffice: setting title', 'fau-degree-program')
-            ),
-            new BilingualLinkSettingsField(
                 DegreeProgram::ABROAD_OPPORTUNITIES,
                 _x(
                     'Opportunities for spending time abroad',
@@ -245,6 +239,25 @@ final class SettingsModule implements ServiceModule, ExecutableModule
                     'fau-degree-program'
                 )
             ),
+            // "More information" links
+            new BilingualLinkSettingsField(
+                DegreeProgram::STUDENT_INITIATIVES,
+                _x(
+                    'Students\' Union/Student Initiatives',
+                    'backoffice: setting title',
+                    'fau-degree-program'
+                )
+            ),
+            // "Do you need help" links
+            new BilingualLinkSettingsField(
+                DegreeProgram::STUDENT_ADVICE,
+                _x(
+                    'Student Advice and Career Service',
+                    'backoffice: setting title',
+                    'fau-degree-program'
+                )
+            ),
+            // Miscellaneous
             new NumericSettingsField(
                 self::MAX_REVISIONS_TO_KEEP_KEY,
                 _x(
