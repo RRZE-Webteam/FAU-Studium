@@ -189,15 +189,17 @@ const General = () => {
                             taxonomy="numberOfStudents"
                             value={values.number_of_students.id}
                             onChange={(term) => {
-                                handleChange<{ id: string; description: string }>(
+                                handleChange<{ id: string; name: string; description: string }>(
                                     'number_of_students',
                                     term
                                         ? {
                                               id: propertyId('term', term.id),
+                                              name: term.name,
                                               description: term.description,
                                           }
                                         : {
                                               id: '',
+                                              name: '',
                                               description: '',
                                           },
                                 );
