@@ -42,6 +42,7 @@ final class CacheModule implements ServiceModule, ExecutableModule
         DegreeProgram::NOTES_FOR_INTERNATIONAL_APPLICANTS,
         DegreeProgram::STUDENT_INITIATIVES,
         DegreeProgram::STUDENT_ADVICE,
+        'admission_requirement_link_text',
     ];
 
     public function services(): array
