@@ -24,6 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Use default Gutenberg font for error messages.
 - Improve degree program combination control.
 - Clear content fields with empty paragraphs.
+- PHP 8.1 compatibility.
 
 ## [1.0.0] - 2023-05-03
 
