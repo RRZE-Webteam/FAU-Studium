@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Fau\DegreeProgram\Infrastructure\Dashboard\TermMeta;
 
 use Fau\DegreeProgram\Common\Domain\Degree;
+use Fau\DegreeProgram\Common\Domain\MultilingualLink;
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\ApplyNowLinkTaxonomy;
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\AreaOfStudyTaxonomy;
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\AttributeTaxonomy;
@@ -110,7 +111,7 @@ final class TermMetaModule implements ServiceModule, ExecutableModule
         );
         $termMetaRegistrar->register(
             SubjectSpecificAdviceTaxonomy::KEY,
-            ...(new MultilingualLinkTermMetaFields())->getArrayCopy(),
+            ...self::nameAndLinkMetaFields(),
         );
         $termMetaRegistrar->register(
             TeachingDegreeHigherSemesterAdmissionRequirementTaxonomy::KEY,
@@ -150,6 +151,37 @@ final class TermMetaModule implements ServiceModule, ExecutableModule
                     'backoffice: term field name',
                     'fau-degree-program'
                 )
+            ),
+        ];
+    }
+
+    /**
+     * @return array<TermMetaField>
+     */
+    private static function nameAndLinkMetaFields(): array
+    {
+        return [
+            new UrlTermMetaField(
+                MultilingualLink::LINK_URL,
+                _x(
+                    'Link URL',
+                    'backoffice: term field name',
+                    'fau-degree-program'
+                )
+            ),
+            new EnglishNameTermMetaField(),
+            new UrlTermMetaField(
+                BilingualRepository::addEnglishSuffix(MultilingualLink::LINK_URL),
+                _x(
+                    'English link URL',
+                    'backoffice: term field name',
+                    'fau-degree-program'
+                ),
+                _x(
+                    'Link URL used for English translation.',
+                    'backoffice: term field description',
+                    'fau-degree-program'
+                ),
             ),
         ];
     }

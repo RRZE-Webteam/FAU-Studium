@@ -20,6 +20,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Make attributes and language skills for Philosophy faculty fields optional.
 - Order setting fields by output order.
 
+### Removed
+- Link text input for Subject-specific advice taxonomy terms.
+
 ### Fixed
 - Missing description for the `search` REST API collection parameter for the `fau/v1/degree-program` endpoint.
 - Use default Gutenberg font for error messages.
