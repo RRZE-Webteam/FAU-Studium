@@ -92,6 +92,7 @@ final class ContentModule implements ServiceModule, ExecutableModule
                     'delete_terms' => Capabilities::DELETE_DEGREE_PROGRAM_TERMS,
                     'assign_terms' => Capabilities::ASSIGN_DEGREE_PROGRAM_TERMS,
                 ],
+                'show_in_nav_menus' => false,
             ]);
 
             if (in_array($taxonomyClass, $taxonomiesToShowAdminColumn, true)) {
