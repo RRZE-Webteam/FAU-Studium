@@ -22,6 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 - Link text input for Subject-specific advice taxonomy terms.
+- Degree program taxonomies from "Add menu items" box.
 
 ### Fixed
 - Missing description for the `search` REST API collection parameter for the `fau/v1/degree-program` endpoint.
@@ -29,6 +30,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Improve degree program combination control.
 - Clear content fields with empty paragraphs.
 - PHP 8.1 compatibility.
+- Taxonomy labels generation before text domain loading.
 
 ## [1.0.0] - 2023-05-03
 ### Added

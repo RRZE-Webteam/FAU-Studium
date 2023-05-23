@@ -86,21 +86,21 @@ final class WorkflowAuthorModule implements ServiceModule, ExecutableModule
             [$container->get(UpdateWorkflowAuthorsWhenUserUpdated::class), 'update'],
         );
 
-        $workflowAuthorTaxonomy = WorkflowAuthorTaxonomy::hidden()->merge([
-            'show_in_rest' => true,
-            'show_ui' => true,
-            'show_in_menu' => false,
-            'rewrite' => false,
-            'show_admin_column' => true,
-            'capabilities' => [
-                'manage_terms' => Capabilities::MANAGE_WORKFLOW_AUTHORS_TERMS,
-                'edit_terms' => Capabilities::EDIT_WORKFLOW_AUTHORS_TERMS,
-                'delete_terms' => Capabilities::DELETE_WORKFLOW_AUTHORS_TERMS,
-                'assign_terms' => Capabilities::ASSIGN_WORKFLOW_AUTHORS_TERMS,
-            ],
-        ]);
+        add_action('init', static function () {
+            $workflowAuthorTaxonomy = WorkflowAuthorTaxonomy::hidden()->merge([
+                'show_in_rest' => true,
+                'show_ui' => true,
+                'show_in_menu' => false,
+                'rewrite' => false,
+                'show_admin_column' => true,
+                'capabilities' => [
+                    'manage_terms' => Capabilities::MANAGE_WORKFLOW_AUTHORS_TERMS,
+                    'edit_terms' => Capabilities::EDIT_WORKFLOW_AUTHORS_TERMS,
+                    'delete_terms' => Capabilities::DELETE_WORKFLOW_AUTHORS_TERMS,
+                    'assign_terms' => Capabilities::ASSIGN_WORKFLOW_AUTHORS_TERMS,
+                ],
+            ]);
 
-        add_action('init', static function () use ($workflowAuthorTaxonomy) {
             register_taxonomy(
                 $workflowAuthorTaxonomy->key(),
                 DegreeProgramPostType::KEY,
