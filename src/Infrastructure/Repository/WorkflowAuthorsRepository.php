@@ -94,20 +94,7 @@ class WorkflowAuthorsRepository
 
     public function update(WP_User $user): void
     {
-        /** @var WP_Error|array<WP_Term> $terms */
-        $terms = get_terms(
-            [
-                'taxonomy' => WorkflowAuthorTaxonomy::KEY,
-                'meta_key' => self::USER_META_KEY,
-                'meta_value' => $user->ID,
-            ]
-        );
-
-        if ($terms instanceof WP_Error) {
-            return;
-        }
-
-        $term = $terms[0] ?? null;
+        $term = $this->findWorkflowAuthorTermByUser($user);
 
         if (!$term instanceof WP_Term) {
             return;
@@ -132,15 +119,32 @@ class WorkflowAuthorsRepository
 
     public function delete(WP_User $user): void
     {
-        /**
-         * @var null|array{term_id: int, term_taxonomy_id: int} $term
-         */
-        $term = term_exists($user->user_login, WorkflowAuthorTaxonomy::KEY);
-        if ($term === null) {
+        $term = $this->findWorkflowAuthorTermByUser($user);
+
+        if (!$term instanceof WP_Term) {
             return;
         }
 
-        wp_delete_term($term['term_id'], WorkflowAuthorTaxonomy::KEY);
+        wp_delete_term($term->term_id, WorkflowAuthorTaxonomy::KEY);
+    }
+
+    private function findWorkflowAuthorTermByUser(WP_User $user): ?WP_Term
+    {
+        /** @var WP_Error|array<WP_Term> $terms */
+        $terms = get_terms(
+            [
+                'taxonomy' => WorkflowAuthorTaxonomy::KEY,
+                'meta_key' => self::USER_META_KEY,
+                'meta_value' => $user->ID,
+                'hide_empty' => false,
+            ]
+        );
+
+        if ($terms instanceof WP_Error) {
+            return null;
+        }
+
+        return $terms[0] ?? null;
     }
 
     private function prepareUserDisplayName(WP_User $user): string

@@ -31,6 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Clear content fields with empty paragraphs.
 - PHP 8.1 compatibility.
 - Taxonomy labels generation before text domain loading.
+- Workflow author terms synchronization.
 
 ## [1.0.0] - 2023-05-03
 ### Added
