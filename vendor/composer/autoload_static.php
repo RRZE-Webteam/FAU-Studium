@@ -259,6 +259,7 @@ class ComposerStaticInit1a9e8c79685c13de2a576d24bc11b2ed
         'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\DegreeProgramEditor\\DegreeProgramEditorModule' => __DIR__ . '/../..' . '/src/Infrastructure/Dashboard/DegreeProgramEditor/DegreeProgramEditorModule.php',
         'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\DegreeProgramEditor\\InlineEditingDisabler' => __DIR__ . '/../..' . '/src/Infrastructure/Dashboard/DegreeProgramEditor/InlineEditingDisabler.php',
         'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\DegreeProgramEditor\\PostTypeEditor' => __DIR__ . '/../..' . '/src/Infrastructure/Dashboard/DegreeProgramEditor/PostTypeEditor.php',
+        'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\DegreeProgramEditor\\PreviewFilter' => __DIR__ . '/../..' . '/src/Infrastructure/Dashboard/DegreeProgramEditor/PreviewFilter.php',
         'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\DegreeProgramEditor\\ServerDataProvider' => __DIR__ . '/../..' . '/src/Infrastructure/Dashboard/DegreeProgramEditor/ServerDataProvider.php',
         'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\DegreeProgramEditor\\TaxonomyVisibilityModifier' => __DIR__ . '/../..' . '/src/Infrastructure/Dashboard/DegreeProgramEditor/TaxonomyVisibilityModifier.php',
         'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\DegreeProgramListTable\\AdminRequest' => __DIR__ . '/../..' . '/src/Infrastructure/Dashboard/DegreeProgramListTable/AdminRequest.php',
