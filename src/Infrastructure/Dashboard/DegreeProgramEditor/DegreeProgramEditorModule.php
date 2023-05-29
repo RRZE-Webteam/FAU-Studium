@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Fau\DegreeProgram\Infrastructure\Dashboard\DegreeProgramEditor;
 
+use Fau\DegreeProgram\Common\Application\Repository\DegreeProgramViewRepository;
 use Inpsyde\Assets\AssetManager;
 use Inpsyde\Modularity\Module\ExecutableModule;
 use Inpsyde\Modularity\Module\ModuleClassNameIdTrait;
@@ -27,6 +28,9 @@ final class DegreeProgramEditorModule implements ServiceModule, ExecutableModule
             TaxonomyVisibilityModifier::class => static fn () => new TaxonomyVisibilityModifier(),
             InlineEditingDisabler::class => static fn() => new InlineEditingDisabler(),
             CodeEditingDisabler::class => static fn() => new CodeEditingDisabler(),
+            PreviewFilter::class => static fn(ContainerInterface $container) => new PreviewFilter(
+                $container->get(DegreeProgramViewRepository::class),
+            ),
         ];
     }
 
@@ -61,6 +65,13 @@ final class DegreeProgramEditorModule implements ServiceModule, ExecutableModule
         add_filter(
             'block_editor_settings_all',
             [$container->get(CodeEditingDisabler::class), 'disableForDegreeProgram'],
+        );
+
+        add_filter(
+            'fau.degree-program-output.single-view',
+            [$container->get(PreviewFilter::class), 'filterView'],
+            10,
+            3
         );
 
         return true;
