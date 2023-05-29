@@ -180,6 +180,7 @@ return array(
     'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\DegreeProgramEditor\\DegreeProgramEditorModule' => $baseDir . '/src/Infrastructure/Dashboard/DegreeProgramEditor/DegreeProgramEditorModule.php',
     'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\DegreeProgramEditor\\InlineEditingDisabler' => $baseDir . '/src/Infrastructure/Dashboard/DegreeProgramEditor/InlineEditingDisabler.php',
     'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\DegreeProgramEditor\\PostTypeEditor' => $baseDir . '/src/Infrastructure/Dashboard/DegreeProgramEditor/PostTypeEditor.php',
+    'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\DegreeProgramEditor\\PreviewFilter' => $baseDir . '/src/Infrastructure/Dashboard/DegreeProgramEditor/PreviewFilter.php',
     'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\DegreeProgramEditor\\ServerDataProvider' => $baseDir . '/src/Infrastructure/Dashboard/DegreeProgramEditor/ServerDataProvider.php',
     'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\DegreeProgramEditor\\TaxonomyVisibilityModifier' => $baseDir . '/src/Infrastructure/Dashboard/DegreeProgramEditor/TaxonomyVisibilityModifier.php',
     'Fau\\DegreeProgram\\Infrastructure\\Dashboard\\DegreeProgramListTable\\AdminRequest' => $baseDir . '/src/Infrastructure/Dashboard/DegreeProgramListTable/AdminRequest.php',
