@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Fau\DegreeProgram\Infrastructure\Dashboard\DegreeProgramListTable;
 
 use Fau\DegreeProgram\Common\Infrastructure\Content\PostType\DegreeProgramPostType;
-use Fau\DegreeProgram\Common\Infrastructure\Repository\OrderRepository;
+use Fau\DegreeProgram\Common\Infrastructure\Repository\StickyDegreeProgramRepository;
 use WP_Query;
 
 final class EditPostsQueryModifier
@@ -30,44 +30,41 @@ final class EditPostsQueryModifier
             return;
         }
 
-        $termData = $this->adminRequest->detectTermQuery();
+        $term = $this->adminRequest->detectTermQuery();
+        $key = StickyDegreeProgramRepository::stickyKey($term);
 
-        if ($termData) {
-            $key = OrderRepository::orderByTermKey($termData['taxonomy'], $termData['term']);
-
-            $query->set(
-                'meta_query',
+        $query->set(
+            'meta_query',
+            [
+                'relation' => 'AND',
                 [
-                    'relation' => 'AND',
-                    [
-                        'relation' => 'OR',
-                        $key => [
-                            'key' => $key,
-                            'type' => 'UNSIGNED',
-                        ],
-                        [
-                            'key' => $key,
-                            'compare' => 'NOT EXISTS',
-                        ],
+                    'relation' => 'OR',
+                    $key => [
+                        'key' => $key,
+                        'type' => 'UNSIGNED',
                     ],
-                    // Preserve existing `meta_query` and append to ours via `AND` relation
-                    array_filter((array) $query->get('meta_query')),
+                    [
+                        'key' => $key,
+                        'compare' => 'NOT EXISTS',
+                    ],
                 ],
-            );
-
-            $query->set('orderby', [
-                $key => 'ASC',
-            ]);
-            return;
-        }
+                // Preserve existing `meta_query` and append to ours via `AND` relation
+                array_filter((array) $query->get('meta_query')),
+            ],
+        );
 
         $query->set('orderby', [
-            'menu_order' => 'ASC',
+            $key => 'DESC', // 1 (sticky posts), 0 (other posts)
+            'date' => 'DESC',
         ]);
     }
 
     private function isDegreeProgramQuery(WP_Query $query): bool
     {
-        return in_array(DegreeProgramPostType::KEY, (array) $query->get('post_type'), true);
+        return in_array(
+            DegreeProgramPostType::KEY,
+            (array) $query->get('post_type'),
+            true
+        );
     }
 }

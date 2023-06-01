@@ -21,10 +21,7 @@ final class AdminRequest
         return $screen->base === 'edit' && $screen->post_type === DegreeProgramPostType::KEY;
     }
 
-    /**
-     * @return array{taxonomy: string, term: int}|null
-     */
-    public function detectTermQuery(): ?array
+    public function detectTermQuery(): ?WP_Term
     {
         foreach (TaxonomiesList::new()->keys() as $taxonomy) {
             $term = (string) filter_input(INPUT_GET, $taxonomy, FILTER_SANITIZE_SPECIAL_CHARS);
@@ -37,10 +34,7 @@ final class AdminRequest
                 continue;
             }
 
-            return [
-                'taxonomy' => $taxonomy,
-                'term' => $termObject->term_id,
-            ];
+            return $termObject;
         }
 
         return null;

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Fau\DegreeProgram\Infrastructure\Dashboard\DegreeProgramListTable;
 
 use Fau\DegreeProgram\Common\Infrastructure\Content\PostType\DegreeProgramPostType;
-use Fau\DegreeProgram\Common\Infrastructure\Repository\OrderRepository;
+use Fau\DegreeProgram\Common\Infrastructure\Repository\StickyDegreeProgramRepository;
 use Inpsyde\Assets\AssetManager;
 use Inpsyde\Modularity\Module\ExecutableModule;
 use Inpsyde\Modularity\Module\ModuleClassNameIdTrait;
@@ -20,14 +20,17 @@ final class DegreeProgramListTableModule implements ServiceModule, ExecutableMod
     public function services(): array
     {
         return [
-            SortableColumn::class => static fn() => new SortableColumn(),
+            StickyColumn::class => static fn(ContainerInterface $container) => new StickyColumn(
+                $container->get(AdminRequest::class),
+                $container->get(StickyDegreeProgramRepository::class),
+            ),
             AssetsLoader::class => static fn(ContainerInterface $container) => new AssetsLoader(
                 $container->get(Package::PROPERTIES),
                 $container->get(AdminRequest::class),
             ),
-            OrderRepository::class => static fn() => new OrderRepository(),
-            UpdateOrderRequestHandler::class => static fn(ContainerInterface $container) => new UpdateOrderRequestHandler(
-                $container->get(OrderRepository::class),
+            StickyDegreeProgramRepository::class => static fn() => new StickyDegreeProgramRepository(),
+            ToggleStickyRequestHandler::class => static fn(ContainerInterface $container) => new ToggleStickyRequestHandler(
+                $container->get(StickyDegreeProgramRepository::class),
             ),
             AdminRequest::class => static fn() => new AdminRequest(),
             EditPostsQueryModifier::class => static fn(ContainerInterface $container) => new EditPostsQueryModifier(
@@ -43,20 +46,29 @@ final class DegreeProgramListTableModule implements ServiceModule, ExecutableMod
             [$container->get(AssetsLoader::class), 'load']
         );
 
-        $sortableColumn = $container->get(SortableColumn::class);
+        $sortableColumn = $container->get(StickyColumn::class);
 
         add_filter(
             sprintf('manage_%s_posts_columns', DegreeProgramPostType::KEY),
             [
                 $sortableColumn,
-                'registerSortableColumn',
+                'registerStickyColumn',
             ]
+        );
+        add_action(
+            sprintf('manage_%s_posts_custom_column', DegreeProgramPostType::KEY),
+            [
+                $sortableColumn,
+                'renderStickyColumn',
+            ],
+            10,
+            2
         );
 
         add_action(
-            sprintf('wp_ajax_%s', UpdateOrderRequestHandler::ACTION),
+            sprintf('wp_ajax_%s', ToggleStickyRequestHandler::ACTION),
             [
-                $container->get(UpdateOrderRequestHandler::class),
+                $container->get(ToggleStickyRequestHandler::class),
                 'handle',
             ]
         );
