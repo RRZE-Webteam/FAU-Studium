@@ -13,6 +13,7 @@ use Inpsyde\Assets\Script;
 use Inpsyde\Assets\Style;
 use Inpsyde\Modularity\Properties\PluginProperties;
 use WP_Screen;
+use WP_Term;
 
 final class AssetsLoader
 {
@@ -38,10 +39,7 @@ final class AssetsLoader
                 'type' => Script::class,
                 'enqueue' => [$this->adminRequest, 'isDegreeProgramListTable'],
                 'localize' => [
-                        'DegreeProgramListTableServerData' => array_merge([
-                            '_ajax_nonce' => wp_create_nonce(UpdateOrderRequestHandler::ACTION),
-                            'action' => UpdateOrderRequestHandler::ACTION,
-                        ], $this->adminRequest->detectTermQuery() ?? []),
+                        'DegreeProgramListTableServerData' => $this->serverData(),
                 ],
                 'translation' => [
                     'domain' => 'fau-degree-program',
@@ -59,5 +57,23 @@ final class AssetsLoader
         ]);
 
         $assetManager->register(...$assets);
+    }
+
+    private function serverData(): array
+    {
+        $serverData = [
+            '_ajax_nonce' => wp_create_nonce(ToggleStickyRequestHandler::ACTION),
+            'action' => ToggleStickyRequestHandler::ACTION,
+        ];
+
+        $term = $this->adminRequest->detectTermQuery();
+        if (!$term instanceof WP_Term) {
+            return $serverData;
+        }
+
+        $serverData['term'] = $term->term_id;
+        $serverData['taxonomy'] = $term->taxonomy;
+
+        return $serverData;
     }
 }

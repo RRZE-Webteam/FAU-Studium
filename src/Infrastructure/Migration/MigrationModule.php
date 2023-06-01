@@ -6,7 +6,6 @@ namespace Fau\DegreeProgram\Infrastructure\Migration;
 
 use Fau\DegreeProgram\Common\Application\Cache\CacheKeyGenerator;
 use Fau\DegreeProgram\Common\Infrastructure\Repository\IdGenerator;
-use Fau\DegreeProgram\Infrastructure\Repository\WorkflowAuthorsRepository;
 use Inpsyde\Modularity\Module\ExecutableModule;
 use Inpsyde\Modularity\Module\ModuleClassNameIdTrait;
 use Inpsyde\Modularity\Module\ServiceModule;
@@ -41,6 +40,7 @@ final class MigrationModule implements ServiceModule, ExecutableModule
                     $container->get(IdGenerator::class),
                 );
             },
+            Migration13RemoveCustomOrdering::class => static fn() => new Migration13RemoveCustomOrdering(),
         ];
     }
 

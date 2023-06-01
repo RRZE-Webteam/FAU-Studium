@@ -132,32 +132,32 @@ function initialize(): void
         setUpAutoloader();
 
         // Initialize plugin
-        plugin()->boot(
-            new TranslationModule(),
-            new ContentModule(),
-            new TermMetaModule(),
-            new SettingsModule(),
-            new RevisionModule(__FILE__),
-            new RepositoryModule(),
-            new CommandModule(),
-            new DegreeProgramEditorModule(),
-            new RestApiModule(
+        plugin()
+            ->addModule(new TranslationModule())
+            ->addModule(new ContentModule())
+            ->addModule(new TermMetaModule())
+            ->addModule(new SettingsModule())
+            ->addModule(new RevisionModule(__FILE__))
+            ->addModule(new RepositoryModule())
+            ->addModule(new CommandModule())
+            ->addModule(new DegreeProgramEditorModule())
+            ->addModule(new RestApiModule(
                 __DIR__ . '/vendor/inpsyde/fau-degree-program-common/config',
-            ),
-            new LoggerModule(),
-            new SanitizerModule(),
-            new EventDispatcherModule(),
-            new CacheModule(),
-            new CliModule(),
-            new AdminBarModule(),
-            new QueueModule(),
-            new WorkflowAuthorModule(),
-            new AuthorizationModule(),
-            new MigrationModule(),
-            new RevisionNotificationModule(),
-            new PatchesModule(),
-            new DegreeProgramListTableModule(),
-        );
+            ))
+            ->addModule(new LoggerModule())
+            ->addModule(new SanitizerModule())
+            ->addModule(new EventDispatcherModule())
+            ->addModule(new CacheModule())
+            ->addModule(new CliModule())
+            ->addModule(new AdminBarModule())
+            ->addModule(new QueueModule())
+            ->addModule(new WorkflowAuthorModule())
+            ->addModule(new AuthorizationModule())
+            ->addModule(new MigrationModule())
+            ->addModule(new RevisionNotificationModule())
+            ->addModule(new PatchesModule())
+            ->addModule(new DegreeProgramListTableModule())
+            ->boot();
     } catch (Throwable $throwable) {
         handleException($throwable);
     }

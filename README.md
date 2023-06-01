@@ -37,10 +37,11 @@ The plugin's logger uses [`error_log()`](https://www.php.net/manual/en/function.
 
 ## Usage
 
-The plugin supports manually defining the order of degree programs by dragging and dropping
-the items in backend post lists. The order can be specified for all degree programs or degree programs of a particular term, e.g., "Degree".
+The plugin supports marking selected degree programs as "sticky".
+This can be set for all degree programs or degree programs of a particular term, e.g., "Degree".
 
-The "FAU Degree Program Output" plugin respects the order when rendering the "search" shortcode.
+The "FAU Degree Program Output" plugin displays sticky degree programs first
+when rendering the "search" shortcode.
 
 ## Crafted by Inpsyde
 

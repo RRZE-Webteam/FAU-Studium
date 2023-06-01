@@ -10,4 +10,9 @@ namespace {
 
     define('EMPTY_TRASH_DAYS',  30);
     define('DAY_IN_SECONDS', 86400);
+
+    /**
+     * @psalm-return never
+     */
+    function wp_send_json_error( mixed $data = null, ?int $status_code = null, int $options = 0 ) {}
 }
