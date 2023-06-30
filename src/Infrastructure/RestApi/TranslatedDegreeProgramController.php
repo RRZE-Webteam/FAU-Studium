@@ -264,12 +264,11 @@ final class TranslatedDegreeProgramController extends WP_REST_Controller
     {
         return [
             'description' => _x(
-                'Language code.',
+                'Language code ("de" and "en" are supported).',
                 'rest_api: schema item description',
                 'fau-degree-program'
             ),
             'type' => 'string',
-            'enum' => [MultilingualString::DE, MultilingualString::EN],
             'default' => MultilingualString::DE,
         ];
     }
