@@ -1,7 +1,7 @@
 {
   "name": "@inpsyde/fau-degree-program",
   "description": "Add and edit degree programs and expose them via the REST API.",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "author": "Inpsyde GmbH",
   "browserslist": [
     "last 3 years"
