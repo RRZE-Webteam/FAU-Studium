@@ -3,6 +3,8 @@ import produce from 'immer';
 import { set } from 'lodash';
 
 import { useEntityProp } from '@wordpress/core-data';
+import { useDispatch } from '@wordpress/data';
+import { store as editorStore } from '@wordpress/editor';
 
 import serverData from 'util/serverData';
 
@@ -29,10 +31,30 @@ const DegreeProgramEditFormProvider = ({ children }: Props) => {
     ) as [DegreeProgramData, (val: DegreeProgramData) => void, unknown];
     const { removeError } = useValidation();
 
+    const { editPost } = useDispatch(editorStore);
+
+    /**
+     * This function provides a workaround to enable the "Publish" button for new degree programs.
+     * Gutenberg marks new posts as unsavable
+     * if no title, excerpt, or content changes are detected.
+     * We cannot update the title because it causes a JS error,
+     * so we must update the excerpt to change the post record.
+     *
+     * @link https://github.com/WordPress/gutenberg/blob/55fbdd96aa2642dff194cb69ebe02c3669eebae0/packages/editor/src/components/post-publish-button/index.js#L124-L129
+     * @link https://github.com/WordPress/gutenberg/blob/c30e2f6a83ab3d458f5c31560b766216fc499e10/packages/editor/src/store/selectors.js#L476-L497
+     */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const enablePostPublishButton = (path: DegreeProgramDataPaths, val: any): void => {
+        if (path === 'title.de' && typeof val === 'string') {
+            editPost({ excerpt: val });
+        }
+    };
+
     const handleChange = useCallback(
         <Value,>(path: DegreeProgramDataPaths, val: Value) => {
             removeError(path);
             setDegreeProgramData(produce(degreeProgramData, (draft) => set(draft, path, val)));
+            enablePostPublishButton(path, val);
         },
         [setDegreeProgramData, degreeProgramData, removeError],
     );
