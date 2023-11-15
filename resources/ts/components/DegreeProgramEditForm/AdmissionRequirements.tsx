@@ -146,6 +146,7 @@ const AdmissionRequirements = () => {
                                 >
                                     {(languageCode, required) => (
                                         <ContentField
+                                            key={`content_related_master_requirements.${languageCode}`}
                                             onChange={(value: string) => {
                                                 handleChange<string>(
                                                     `content_related_master_requirements.${languageCode}`,
@@ -226,6 +227,7 @@ const AdmissionRequirements = () => {
                         <MultilingualContainer value={values.details_and_notes}>
                             {(languageCode, required) => (
                                 <ContentField
+                                    key={`details_and_notes.${languageCode}`}
                                     onChange={(value: string) => {
                                         handleChange<string>(
                                             `details_and_notes.${languageCode}`,
@@ -251,6 +253,7 @@ const AdmissionRequirements = () => {
                         <MultilingualContainer value={values.language_skills}>
                             {(languageCode, required) => (
                                 <ContentField
+                                    key={`language_skills.${languageCode}`}
                                     onChange={(value: string) => {
                                         handleChange<string>(
                                             `language_skills.${languageCode}`,
@@ -275,6 +278,7 @@ const AdmissionRequirements = () => {
                             help="Sprachkenntnisse, die auch in den ersten Semestern noch erworben werden können."
                         >
                             <ContentField
+                                key="language_skills_humanities_faculty"
                                 onChange={(value: string) => {
                                     handleChange<string>(
                                         'language_skills_humanities_faculty',

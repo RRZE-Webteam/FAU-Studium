@@ -52,6 +52,7 @@ const Content = () => {
                                     {(languageCode: LanguageCode, required) => (
                                         <>
                                             <ContentField
+                                                key={`content.${item}.description.${languageCode}`}
                                                 content={
                                                     values.content[item].description[languageCode]
                                                 }

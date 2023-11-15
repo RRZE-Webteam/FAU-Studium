@@ -19,10 +19,10 @@ import { useFieldContext } from '../FormField/FormField';
 import useBlockEditorSettings from './useBlockEditorSettings';
 
 interface ContentFieldProps {
+    // eslint-disable-next-line react/no-unused-prop-types
+    key: string;
     content: string;
-
     onChange(content: string): void;
-
     required?: boolean;
 }
 

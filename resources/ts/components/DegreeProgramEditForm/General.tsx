@@ -118,6 +118,7 @@ const General = () => {
                         <MultilingualContainer value={values.entry_text}>
                             {(languageCode, required) => (
                                 <ContentField
+                                    key={`entry_text.${languageCode}`}
                                     content={values.entry_text[languageCode]}
                                     onChange={(content: string) => {
                                         handleChange<string>(`entry_text.${languageCode}`, content);
