@@ -1,5 +1,5 @@
 {
-    "name": "rrze-webteam/fau-studium",
+    "name": "rrze/fau-studium",
     "description": "Add and edit degree programs and expose them via the REST API.",
     "license": "GPL-2.0-or-later",
     "type": "wordpress-plugin",
@@ -16,7 +16,7 @@
         "ext-dom": "*",
         "ext-libxml": "*",
         "inpsyde/assets": "^2.8",
-        "rrze-webteam/fau-studium-common": "*",
+        "rrze/fau-studium-common": "*",
         "inpsyde/modularity": "^1.5",
         "psr/log": "^3.0"
     },
