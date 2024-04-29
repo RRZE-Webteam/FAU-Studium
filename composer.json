@@ -1,13 +1,13 @@
 {
-    "name": "inpsyde/fau-degree-program",
+    "name": "rrze/fau-studium",
     "description": "Add and edit degree programs and expose them via the REST API.",
     "license": "GPL-2.0-or-later",
     "type": "wordpress-plugin",
     "authors": [
         {
-            "name": "Inpsyde GmbH",
-            "email": "hello@inpsyde.com",
-            "homepage": "https://inpsyde.com/",
+            "name": "Syde GmbH",
+            "email": "hello@syde.com",
+            "homepage": "https://syde.com/",
             "role": "Company"
         }
     ],
@@ -16,7 +16,7 @@
         "ext-dom": "*",
         "ext-libxml": "*",
         "inpsyde/assets": "^2.8",
-        "inpsyde/fau-degree-program-common": "*",
+        "rrze/fau-studium-common": "*",
         "inpsyde/modularity": "^1.5",
         "psr/log": "^3.0"
     },
@@ -54,7 +54,7 @@
                 "tests/php/use-case/",
                 "tests/php/functional/"
             ],
-            "Fau\\DegreeProgram\\Common\\Tests\\": "vendor/inpsyde/fau-degree-program-common/tests/src/"
+            "Fau\\DegreeProgram\\Common\\Tests\\": "vendor/rrze/fau-studium-common/tests/src/"
         }
     },
     "config": {
