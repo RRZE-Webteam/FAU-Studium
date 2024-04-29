@@ -5,8 +5,8 @@
  * Plugin URI:  https://github.com/RRZE-Webteam/FAU-Studium
  * Description: Add and edit degree programs and expose them via the REST API.
  * Version:     1.2.7
- * Author:      Inpsyde GmbH
- * Author URI:  https://inpsyde.com/
+ * Author:      Syde GmbH
+ * Author URI:  https://syde.com/
  * Update URI:  false
  * GitHub Plugin URI: RRZE-Webteam/FAU-Studium
  * License:     GPL-2.0-or-later
@@ -142,7 +142,7 @@ function initialize(): void
             ->addModule(new CommandModule())
             ->addModule(new DegreeProgramEditorModule())
             ->addModule(new RestApiModule(
-                __DIR__ . '/vendor/inpsyde/fau-degree-program-common/config',
+                __DIR__ . '/vendor/rrze/fau-studium-common/config',
             ))
             ->addModule(new LoggerModule())
             ->addModule(new SanitizerModule())

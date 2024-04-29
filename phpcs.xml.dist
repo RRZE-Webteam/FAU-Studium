@@ -23,7 +23,7 @@
             >
                 <element key="Fau\DegreeProgram" value="src"/>
                 <element key="Fau\DegreeProgram\Tests" value="tests/php/use-case|tests/php/functional"/>
-                <element key="Fau\DegreeProgram\Common\Tests" value="vendor/inpsyde/fau-degree-program-common/tests/src"/>
+                <element key="Fau\DegreeProgram\Common\Tests" value="vendor/rrze/fau-studium-common/tests/src"/>
             </property>
         </properties>
     </rule>
