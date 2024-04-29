@@ -14,7 +14,7 @@ return array(
     'Inpsyde\\Modularity\\' => array($vendorDir . '/inpsyde/modularity/src'),
     'Inpsyde\\Assets\\' => array($vendorDir . '/inpsyde/assets/src'),
     'Inpsyde\\' => array($vendorDir . '/inpsyde/wp-context/src'),
-    'Fau\\DegreeProgram\\Common\\LanguageExtension\\' => array($vendorDir . '/inpsyde/fau-degree-program-common/lib/lang-extension/src'),
-    'Fau\\DegreeProgram\\Common\\' => array($vendorDir . '/inpsyde/fau-degree-program-common/src'),
+    'Fau\\DegreeProgram\\Common\\LanguageExtension\\' => array($vendorDir . '/rrze/fau-studium-common/lib/lang-extension/src'),
+    'Fau\\DegreeProgram\\Common\\' => array($vendorDir . '/rrze/fau-studium-common/src'),
     'Fau\\DegreeProgram\\' => array($baseDir . '/src'),
 );
