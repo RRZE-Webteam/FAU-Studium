@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="5.23.1@8471a896ccea3526b26d082f4461eeea467f10a4">
+  <file src="src/Infrastructure/Authorization/BlocksCapabilitiesModifier.php">
+    <RedundantCondition>
+      <code><![CDATA[REST_REQUEST]]></code>
+    </RedundantCondition>
+  </file>
+  <file src="src/Infrastructure/Authorization/Capabilities/BlocksCapabilitiesModifier.php">
+    <RedundantCondition>
+      <code><![CDATA[REST_REQUEST]]></code>
+    </RedundantCondition>
+  </file>
+  <file src="src/Infrastructure/Authorization/Capabilities/EditPostCapabilitiesModifier.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[! $postId]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/Infrastructure/Authorization/Capabilities/MediaCapabilitiesModifier.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[!$postId]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/Infrastructure/Authorization/MediaCapabilitiesModifier.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[!$postId]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/Infrastructure/Authorization/WordPress22895Fix.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[!$this->degreeProgramSubmenu]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/Infrastructure/Dashboard/DegreeProgramListTable/ToggleStickyRequestHandler.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$requestData]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/Infrastructure/Dashboard/DegreeProgramListTable/UpdateOrderRequestHandler.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$requestData]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/Infrastructure/Dashboard/Settings/SettingsRegistrar.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[filter_input(
+                        INPUT_GET,
+                        'tab',
+                        FILTER_SANITIZE_SPECIAL_CHARS
+                    )]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/Infrastructure/Migration/Migration0010AddInfoBrochureAndStudentInitiativesFields.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[!$data]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/Infrastructure/Migration/Migration11ChangeNumberOfStudentsField.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[!$data]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/Infrastructure/Repository/WordPressRevisionNotificationRepository.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[!$allEditors]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/Infrastructure/Repository/WorkflowAuthorsRepository.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[! $workflowAuthors]]></code>
+      <code><![CDATA[!$terms]]></code>
+      <code><![CDATA[$terms]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/Infrastructure/RestApi/DegreeProgramRequestFilter.php">
+    <RedundantCondition>
+      <code><![CDATA[DOING_AUTOSAVE]]></code>
+    </RedundantCondition>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[!$existingStatus]]></code>
+      <code><![CDATA[$data]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/Infrastructure/Revision/DailyRevisionNotificationRunner.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[getenv(self::DISABLE_DAILY_REVISION_NOTIFICATION)]]></code>
+      <code><![CDATA[wp_next_scheduled(self::DAILY_REVISION_NOTIFICATION_HOOK)]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/Infrastructure/Revision/Notification/RevisionDiff.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[!$result]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/Infrastructure/Revision/Notification/RevisionNotificationFormatter.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[!$key]]></code>
+      <code><![CDATA[$key]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/Infrastructure/Revision/ReplaceListOfRevisionableFields.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[has_filter("_wp_post_revision_field_{$key}")]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="templates/settings/number.php">
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[(string) $step]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+</files>
