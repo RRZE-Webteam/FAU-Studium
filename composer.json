@@ -54,7 +54,7 @@
                 "tests/php/use-case/",
                 "tests/php/functional/"
             ],
-            "Fau\\DegreeProgram\\Common\\Tests\\": "vendor/inpsyde/fau-degree-program-common/tests/src/"
+            "Fau\\DegreeProgram\\Common\\Tests\\": "vendor/rrze/fau-studium-common/tests/src/"
         }
     },
     "config": {

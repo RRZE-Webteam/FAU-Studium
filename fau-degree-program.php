@@ -142,7 +142,7 @@ function initialize(): void
             ->addModule(new CommandModule())
             ->addModule(new DegreeProgramEditorModule())
             ->addModule(new RestApiModule(
-                __DIR__ . '/vendor/inpsyde/fau-degree-program-common/config',
+                __DIR__ . '/vendor/rrze/fau-studium-common/config',
             ))
             ->addModule(new LoggerModule())
             ->addModule(new SanitizerModule())
