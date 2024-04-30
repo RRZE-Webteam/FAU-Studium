@@ -16,7 +16,7 @@ jobs:
     build-assets:
         uses: inpsyde/reusable-workflows/.github/workflows/build-and-push-assets.yml@main
         with:
-            PHP_VERSION: '8.1'
+            PHP_VERSION: '8.0'
             PHP_TOOLS: composer:v2
             BUILT_BRANCH_NAME: "${{ (github.ref_name == 'dev-main' && 'main' || (github.ref_name == 'dev-beta' && 'beta') || '') }}"
             COMPILE_SCRIPT_PROD: 'build'
