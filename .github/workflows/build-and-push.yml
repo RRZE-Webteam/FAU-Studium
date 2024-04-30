@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
     build-assets:
-        uses: inpsyde/reusable-workflows/.github/workflows/build-and-push-assets.yml@add_option_to_select_built_branch_name
+        uses: inpsyde/reusable-workflows/.github/workflows/build-and-push-assets.yml@main
         with:
             PHP_VERSION: '8.1'
             PHP_TOOLS: composer:v2
