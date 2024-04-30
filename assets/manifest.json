@@ -1,0 +1,13 @@
+{
+  "assets/ts/defs.js": "../ts/defs.js",
+  "assets/ts/defs.php": "../ts/defs.asset.php",
+  "assets/ts/degree-program-editor.css": "../ts/degree-program-editor.css",
+  "assets/ts/degree-program-editor.js": "../ts/degree-program-editor.js",
+  "assets/ts/degree-program-editor.php": "../ts/degree-program-editor.asset.php",
+  "assets/ts/degree-program-list-table.js": "../ts/degree-program-list-table.js",
+  "assets/ts/degree-program-list-table.php": "../ts/degree-program-list-table.asset.php",
+  "assets/ts/main.js": "../ts/main.js",
+  "assets/ts/main.php": "../ts/main.asset.php",
+  "assets/css/dashboard-settings.css": "../css/dashboard-settings.css",
+  "assets/css/degree-program-list-table.css": "../css/degree-program-list-table.css"
+}
