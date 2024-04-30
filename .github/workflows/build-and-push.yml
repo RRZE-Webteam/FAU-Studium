@@ -19,8 +19,6 @@ jobs:
             PHP_VERSION: '8.0'
             PHP_TOOLS: composer:v2
             BUILT_BRANCH_NAME: "${{ (github.ref_name == 'dev-main' && 'main' || (github.ref_name == 'dev-beta' && 'beta') || '') }}"
-            COMPILE_SCRIPT_PROD: 'build'
-            COMPILE_SCRIPT_DEV: 'build:dev'
             MODE: "${{ github.ref_name == 'dev-beta' && 'dev' || 'prod'  }}"
         secrets:
             GITHUB_USER_EMAIL: ${{ secrets.DEPLOYBOT_EMAIL }}
