@@ -82,7 +82,7 @@
   "private": true,
   "scripts": {
     "build": "encore production --profile",
-    "dev": "encore dev",
+    "build:dev": "encore dev",
     "js:precommit": "eslint --fix",
     "lint": "eslint ./resources ./tests --ext .js,.jsx,.ts,.tsx",
     "lint-sass": "stylelint 'resources/**/*.scss'",
