@@ -90,6 +90,7 @@
     "lint:fix": "eslint ./resources ./tests --ext .js,.jsx,.ts,.tsx --quiet --fix",
     "test": "jest",
     "watch": "encore dev --profile --watch",
-    "check-types": "tsc --noEmit -project ./tsconfig.eslint.json --skipLibCheck"
+    "check-types": "tsc --noEmit -project ./tsconfig.eslint.json --skipLibCheck",
+    "prebuild": "if test \"$CI\" = \"true\" ; then composer install --no-dev ; fi"
   }
 }
