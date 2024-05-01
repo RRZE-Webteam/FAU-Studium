@@ -1,4 +1,4 @@
-import { DegreeProgramEditorServerDataType } from 'defs';
+import { DegreeProgramEditorServerDataType } from '../../resources/ts/defs';
 
 if (global.window) {
     const mockServerData: DegreeProgramEditorServerDataType = {

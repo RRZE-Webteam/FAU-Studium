@@ -2,8 +2,8 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { cleanup, render, screen } from '@testing-library/react';
 
-import AdmissionRequirements from 'components/DegreeProgramEditForm/AdmissionRequirements';
-import * as useConditionalFields from 'hooks/useConditionalFields';
+import AdmissionRequirements from '../../../../../resources/ts/components/DegreeProgramEditForm/AdmissionRequirements';
+import * as useConditionalFields from '../../../../../resources/ts/hooks/useConditionalFields';
 
 jest.mock('nanoid', () => ({ nanoid: () => `key_${Math.random()}` }));
 jest.mock('hooks/useConditionalFields', () => {

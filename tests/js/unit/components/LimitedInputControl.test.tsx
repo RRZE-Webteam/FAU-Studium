@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 
-import LimitedInputControl from 'components/LimitedInputControl';
+import LimitedInputControl from '../../../../resources/ts/components/LimitedInputControl';
 
 const TextInput = () => {
     const [text, setText] = useState('');

@@ -2,9 +2,9 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { cleanup } from '@testing-library/react';
 
-import Content from 'components/DegreeProgramEditForm/Content';
+import Content from '../../../../../resources/ts/components/DegreeProgramEditForm/Content';
 
-import { ContentItem } from 'defs';
+import { ContentItem } from '../../../../../resources/ts/defs';
 
 const mockContentItem = (label: string): ContentItem => ({
     title: {

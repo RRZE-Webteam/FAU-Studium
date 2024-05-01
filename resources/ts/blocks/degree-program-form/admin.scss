@@ -1,71 +1,72 @@
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .wp-block-fau-degree-program-form {
-  // Default Gutenberg font
-  // @link https://github.com/WordPress/gutenberg/blob/fedf426e8bf6f32ca6ef0b60cf26ecc81f917e03/packages/base-styles/_variables.scss#L15
-  /* stylelint-disable-next-line value-keyword-case */
-  --default-font: -apple-system, BlinkMacSystemFont,"Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell,"Helvetica Neue", sans-serif;
+	// Default Gutenberg font
+	// @link https://github.com/WordPress/gutenberg/blob/fedf426e8bf6f32ca6ef0b60cf26ecc81f917e03/packages/base-styles/_variables.scss#L15
+	/* stylelint-disable-next-line value-keyword-case */
+	--default-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 
 .editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper > :where(:not(.alignleft):not(.alignright):not(.alignfull)),
 .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
-  max-width: none !important;
+	max-width: none !important;
 }
 
 .edit-post-visual-editor__post-title-wrapper {
-  padding-right: var(--wp--style--root--padding-right);
-  padding-left: var(--wp--style--root--padding-left);
+	padding-right: var(--wp--style--root--padding-right);
+	padding-left: var(--wp--style--root--padding-left);
 }
 
 .block-editor-block-list__layout .block-editor-block-list__block:not([contenteditable]):focus::after {
-  content: none;
+	content: none;
 }
 
 .editor-styles-wrapper h5 {
-  text-transform: none!important;
+	text-transform: none !important;
 }
 
 .editor-post-featured-image__preview img {
-  margin-left: unset;
+	margin-left: unset;
 }
 
 .editor-post-featured-image .components-button + .components-button {
-  display: inline-block;
+	display: inline-block;
 }
 
 .components-button.block-editor-media-placeholder__cancel-button.is-link {
-  margin-top: 0;
-  margin-bottom: 12px;
+	margin-top: 0;
+	margin-bottom: 12px;
 }
 
 .edit-post-visual-editor .components-button.has-icon.components-form-token-field__remove-token {
-  padding: 0;
+	padding: 0;
 }
 
 // Credit: https://codepen.io/chris__sev/pen/mdrzYQE
 @keyframes shine {
-  to {
-    background-position-x: -200%;
-  }
+
+	to {
+		background-position-x: -200%;
+	}
 }
 
 .loader-card {
-  background: #eee;
-  background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
-  background-size: 200% 100%;
-  animation: 1.5s shine linear infinite;
-  overflow: hidden;
+	background: #eee;
+	background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+	background-size: 200% 100%;
+	animation: 1.5s shine linear infinite;
+	overflow: hidden;
 }
 
 label[class^="components-"][class*="__label"],
 span[class^="components-"][class*="__label"] {
-  text-transform: none !important;
-  font-size: 14px !important;
+	text-transform: none !important;
+	font-size: 14px !important;
 }
 
 .components-base-control__field,
 .components-form-token-field__input-container {
-  margin-bottom: 0 !important;
+	margin-bottom: 0 !important;
 }

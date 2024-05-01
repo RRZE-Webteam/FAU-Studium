@@ -1,6 +1,6 @@
-import { SEMESTER_SUMMER, SEMESTER_WINTER } from 'hooks/constants';
+import { SEMESTER_SUMMER, SEMESTER_WINTER } from '../../../resources/ts/hooks/constants';
 
-import { DegreeProgramData } from 'defs';
+import { DegreeProgramData } from '../../../resources/ts/defs';
 
 export const mockSummerSemester: DegreeProgramData['start'] = [
     {

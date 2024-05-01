@@ -1,6 +1,7 @@
 .c-day-month-picker {
-  input:invalid {
-    border-color: red !important;
-    outline-color: red !important;
-  }
+
+	input:invalid {
+		border-color: #f00 !important;
+		outline-color: #f00 !important;
+	}
 }

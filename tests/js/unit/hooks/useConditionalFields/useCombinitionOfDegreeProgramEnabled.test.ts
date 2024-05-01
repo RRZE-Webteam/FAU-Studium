@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks';
 
-import { useCombinationOfDegreeProgramEnabled } from 'hooks/useConditionalFields';
+import { useCombinationOfDegreeProgramEnabled } from '../../../../../resources/ts/hooks/useConditionalFields';
 
 import { mockBachelorDegree, mockMastersDegree } from '../../../__mocks__/degrees';
 import { mockAbcFaculty, mockNatFaculty, mockPhilFaculty } from '../../../__mocks__/faculties';
