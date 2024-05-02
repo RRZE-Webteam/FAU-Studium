@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks';
 
-import { useAdmissionRequirementsForBachelorAndTeachingDegreesEnable } from 'hooks/useConditionalFields';
+import { useAdmissionRequirementsForBachelorAndTeachingDegreesEnable } from '../../../../../resources/ts/hooks/useConditionalFields';
 
 import {
     mockBachelorDegree,

@@ -1,4 +1,4 @@
-import { Degree, DEGREE_ABBREVIATION_GERMAN } from 'defs';
+import { Degree, DEGREE_ABBREVIATION_GERMAN } from '../../../resources/ts/defs';
 
 export const mockBachelorDegree: Degree = {
     abbreviation: {

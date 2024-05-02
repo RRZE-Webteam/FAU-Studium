@@ -1,16 +1,18 @@
 .component-multilingual-container {
-  .components-tab-panel__tabs-item {
-    position: relative;
-    height: auto !important;
 
-    &.is-empty {
-      small {
-        color: #717171;
-      }
-    }
-  }
+	.components-tab-panel__tabs-item {
+		position: relative;
+		height: auto !important;
+
+		&.is-empty {
+
+			small {
+				color: #717171;
+			}
+		}
+	}
 }
 
 .components-base-control__label + .component-multilingual-container {
-  margin-top: -5px;
+	margin-top: -5px;
 }

@@ -1,11 +1,11 @@
-import { propertyId } from 'util/idHelpers';
+import { propertyId } from '../../../../resources/ts/util/idHelpers';
 import {
     transformTermToDegree,
     transformTermToMultilingualLink,
     transformTermToMultilingualString,
-} from 'util/transforms';
+} from '../../../../resources/ts/util/transforms';
 
-import { DegreeAbbreviationGerman, MultilingualLinkMeta, WpTerm } from 'defs';
+import { DegreeAbbreviationGerman, MultilingualLinkMeta, WpTerm } from '../../../../resources/ts/defs';
 
 const mockTerm: WpTerm<{ name_en: string }> = {
     description: '',

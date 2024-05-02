@@ -1,8 +1,11 @@
 import { DegreeProgramDataPaths } from './degree-program-data';
 
 export interface FormValidationError {
-    message: string;
-    errorCode: string;
+	message: string;
+	errorCode: string;
 }
 
-export type FormValidationErrors = Map<DegreeProgramDataPaths, FormValidationError>;
+export type FormValidationErrors = Map<
+	DegreeProgramDataPaths,
+	FormValidationError
+>;

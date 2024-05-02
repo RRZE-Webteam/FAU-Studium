@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks';
 
-import { useApplicationDeadlineSummerSemesterEnabled } from 'hooks/useConditionalFields';
+import { useApplicationDeadlineSummerSemesterEnabled } from '../../../../../resources/ts/hooks/useConditionalFields';
 
 import { mockAbcSemester, mockSummerSemester } from '../../../__mocks__/semesters';
 import { mockUseDegreeProgramProperty } from './__mocks';
