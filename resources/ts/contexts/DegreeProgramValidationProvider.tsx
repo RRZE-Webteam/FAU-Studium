@@ -98,7 +98,7 @@ const DegreeProgramValidationProvider = ( { children }: Props ) => {
 
 	/**
 	 * Get an array of errors associated with a field.
-	 * For example, `passing `title` returns errors from
+	 * For example, passing `title` returns errors from
 	 * `title.en`, `title.de`, and any other subfield.
 	 * @param fieldId
 	 */
