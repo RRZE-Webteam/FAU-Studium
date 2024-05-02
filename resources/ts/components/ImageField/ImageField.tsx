@@ -24,8 +24,8 @@ type ImageFieldProps = {
 const THUMBNAIL_SIZE = 150;
 
 const StyledWrapper = styled.div< { hasImage: boolean } >`
-    .components-placeholder__fieldset {
-        ${ ( { hasImage } ) =>
+	.components-placeholder__fieldset {
+		${ ( { hasImage } ) =>
 			hasImage
 				? css`
 						.components-form-file-upload,
@@ -35,8 +35,8 @@ const StyledWrapper = styled.div< { hasImage: boolean } >`
 						}
 				  `
 				: '' }
-        };
-    }
+		};
+	}
 `;
 
 export default function ImageField( { path, title = '' }: ImageFieldProps ) {

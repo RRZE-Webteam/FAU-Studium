@@ -97,9 +97,9 @@ const DegreeProgramValidationProvider = ( { children }: Props ) => {
 	const { editPost } = useDispatch( editorStore );
 
 	/**
-	 * Get an array of errors associated with a field
-	 * For example If you pass `title` you'll also get errors
-	 * with `title.en` and `title.de` and any other subfield error
+	 * Get an array of errors associated with a field.
+	 * For example, `passing `title` returns errors from
+	 * `title.en`, `title.de`, and any other subfield.
 	 * @param fieldId
 	 */
 	const getFieldErrors = useCallback(

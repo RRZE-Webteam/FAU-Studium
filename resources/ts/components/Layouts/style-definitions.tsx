@@ -17,23 +17,23 @@ export const StyledFormFieldWrapper = styled( FlexItem )< {
 	${ ( { fill } ) =>
 		fill === 'full' &&
 		`
-        width: 100%;
-        flex: 0 0 100%;
-    ` }
+		width: 100%;
+		flex: 0 0 100%;
+	` }
 
 	${ ( { fill } ) =>
 		fill === 'half' &&
 		`
-        width: 50%;
-        flex: 0 0 50%;
-    ` }
+		width: 50%;
+		flex: 0 0 50%;
+	` }
 
-    ${ ( { fill } ) =>
+	${ ( { fill } ) =>
 		fill === 'third' &&
 		`
-        width: 33.333333333%;
-        flex: 0 0 33.333333333%;
-    ` }
+		width: 33.333333333%;
+		flex: 0 0 33.333333333%;
+	` }
 `;
 
 export const StyledFormWrapper = styled( Flex )`
