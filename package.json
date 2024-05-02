@@ -17,7 +17,9 @@
     "lint:style": "wp-scripts lint-style 'resources/**/*.scss'",
     "lint:style-fix": "wp-scripts lint-style 'resources/**/*.scss' --fix",
     "start": "wp-scripts start",
-    "test": "jest"
+    "test": "jest",
+    "prebuild": "if test \"$CI\" = \"true\" ; then composer install --no-dev ; fi",
+    "prebuild:dev": "if test \"$CI\" = \"true\" ; then composer install --no-dev ; fi"
   },
   "browserslist": [
     "last 3 years"
