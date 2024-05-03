@@ -432,7 +432,7 @@ const General = () => {
 						fill="full"
 						required
 					>
-						<TextareaControlFormField
+						<TextControl
 							onChange={ ( value: string ) => {
 								handleChange< string >(
 									'standard_duration',
