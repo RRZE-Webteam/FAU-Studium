@@ -5,6 +5,7 @@ export const ALLOWED_BLOCK_TYPES = [
 	'core/list-item',
 	'core/heading',
 	'core/shortcode',
+	'core/quote',
 	'fau/description-list',
 	'fau/description-term',
 	'fau/description-details',
