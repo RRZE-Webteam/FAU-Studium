@@ -75,5 +75,5 @@ export const isInputValid = (
 		return validator( value, validationRule.payload.value );
 	}
 
-	return validator( value, validationRule );
+	return validator( value );
 };
