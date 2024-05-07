@@ -73,7 +73,7 @@ const TextControlCollection = ( {
 		onChange(
 			fields.filter( ( f ) => !! f.value ).map( ( f ) => f.value )
 		);
-	}, [ fields, onChange ] );
+	}, [ fields ] );
 
 	const { required } = useFieldContext();
 
