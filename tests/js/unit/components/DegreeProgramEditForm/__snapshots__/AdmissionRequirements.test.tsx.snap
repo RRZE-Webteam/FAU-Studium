@@ -13,7 +13,7 @@ exports[`Admission requirement fields should match snapshot 1`] = `
       data-wp-component="Flex"
     >
       <div
-        className="components-flex-item sc-dkrFOg kGelRu css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        className="components-flex-item sc-dkrFOg gJXaeq css-mw3lhz-View-Item-sx-Base e19lxcc00"
         data-wp-c16t={true}
         data-wp-component="FlexItem"
         fill="half"
@@ -47,7 +47,7 @@ exports[`Admission requirement fields should match snapshot 1`] = `
         </div>
       </div>
       <div
-        className="components-flex-item sc-dkrFOg kGelRu css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        className="components-flex-item sc-dkrFOg gJXaeq css-mw3lhz-View-Item-sx-Base e19lxcc00"
         data-wp-c16t={true}
         data-wp-component="FlexItem"
         fill="half"
@@ -81,7 +81,7 @@ exports[`Admission requirement fields should match snapshot 1`] = `
         </div>
       </div>
       <div
-        className="components-flex-item sc-dkrFOg hXHKKq css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        className="components-flex-item sc-dkrFOg dgWbYO css-mw3lhz-View-Item-sx-Base e19lxcc00"
         data-wp-c16t={true}
         data-wp-component="FlexItem"
         fill="full"
@@ -89,7 +89,7 @@ exports[`Admission requirement fields should match snapshot 1`] = `
         <hr />
       </div>
       <div
-        className="components-flex-item sc-dkrFOg hXHKKq css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        className="components-flex-item sc-dkrFOg dgWbYO css-mw3lhz-View-Item-sx-Base e19lxcc00"
         data-wp-c16t={true}
         data-wp-component="FlexItem"
         fill="full"
@@ -123,7 +123,7 @@ exports[`Admission requirement fields should match snapshot 1`] = `
         </div>
       </div>
       <div
-        className="components-flex-item sc-dkrFOg hXHKKq css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        className="components-flex-item sc-dkrFOg dgWbYO css-mw3lhz-View-Item-sx-Base e19lxcc00"
         data-wp-c16t={true}
         data-wp-component="FlexItem"
         fill="full"
@@ -152,7 +152,7 @@ exports[`Admission requirement fields should match snapshot 1`] = `
         </div>
       </div>
       <div
-        className="components-flex-item sc-dkrFOg hXHKKq css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        className="components-flex-item sc-dkrFOg dgWbYO css-mw3lhz-View-Item-sx-Base e19lxcc00"
         data-wp-c16t={true}
         data-wp-component="FlexItem"
         fill="full"
@@ -160,7 +160,7 @@ exports[`Admission requirement fields should match snapshot 1`] = `
         <hr />
       </div>
       <div
-        className="components-flex-item sc-dkrFOg hXHKKq css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        className="components-flex-item sc-dkrFOg dgWbYO css-mw3lhz-View-Item-sx-Base e19lxcc00"
         data-wp-c16t={true}
         data-wp-component="FlexItem"
         fill="full"
@@ -207,7 +207,7 @@ exports[`Admission requirement fields should match snapshot 1`] = `
         </div>
       </div>
       <div
-        className="components-flex-item sc-dkrFOg hXHKKq css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        className="components-flex-item sc-dkrFOg dgWbYO css-mw3lhz-View-Item-sx-Base e19lxcc00"
         data-wp-c16t={true}
         data-wp-component="FlexItem"
         fill="full"
@@ -253,7 +253,7 @@ exports[`Admission requirement fields should match snapshot 1`] = `
         </div>
       </div>
       <div
-        className="components-flex-item sc-dkrFOg hXHKKq css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        className="components-flex-item sc-dkrFOg dgWbYO css-mw3lhz-View-Item-sx-Base e19lxcc00"
         data-wp-c16t={true}
         data-wp-component="FlexItem"
         fill="full"
@@ -261,7 +261,7 @@ exports[`Admission requirement fields should match snapshot 1`] = `
         <hr />
       </div>
       <div
-        className="components-flex-item sc-dkrFOg hXHKKq css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        className="components-flex-item sc-dkrFOg dgWbYO css-mw3lhz-View-Item-sx-Base e19lxcc00"
         data-wp-c16t={true}
         data-wp-component="FlexItem"
         fill="full"
@@ -290,7 +290,7 @@ exports[`Admission requirement fields should match snapshot 1`] = `
         </div>
       </div>
       <div
-        className="components-flex-item sc-dkrFOg hXHKKq css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        className="components-flex-item sc-dkrFOg dgWbYO css-mw3lhz-View-Item-sx-Base e19lxcc00"
         data-wp-c16t={true}
         data-wp-component="FlexItem"
         fill="full"
@@ -319,7 +319,7 @@ exports[`Admission requirement fields should match snapshot 1`] = `
         </div>
       </div>
       <div
-        className="components-flex-item sc-dkrFOg hXHKKq css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        className="components-flex-item sc-dkrFOg dgWbYO css-mw3lhz-View-Item-sx-Base e19lxcc00"
         data-wp-c16t={true}
         data-wp-component="FlexItem"
         fill="full"
@@ -348,7 +348,7 @@ exports[`Admission requirement fields should match snapshot 1`] = `
         </div>
       </div>
       <div
-        className="components-flex-item sc-dkrFOg hXHKKq css-mw3lhz-View-Item-sx-Base e19lxcc00"
+        className="components-flex-item sc-dkrFOg dgWbYO css-mw3lhz-View-Item-sx-Base e19lxcc00"
         data-wp-c16t={true}
         data-wp-component="FlexItem"
         fill="full"
