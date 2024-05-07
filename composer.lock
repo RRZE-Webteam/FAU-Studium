@@ -407,16 +407,16 @@
         },
         {
             "name": "rrze/fau-studium-common",
-            "version": "dev-main",
+            "version": "dev-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RRZE-Webteam/FAU-Studium-Common.git",
-                "reference": "2cef39901512f7b0c61ac8f319a6ff61039c60e0"
+                "reference": "b75b9ed658076304632b90d897ba3faba1bedb46"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RRZE-Webteam/FAU-Studium-Common/zipball/2cef39901512f7b0c61ac8f319a6ff61039c60e0",
-                "reference": "2cef39901512f7b0c61ac8f319a6ff61039c60e0",
+                "url": "https://api.github.com/repos/RRZE-Webteam/FAU-Studium-Common/zipball/b75b9ed658076304632b90d897ba3faba1bedb46",
+                "reference": "b75b9ed658076304632b90d897ba3faba1bedb46",
                 "shasum": ""
             },
             "require": {
@@ -480,10 +480,10 @@
             ],
             "description": "Shared kernel for FAU Degree Program and FAU Degree Program Output plugins.",
             "support": {
-                "source": "https://github.com/RRZE-Webteam/FAU-Studium-Common/tree/main",
+                "source": "https://github.com/RRZE-Webteam/FAU-Studium-Common/tree/dev",
                 "issues": "https://github.com/RRZE-Webteam/FAU-Studium-Common/issues"
             },
-            "time": "2024-04-29T08:12:47+00:00"
+            "time": "2024-05-07T13:49:54+00:00"
         },
         {
             "name": "webmozart/assert",
