@@ -8,6 +8,8 @@ use Fau\DegreeProgram\Common\Infrastructure\Repository\BilingualRepository;
 
 final class EnglishNameTermMetaField extends InputTermMetaField
 {
+    use NoValidationTermMetaFieldTrait;
+
     public function __construct()
     {
 

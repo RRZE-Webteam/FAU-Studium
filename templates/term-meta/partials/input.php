@@ -3,14 +3,24 @@
 declare(strict_types=1);
 
 /**
- * @var array{key: string, value: string, title: string, description: string, type: string} $data
+ * @var array{
+ *     key: string,
+ *     description: string,
+ *     minLength: ?int,
+ *     maxLength: ?int,
+ *     title: string,
+ *     type: string,
+ *     value: string
+ * } $data
  */
 
 [
     'key' => $key,
-    'value' => $value,
     'description' => $description,
+    'minLength' => $minLength,
+    'maxLength' => $maxLength,
     'type' => $type,
+    'value' => $value,
 ] = $data;
 
 ?>
@@ -23,7 +33,13 @@ declare(strict_types=1);
        size="40"
        <?php if ($description) : ?>
            aria-describedby="<?= esc_attr($key) ?>-description"
-       <?php endif; ?>
+       <?php endif ?>
+       <?php if (! is_null($minLength)) : ?>
+           minlength="<?= esc_attr((string) $minLength) ?>"
+       <?php endif ?>
+       <?php if (! is_null($maxLength)) : ?>
+           maxlength="<?= esc_attr((string) $maxLength) ?>"
+       <?php endif ?>
 />
 <?php if ($description) : ?>
     <p class="description" id="<?= esc_attr($key) ?>-description">

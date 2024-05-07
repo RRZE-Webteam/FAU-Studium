@@ -4,12 +4,16 @@ declare(strict_types=1);
 
 namespace Fau\DegreeProgram\Infrastructure\Dashboard\TermMeta;
 
+use Fau\DegreeProgram\Application\FormFieldValidation\Rules;
+
 class InputTermMetaField implements TermMetaField
 {
+    use NoValidationTermMetaFieldTrait;
+
     public function __construct(
         private string $key,
-        private string $title,
-        private string $description = '',
+        protected string $title,
+        protected string $description = '',
         private string $type = 'text',
     ) {
     }
@@ -17,6 +21,11 @@ class InputTermMetaField implements TermMetaField
     public function key(): string
     {
         return $this->key;
+    }
+
+    public function title(): string
+    {
+        return $this->title;
     }
 
     public function sanitize(mixed $value): string
@@ -31,13 +40,19 @@ class InputTermMetaField implements TermMetaField
 
     public function templateData(mixed $value): array
     {
+        /** @var ?Rules\MinLength $minLength */
+        $minLength = $this->validationrules()->get(Rules\MinLength::name());
+        /** @var ?Rules\MaxLength $maxLength */
+        $maxLength = $this->validationrules()->get(Rules\MaxLength::name());
+
         return [
             'key' => $this->key,
             'value' => (string) $value,
-            'title' => $this->title,
+            'title' => $this->title(),
             'description' => $this->description,
             'type' => $this->type,
-
+            'minLength' => $minLength?->payload()['value'] ?? null,
+            'maxLength' => $maxLength?->payload()['value'] ?? null,
         ];
     }
 
