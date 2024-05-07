@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Support WordPress "Quote" block in content fields.
 
+### Changed
+
+- Make "Duration of studies in semester" a single line input. 
+
 ## [1.2.7] - 2023-11-23
 
 ### Fixed
