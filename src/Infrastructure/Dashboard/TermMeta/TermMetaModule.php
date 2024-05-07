@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Fau\DegreeProgram\Infrastructure\Dashboard\TermMeta;
 
+use Fau\DegreeProgram\Application\FormFieldValidation\FormFieldValidationMessages;
+use Fau\DegreeProgram\Application\FormFieldValidation\FormFieldValidationRuleSet;
 use Fau\DegreeProgram\Common\Domain\Degree;
 use Fau\DegreeProgram\Common\Domain\MultilingualLink;
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\ApplyNowLinkTaxonomy;
@@ -26,6 +28,8 @@ use Fau\DegreeProgram\Common\Infrastructure\Repository\BilingualRepository;
 use Fau\DegreeProgram\Common\Infrastructure\TemplateRenderer\DirectoryLocator;
 use Fau\DegreeProgram\Common\Infrastructure\TemplateRenderer\Renderer;
 use Fau\DegreeProgram\Common\Infrastructure\TemplateRenderer\TemplateRenderer;
+use Inpsyde\Assets\Asset;
+use Inpsyde\Assets\AssetManager;
 use Inpsyde\Modularity\Module\ExecutableModule;
 use Inpsyde\Modularity\Module\ModuleClassNameIdTrait;
 use Inpsyde\Modularity\Module\ServiceModule;
@@ -41,6 +45,10 @@ final class TermMetaModule implements ServiceModule, ExecutableModule
     public function services(): array
     {
         return [
+            AssetsLoader::class => static fn(ContainerInterface $container) => new AssetsLoader(
+                $container->get(Package::PROPERTIES),
+            ),
+            FormFieldValidationMessages::class => static fn() => new FormFieldValidationMessages(),
             self::TERM_META_FIELD_RENDERER => static fn(ContainerInterface $container): Renderer => TemplateRenderer::new(
                 DirectoryLocator::new(
                     $container->get(Package::PROPERTIES)->basePath() . '/templates/term-meta'
@@ -50,6 +58,7 @@ final class TermMetaModule implements ServiceModule, ExecutableModule
             TermMetaRegistrar::class => static fn(ContainerInterface $container): TermMetaRegistrar => new TermMetaRegistrar(
                 termMetaFieldRenderer: $container->get(TermMetaModule::TERM_META_FIELD_RENDERER),
                 termMetaRepository: $container->get(TermMetaRepository::class),
+                validationMessages: $container->get(FormFieldValidationMessages::class),
             ),
         ];
     }
@@ -63,6 +72,15 @@ final class TermMetaModule implements ServiceModule, ExecutableModule
 
         $termMetaRegistrar->register(
             AreaOfStudyTaxonomy::KEY,
+            (new CampoKeyMetaField(
+                __(
+                    'Please enter only numbers, maximum 3 digits, leading zeros are allowed.',
+                    'fau-degree-program'
+                ),
+                FormFieldValidationRuleSet::new()
+                    ->numericLeadingZerosAllowed()
+                    ->maxLength(3)
+            )),
             ...(new MultilingualLinkTermMetaFields())->getArrayCopy(),
         );
         $termMetaRegistrar->register(
@@ -103,10 +121,29 @@ final class TermMetaModule implements ServiceModule, ExecutableModule
         );
         $termMetaRegistrar->register(
             StudyLocationTaxonomy::KEY,
+            (new CampoKeyMetaField(
+                __(
+                    'Please enter uppercase alphanumeric characters and maximum 3 characters.',
+                    'fau-degree-program'
+                ),
+                FormFieldValidationRuleSet::new()
+                    ->alphaNumeric()
+                    ->upperCaseOnly()
+                    ->maxLength(3)
+            )),
             new EnglishNameTermMetaField(),
         );
         $termMetaRegistrar->register(
             SubjectGroupTaxonomy::KEY,
+            (new CampoKeyMetaField(
+                __(
+                    'Please enter only numbers, maximum 3 digits, leading zeros are allowed.',
+                    'fau-degree-program'
+                ),
+                FormFieldValidationRuleSet::new()
+                    ->numericLeadingZerosAllowed()
+                    ->maxLength(3)
+            )),
             new EnglishNameTermMetaField(),
         );
         $termMetaRegistrar->register(
@@ -126,6 +163,11 @@ final class TermMetaModule implements ServiceModule, ExecutableModule
             ...(new MultilingualLinkTermMetaFields())->getArrayCopy(),
         );
 
+        add_action(
+            AssetManager::ACTION_SETUP,
+            [$container->get(AssetsLoader::class), 'load']
+        );
+
         return true;
     }
 
@@ -135,6 +177,16 @@ final class TermMetaModule implements ServiceModule, ExecutableModule
     private static function degreeMetaFields(): array
     {
         return [
+            (new CampoKeyMetaField(
+                __(
+                    'Please enter lowercase alphanumeric characters and maximum 3 characters.',
+                    'fau-degree-program'
+                ),
+                FormFieldValidationRuleSet::new()
+                    ->alphaNumeric()
+                    ->lowerCaseOnly()
+                    ->maxLength(3)
+            )),
             new InputTermMetaField(
                 Degree::ABBREVIATION,
                 _x(
