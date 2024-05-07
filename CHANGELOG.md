@@ -8,6 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Campo-Key term meta field.
+- Term meta fields validation rules.
+
 ## [1.2.7] - 2023-11-23
 
 ### Fixed
