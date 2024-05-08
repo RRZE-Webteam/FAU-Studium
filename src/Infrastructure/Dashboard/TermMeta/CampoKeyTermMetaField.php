@@ -4,19 +4,20 @@ declare(strict_types=1);
 
 namespace Fau\DegreeProgram\Infrastructure\Dashboard\TermMeta;
 
-class InputTermMetaField implements TermMetaField
+class CampoKeyTermMetaField extends InputTermMetaField
 {
-    public function __construct(
-        protected string $key,
-        protected string $title,
-        protected string $description = '',
-        protected string $type = 'text',
-    ) {
-    }
+    public const KEY = 'uniquename';
 
-    public function key(): string
-    {
-        return $this->key;
+    public function __construct(
+        protected string $description,
+        private string $validationPattern,
+    ) {
+        parent::__construct(
+            self::KEY,
+            __('Campo Key', 'fau-degree-program'),
+            $description,
+            'text'
+        );
     }
 
     public function title(): string
@@ -34,15 +35,20 @@ class InputTermMetaField implements TermMetaField
         return 'input-term';
     }
 
+    public function validationPattern(): string
+    {
+        return $this->validationPattern;
+    }
+
     public function templateData(mixed $value): array
     {
         return [
-            'key' => $this->key,
+            'key' => $this->key(),
             'value' => (string) $value,
             'title' => $this->title,
             'description' => $this->description,
             'type' => $this->type,
-
+            'pattern' => $this->validationPattern,
         ];
     }
 

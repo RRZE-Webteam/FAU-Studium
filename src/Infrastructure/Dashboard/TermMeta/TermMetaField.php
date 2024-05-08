@@ -7,6 +7,7 @@ namespace Fau\DegreeProgram\Infrastructure\Dashboard\TermMeta;
 interface TermMetaField
 {
     public function key(): string;
+    public function title(): string;
     public function sanitize(mixed $value): mixed;
 
     public function templateName(): string;

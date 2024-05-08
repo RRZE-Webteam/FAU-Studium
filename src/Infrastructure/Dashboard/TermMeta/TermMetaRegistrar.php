@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Fau\DegreeProgram\Infrastructure\Dashboard\TermMeta;
 
 use Fau\DegreeProgram\Common\Infrastructure\TemplateRenderer\Renderer;
+use WP_Error;
 use WP_Term;
 
 final class TermMetaRegistrar
@@ -64,6 +65,47 @@ final class TermMetaRegistrar
 
         add_action("edit_{$taxonomy}", $updateCallback);
         add_action("create_{$taxonomy}", $updateCallback);
+        add_filter('pre_insert_term', $this->buildValidationCallback(...$termMetaFields));
+    }
+
+    private function buildValidationCallback(TermMetaField ...$termMetaFields): callable
+    {
+        return function (mixed $term) use ($termMetaFields): mixed {
+            foreach ($termMetaFields as $termMetaField) {
+                // Only campo key field supports validation.
+                if (! $termMetaField instanceof CampoKeyTermMetaField) {
+                    continue;
+                }
+
+                // phpcs:ignore WordPressVIPMinimum.Security.PHPFilterFunctions.MissingThirdParameter
+                $postedValue = filter_input(
+                    INPUT_POST,
+                    $termMetaField->key(),
+                );
+
+                $sanitizedValue = $termMetaField->sanitize($postedValue);
+
+                $pattern = $termMetaField->validationPattern();
+                if ($pattern === '') {
+                    continue;
+                }
+
+                if (! preg_match($pattern, $sanitizedValue)) {
+                    return new WP_Error(
+                        'invalid_term_meta',
+                        sprintf(
+                            __(
+                                'The value of the field %s is invalid.',
+                                'fau-degree-program'
+                            ),
+                            $termMetaField->title()
+                        )
+                    );
+                }
+            }
+
+            return $term;
+        };
     }
 
     private function buildUpdateCallback(TermMetaField ...$termMetaFields): callable

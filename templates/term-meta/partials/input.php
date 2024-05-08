@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @var array{key: string, value: string, title: string, description: string, type: string} $data
+ * @var array{key: string, value: string, title: string, description: string, type: string, pattern?: string} $data
  */
 
 [
@@ -12,6 +12,8 @@ declare(strict_types=1);
     'description' => $description,
     'type' => $type,
 ] = $data;
+
+$pattern = isset($data['pattern']) ? $data['pattern'] : null;
 
 ?>
 
@@ -23,7 +25,11 @@ declare(strict_types=1);
        size="40"
        <?php if ($description) : ?>
            aria-describedby="<?= esc_attr($key) ?>-description"
-       <?php endif; ?>
+       <?php endif ?>
+
+       <?php if (! is_null($pattern)) : ?>
+           pattern="<?= esc_attr($pattern) ?>"
+       <?php endif ?>
 />
 <?php if ($description) : ?>
     <p class="description" id="<?= esc_attr($key) ?>-description">

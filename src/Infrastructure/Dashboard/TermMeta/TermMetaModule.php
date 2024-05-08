@@ -63,6 +63,13 @@ final class TermMetaModule implements ServiceModule, ExecutableModule
 
         $termMetaRegistrar->register(
             AreaOfStudyTaxonomy::KEY,
+            (new CampoKeyTermMetaField(
+                __(
+                    'Please enter only numbers, maximum 3 digits, leading zeros are allowed.',
+                    'fau-degree-program'
+                ),
+                '/^[0-9]{1,3}$/',
+            )),
             ...(new MultilingualLinkTermMetaFields())->getArrayCopy(),
         );
         $termMetaRegistrar->register(
@@ -103,10 +110,24 @@ final class TermMetaModule implements ServiceModule, ExecutableModule
         );
         $termMetaRegistrar->register(
             StudyLocationTaxonomy::KEY,
+            (new CampoKeyTermMetaField(
+                __(
+                    'Please enter uppercase alphanumeric characters and maximum 3 characters.',
+                    'fau-degree-program'
+                ),
+                '/^[A-Z0-9]{1,3}$/',
+            )),
             new EnglishNameTermMetaField(),
         );
         $termMetaRegistrar->register(
             SubjectGroupTaxonomy::KEY,
+            (new CampoKeyTermMetaField(
+                __(
+                    'Please enter only numbers, maximum 3 digits, leading zeros are allowed.',
+                    'fau-degree-program'
+                ),
+                '/^[0-9]{1,3}$/',
+            )),
             new EnglishNameTermMetaField(),
         );
         $termMetaRegistrar->register(
@@ -135,6 +156,13 @@ final class TermMetaModule implements ServiceModule, ExecutableModule
     private static function degreeMetaFields(): array
     {
         return [
+            (new CampoKeyTermMetaField(
+                __(
+                    'Please enter lowercase alphanumeric characters and maximum 3 characters.',
+                    'fau-degree-program'
+                ),
+                '/^[a-z0-9]{1,3}$/',
+            )),
             new InputTermMetaField(
                 Degree::ABBREVIATION,
                 _x(
