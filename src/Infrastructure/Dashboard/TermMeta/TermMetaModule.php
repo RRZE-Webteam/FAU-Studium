@@ -26,6 +26,7 @@ use Fau\DegreeProgram\Common\Infrastructure\Repository\BilingualRepository;
 use Fau\DegreeProgram\Common\Infrastructure\TemplateRenderer\DirectoryLocator;
 use Fau\DegreeProgram\Common\Infrastructure\TemplateRenderer\Renderer;
 use Fau\DegreeProgram\Common\Infrastructure\TemplateRenderer\TemplateRenderer;
+use Inpsyde\Assets\AssetManager;
 use Inpsyde\Modularity\Module\ExecutableModule;
 use Inpsyde\Modularity\Module\ModuleClassNameIdTrait;
 use Inpsyde\Modularity\Module\ServiceModule;
@@ -41,6 +42,9 @@ final class TermMetaModule implements ServiceModule, ExecutableModule
     public function services(): array
     {
         return [
+            AssetsLoader::class => static fn(ContainerInterface $container) => new AssetsLoader(
+                $container->get(Package::PROPERTIES),
+            ),
             self::TERM_META_FIELD_RENDERER => static fn(ContainerInterface $container): Renderer => TemplateRenderer::new(
                 DirectoryLocator::new(
                     $container->get(Package::PROPERTIES)->basePath() . '/templates/term-meta'
@@ -156,6 +160,12 @@ final class TermMetaModule implements ServiceModule, ExecutableModule
         $termMetaRegistrar->register(
             ApplyNowLinkTaxonomy::KEY,
             ...(new MultilingualLinkTermMetaFields())->getArrayCopy(),
+        );
+
+
+        add_action(
+            AssetManager::ACTION_SETUP,
+            [$container->get(AssetsLoader::class), 'load']
         );
 
         return true;

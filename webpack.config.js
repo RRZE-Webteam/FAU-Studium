@@ -28,6 +28,7 @@ module.exports = {
         'css/degree-program-list-table': './resources/scss/degree-program-list-table.scss',
         'ts/degree-program-editor': './resources/ts/degree-program-editor.ts',
         'ts/degree-program-list-table': './resources/ts/degree-program-list-table.ts',
+        'ts/term-meta-fields-validation': './resources/ts/term-meta-fields-validation.ts',
     },
     output: {
         publicPath: './',
