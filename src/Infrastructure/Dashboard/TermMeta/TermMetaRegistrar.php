@@ -13,6 +13,7 @@ final class TermMetaRegistrar
     public function __construct(
         private Renderer $termMetaFieldRenderer,
         private TermMetaRepository $termMetaRepository,
+        private TermMetaFieldsValidator $validator,
     ) {
     }
 
@@ -65,47 +66,41 @@ final class TermMetaRegistrar
 
         add_action("edit_{$taxonomy}", $updateCallback);
         add_action("create_{$taxonomy}", $updateCallback);
-        add_filter('pre_insert_term', $this->buildValidationCallback(...$termMetaFields));
+
+        $this->registerValidationCallbacks($taxonomy, ...$termMetaFields);
     }
 
-    private function buildValidationCallback(TermMetaField ...$termMetaFields): callable
+    private function registerValidationCallbacks(string $currentTaxonomy, TermMetaField ...$termMetaFields): void
     {
-        return function (mixed $term) use ($termMetaFields): mixed {
-            foreach ($termMetaFields as $termMetaField) {
-                // Only campo key field supports validation.
-                if (! $termMetaField instanceof CampoKeyTermMetaField) {
-                    continue;
+        add_filter(
+            'pre_insert_term',
+            function (mixed $term, string $taxonomy) use ($currentTaxonomy, $termMetaFields): mixed {
+                if ($taxonomy !== $currentTaxonomy) {
+                    return $term;
                 }
 
-                // phpcs:ignore WordPressVIPMinimum.Security.PHPFilterFunctions.MissingThirdParameter
-                $postedValue = filter_input(
-                    INPUT_POST,
-                    $termMetaField->key(),
-                );
+                return $this->validator->validate(...$termMetaFields) ?? $term;
+            },
+            10,
+            2
+        );
 
-                $sanitizedValue = $termMetaField->sanitize($postedValue);
-
-                $pattern = $termMetaField->validationPattern();
-                if ($pattern === '') {
-                    continue;
+        add_action(
+            'edit_terms',
+            function (int $term, string $taxonomy) use ($currentTaxonomy, $termMetaFields): void {
+                if ($taxonomy !== $currentTaxonomy) {
+                    return;
                 }
 
-                if (! preg_match($pattern, $sanitizedValue)) {
-                    return new WP_Error(
-                        'invalid_term_meta',
-                        sprintf(
-                            __(
-                                'The value of the field %s is invalid.',
-                                'fau-degree-program'
-                            ),
-                            $termMetaField->title()
-                        )
-                    );
-                }
-            }
+                $validationError = $this->validator->validate(...$termMetaFields);
 
-            return $term;
-        };
+                if (! is_null($validationError)) {
+                    wp_die($validationError->get_error_message());
+                }
+            },
+            10,
+            2
+        );
     }
 
     private function buildUpdateCallback(TermMetaField ...$termMetaFields): callable

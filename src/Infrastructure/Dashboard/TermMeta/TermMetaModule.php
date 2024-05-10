@@ -47,9 +47,11 @@ final class TermMetaModule implements ServiceModule, ExecutableModule
                 )
             ),
             TermMetaRepository::class => fn() => new TermMetaRepository(),
+            TermMetaFieldsValidator::class => fn() => new TermMetaFieldsValidator(),
             TermMetaRegistrar::class => static fn(ContainerInterface $container): TermMetaRegistrar => new TermMetaRegistrar(
                 termMetaFieldRenderer: $container->get(TermMetaModule::TERM_META_FIELD_RENDERER),
                 termMetaRepository: $container->get(TermMetaRepository::class),
+                validator: $container->get(TermMetaFieldsValidator::class),
             ),
         ];
     }
@@ -68,7 +70,10 @@ final class TermMetaModule implements ServiceModule, ExecutableModule
                     'Please enter only numbers, maximum 3 digits, leading zeros are allowed.',
                     'fau-degree-program'
                 ),
-                '/^[0-9]{1,3}$/',
+                new TermMetaFieldValidationPattern(
+                    '^(?:[0-9]{1,3}|$)$',
+                    __('1-3 digits number', 'fau-degree-program'),
+                ),
             )),
             ...(new MultilingualLinkTermMetaFields())->getArrayCopy(),
         );
@@ -115,7 +120,10 @@ final class TermMetaModule implements ServiceModule, ExecutableModule
                     'Please enter uppercase alphanumeric characters and maximum 3 characters.',
                     'fau-degree-program'
                 ),
-                '/^[A-Z0-9]{1,3}$/',
+                new TermMetaFieldValidationPattern(
+                    '^(?:[A-Z0-9]{1,3}|$)$',
+                    __('1-3 upper case letters or numbers', 'fau-degree-program'),
+                ),
             )),
             new EnglishNameTermMetaField(),
         );
@@ -126,7 +134,10 @@ final class TermMetaModule implements ServiceModule, ExecutableModule
                     'Please enter only numbers, maximum 3 digits, leading zeros are allowed.',
                     'fau-degree-program'
                 ),
-                '/^[0-9]{1,3}$/',
+                new TermMetaFieldValidationPattern(
+                    '^(?:[0-9]{1,3}|$)$',
+                    __('1-3 digits number', 'fau-degree-program'),
+                ),
             )),
             new EnglishNameTermMetaField(),
         );
@@ -161,7 +172,10 @@ final class TermMetaModule implements ServiceModule, ExecutableModule
                     'Please enter lowercase alphanumeric characters and maximum 3 characters.',
                     'fau-degree-program'
                 ),
-                '/^[a-z0-9]{1,3}$/',
+                new TermMetaFieldValidationPattern(
+                    '^(?:[a-z0-9]{1,3}|$)$',
+                    __('1-3 lower case letters or numbers', 'fau-degree-program'),
+                ),
             )),
             new InputTermMetaField(
                 Degree::ABBREVIATION,

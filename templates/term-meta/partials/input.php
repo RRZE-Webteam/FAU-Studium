@@ -2,8 +2,17 @@
 
 declare(strict_types=1);
 
+use Fau\DegreeProgram\Infrastructure\Dashboard\TermMeta\TermMetaFieldValidationPattern;
+
 /**
- * @var array{key: string, value: string, title: string, description: string, type: string, pattern?: string} $data
+ * @var array{
+ *      key: string,
+ *      value: string,
+ *      title: string,
+ *      description: string,
+ *      type: string,
+ *      validationPattern: ?TermMetaFieldValidationPattern
+ * } $data
  */
 
 [
@@ -11,25 +20,26 @@ declare(strict_types=1);
     'value' => $value,
     'description' => $description,
     'type' => $type,
+    'validationPattern' => $validationPattern,
 ] = $data;
-
-$pattern = isset($data['pattern']) ? $data['pattern'] : null;
 
 ?>
 
 
-<input name="<?= esc_attr($key) ?>"
-       id="<?= esc_attr($key) ?>"
-       type="<?= esc_attr($type) ?>"
-       value="<?= esc_attr($value) ?>"
-       size="40"
-       <?php if ($description) : ?>
-           aria-describedby="<?= esc_attr($key) ?>-description"
-       <?php endif ?>
+<input
+    name="<?= esc_attr($key) ?>"
+    id="<?= esc_attr($key) ?>"
+    type="<?= esc_attr($type) ?>"
+    value="<?= esc_attr($value) ?>"
+    size="40"
+    <?php if ($description) : ?>
+        aria-describedby="<?= esc_attr($key) ?>-description"
+    <?php endif ?>
 
-       <?php if (! is_null($pattern)) : ?>
-           pattern="<?= esc_attr($pattern) ?>"
-       <?php endif ?>
+    <?php if (! is_null($validationPattern)) : ?>
+        pattern="<?= esc_attr($validationPattern->pattern()) ?>"
+        title="<?= esc_attr($validationPattern->expectedPatternMessage()) ?>"
+    <?php endif ?>
 />
 <?php if ($description) : ?>
     <p class="description" id="<?= esc_attr($key) ?>-description">

@@ -10,7 +10,7 @@ class CampoKeyTermMetaField extends InputTermMetaField
 
     public function __construct(
         protected string $description,
-        private string $validationPattern,
+        private ?TermMetaFieldValidationPattern $validationPattern = null,
     ) {
         parent::__construct(
             self::KEY,
@@ -35,7 +35,7 @@ class CampoKeyTermMetaField extends InputTermMetaField
         return 'input-term';
     }
 
-    public function validationPattern(): string
+    public function validationPattern(): ?TermMetaFieldValidationPattern
     {
         return $this->validationPattern;
     }
@@ -48,19 +48,27 @@ class CampoKeyTermMetaField extends InputTermMetaField
             'title' => $this->title,
             'description' => $this->description,
             'type' => $this->type,
-            'pattern' => $this->validationPattern,
+            'validationPattern' => $this->validationPattern,
         ];
     }
 
     public function metaArgs(): array
     {
+        $schema = ['type' =>'string'];
+
+        if (! is_null($this->validationPattern)) {
+            $schema['pattern'] = $this->validationPattern->pattern();
+        }
+
         return [
             'type' => 'string',
             'description' => $this->description,
             'single' => true,
             'default' => '',
             'sanitize_callback' => [$this, 'sanitize'],
-            'show_in_rest' => true,
+            'show_in_rest' => [
+                'schema' => $schema,
+            ],
         ];
     }
 }

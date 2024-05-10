@@ -42,7 +42,7 @@ class InputTermMetaField implements TermMetaField
             'title' => $this->title,
             'description' => $this->description,
             'type' => $this->type,
-
+            'validationPattern' => $this->validationPattern(),
         ];
     }
 
@@ -56,5 +56,10 @@ class InputTermMetaField implements TermMetaField
             'sanitize_callback' => [$this, 'sanitize'],
             'show_in_rest' => true,
         ];
+    }
+
+    public function validationPattern(): ?TermMetaFieldValidationPattern
+    {
+        return null;
     }
 }
