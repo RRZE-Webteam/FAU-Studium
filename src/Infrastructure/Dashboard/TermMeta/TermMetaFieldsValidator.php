@@ -42,8 +42,9 @@ final class TermMetaFieldsValidator
                 return new WP_Error(
                     'invalid_term_meta',
                     sprintf(
+                        // translators: %1$s: field title. %2$s: expected pattern description.
                         __(
-                            'The value of the field %s is invalid. expected value: %s',
+                            'The value of the field %1$s is invalid. expected value: %2$s',
                             'fau-degree-program'
                         ),
                         $termMetaField->title(),

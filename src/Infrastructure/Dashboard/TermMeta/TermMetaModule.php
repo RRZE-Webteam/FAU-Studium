@@ -162,7 +162,6 @@ final class TermMetaModule implements ServiceModule, ExecutableModule
             ...(new MultilingualLinkTermMetaFields())->getArrayCopy(),
         );
 
-
         add_action(
             AssetManager::ACTION_SETUP,
             [$container->get(AssetsLoader::class), 'load']

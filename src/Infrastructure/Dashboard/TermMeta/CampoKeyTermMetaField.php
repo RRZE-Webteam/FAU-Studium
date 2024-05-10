@@ -12,6 +12,7 @@ class CampoKeyTermMetaField extends InputTermMetaField
         protected string $description,
         private ?TermMetaFieldValidationPattern $validationPattern = null,
     ) {
+
         parent::__construct(
             self::KEY,
             __('Campo Key', 'fau-degree-program'),
@@ -54,7 +55,7 @@ class CampoKeyTermMetaField extends InputTermMetaField
 
     public function metaArgs(): array
     {
-        $schema = ['type' =>'string'];
+        $schema = ['type' => 'string'];
 
         if (! is_null($this->validationPattern)) {
             $schema['pattern'] = $this->validationPattern->pattern();
