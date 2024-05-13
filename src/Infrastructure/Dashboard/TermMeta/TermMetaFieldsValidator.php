@@ -15,8 +15,8 @@ final class TermMetaFieldsValidator
         }
 
         foreach ($termMetaFields as $termMetaField) {
-            // Only campo key field supports validation.
-            if (! $termMetaField instanceof CampoKeyTermMetaField) {
+            $validationPattern = $termMetaField->validationPattern();
+            if (is_null($validationPattern)) {
                 continue;
             }
 
@@ -26,15 +26,10 @@ final class TermMetaFieldsValidator
                 $termMetaField->key(),
             );
 
-            $sanitizedValue = $termMetaField->sanitize($postedValue);
+            $sanitizedValue = (string) $termMetaField->sanitize($postedValue);
 
             // Skip validation if field is empty.
             if ($sanitizedValue === '') {
-                continue;
-            }
-
-            $validationPattern = $termMetaField->validationPattern();
-            if (is_null($validationPattern)) {
                 continue;
             }
 

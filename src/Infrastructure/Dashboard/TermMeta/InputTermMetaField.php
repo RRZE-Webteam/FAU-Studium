@@ -7,10 +7,11 @@ namespace Fau\DegreeProgram\Infrastructure\Dashboard\TermMeta;
 class InputTermMetaField implements TermMetaField
 {
     public function __construct(
-        protected string $key,
-        protected string $title,
-        protected string $description = '',
-        protected string $type = 'text',
+        private string $key,
+        private string $title,
+        private string $description = '',
+        private string $type = 'text',
+        private ?TermMetaFieldValidationPattern $validationPattern = null,
     ) {
     }
 
@@ -36,6 +37,17 @@ class InputTermMetaField implements TermMetaField
 
     public function templateData(mixed $value): array
     {
+        $showInRest = true;
+
+        if (! is_null($this->validationPattern)) {
+            $showInRest = [
+                'schema' => [
+                    'type' => 'string',
+                    'pattern' => $this->validationPattern->pattern(),
+                ],
+            ];
+        }
+
         return [
             'key' => $this->key,
             'value' => (string) $value,
@@ -43,6 +55,7 @@ class InputTermMetaField implements TermMetaField
             'description' => $this->description,
             'type' => $this->type,
             'validationPattern' => $this->validationPattern(),
+            'show_in_rest' => $showInRest,
         ];
     }
 
@@ -60,6 +73,6 @@ class InputTermMetaField implements TermMetaField
 
     public function validationPattern(): ?TermMetaFieldValidationPattern
     {
-        return null;
+        return $this->validationPattern;
     }
 }
