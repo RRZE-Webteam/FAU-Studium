@@ -20,10 +20,10 @@ final class TermMetaFieldsValidator
                 continue;
             }
 
-            // phpcs:ignore WordPressVIPMinimum.Security.PHPFilterFunctions.MissingThirdParameter
             $postedValue = filter_input(
                 INPUT_POST,
                 $termMetaField->key(),
+                FILTER_SANITIZE_SPECIAL_CHARS
             );
 
             $sanitizedValue = (string) $termMetaField->sanitize($postedValue);
