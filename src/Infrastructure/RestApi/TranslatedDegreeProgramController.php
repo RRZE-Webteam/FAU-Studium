@@ -652,6 +652,14 @@ final class TranslatedDegreeProgramController extends WP_REST_Controller
                 ),
                 'type' => 'object',
             ],
+            DegreeProgram::CAMPO_KEYS => [
+                'description' => _x(
+                    'Degree program Campo Keys.',
+                    'rest_api: schema item description',
+                    'fau-degree-program'
+                ),
+                'type' => 'object',
+            ],
         ];
 
         return $this->schema;
