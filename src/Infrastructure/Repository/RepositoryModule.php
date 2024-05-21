@@ -34,6 +34,7 @@ class RepositoryModule implements ServiceModule
     public const VIEW_REPOSITORY_UNCACHED = 'view_repository_uncached';
     public const COLLECTION_REPOSITORY_UNCACHED = 'collection_repository_uncached';
 
+    // phpcs:ignore Inpsyde.CodeQuality.FunctionLength.TooLong
     public function services(): array
     {
         return [

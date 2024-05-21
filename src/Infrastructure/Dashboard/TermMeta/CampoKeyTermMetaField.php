@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 namespace Fau\DegreeProgram\Infrastructure\Dashboard\TermMeta;
+
 use Fau\DegreeProgram\Common\Infrastructure\Repository\CampoKeysRepository;
 
 class CampoKeyTermMetaField extends InputTermMetaField
