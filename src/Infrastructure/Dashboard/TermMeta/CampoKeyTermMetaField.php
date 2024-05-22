@@ -14,7 +14,7 @@ class CampoKeyTermMetaField extends InputTermMetaField
     ) {
 
         parent::__construct(
-            CampoKeysRepository::CAMPOKEY_TERM_META_KEY,
+            CampoKeysRepository::CAMPO_KEY_TERM_META_KEY,
             __('Campo Key', 'fau-degree-program'),
             $description,
             validationPattern: $validationPattern,
