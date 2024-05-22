@@ -183,7 +183,7 @@ final class TermMetaModule implements ServiceModule, ExecutableModule
                 ),
                 new TermMetaFieldValidationPattern(
                     '^(?:[a-z0-9]{1,3}|$)$',
-                    __('1 to 3 lowercase letters or digits, 'fau-degree-program'),
+                    __('1 to 3 lowercase letters or digits', 'fau-degree-program'),
                 ),
             )),
             new InputTermMetaField(
