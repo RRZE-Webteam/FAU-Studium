@@ -71,12 +71,12 @@ final class TermMetaModule implements ServiceModule, ExecutableModule
             AreaOfStudyTaxonomy::KEY,
             (new CampoKeyTermMetaField(
                 __(
-                    'Please enter only numbers, maximum 3 digits, leading zeros are allowed.',
+                    'Up to 3 digits, no letters. Leading zeros are allowed.',
                     'fau-degree-program'
                 ),
                 new TermMetaFieldValidationPattern(
                     '^(?:[0-9]{1,3}|$)$',
-                    __('1-3 digits number', 'fau-degree-program'),
+                    __('1 to 3 digits', 'fau-degree-program'),
                 ),
             )),
             ...(new MultilingualLinkTermMetaFields())->getArrayCopy(),
@@ -121,12 +121,12 @@ final class TermMetaModule implements ServiceModule, ExecutableModule
             StudyLocationTaxonomy::KEY,
             (new CampoKeyTermMetaField(
                 __(
-                    'Please enter uppercase alphanumeric characters and maximum 3 characters.',
+                    'Up to 3 uppercase alphanumeric characters.',
                     'fau-degree-program'
                 ),
                 new TermMetaFieldValidationPattern(
                     '^(?:[A-Z0-9]{1,3}|$)$',
-                    __('1-3 upper case letters or numbers', 'fau-degree-program'),
+                    __('1 to 3 uppercase letters or digits', 'fau-degree-program'),
                 ),
             )),
             new EnglishNameTermMetaField(),
@@ -135,12 +135,12 @@ final class TermMetaModule implements ServiceModule, ExecutableModule
             SubjectGroupTaxonomy::KEY,
             (new CampoKeyTermMetaField(
                 __(
-                    'Please enter only numbers, maximum 3 digits, leading zeros are allowed.',
+                    'Up to 3 digits, no letters. Leading zeros are allowed.',
                     'fau-degree-program'
                 ),
                 new TermMetaFieldValidationPattern(
                     '^(?:[0-9]{1,3}|$)$',
-                    __('1-3 digits number', 'fau-degree-program'),
+                    __('1 to 3 digits', 'fau-degree-program'),
                 ),
             )),
             new EnglishNameTermMetaField(),
@@ -178,12 +178,12 @@ final class TermMetaModule implements ServiceModule, ExecutableModule
         return [
             (new CampoKeyTermMetaField(
                 __(
-                    'Please enter lowercase alphanumeric characters and maximum 3 characters.',
+                    'Up to 3 lowercase alphanumeric characters.',
                     'fau-degree-program'
                 ),
                 new TermMetaFieldValidationPattern(
                     '^(?:[a-z0-9]{1,3}|$)$',
-                    __('1-3 lower case letters or numbers', 'fau-degree-program'),
+                    __('1 to 3 lowercase letters or digits', 'fau-degree-program'),
                 ),
             )),
             new InputTermMetaField(

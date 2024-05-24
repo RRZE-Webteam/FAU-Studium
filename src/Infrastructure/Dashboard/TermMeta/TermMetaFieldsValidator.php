@@ -39,7 +39,7 @@ final class TermMetaFieldsValidator
                     sprintf(
                         // translators: %1$s: field title. %2$s: expected pattern description.
                         __(
-                            'The value of the field %1$s is invalid. expected value: %2$s',
+                            'The value of the field &#8220;%1$s&#8221; is invalid. expected value: %2$s',
                             'fau-degree-program'
                         ),
                         $termMetaField->title(),

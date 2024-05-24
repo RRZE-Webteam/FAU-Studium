@@ -16,6 +16,7 @@ use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\DegreeTaxonomy;
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\MasterDegreeAdmissionRequirementTaxonomy;
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\TeachingDegreeHigherSemesterAdmissionRequirementTaxonomy;
 use Fau\DegreeProgram\Common\Infrastructure\Repository\FacultyRepository;
+use Fau\DegreeProgram\Common\Infrastructure\RestApi\TranslatedDegreeProgramController;
 use Fau\DegreeProgram\Common\Infrastructure\Sanitizer\SerializedBlocksDegreeProgramSanitizer;
 use Fau\DegreeProgram\Common\Infrastructure\Validator\CompositeValidator;
 use Fau\DegreeProgram\Common\Infrastructure\Validator\ConditionalFieldsValidator;
