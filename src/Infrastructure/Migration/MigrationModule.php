@@ -41,6 +41,14 @@ final class MigrationModule implements ServiceModule, ExecutableModule
                 );
             },
             Migration13RemoveCustomOrdering::class => static fn() => new Migration13RemoveCustomOrdering(),
+            Migration0015CampoKeyMeta::class => static function (
+                ContainerInterface $container
+            ): Migration0015CampoKeyMeta {
+                return new Migration0015CampoKeyMeta(
+                    $container->get(CacheKeyGenerator::class),
+                    $container->get(CacheInterface::class)
+                );
+            },
         ];
     }
 
