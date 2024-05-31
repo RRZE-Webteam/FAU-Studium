@@ -76,6 +76,7 @@ final class JsonSchemaDegreeProgramDataValidator implements DegreeProgramDataVal
         DegreeProgram::LIMITED_COMBINATIONS,
         DegreeProgram::NOTES_FOR_INTERNATIONAL_APPLICANTS,
         DegreeProgram::APPLY_NOW_LINK,
+        DegreeProgram::CAMPO_KEYS,
     ];
 
     /**
@@ -180,7 +181,8 @@ final class JsonSchemaDegreeProgramDataValidator implements DegreeProgramDataVal
 
             if (
                 $fieldSchema['type'] === 'object'
-                && ! empty($fieldSchema['properties'])
+                && isset($fieldSchema['properties'])
+                && $fieldSchema['properties']
                 && is_array($field)
             ) {
                 /** @var array<string, mixed> $field */

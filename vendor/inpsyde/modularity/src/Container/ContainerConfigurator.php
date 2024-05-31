@@ -3,13 +3,16 @@ declare(strict_types=1);
 
 namespace Inpsyde\Modularity\Container;
 
-use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
 
+/**
+ * @psalm-import-type Service from \Inpsyde\Modularity\Module\ServiceModule
+ * @psalm-import-type ExtendingService from \Inpsyde\Modularity\Module\ExtendingModule
+ */
 class ContainerConfigurator
 {
     /**
-     * @var array<string, callable(ContainerInterface $container):mixed>
+     * @var array<string, Service>
      */
     private $services = [];
 
@@ -19,9 +22,9 @@ class ContainerConfigurator
     private $factoryIds = [];
 
     /**
-     * @var array<string, array<callable(mixed $service, ContainerInterface $container):mixed>>
+     * @var ServiceExtensions
      */
-    private $extensions = [];
+    private $extensions;
 
     /**
      * @var ContainerInterface[]
@@ -38,9 +41,10 @@ class ContainerConfigurator
      *
      * @param ContainerInterface[] $containers
      */
-    public function __construct(array $containers = [])
+    public function __construct(array $containers = [], ?ServiceExtensions $extensions = null)
     {
         array_map([$this, 'addContainer'], $containers);
+        $this->extensions = $extensions ?? new ServiceExtensions();
     }
 
     /**
@@ -55,7 +59,7 @@ class ContainerConfigurator
 
     /**
      * @param string $id
-     * @param callable(ContainerInterface $container):mixed $factory
+     * @param Service $factory
      */
     public function addFactory(string $id, callable $factory): void
     {
@@ -67,7 +71,7 @@ class ContainerConfigurator
 
     /**
      * @param string $id
-     * @param callable(ContainerInterface $container):mixed $service
+     * @param Service $service
      *
      * @return void
      */
@@ -109,17 +113,13 @@ class ContainerConfigurator
 
     /**
      * @param string $id
-     * @param callable(mixed $service, ContainerInterface $container):mixed $extender
+     * @param ExtendingService $extender
      *
      * @return void
      */
     public function addExtension(string $id, callable $extender): void
     {
-        if (!isset($this->extensions[$id])) {
-            $this->extensions[$id] = [];
-        }
-
-        $this->extensions[$id][] = $extender;
+        $this->extensions->add($id, $extender);
     }
 
     /**
@@ -129,7 +129,7 @@ class ContainerConfigurator
      */
     public function hasExtension(string $id): bool
     {
-        return isset($this->extensions[$id]);
+        return $this->extensions->has($id);
     }
 
     /**

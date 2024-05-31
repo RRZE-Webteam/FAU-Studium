@@ -10,12 +10,14 @@ use Fau\DegreeProgram\Common\Application\Filter\AttributeFilter;
 use Fau\DegreeProgram\Common\Application\Filter\DegreeFilter;
 use Fau\DegreeProgram\Common\Application\Filter\FacultyFilter;
 use Fau\DegreeProgram\Common\Application\Filter\Filter;
+use Fau\DegreeProgram\Common\Application\Filter\GermanLanguageSkillsForInternationalStudentsFilter;
 use Fau\DegreeProgram\Common\Application\Filter\SearchKeywordFilter;
 use Fau\DegreeProgram\Common\Application\Filter\SemesterFilter;
 use Fau\DegreeProgram\Common\Application\Filter\StudyLocationFilter;
 use Fau\DegreeProgram\Common\Application\Filter\SubjectGroupFilter;
 use Fau\DegreeProgram\Common\Application\Filter\TeachingLanguageFilter;
 use Fau\DegreeProgram\Common\Application\Repository\CollectionCriteria;
+use Fau\DegreeProgram\Common\Domain\CampoKeys;
 use Fau\DegreeProgram\Common\Domain\DegreeProgram;
 use Fau\DegreeProgram\Common\Domain\MultilingualString;
 use Fau\DegreeProgram\Common\Infrastructure\Content\PostType\DegreeProgramPostType;
@@ -23,6 +25,7 @@ use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\BachelorOrTeachingD
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\MasterDegreeAdmissionRequirementTaxonomy;
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\TaxonomiesList;
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\TeachingDegreeHigherSemesterAdmissionRequirementTaxonomy;
+use RuntimeException;
 use WP_Term;
 
 /**
@@ -40,6 +43,7 @@ final class WpQueryArgsBuilder
         StudyLocationFilter::class,
         SubjectGroupFilter::class,
         TeachingLanguageFilter::class,
+        GermanLanguageSkillsForInternationalStudentsFilter::class,
     ];
 
     private const ALIASES = [
@@ -62,8 +66,10 @@ final class WpQueryArgsBuilder
         'date' => 'desc',
     ];
 
-    public function __construct(private TaxonomiesList $taxonomiesList)
-    {
+    public function __construct(
+        private TaxonomiesList $taxonomiesList,
+        private CampoKeysRepository $campoKeysRepository,
+    ) {
     }
 
     public function build(CollectionCriteria $criteria): WpQueryArgs
@@ -82,7 +88,56 @@ final class WpQueryArgsBuilder
             $queryArgs = $this->applyFilter($filter, $queryArgs, $criteria->languageCode());
         }
 
+        if (count($criteria->hisCodes()) > 0) {
+            $queryArgs = $this->applyHisCodes($criteria->hisCodes(), $queryArgs);
+        }
+
         return $queryArgs;
+    }
+
+    /**
+     * @param array<string> $hisCodes
+     */
+    public function applyHisCodes(array $hisCodes, WpQueryArgs $queryArgs): WpQueryArgs
+    {
+        $hisCodesQuery = [];
+
+        foreach ($hisCodes as $hisCode) {
+            $taxQueryItem = [
+                'relation' => 'AND',
+            ];
+
+            try {
+                $taxonomyToTermMapping = $this->campoKeysRepository->taxonomyToTermsMapFromCampoKeys(
+                    CampoKeys::fromHisCode($hisCode)
+                );
+            } catch (RuntimeException) {
+                continue;
+            }
+
+            if (count($taxonomyToTermMapping) === 0) {
+                continue;
+            }
+
+            foreach ($taxonomyToTermMapping as $taxonomy => $termId) {
+                $taxQueryItem[] = [
+                    'taxonomy' => $taxonomy,
+                    'terms' => [
+                        $termId,
+                    ],
+                ];
+            }
+
+            $hisCodesQuery[] = $taxQueryItem;
+        }
+
+        if (count($hisCodesQuery) === 0) {
+            return $queryArgs;
+        }
+
+        $hisCodesQuery['relation'] = 'OR';
+
+        return $queryArgs->withTaxQueryItem($hisCodesQuery);
     }
 
     private function applyOrderBy(

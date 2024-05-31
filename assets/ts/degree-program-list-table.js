@@ -1,16 +1,30 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
-var __webpack_exports__ = {};
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./resources/ts/degree-program-list-table.ts":
 /*!***************************************************!*\
   !*** ./resources/ts/degree-program-list-table.ts ***!
   \***************************************************/
+/***/ (function() {
 
 
-const IS_LOADING_CLASS = 'spinner';
-const FILLED_STAR_CLASS = 'dashicons-star-filled';
-const EMPTY_STAR_CLASS = 'dashicons-star-empty';
-const toggleSticky = icon => {
-  const isSticky = icon.classList.contains(FILLED_STAR_CLASS);
+
+var __assign = this && this.__assign || function () {
+  __assign = Object.assign || function (t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+      s = arguments[i];
+      for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+    }
+    return t;
+  };
+  return __assign.apply(this, arguments);
+};
+var IS_LOADING_CLASS = 'spinner';
+var FILLED_STAR_CLASS = 'dashicons-star-filled';
+var EMPTY_STAR_CLASS = 'dashicons-star-empty';
+var toggleSticky = function (icon) {
+  var isSticky = icon.classList.contains(FILLED_STAR_CLASS);
   if (isSticky) {
     icon.classList.remove(FILLED_STAR_CLASS);
     icon.classList.add(EMPTY_STAR_CLASS);
@@ -19,42 +33,56 @@ const toggleSticky = icon => {
   icon.classList.remove(EMPTY_STAR_CLASS);
   icon.classList.add(FILLED_STAR_CLASS);
 };
-const onStickyCellClick = cell => {
+var onStickyCellClick = function (cell) {
   var _a, _b;
-  const icon = cell.querySelector('span');
+  var icon = cell.querySelector('span');
   if (!icon) {
     return false;
   }
   if (icon.classList.contains(IS_LOADING_CLASS)) {
     return false;
   }
-  const id = ((_b = (_a = cell.parentElement) === null || _a === void 0 ? void 0 : _a.id) !== null && _b !== void 0 ? _b : '').split('-')[1];
+  var id = ((_b = (_a = cell.parentElement) === null || _a === void 0 ? void 0 : _a.id) !== null && _b !== void 0 ? _b : '').split('-')[1];
   if (!id) {
     return false;
   }
   icon.classList.add(IS_LOADING_CLASS);
-  const request = new URLSearchParams(Object.assign(Object.assign({}, window.DegreeProgramListTableServerData), {
-    id
+  var request = new URLSearchParams(__assign(__assign({}, window.DegreeProgramListTableServerData), {
+    id: id
   }));
   fetch(window.ajaxurl, {
     method: 'POST',
     body: request
-  }).then(response => {
+  }).then(function (response) {
     return response.json();
-  }).then(response => {
+  }).then(function (response) {
     if (!response.success) {
       alert(response.data.message);
       return;
     }
     toggleSticky(icon);
-  }).finally(() => {
+  }).finally(function () {
     icon.classList.remove(IS_LOADING_CLASS);
   });
   return false;
 };
-document.querySelectorAll('td.sticky-column').forEach(cell => {
-  cell.addEventListener('click', () => onStickyCellClick(cell));
+document.querySelectorAll('td.sticky-column').forEach(function (cell) {
+  cell.addEventListener('click', function () {
+    return onStickyCellClick(cell);
+  });
 });
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module is referenced by other modules so it can't be inlined
+/******/ 	var __webpack_exports__ = {};
+/******/ 	__webpack_modules__["./resources/ts/degree-program-list-table.ts"]();
+/******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidHMvZGVncmVlLXByb2dyYW0tbGlzdC10YWJsZS5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7OztBQU1BLE1BQU1BLGdCQUFnQixHQUFHLFNBQVM7QUFDbEMsTUFBTUMsaUJBQWlCLEdBQUcsdUJBQXVCO0FBQ2pELE1BQU1DLGdCQUFnQixHQUFHLHNCQUFzQjtBQUUvQyxNQUFNQyxZQUFZLEdBQUlDLElBQXFCLElBQVU7RUFDakQsTUFBTUMsUUFBUSxHQUFHRCxJQUFJLENBQUNFLFNBQVMsQ0FBQ0MsUUFBUSxDQUFDTixpQkFBaUIsQ0FBQztFQUMzRCxJQUFJSSxRQUFRLEVBQUU7SUFDVkQsSUFBSSxDQUFDRSxTQUFTLENBQUNFLE1BQU0sQ0FBQ1AsaUJBQWlCLENBQUM7SUFDeENHLElBQUksQ0FBQ0UsU0FBUyxDQUFDRyxHQUFHLENBQUNQLGdCQUFnQixDQUFDO0lBQ3BDOztFQUdKRSxJQUFJLENBQUNFLFNBQVMsQ0FBQ0UsTUFBTSxDQUFDTixnQkFBZ0IsQ0FBQztFQUN2Q0UsSUFBSSxDQUFDRSxTQUFTLENBQUNHLEdBQUcsQ0FBQ1IsaUJBQWlCLENBQUM7QUFDekMsQ0FBQztBQUVELE1BQU1TLGlCQUFpQixHQUFJQyxJQUEwQixJQUFhOztFQUM5RCxNQUFNUCxJQUFJLEdBQUdPLElBQUksQ0FBQ0MsYUFBYSxDQUFrQixNQUFNLENBQUM7RUFDeEQsSUFBSSxDQUFDUixJQUFJLEVBQUU7SUFDUCxPQUFPLEtBQUs7O0VBR2hCLElBQUlBLElBQUksQ0FBQ0UsU0FBUyxDQUFDQyxRQUFRLENBQUNQLGdCQUFnQixDQUFDLEVBQUU7SUFDM0MsT0FBTyxLQUFLOztFQUdoQixNQUFNYSxFQUFFLEdBQUcsQ0FBQyxnQkFBSSxDQUFDQyxhQUFhLDBDQUFFRCxFQUFFLG1DQUFJLEVBQUUsRUFBRUUsS0FBSyxDQUFDLEdBQUcsQ0FBQyxDQUFDLENBQUMsQ0FBQztFQUN2RCxJQUFJLENBQUNGLEVBQUUsRUFBRTtJQUNMLE9BQU8sS0FBSzs7RUFHaEJULElBQUksQ0FBQ0UsU0FBUyxDQUFDRyxHQUFHLENBQUNULGdCQUFnQixDQUFDO0VBRXBDLE1BQU1nQixPQUFPLEdBQUcsSUFBSUMsZUFBZSxpQ0FDNUJDLE1BQU0sQ0FBQ0MsZ0NBQWdDO0lBQzFDTjtFQUFFLEdBQ0o7RUFFRk8sS0FBSyxDQUFDRixNQUFNLENBQUNHLE9BQU8sRUFBRTtJQUNsQkMsTUFBTSxFQUFFLE1BQU07SUFDZEMsSUFBSSxFQUFFUDtHQUNULENBQUMsQ0FDR1EsSUFBSSxDQUFFQyxRQUFRLElBQUk7SUFDZixPQUFPQSxRQUFRLENBQUNDLElBQUksRUFBRTtFQUMxQixDQUFDLENBQUMsQ0FDREYsSUFBSSxDQUFFQyxRQUFRLElBQUk7SUFDZixJQUFJLENBQUNBLFFBQVEsQ0FBQ0UsT0FBTyxFQUFFO01BRW5CQyxLQUFLLENBQUNILFFBQVEsQ0FBQ0ksSUFBSSxDQUFDQyxPQUFPLENBQUM7TUFDNUI7O0lBR0ozQixZQUFZLENBQUNDLElBQUksQ0FBQztFQUN0QixDQUFDLENBQUMsQ0FDRDJCLE9BQU8sQ0FBQyxNQUFLO0lBQ1YzQixJQUFJLENBQUNFLFNBQVMsQ0FBQ0UsTUFBTSxDQUFDUixnQkFBZ0IsQ0FBQztFQUMzQyxDQUFDLENBQUM7RUFFTixPQUFPLEtBQUs7QUFDaEIsQ0FBQztBQUVEZ0MsUUFBUSxDQUFDQyxnQkFBZ0IsQ0FBdUIsa0JBQWtCLENBQUMsQ0FBQ0MsT0FBTyxDQUFFdkIsSUFBSSxJQUFJO0VBQ2pGQSxJQUFJLENBQUN3QixnQkFBZ0IsQ0FBQyxPQUFPLEVBQUUsTUFBTXpCLGlCQUFpQixDQUFDQyxJQUFJLENBQUMsQ0FBQztBQUNqRSxDQUFDLENBQUMsQyIsInNvdXJjZXMiOlsid2VicGFjazovL0BycnplL2ZhdS1zdHVkaXVtLy4vcmVzb3VyY2VzL3RzL2RlZ3JlZS1wcm9ncmFtLWxpc3QtdGFibGUudHMiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gZXNsaW50LWRpc2FibGUtbmV4dC1saW5lIEB0eXBlc2NyaXB0LWVzbGludC9uby11bnVzZWQtdmFyc1xuaW50ZXJmYWNlIFdpbmRvdyB7XG4gICAgYWpheHVybDogc3RyaW5nO1xuICAgIERlZ3JlZVByb2dyYW1MaXN0VGFibGVTZXJ2ZXJEYXRhOiBvYmplY3Q7XG59XG5cbmNvbnN0IElTX0xPQURJTkdfQ0xBU1MgPSAnc3Bpbm5lcic7XG5jb25zdCBGSUxMRURfU1RBUl9DTEFTUyA9ICdkYXNoaWNvbnMtc3Rhci1maWxsZWQnO1xuY29uc3QgRU1QVFlfU1RBUl9DTEFTUyA9ICdkYXNoaWNvbnMtc3Rhci1lbXB0eSc7XG5cbmNvbnN0IHRvZ2dsZVN0aWNreSA9IChpY29uOiBIVE1MU3BhbkVsZW1lbnQpOiB2b2lkID0+IHtcbiAgICBjb25zdCBpc1N0aWNreSA9IGljb24uY2xhc3NMaXN0LmNvbnRhaW5zKEZJTExFRF9TVEFSX0NMQVNTKTtcbiAgICBpZiAoaXNTdGlja3kpIHtcbiAgICAgICAgaWNvbi5jbGFzc0xpc3QucmVtb3ZlKEZJTExFRF9TVEFSX0NMQVNTKTtcbiAgICAgICAgaWNvbi5jbGFzc0xpc3QuYWRkKEVNUFRZX1NUQVJfQ0xBU1MpO1xuICAgICAgICByZXR1cm47XG4gICAgfVxuXG4gICAgaWNvbi5jbGFzc0xpc3QucmVtb3ZlKEVNUFRZX1NUQVJfQ0xBU1MpO1xuICAgIGljb24uY2xhc3NMaXN0LmFkZChGSUxMRURfU1RBUl9DTEFTUyk7XG59O1xuXG5jb25zdCBvblN0aWNreUNlbGxDbGljayA9IChjZWxsOiBIVE1MVGFibGVDZWxsRWxlbWVudCk6IGJvb2xlYW4gPT4ge1xuICAgIGNvbnN0IGljb24gPSBjZWxsLnF1ZXJ5U2VsZWN0b3I8SFRNTFNwYW5FbGVtZW50Pignc3BhbicpO1xuICAgIGlmICghaWNvbikge1xuICAgICAgICByZXR1cm4gZmFsc2U7XG4gICAgfVxuXG4gICAgaWYgKGljb24uY2xhc3NMaXN0LmNvbnRhaW5zKElTX0xPQURJTkdfQ0xBU1MpKSB7XG4gICAgICAgIHJldHVybiBmYWxzZTtcbiAgICB9XG5cbiAgICBjb25zdCBpZCA9IChjZWxsLnBhcmVudEVsZW1lbnQ/LmlkID8/ICcnKS5zcGxpdCgnLScpWzFdO1xuICAgIGlmICghaWQpIHtcbiAgICAgICAgcmV0dXJuIGZhbHNlO1xuICAgIH1cblxuICAgIGljb24uY2xhc3NMaXN0LmFkZChJU19MT0FESU5HX0NMQVNTKTtcblxuICAgIGNvbnN0IHJlcXVlc3QgPSBuZXcgVVJMU2VhcmNoUGFyYW1zKHtcbiAgICAgICAgLi4ud2luZG93LkRlZ3JlZVByb2dyYW1MaXN0VGFibGVTZXJ2ZXJEYXRhLFxuICAgICAgICBpZCxcbiAgICB9KTtcblxuICAgIGZldGNoKHdpbmRvdy5hamF4dXJsLCB7XG4gICAgICAgIG1ldGhvZDogJ1BPU1QnLFxuICAgICAgICBib2R5OiByZXF1ZXN0LFxuICAgIH0pXG4gICAgICAgIC50aGVuKChyZXNwb25zZSkgPT4ge1xuICAgICAgICAgICAgcmV0dXJuIHJlc3BvbnNlLmpzb24oKTtcbiAgICAgICAgfSlcbiAgICAgICAgLnRoZW4oKHJlc3BvbnNlKSA9PiB7XG4gICAgICAgICAgICBpZiAoIXJlc3BvbnNlLnN1Y2Nlc3MpIHtcbiAgICAgICAgICAgICAgICAvLyBlc2xpbnQtZGlzYWJsZS1uZXh0LWxpbmUgbm8tYWxlcnRcbiAgICAgICAgICAgICAgICBhbGVydChyZXNwb25zZS5kYXRhLm1lc3NhZ2UpO1xuICAgICAgICAgICAgICAgIHJldHVybjtcbiAgICAgICAgICAgIH1cblxuICAgICAgICAgICAgdG9nZ2xlU3RpY2t5KGljb24pO1xuICAgICAgICB9KVxuICAgICAgICAuZmluYWxseSgoKSA9PiB7XG4gICAgICAgICAgICBpY29uLmNsYXNzTGlzdC5yZW1vdmUoSVNfTE9BRElOR19DTEFTUyk7XG4gICAgICAgIH0pO1xuXG4gICAgcmV0dXJuIGZhbHNlO1xufTtcblxuZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbDxIVE1MVGFibGVDZWxsRWxlbWVudD4oJ3RkLnN0aWNreS1jb2x1bW4nKS5mb3JFYWNoKChjZWxsKSA9PiB7XG4gICAgY2VsbC5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsICgpID0+IG9uU3RpY2t5Q2VsbENsaWNrKGNlbGwpKTtcbn0pO1xuIl0sIm5hbWVzIjpbIklTX0xPQURJTkdfQ0xBU1MiLCJGSUxMRURfU1RBUl9DTEFTUyIsIkVNUFRZX1NUQVJfQ0xBU1MiLCJ0b2dnbGVTdGlja3kiLCJpY29uIiwiaXNTdGlja3kiLCJjbGFzc0xpc3QiLCJjb250YWlucyIsInJlbW92ZSIsImFkZCIsIm9uU3RpY2t5Q2VsbENsaWNrIiwiY2VsbCIsInF1ZXJ5U2VsZWN0b3IiLCJpZCIsInBhcmVudEVsZW1lbnQiLCJzcGxpdCIsInJlcXVlc3QiLCJVUkxTZWFyY2hQYXJhbXMiLCJ3aW5kb3ciLCJEZWdyZWVQcm9ncmFtTGlzdFRhYmxlU2VydmVyRGF0YSIsImZldGNoIiwiYWpheHVybCIsIm1ldGhvZCIsImJvZHkiLCJ0aGVuIiwicmVzcG9uc2UiLCJqc29uIiwic3VjY2VzcyIsImFsZXJ0IiwiZGF0YSIsIm1lc3NhZ2UiLCJmaW5hbGx5IiwiZG9jdW1lbnQiLCJxdWVyeVNlbGVjdG9yQWxsIiwiZm9yRWFjaCIsImFkZEV2ZW50TGlzdGVuZXIiXSwic291cmNlUm9vdCI6IiJ9
+//# sourceMappingURL=degree-program-list-table.js.map
