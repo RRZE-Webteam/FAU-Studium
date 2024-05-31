@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-18 07:58+0000\n"
-"PO-Revision-Date: 2023-06-30 07:12+0200\n"
+"PO-Revision-Date: 2024-05-29 14:50+0200\n"
 "Last-Translator: \n"
 "Language-Team: Deutsch\n"
 "Language: de_DE\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.1\n"
+"X-Generator: Poedit 3.3.2\n"
 "X-Domain: fau-degree-program\n"
 
 #. translators: %s - amount of revisions
@@ -23,6 +23,7 @@ msgstr[0] "Eine Revision wurde erstellt."
 msgstr[1] "%d Revisionen wurden erstellt."
 
 #. Description of the plugin
+#: fau-degree-program.php
 msgid "Add and edit degree programs and expose them via the REST API."
 msgstr "Studiengänge hinzufügen, bearbeiten und via REST-API zugänglich machen."
 
@@ -51,232 +52,232 @@ msgctxt "backoffice: admin notice"
 msgid "Degree program cache invalidated."
 msgstr "Studiengang-Cache invalidiert."
 
-#: assets/ts/degree-program-editor.js:13
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "\"Apply now\" link"
 msgstr "„Jetzt bewerben“-Link"
 
-#: assets/ts/degree-program-editor.js:20
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "(optional)"
 msgstr "(optional)"
 
-#: assets/ts/degree-program-editor.js:11
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "Admission requirements for Bachelor's/teaching degrees"
 msgstr "Zugangsvoraussetzungen Bachelor/Lehramt"
 
-#: assets/ts/degree-program-editor.js:11
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "Admission requirements for entering a Bachelor's/teaching degree at a higher semester"
 msgstr "Zugangsvoraussetzungen Bachelor/Lehramt höheres Semester"
 
-#: assets/ts/degree-program-editor.js:11
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "Admission requirements for Master's degree"
 msgstr "Zugangsvoraussetzungen Master"
 
-#: assets/ts/degree-program-editor.js:11
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: Degree program edit form"
 msgid "Admission requirements, application and enrollment"
 msgstr "Zugangsvoraussetzungen, Bewerbung und Einschreibung"
 
-#: assets/ts/degree-program-editor.js:11
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "Application deadline summer semester"
 msgstr "Bewerbungsfrist Sommersemester"
 
-#: assets/ts/degree-program-editor.js:11
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "Application deadline winter semester"
 msgstr "Bewerbungsfrist Wintersemester"
 
-#: assets/ts/degree-program-editor.js:13
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "Area of study"
 msgstr "Studienbereich"
 
-#: assets/ts/degree-program-editor.js:11
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: Degree program edit form"
 msgid "At a glance"
 msgstr "Auf einen Blick"
 
-#: assets/ts/degree-program-editor.js:13
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "Attributes"
 msgstr "Attribute"
 
-#: assets/ts/degree-program-editor.js:11
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: Degree program edit form"
 msgid "Content"
 msgstr "Inhalte"
 
-#: assets/ts/degree-program-editor.js:11
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "Content-related admission requirements for Master's degree"
 msgstr "Inhaltliche Zugangsvoraussetzungen Master"
 
-#: assets/ts/degree-program-editor.js:13
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "Degree"
 msgstr "Abschluss"
 
-#: assets/ts/degree-program-editor.js:13
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "Degree program (URL)"
 msgstr "Studiengang (URL)"
 
-#: assets/ts/degree-program-editor.js:13
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "Degree program and examination regulations (URL)"
 msgstr "Studien- und Prüfungsordnungen (URL)"
 
-#: assets/ts/degree-program-editor.js:13
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "Degree Program Fees"
 msgstr "Studiengangsgebühren"
 
-#: assets/ts/degree-program-editor.js:13
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "Department/Institute (URL)"
 msgstr "Department/Institut (URL)"
 
-#: assets/ts/degree-program-editor.js:11
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "Details and notes"
 msgstr "Details und Anmerkungen"
 
-#: assets/ts/degree-program-editor.js:13
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "Duration of studies in semester"
 msgstr "Studiendauer in Semester"
 
-#: assets/ts/degree-program-editor.js:13
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "Entry text (promotional)"
 msgstr "Einstiegtext (werbend)"
 
-#: assets/ts/degree-program-editor.js:13
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "Examinations Office"
 msgstr "Prüfungsamt"
 
-#: assets/ts/degree-program-editor.js:13
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "Faculty"
 msgstr "Fakultät"
 
-#: assets/ts/degree-program-editor.js:13
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "Featured image"
 msgstr "Beitragsbild"
 
-#: assets/ts/degree-program-editor.js:13
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "Fee required"
 msgstr "Kostenpflichtig"
 
-#: assets/ts/degree-program-editor.js:13
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "Info brochure degree program (URL)"
 msgstr "Infobroschüre Studiengang"
 
-#: assets/ts/degree-program-editor.js:13
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "Keywords"
 msgstr "Schlagwörter"
 
-#: assets/ts/degree-program-editor.js:11
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "Language certificates/German language skills for international applicants"
 msgstr "Sprachnachweise/Deutschkenntnisse für internationale Bewerberinnen und Bewerber"
 
-#: assets/ts/degree-program-editor.js:11
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "Language skills"
 msgstr "Sprachkenntnisse"
 
-#: assets/ts/degree-program-editor.js:11
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "Language skills for Faculty of Humanities, Social Sciences, and Theology only"
 msgstr "Sprachkenntnisse nur für die Philosophische Fakultät und Fachbereich Theologie"
 
-#: assets/ts/degree-program-editor.js:13
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "Meta description"
 msgstr "Metabeschreibung"
 
-#: assets/ts/degree-program-editor.js:13
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "Module handbook (URL)"
 msgstr "Modulhandbuch (URL)"
 
-#: assets/ts/degree-program-editor.js:13
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "Number of students"
 msgstr "Studierendenzahl"
 
-#: assets/ts/degree-program-editor.js:11
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: Degree program edit form"
 msgid "Organizational notes/links"
 msgstr "Organisatorische Hinweise/Links"
 
-#: assets/ts/degree-program-editor.js:13
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "Start of degree program"
 msgstr "Studienbeginn"
 
-#: assets/ts/degree-program-editor.js:13
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "Study location"
 msgstr "Studienort"
 
-#: assets/ts/degree-program-editor.js:13
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "Subject groups"
 msgstr "Fächergruppen"
 
-#: assets/ts/degree-program-editor.js:13
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "Subject-specific advice"
 msgstr "Beratung aus dem Fach"
 
-#: assets/ts/degree-program-editor.js:13
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "Subtitle"
 msgstr "Untertitel"
 
-#: assets/ts/degree-program-editor.js:13
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "Teaching language"
 msgstr "Unterrichtssprache"
 
-#: assets/ts/degree-program-editor.js:13
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "Teaser Image"
 msgstr "Teaserbild"
 
-#: assets/ts/degree-program-editor.js:13
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "Title"
 msgstr "Titel"
 
-#: assets/ts/degree-program-editor.js:13
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
 msgid "Videos"
 msgstr "Videos"
 
-#: assets/ts/degree-program-editor.js:11
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: field label"
 msgid "Combination added"
 msgstr "Kombination hinzugefügt"
 
-#: assets/ts/degree-program-editor.js:11
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: field label"
 msgid "Combination removed"
 msgstr "Kombination entfernt"
 
-#: assets/ts/degree-program-editor.js:11
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: field label"
 msgid "Combinations"
 msgstr "Kombinationen"
@@ -296,27 +297,27 @@ msgctxt "backoffice: field label"
 msgid "English name"
 msgstr "Englischer Name"
 
-#: assets/ts/degree-program-editor.js:11
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: field label"
 msgid "Invalid combination"
 msgstr "Ungültige Kombination"
 
-#: assets/ts/degree-program-editor.js:11
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: field label"
 msgid "Invalid limited combination"
 msgstr "Ungültige eingeschränkte Kombination"
 
-#: assets/ts/degree-program-editor.js:11
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: field label"
 msgid "Limited combination added"
 msgstr "Eingeschränkte Kombination hinzugefügt"
 
-#: assets/ts/degree-program-editor.js:11
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: field label"
 msgid "Limited combination removed"
 msgstr "Eingeschränkte Kombination entfernt"
 
-#: assets/ts/degree-program-editor.js:11
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: field label"
 msgid "Limited Combinations"
 msgstr "Eingeschränkte Kombinationen"
@@ -336,22 +337,22 @@ msgctxt "backoffice: field label"
 msgid "Name"
 msgstr "Name"
 
-#: assets/ts/degree-program-editor.js:11
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: field label"
 msgid "Remove combination"
 msgstr "Kombination entfernen"
 
-#: assets/ts/degree-program-editor.js:11
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: field label"
 msgid "Remove limited combination"
 msgstr "Eingeschränkte Kombination entfernen"
 
-#: assets/ts/degree-program-editor.js:52
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: limited text input"
 msgid "%s characters left"
 msgstr "%s Zeichen übrig"
 
-#: assets/ts/degree-program-editor.js:13
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: Multilingual container"
 msgid "empty"
 msgstr "leer"
@@ -389,7 +390,7 @@ msgctxt "backoffice: revision notification"
 msgid "We inform about degree programs changes from the very beginning."
 msgstr "Wir informieren über Änderungen an Studiengängen von Anfang an."
 
-#: assets/ts/degree-program-editor.js:15
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: selector message"
 msgid "You can only select %d item"
 msgid_plural "You can only select %d items"
@@ -532,7 +533,7 @@ msgid "Link text used for English translation."
 msgstr "Für die englische Übersetzung verwendeter Linktext."
 
 #: src/Infrastructure/Dashboard/TermMeta/MultilingualLinkTermMetaFields.php:56
-#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:180
+#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:231
 msgctxt "backoffice: term field description"
 msgid "Link URL used for English translation."
 msgstr "Für die englische Übersetzung verwendete Link-URL."
@@ -542,12 +543,12 @@ msgctxt "backoffice: term field description"
 msgid "Name used for English translation."
 msgstr "Für die englische Übersetzung verwendeter Name."
 
-#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:140
+#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:191
 msgctxt "backoffice: term field name"
 msgid "Abbreviation"
 msgstr "Abkürzung"
 
-#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:149
+#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:200
 msgctxt "backoffice: term field name"
 msgid "English abbreviation"
 msgstr "Englische Abkürzung"
@@ -558,7 +559,7 @@ msgid "English link text"
 msgstr "Englischer Linktext"
 
 #: src/Infrastructure/Dashboard/TermMeta/MultilingualLinkTermMetaFields.php:51
-#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:175
+#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:226
 msgctxt "backoffice: term field name"
 msgid "English link URL"
 msgstr "Englische Link-URL"
@@ -574,22 +575,22 @@ msgid "Link text"
 msgstr "Linktext"
 
 #: src/Infrastructure/Dashboard/TermMeta/MultilingualLinkTermMetaFields.php:29
-#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:166
+#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:217
 msgctxt "backoffice: term field name"
 msgid "Link URL"
 msgstr "Link-URL"
 
-#: assets/ts/degree-program-editor.js:69
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: text control collection"
 msgid "No items added yet"
 msgstr "Noch keine Elemente hinzugefügt"
 
-#: assets/ts/degree-program-editor.js:69
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: TextControlCollection"
 msgid "Add"
 msgstr "Hinzufügen"
 
-#: assets/ts/degree-program-editor.js:69
+#: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: TextControlCollection"
 msgid "Remove"
 msgstr "Entfernen"
@@ -619,305 +620,53 @@ msgctxt "block title"
 msgid "Description Term"
 msgstr "Beschreibungsbegriff"
 
-#: assets/ts/degree-program-editor.js:2
+#: assets/ts/degree-program-editor.js:1
 msgid "Description details …"
 msgstr "Beschreibungsdetails …"
 
-#: assets/ts/degree-program-editor.js:2
+#: assets/ts/degree-program-editor.js:1
 msgid "Description term …"
 msgstr "Beschreibungsbegriff …"
 
-#: assets/ts/degree-program-editor.js:69
+#: assets/ts/degree-program-editor.js:1
 msgid "English variant of this field can not be empty."
 msgstr "Die englische Variante dieses Feldes darf nicht leer sein."
 
 #. Plugin Name of the plugin
+#: fau-degree-program.php
 msgid "FAU Degree Program Management"
 msgstr "FAU Studiengangsverwaltung"
 
-#: assets/ts/degree-program-editor.js:69
+#: assets/ts/degree-program-editor.js:1
 msgid "Field does not match pattern."
 msgstr "Feld stimmt nicht mit Muster überein."
 
 #. Plugin URI of the plugin
+#: fau-degree-program.php
 msgid "https://github.com/RRZE-Webteam/FAU-Studium"
 msgstr "https://github.com/RRZE-Webteam/FAU-Studium"
 
-#. Author URI of the plugin
-msgid "https://inpsyde.com/"
-msgstr "https://inpsyde.com/"
-
-#. Author of the plugin
-msgid "Inpsyde GmbH"
-msgstr "Inpsyde GmbH"
-
-#: assets/ts/degree-program-editor.js:69
+#: assets/ts/degree-program-editor.js:1
 msgid "Please select a featured image."
 msgstr "Bitte wählen Sie ein Beitragsbild."
 
-#: assets/ts/degree-program-editor.js:69
+#: assets/ts/degree-program-editor.js:1
 msgid "Please select a teaser image."
 msgstr "Bitte wählen Sie ein Teaserbild."
 
-#: assets/ts/degree-program-editor.js:69
+#: assets/ts/degree-program-editor.js:1
 msgid "Please select at least one item."
 msgstr "Bitte wählen Sie mindestens ein Element aus."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:173
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:193
-msgctxt "rest_api: response status"
-msgid "Degree program not found."
-msgstr "Studiengang nicht gefunden."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:104
-msgctxt "rest_api: response status"
-msgid "Something went wrong. Please try again later."
-msgstr "Etwas ging schief. Bitte versuchen Sie es später noch einmal."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:124
-msgctxt "rest_api: response status"
-msgid "The page number requested is larger than the number of pages available."
-msgstr "Die angeforderte Seitenzahl ist größer als die Anzahl der verfügbaren Seiten."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:431
-msgctxt "rest_api: schema item description"
-msgid "Admission requirement link."
-msgstr "Zugangsvoraussetzungen-Link."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:439
-msgctxt "rest_api: schema item description"
-msgid "Admission requirements."
-msgstr "Zugangsvoraussetzungen."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:463
-msgctxt "rest_api: schema item description"
-msgid "Application deadline summer semester."
-msgstr "Bewerbungsfrist Sommersemester."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:455
-msgctxt "rest_api: schema item description"
-msgid "Application deadline winter semester."
-msgstr "Bewerbungsfrist Wintersemester."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:367
-msgctxt "rest_api: schema item description"
-msgid "Attributes."
-msgstr "Attribute."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:632
-msgctxt "rest_api: schema item description"
-msgid "Available translations."
-msgstr "Verfügbare Übersetzungen."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:447
-msgctxt "rest_api: schema item description"
-msgid "Content-related admission requirements for Master’s degree."
-msgstr "Inhaltliche Zugangsvoraussetzungen Master."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:423
-msgctxt "rest_api: schema item description"
-msgid "Content."
-msgstr "Inhalte."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:576
-msgctxt "rest_api: schema item description"
-msgid "Counseling and Service Centers at FAU."
-msgstr "Beratungs- und Servicestellen der FAU."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:528
-msgctxt "rest_api: schema item description"
-msgid "Degree program and examination regulations."
-msgstr "Studien- und Prüfungsordnungen."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:600
-msgctxt "rest_api: schema item description"
-msgid "Degree program fees."
-msgstr "Studiengangsgebühren."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:624
-msgctxt "rest_api: schema item description"
-msgid "Degree program limited possible combinations."
-msgstr "Eingeschränkt mögliche Studiengangskombinationen."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:616
-msgctxt "rest_api: schema item description"
-msgid "Degree program possible combinations."
-msgstr "Mögliche Studiengangskombinationen."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:544
-msgctxt "rest_api: schema item description"
-msgid "Degree program URL."
-msgstr "Studiengang-URL."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:375
-msgctxt "rest_api: schema item description"
-msgid "Degree."
-msgstr "Abschluss."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:552
-msgctxt "rest_api: schema item description"
-msgid "Department."
-msgstr "Department."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:471
-msgctxt "rest_api: schema item description"
-msgid "Details and notes."
-msgstr "Details und Anmerkungen."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:520
-msgctxt "rest_api: schema item description"
-msgid "Examinations Office."
-msgstr "Prüfungsamt."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:383
-msgctxt "rest_api: schema item description"
-msgid "Faculty."
-msgstr "Fakultät."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:295
-msgctxt "rest_api: schema item description"
-msgid "Feature image."
-msgstr "Beitragsbild."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:335
-msgctxt "rest_api: schema item description"
-msgid "Fee required."
-msgstr "Kostenpflichtig."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:584
-msgctxt "rest_api: schema item description"
-msgid "Info brochure degree program."
-msgstr "Infobroschüre Studiengang."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:496
-msgctxt "rest_api: schema item description"
-msgid "Language certificates/German language skills for international applicants."
-msgstr "Sprachnachweise/Deutschkenntnisse für internationale Bewerberinnen und Bewerber."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:487
-msgctxt "rest_api: schema item description"
-msgid "Language skills for Faculty of Humanities, Social Sciences, and Theology only."
-msgstr "Sprachkenntnisse nur für die Philosophische Fakultät und Fachbereich Theologie."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:479
-msgctxt "rest_api: schema item description"
-msgid "Language skills."
-msgstr "Sprachkenntnisse."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:415
-msgctxt "rest_api: schema item description"
-msgid "Meta description."
-msgstr "Metabeschreibung."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:536
-msgctxt "rest_api: schema item description"
-msgid "Module handbook."
-msgstr "Modulhandbuch."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:640
-msgctxt "rest_api: schema item description"
-msgid "Notes for international applicants."
-msgstr "Hinweise für internationale Bewerber."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:351
-msgctxt "rest_api: schema item description"
-msgid "Number of students."
-msgstr "Studierendenzahl."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:608
-msgctxt "rest_api: schema item description"
-msgid "Opportunities for spending time abroad."
-msgstr "Wege ins Ausland."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:512
-msgctxt "rest_api: schema item description"
-msgid "Semester dates."
-msgstr "Semestertermine."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:592
-msgctxt "rest_api: schema item description"
-msgid "Semester fee."
-msgstr "Semesterbeitrag."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:327
-msgctxt "rest_api: schema item description"
-msgid "Standard duration of study."
-msgstr "Regelstudienzeit."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:343
-msgctxt "rest_api: schema item description"
-msgid "Start of degree program."
-msgstr "Studienbeginn."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:504
-msgctxt "rest_api: schema item description"
-msgid "Start of semester."
-msgstr "Semesterstart."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:560
-msgctxt "rest_api: schema item description"
-msgid "Student Advice and Career Service."
-msgstr "Allgemeine Studienberatung."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:648
-msgctxt "rest_api: schema item description"
-msgid "Students' Union/Student Initiatives."
-msgstr "StuVe/FSI."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:391
-msgctxt "rest_api: schema item description"
-msgid "Study location."
-msgstr "Studienorte."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:399
-msgctxt "rest_api: schema item description"
-msgid "Subject groups."
-msgstr "Fächergruppen."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:568
-msgctxt "rest_api: schema item description"
-msgid "Subject-specific advice."
-msgstr "Beratung aus dem Fach."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:319
-msgctxt "rest_api: schema item description"
-msgid "Subtitle."
-msgstr "Untertitel."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:359
-msgctxt "rest_api: schema item description"
-msgid "Teaching language."
-msgstr "Unterrichtssprache."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:303
-msgctxt "rest_api: schema item description"
-msgid "Teaser image."
-msgstr "Teaserbild."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:311
-msgctxt "rest_api: schema item description"
-msgid "Title."
-msgstr "Titel."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:287
-msgctxt "rest_api: schema item description"
-msgid "Unique identifier for the degree program."
-msgstr "Eindeutiger Bezeichner für den Studiengang."
-
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:407
-msgctxt "rest_api: schema item description"
-msgid "Videos."
-msgstr "Videos."
 
 #: templates/settings/page.php:23
 msgid "Save Settings"
 msgstr "Einstellungen speichern"
 
-#: assets/ts/degree-program-editor.js:69
+#: assets/ts/degree-program-editor.js:1
 msgid "This field can not be empty."
 msgstr "Dieses Feld darf nicht leer sein."
 
-#: assets/ts/degree-program-editor.js:69
+#: assets/ts/degree-program-editor.js:1
 msgid "Field"
 msgstr "Feld"
 
@@ -951,7 +700,47 @@ msgctxt "backoffice: setting title"
 msgid "\"Tips for application\" link text"
 msgstr "„Tipps zur Bewerbung“-Linktext"
 
-#: src/Infrastructure/RestApi/TranslatedDegreeProgramController.php:266
-msgctxt "rest_api: schema item description"
-msgid "Language code (\"de\" and \"en\" are supported)."
-msgstr "Sprachcode („de“ und „en“ werden unterstützt)."
+#. Author of the plugin
+#: fau-degree-program.php
+msgid "Syde GmbH"
+msgstr ""
+
+#. Author URI of the plugin
+#: fau-degree-program.php
+msgid "https://syde.com/"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/TermMeta/CampoKeyTermMetaField.php:18
+msgid "Campo Key"
+msgstr ""
+
+#. translators: %1$s: field title. %2$s: expected pattern description.
+#: src/Infrastructure/Dashboard/TermMeta/TermMetaFieldsValidator.php:41
+msgid "The value of the field &#8220;%1$s&#8221; is invalid. expected value: %2$s"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:73
+#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:137
+msgid "Up to 3 digits, no letters. Leading zeros are allowed."
+msgstr ""
+
+#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:79
+#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:143
+msgid "1 to 3 digits"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:123
+msgid "Up to 3 uppercase alphanumeric characters."
+msgstr ""
+
+#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:129
+msgid "1 to 3 uppercase letters or digits"
+msgstr ""
+
+#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:180
+msgid "Up to 3 lowercase alphanumeric characters."
+msgstr ""
+
+#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:186
+msgid "1 to 3 lowercase letters or digits"
+msgstr ""

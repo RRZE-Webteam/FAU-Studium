@@ -1,11 +1,9 @@
-/* eslint-disable global-require */
-/* eslint-disable import/no-dynamic-require */
-
-global.wp = {};
+const globalAny:any = global;
+globalAny.wp = {};
 
 const wordPressPackages = ['components', 'data', 'core-data'];
 wordPressPackages.forEach((lib) => {
-    Object.defineProperty(global.wp, lib, {
+    Object.defineProperty(globalAny.wp, lib, {
         get: () => require(`@wordpress/${lib}`),
     });
 });

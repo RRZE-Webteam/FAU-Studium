@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks';
 
-import { useLanguageSkillsForFacultyOfHumanitiesOnlyEnabled } from 'hooks/useConditionalFields';
+import { useLanguageSkillsForFacultyOfHumanitiesOnlyEnabled } from '../../../../../resources/ts/hooks/useConditionalFields';
 
 import {
     mockBachelorDegree,

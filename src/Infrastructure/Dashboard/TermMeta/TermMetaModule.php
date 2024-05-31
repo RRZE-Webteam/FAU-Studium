@@ -26,6 +26,7 @@ use Fau\DegreeProgram\Common\Infrastructure\Repository\BilingualRepository;
 use Fau\DegreeProgram\Common\Infrastructure\TemplateRenderer\DirectoryLocator;
 use Fau\DegreeProgram\Common\Infrastructure\TemplateRenderer\Renderer;
 use Fau\DegreeProgram\Common\Infrastructure\TemplateRenderer\TemplateRenderer;
+use Inpsyde\Assets\AssetManager;
 use Inpsyde\Modularity\Module\ExecutableModule;
 use Inpsyde\Modularity\Module\ModuleClassNameIdTrait;
 use Inpsyde\Modularity\Module\ServiceModule;
@@ -41,15 +42,20 @@ final class TermMetaModule implements ServiceModule, ExecutableModule
     public function services(): array
     {
         return [
+            AssetsLoader::class => static fn(ContainerInterface $container) => new AssetsLoader(
+                $container->get(Package::PROPERTIES),
+            ),
             self::TERM_META_FIELD_RENDERER => static fn(ContainerInterface $container): Renderer => TemplateRenderer::new(
                 DirectoryLocator::new(
                     $container->get(Package::PROPERTIES)->basePath() . '/templates/term-meta'
                 )
             ),
             TermMetaRepository::class => fn() => new TermMetaRepository(),
+            TermMetaFieldsValidator::class => fn() => new TermMetaFieldsValidator(),
             TermMetaRegistrar::class => static fn(ContainerInterface $container): TermMetaRegistrar => new TermMetaRegistrar(
                 termMetaFieldRenderer: $container->get(TermMetaModule::TERM_META_FIELD_RENDERER),
                 termMetaRepository: $container->get(TermMetaRepository::class),
+                validator: $container->get(TermMetaFieldsValidator::class),
             ),
         ];
     }
@@ -63,6 +69,16 @@ final class TermMetaModule implements ServiceModule, ExecutableModule
 
         $termMetaRegistrar->register(
             AreaOfStudyTaxonomy::KEY,
+            (new CampoKeyTermMetaField(
+                __(
+                    'Up to 3 digits, no letters. Leading zeros are allowed.',
+                    'fau-degree-program'
+                ),
+                new TermMetaFieldValidationPattern(
+                    '^(?:[0-9]{1,3}|$)$',
+                    __('1 to 3 digits', 'fau-degree-program'),
+                ),
+            )),
             ...(new MultilingualLinkTermMetaFields())->getArrayCopy(),
         );
         $termMetaRegistrar->register(
@@ -103,10 +119,30 @@ final class TermMetaModule implements ServiceModule, ExecutableModule
         );
         $termMetaRegistrar->register(
             StudyLocationTaxonomy::KEY,
+            (new CampoKeyTermMetaField(
+                __(
+                    'Up to 3 uppercase alphanumeric characters.',
+                    'fau-degree-program'
+                ),
+                new TermMetaFieldValidationPattern(
+                    '^(?:[A-Z0-9]{1,3}|$)$',
+                    __('1 to 3 uppercase letters or digits', 'fau-degree-program'),
+                ),
+            )),
             new EnglishNameTermMetaField(),
         );
         $termMetaRegistrar->register(
             SubjectGroupTaxonomy::KEY,
+            (new CampoKeyTermMetaField(
+                __(
+                    'Up to 3 digits, no letters. Leading zeros are allowed.',
+                    'fau-degree-program'
+                ),
+                new TermMetaFieldValidationPattern(
+                    '^(?:[0-9]{1,3}|$)$',
+                    __('1 to 3 digits', 'fau-degree-program'),
+                ),
+            )),
             new EnglishNameTermMetaField(),
         );
         $termMetaRegistrar->register(
@@ -126,6 +162,11 @@ final class TermMetaModule implements ServiceModule, ExecutableModule
             ...(new MultilingualLinkTermMetaFields())->getArrayCopy(),
         );
 
+        add_action(
+            AssetManager::ACTION_SETUP,
+            [$container->get(AssetsLoader::class), 'load']
+        );
+
         return true;
     }
 
@@ -135,6 +176,16 @@ final class TermMetaModule implements ServiceModule, ExecutableModule
     private static function degreeMetaFields(): array
     {
         return [
+            (new CampoKeyTermMetaField(
+                __(
+                    'Up to 3 lowercase alphanumeric characters.',
+                    'fau-degree-program'
+                ),
+                new TermMetaFieldValidationPattern(
+                    '^(?:[a-z0-9]{1,3}|$)$',
+                    __('1 to 3 lowercase letters or digits', 'fau-degree-program'),
+                ),
+            )),
             new InputTermMetaField(
                 Degree::ABBREVIATION,
                 _x(

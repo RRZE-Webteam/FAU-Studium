@@ -3,7 +3,7 @@ import { renderHook } from '@testing-library/react-hooks';
 import {
     useApplicationDeadlineSummerSemesterEnabled,
     useApplicationDeadlineWinterSemesterEnabled,
-} from 'hooks/useConditionalFields';
+} from '../../../../../resources/ts/hooks/useConditionalFields';
 
 import {
     mockAbcSemester,

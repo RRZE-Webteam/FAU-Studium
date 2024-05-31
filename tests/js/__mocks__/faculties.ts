@@ -1,4 +1,4 @@
-import { DegreeProgramData } from 'defs';
+import { DegreeProgramData } from '../../../resources/ts/defs';
 
 export const mockNatFaculty: DegreeProgramData['faculty'] = [
     {

@@ -1,31 +1,35 @@
-// Unfortunately, there is no way to filter or adjust the core blocks toolbar.
-// Hiding the block toolbar items is fragile, so it is merely a UX improvement,
+// Unfortunately, there is no way to filter
+// or adjust the core blocks toolbar.
+// Hiding the block toolbar items is fragile,
+// so it is merely a UX improvement,
 // with the actual sanitization happening server-side.
 
 // Hide H1, H2 and H6 Heading level toolbar buttons
 .block-library-heading-level-dropdown {
-  button {
-    &[aria-label$="1"],
-    &[aria-label$="2"],
-    &[aria-label$="6"] {
-      display: none;
-    }
-  }
+
+	button {
+
+		&[aria-label$="1"],
+		&[aria-label$="2"],
+		&[aria-label$="6"] {
+			display: none;
+		}
+	}
 }
 
 .content-field-blocks-list .block-editor-default-block-appender {
-  display: block !important;
-  height: auto !important;
+	display: block !important;
+	height: auto !important;
 }
 
 .component-multilingual-container .content-field-blocks-list {
-  padding-top: 34px !important;
+	padding-top: 34px !important;
 
-  & > .block-list-appender .block-editor-inserter__toggle {
-    display: none !important;
-  }
+	> .block-list-appender .block-editor-inserter__toggle {
+		display: none !important;
+	}
 }
 
 .fau-content-field .editor-styles-wrapper {
-  padding-bottom: unset !important;
+	padding-bottom: unset !important;
 }

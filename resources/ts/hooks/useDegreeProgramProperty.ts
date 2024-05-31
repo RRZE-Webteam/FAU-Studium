@@ -1,12 +1,13 @@
-import produce, { Immutable } from 'immer';
+import produce from 'immer';
+import type { Immutable } from 'immer';
 import { get, set } from 'lodash';
 
 import { useEntityProp } from '@wordpress/core-data';
 
-import { useValidation } from 'contexts/DegreeProgramValidationProvider';
-import serverData from 'util/serverData';
+import { useValidation } from '../contexts/DegreeProgramValidationProvider';
 
 import { DegreeProgramDataPaths } from '../defs';
+import serverData from '../util/serverData';
 
 /**
  * Hook that returns the value and a setter for the
@@ -16,8 +17,8 @@ import { DegreeProgramDataPaths } from '../defs';
  * To make immutable changes easy, Immer library is used.
  *
  * @param path Path to DegreeProgramData value.
- * @typeParam Value Definition of returned DegreeProgramData property.
- * @returns An array where the first item is the property value, and the second is the setter.
+ *             typeParam Value Definition of returned DegreeProgramData property.
+ * @return An array where the first item is the property value, and the second is the setter.
  *
  * @example
  * ```
@@ -29,23 +30,25 @@ import { DegreeProgramDataPaths } from '../defs';
  * }
  * ```
  */
-export default function useDegreeProgramProperty<Value>(
-    path: DegreeProgramDataPaths,
-): [Immutable<undefined | Value>, (value: Value) => void] {
-    const [degreeProgramData, setDegreeProgramData] = useEntityProp(
-        'postType',
-        serverData().postType,
-        serverData().propertyName,
-    );
-    const { removeError } = useValidation();
+export default function useDegreeProgramProperty< Value >(
+	path: DegreeProgramDataPaths
+): [ Immutable< undefined | Value >, ( value: Value ) => void ] {
+	const [ degreeProgramData, setDegreeProgramData ] = useEntityProp(
+		'postType',
+		serverData().postType,
+		serverData().propertyName
+	);
+	const { removeError } = useValidation();
 
-    return [
-        get(degreeProgramData, path),
-        (val: Value) => {
-            removeError(path);
-            setDegreeProgramData(
-                produce<Value>(degreeProgramData, (draft) => set(draft, path, val)),
-            );
-        },
-    ];
+	return [
+		get( degreeProgramData, path ),
+		( val: Value ) => {
+			removeError( path );
+			setDegreeProgramData(
+				produce< Value >( degreeProgramData, ( draft ) =>
+					set( draft, path, val )
+				)
+			);
+		},
+	];
 }

@@ -1,4 +1,4 @@
-import { DegreeProgramData } from 'defs';
+import { DegreeProgramData } from '../../../resources/ts/defs';
 
 export const mockFreiAdmissionRequirement: DegreeProgramData['admission_requirements']['bachelor_or_teaching_degree'] =
     {

@@ -5,12 +5,12 @@ exports[`Content fields should match snapshot 1`] = `
   <span />,
   <span>
     <span
-      className="sc-bcXHqe bKtfDB"
+      className="sc-bcXHqe iQQiXs"
     >
       about (about)
     </span>
     <p
-      className="sc-gswNZR hgMeoo"
+      className="sc-gswNZR iGmgVA"
     >
       kurze Beschreibung des Studiengangs allgemein; ±200 Wörter
     </p>
@@ -18,12 +18,12 @@ exports[`Content fields should match snapshot 1`] = `
   <span />,
   <span>
     <span
-      className="sc-bcXHqe bKtfDB"
+      className="sc-bcXHqe iQQiXs"
     >
       structure (structure)
     </span>
     <p
-      className="sc-gswNZR hgMeoo"
+      className="sc-gswNZR iGmgVA"
     >
       Vorstellung des Fachs und der Studieninhalte; ±200 Wörter
     </p>
@@ -31,12 +31,12 @@ exports[`Content fields should match snapshot 1`] = `
   <span />,
   <span>
     <span
-      className="sc-bcXHqe bKtfDB"
+      className="sc-bcXHqe iQQiXs"
     >
       specializations (specializations) (optional)
     </span>
     <p
-      className="sc-gswNZR hgMeoo"
+      className="sc-gswNZR iGmgVA"
     >
       Spezialisierungsmöglichkeiten und Schwerpunkte während des Studiums; ±200 Wörter
     </p>
@@ -44,12 +44,12 @@ exports[`Content fields should match snapshot 1`] = `
   <span />,
   <span>
     <span
-      className="sc-bcXHqe bKtfDB"
+      className="sc-bcXHqe iQQiXs"
     >
       qualities_and_skills (qualities_and_skills) (optional)
     </span>
     <p
-      className="sc-gswNZR hgMeoo"
+      className="sc-gswNZR iGmgVA"
     >
       Fähigkeiten und Vorlieben der Studieninteressierten, nicht formelle Voraussetzungen; ±200 Wörter
     </p>
@@ -57,12 +57,12 @@ exports[`Content fields should match snapshot 1`] = `
   <span />,
   <span>
     <span
-      className="sc-bcXHqe bKtfDB"
+      className="sc-bcXHqe iQQiXs"
     >
       why_should_study (why_should_study) (optional)
     </span>
     <p
-      className="sc-gswNZR hgMeoo"
+      className="sc-gswNZR iGmgVA"
     >
       Einzigartigkeit bzw. Besonderheiten (z. B. Kooperationspartner, Verbundstudiumsangebot) des Studiengangs an der FAU; ±200 Wörter
     </p>
@@ -70,12 +70,12 @@ exports[`Content fields should match snapshot 1`] = `
   <span />,
   <span>
     <span
-      className="sc-bcXHqe bKtfDB"
+      className="sc-bcXHqe iQQiXs"
     >
       career_prospects (career_prospects) (optional)
     </span>
     <p
-      className="sc-gswNZR hgMeoo"
+      className="sc-gswNZR iGmgVA"
     >
       mögliche Tätigkeitsfelder nach Abschluss des Studiums; ±200 Wörter
     </p>
@@ -83,12 +83,12 @@ exports[`Content fields should match snapshot 1`] = `
   <span />,
   <span>
     <span
-      className="sc-bcXHqe bKtfDB"
+      className="sc-bcXHqe iQQiXs"
     >
       special_features (special_features) (optional)
     </span>
     <p
-      className="sc-gswNZR hgMeoo"
+      className="sc-gswNZR iGmgVA"
     >
       Möglichkeiten von Auslandsaufenthalten, Kooperationen mit Forschungsprojekten, etc.; ±200 Wörter
     </p>

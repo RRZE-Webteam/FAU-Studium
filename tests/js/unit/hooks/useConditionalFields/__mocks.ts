@@ -1,7 +1,7 @@
-import useDegreeProgramProperty from 'hooks/useDegreeProgramProperty';
-import * as useTaxonomyTerm from 'hooks/useTaxonomyTerm';
+import useDegreeProgramProperty from '../../../../../resources/ts/hooks/useDegreeProgramProperty';
+import * as useTaxonomyTerm from '../../../../../resources/ts/hooks/useTaxonomyTerm';
 
-import { Degree, DegreeProgramData, WpTerm } from 'defs';
+import { Degree, DegreeProgramData, WpTerm } from '../../../../../resources/ts/defs';
 
 export const mockUseDegreeProgramProperty = useDegreeProgramProperty as jest.MockedFunction<
     typeof useDegreeProgramProperty

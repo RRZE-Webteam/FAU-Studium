@@ -13,6 +13,7 @@ use Fau\DegreeProgram\Common\Application\Repository\DegreeProgramCollectionRepos
 use Fau\DegreeProgram\Common\Application\Repository\DegreeProgramViewRepository;
 use Fau\DegreeProgram\Common\Domain\DegreeProgramRepository;
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\TaxonomiesList;
+use Fau\DegreeProgram\Common\Infrastructure\Repository\CampoKeysRepository;
 use Fau\DegreeProgram\Common\Infrastructure\Repository\FacultyRepository;
 use Fau\DegreeProgram\Common\Infrastructure\Repository\IdGenerator;
 use Fau\DegreeProgram\Common\Infrastructure\Repository\WordPressDatabaseDegreeProgramCollectionRepository;
@@ -33,16 +34,19 @@ class RepositoryModule implements ServiceModule
     public const VIEW_REPOSITORY_UNCACHED = 'view_repository_uncached';
     public const COLLECTION_REPOSITORY_UNCACHED = 'collection_repository_uncached';
 
+    // phpcs:ignore Inpsyde.CodeQuality.FunctionLength.TooLong
     public function services(): array
     {
         return [
             IdGenerator::class => static fn() => new IdGenerator(),
+            CampoKeysRepository::class => static fn() => new CampoKeysRepository(),
             ConditionalFieldsFilter::class => static fn() => new ConditionalFieldsFilter(),
             FacultyRepository::class => static fn() => new FacultyRepository(),
             DegreeProgramRepository::class => static fn(ContainerInterface $container) => new WordPressDatabaseDegreeProgramRepository(
                 $container->get(IdGenerator::class),
                 $container->get(EventDispatcherInterface::class),
                 $container->get(HtmlDegreeProgramSanitizer::class),
+                $container->get(CampoKeysRepository::class),
             ),
             self::VIEW_REPOSITORY_UNCACHED => static fn(ContainerInterface $container) => new WordPressDatabaseDegreeProgramViewRepository(
                 $container->get(DegreeProgramRepository::class),
@@ -56,7 +60,8 @@ class RepositoryModule implements ServiceModule
                 $container->get(CacheInterface::class),
             ),
             WpQueryArgsBuilder::class => static fn(ContainerInterface $container) => new WpQueryArgsBuilder(
-                $container->get(TaxonomiesList::class)
+                $container->get(TaxonomiesList::class),
+                $container->get(CampoKeysRepository::class),
             ),
             self::COLLECTION_REPOSITORY_UNCACHED => static fn(ContainerInterface $container) => new WordPressDatabaseDegreeProgramCollectionRepository(
                 $container->get(self::VIEW_REPOSITORY_UNCACHED),

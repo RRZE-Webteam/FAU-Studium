@@ -1,7 +1,7 @@
 import React from 'react';
 import { act, fireEvent, render, screen } from '@testing-library/react';
 
-import TextControlCollection from 'components/TextControlCollection';
+import TextControlCollection from '../../../../resources/ts/components/TextControlCollection';
 
 jest.mock('nanoid', () => ({ nanoid: () => `key_${Math.random()}` }));
 

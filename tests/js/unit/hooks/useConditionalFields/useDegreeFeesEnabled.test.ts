@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks';
 
-import { useDegreeFeesEnabled } from 'hooks/useConditionalFields';
+import { useDegreeFeesEnabled } from '../../../../../resources/ts/hooks/useConditionalFields';
 
 import { mockUseDegreeProgramProperty } from './__mocks';
 
