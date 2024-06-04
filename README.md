@@ -1,13 +1,13 @@
 # FAU Degree Program Management
 
 Add and edit degree programs and expose them via the REST API.
- 
+
 ## Table Of Contents
 
 * [Installation](#installation)
 * [Requirements](#requirements)
 * [Usage](#usage)
-* [Crafted by Inpsyde](#crafted-by-inpsyde)
+* [Crafted by Syde](#crafted-by-syde)
 * [License](#license)
 * [Contributing](#contributing)
 
@@ -30,7 +30,7 @@ cron job.
 After plugin activation, a daily WordPress Cron job is registered to schedule revision notifications.
 The behavior can be disabled by defining the PHP constant or environment variable `FAU_DISABLE_DAILY_REVISION_NOTIFICATION`.
 In this case, a Unix cron job that executes the WP-CLI command `wp fau revision notify` should be run with the desired frequency.
-This is the preferred way for revision notification because there are no time and memory limits 
+This is the preferred way for revision notification because there are no time and memory limits
 compared to WordPress Cron which runs within HTTP requests.
 
 The plugin's logger uses [`error_log()`](https://www.php.net/manual/en/function.error-log.php) internally.
@@ -43,13 +43,13 @@ This can be set for all degree programs or degree programs of a particular term,
 The "FAU Degree Program Output" plugin displays sticky degree programs first
 when rendering the "search" shortcode.
 
-## Crafted by Inpsyde
+## Crafted by Syde
 
-The team at [Inpsyde](https://inpsyde.com/) is engineering the Web since 2006.
+The team at [Syde](https://syde.com/) is engineering the Web since 2006.
 
 ## License
 
-Copyright (c) 2022, Inpsyde GmbH
+Copyright (c) 2022, Syde GmbH
 
 This software is released under the ["GNU General Public License v2.0 or later"](LICENSE) license.
 
