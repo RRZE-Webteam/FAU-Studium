@@ -20,7 +20,7 @@ final class DegreeProgramBulkUpdater
     }
 
     /**
-     * Degree program slug are calculated based on the degree term meta abbreviation value.
+     * Degree program slug is calculated based on the degree term meta abbreviation value.
      * So if the abbreviation value was changed, we have to update all related degree programs.
      *
      * @wp-hook updated_term_meta
