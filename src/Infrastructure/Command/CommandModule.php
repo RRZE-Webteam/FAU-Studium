@@ -31,8 +31,10 @@ class CommandModule implements ServiceModule, ExecutableModule
     public function run(ContainerInterface $container): bool
     {
         add_action(
-            'edited_' . DegreeTaxonomy::KEY,
-            [$container->get(DegreeProgramBulkUpdater::class), 'whenDegreeTermUpdated']
+            'updated_term_meta',
+            [$container->get(DegreeProgramBulkUpdater::class), 'whenTermMetaUpdated'],
+            10,
+            3
         );
 
         add_action(
