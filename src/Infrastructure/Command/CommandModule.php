@@ -24,6 +24,9 @@ class CommandModule implements ServiceModule, ExecutableModule
                 $container->get(DegreeProgramCollectionRepository::class),
                 $container->get(DegreeProgramRepository::class),
             ),
+            DegreeProgramSlugUpdater::class => static fn(ContainerInterface $container) => new DegreeProgramSlugUpdater(
+                $container->get(DegreeProgramBulkUpdater::class),
+            ),
             RelatedPostMetaRemover::class => static fn() => new RelatedPostMetaRemover(),
         ];
     }
@@ -31,10 +34,11 @@ class CommandModule implements ServiceModule, ExecutableModule
     public function run(ContainerInterface $container): bool
     {
         add_action(
-            'edited_' . DegreeTaxonomy::KEY,
-            [$container->get(DegreeProgramBulkUpdater::class), 'whenDegreeTermUpdated']
+            'updated_term_meta',
+            [$container->get(DegreeProgramSlugUpdater::class), 'whenTermMetaUpdated'],
+            10,
+            3
         );
-
         add_action(
             'deleted_post',
             [$container->get(RelatedPostMetaRemover::class), 'whenDegreeProgramDeleted'],
