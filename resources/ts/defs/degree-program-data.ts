@@ -122,4 +122,5 @@ export interface DegreeProgramPost extends Post {
 
 export interface AdmissionRequirement extends MultilingualLink {
 	parent: AdmissionRequirement | null;
+	slug: string;
 }
