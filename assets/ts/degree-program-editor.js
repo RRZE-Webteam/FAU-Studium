@@ -4781,12 +4781,13 @@ function transformTermToDegree(term) {
   };
 }
 function transformTermToAdmissionRequirement(term) {
-  var _a;
+  var _a, _b;
   var admissionRequirement = transformTermToMultilingualLink(term);
+  admissionRequirement.slug = (_a = term === null || term === void 0 ? void 0 : term.slug) !== null && _a !== void 0 ? _a : '';
   if (!term) {
     return admissionRequirement;
   }
-  admissionRequirement.parent = (_a = term.parent_object) !== null && _a !== void 0 ? _a : null;
+  admissionRequirement.parent = (_b = term.parent_object) !== null && _b !== void 0 ? _b : null;
   return admissionRequirement;
 }
 
