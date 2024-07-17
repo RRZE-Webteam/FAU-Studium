@@ -97,6 +97,8 @@ export function transformTermToAdmissionRequirement(
 		term
 	) as AdmissionRequirement;
 
+	admissionRequirement.slug = term?.slug ?? '';
+
 	if ( ! term ) {
 		return admissionRequirement;
 	}
