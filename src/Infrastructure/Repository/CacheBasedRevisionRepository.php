@@ -156,7 +156,7 @@ final class CacheBasedRevisionRepository implements DegreeProgramRevisionReposit
                 DegreeProgram::COMBINATIONS => $this->combinationsToContextualIdList($rawRevision->combinations()),
                 DegreeProgram::LIMITED_COMBINATIONS => $this->combinationsToContextualIdList($rawRevision->limitedCombinations()),
                 DegreeProgram::APPLY_NOW_LINK => $this->structureToContextualId($rawRevision->applyNowLink()),
-                DegreeProgram::CAMPO_KEYS => $rawRevision->campoKeys()->asArray(),
+                DegreeProgram::CAMPO_KEYS => implode(', ', $rawRevision->campoKeys()->asArray()),
             ],
             self::multilingualStringToFlatArray(DegreeProgram::ENTRY_TEXT, $rawRevision->entryText()),
         );
