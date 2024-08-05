@@ -16,7 +16,7 @@
         "ext-dom": "*",
         "ext-libxml": "*",
         "inpsyde/assets": "^2.8",
-        "rrze/fau-studium-common": "*",
+        "rrze/fau-studium-common": "dev-main",
         "inpsyde/modularity": "^1.5",
         "psr/log": "^3.0"
     },

@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Degree program revisions.
+
+## [2.0.0] - 2024-07-24
+
 ### Added
 
 - Support WordPress "Quote" block in content fields.
@@ -109,7 +115,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.
 
-[Unreleased]: https://github.com/RRZE-Webteam/FAU-Studium/compare/1.2.7...HEAD
+[Unreleased]: https://github.com/RRZE-Webteam/FAU-Studium/compare/2.0.0...HEAD
+[2.0.0]: https://github.com/RRZE-Webteam/FAU-Studium/compare/1.2.7...2.0.0
 [1.2.7]: https://github.com/RRZE-Webteam/FAU-Studium/compare/1.2.6...1.2.7
 [1.2.6]: https://github.com/RRZE-Webteam/FAU-Studium/compare/1.2.5...1.2.6
 [1.2.5]: https://github.com/RRZE-Webteam/FAU-Studium/compare/1.2.4...1.2.5
