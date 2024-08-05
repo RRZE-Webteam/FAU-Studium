@@ -422,17 +422,17 @@
         },
         {
             "name": "rrze/fau-studium-common",
-            "version": "dev-dev",
-            "version_normalized": "dev-dev",
+            "version": "dev-main",
+            "version_normalized": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RRZE-Webteam/FAU-Studium-Common.git",
-                "reference": "d83e8ea07501f8ab93d52fd2de7c44020751ec1d"
+                "reference": "d8cb53c2cf24a6f28b07109cec9bb67c1d51d743"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RRZE-Webteam/FAU-Studium-Common/zipball/d83e8ea07501f8ab93d52fd2de7c44020751ec1d",
-                "reference": "d83e8ea07501f8ab93d52fd2de7c44020751ec1d",
+                "url": "https://api.github.com/repos/RRZE-Webteam/FAU-Studium-Common/zipball/d8cb53c2cf24a6f28b07109cec9bb67c1d51d743",
+                "reference": "d8cb53c2cf24a6f28b07109cec9bb67c1d51d743",
                 "shasum": ""
             },
             "require": {
@@ -454,8 +454,7 @@
             "suggest": {
                 "inpsyde/modularity": "Modular PSR-11 implementation for WordPress Plugins, Themes or Libraries"
             },
-            "time": "2024-07-16T06:54:30+00:00",
-            "default-branch": true,
+            "time": "2024-07-23T13:46:52+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -504,7 +503,7 @@
             ],
             "description": "Shared kernel for FAU Degree Program and FAU Degree Program Output plugins.",
             "support": {
-                "source": "https://github.com/RRZE-Webteam/FAU-Studium-Common/tree/dev",
+                "source": "https://github.com/RRZE-Webteam/FAU-Studium-Common/tree/main",
                 "issues": "https://github.com/RRZE-Webteam/FAU-Studium-Common/issues"
             },
             "install-path": "../rrze/fau-studium-common"
