@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `date` and `modified` degree program REST API properties.
 - `fau/v1/degree-program/index` REST API endpoint.
 
+### Changed
+
+- Removed campo keys from degree program revision data.
+
 ## [2.0.1] - 2024-08-07
 
 ### Fixed
