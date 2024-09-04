@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Removed campo keys from degree program revision data.
+
 ## [2.0.1] - 2024-08-07
 
 ### Fixed
