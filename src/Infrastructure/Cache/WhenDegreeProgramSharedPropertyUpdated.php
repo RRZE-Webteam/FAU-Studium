@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Fau\DegreeProgram\Infrastructure\Cache;
 
 use Fau\DegreeProgram\Common\Application\Cache\CacheInvalidator;
+use Fau\DegreeProgram\Common\Application\Event\CacheInvalidated;
 
 final class WhenDegreeProgramSharedPropertyUpdated
 {
@@ -23,6 +24,6 @@ final class WhenDegreeProgramSharedPropertyUpdated
         }
 
         $once = true;
-        $this->cacheInvalidator->invalidateFully();
+        $this->cacheInvalidator->invalidateFully(CacheInvalidated::DATA_CHANGED);
     }
 }

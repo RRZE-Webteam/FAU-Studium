@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Fau\DegreeProgram\Infrastructure\Cache;
 
 use Fau\DegreeProgram\Common\Application\Cache\CacheInvalidator;
+use Fau\DegreeProgram\Common\Application\Event\CacheInvalidated;
 use Fau\DegreeProgram\Common\Domain\DegreeProgram;
 use Fau\DegreeProgram\Common\Domain\Event\DegreeProgramUpdated;
 use Fau\DegreeProgram\Common\Infrastructure\Content\PostType\DegreeProgramPostType;
@@ -27,7 +28,7 @@ final class WhenDegreeProgramUpdated
         $limitedCombinationIds = $this->findRelatedIds(DegreeProgram::LIMITED_COMBINATIONS, $postId);
         $ids = array_unique(array_merge([$postId], $combinationIds, $limitedCombinationIds));
 
-        $this->cacheInvalidator->invalidatePartially($ids);
+        $this->cacheInvalidator->invalidatePartially($ids, CacheInvalidated::DATA_CHANGED);
     }
 
     /**

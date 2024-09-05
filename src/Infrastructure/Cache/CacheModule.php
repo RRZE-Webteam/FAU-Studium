@@ -15,6 +15,7 @@ use Fau\DegreeProgram\Common\Domain\Event\DegreeProgramUpdated;
 use Fau\DegreeProgram\Common\Infrastructure\Cache\PostMetaDegreeProgramCache;
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\TaxonomiesList;
 use Fau\DegreeProgram\Common\Infrastructure\Repository\BilingualRepository;
+use Fau\DegreeProgram\Common\Infrastructure\Repository\TimestampRepository;
 use Fau\DegreeProgram\Infrastructure\Repository\RepositoryModule;
 use Inpsyde\Modularity\Module\ExecutableModule;
 use Inpsyde\Modularity\Module\ModuleClassNameIdTrait;
@@ -76,6 +77,7 @@ final class CacheModule implements ServiceModule, ExecutableModule
             ),
             WhenCacheInvalidated::class => static fn(ContainerInterface $container) => new WhenCacheInvalidated(
                 $container->get(MessageBus::class),
+                $container->get(TimestampRepository::class),
             ),
             WarmCacheMessageHandler::class => static fn(ContainerInterface $container) => new WarmCacheMessageHandler(
                 $container->get(CacheWarmer::class),
@@ -86,6 +88,14 @@ final class CacheModule implements ServiceModule, ExecutableModule
     public function run(ContainerInterface $container): bool
     {
         self::setUpInvalidationListeners($container);
+
+        add_action(
+            CacheInvalidated::NAME,
+            [
+                $container->get(WhenCacheInvalidated::class),
+                'updateModifiedDate',
+            ]
+        );
 
         add_action(
             CacheInvalidated::NAME,
