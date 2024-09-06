@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.1.0] - 2024-09-06
+
 ### Added
 
 - `date` and `modified` degree program REST API properties.
@@ -126,7 +128,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.
 
-[Unreleased]: https://github.com/RRZE-Webteam/FAU-Studium/compare/2.0.1...HEAD
+[Unreleased]: https://github.com/RRZE-Webteam/FAU-Studium/compare/2.1.0...HEAD
+[2.1.0]: https://github.com/RRZE-Webteam/FAU-Studium/compare/2.0.1...2.1.0
 [2.0.1]: https://github.com/RRZE-Webteam/FAU-Studium/compare/2.0.0...2.0.1
 [2.0.0]: https://github.com/RRZE-Webteam/FAU-Studium/compare/1.2.7...2.0.0
 [1.2.7]: https://github.com/RRZE-Webteam/FAU-Studium/compare/1.2.6...1.2.7
