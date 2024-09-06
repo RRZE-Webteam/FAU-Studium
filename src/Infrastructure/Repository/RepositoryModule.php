@@ -16,6 +16,7 @@ use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\TaxonomiesList;
 use Fau\DegreeProgram\Common\Infrastructure\Repository\CampoKeysRepository;
 use Fau\DegreeProgram\Common\Infrastructure\Repository\FacultyRepository;
 use Fau\DegreeProgram\Common\Infrastructure\Repository\IdGenerator;
+use Fau\DegreeProgram\Common\Infrastructure\Repository\TimestampRepository;
 use Fau\DegreeProgram\Common\Infrastructure\Repository\WordPressDatabaseDegreeProgramCollectionRepository;
 use Fau\DegreeProgram\Common\Infrastructure\Repository\WordPressDatabaseDegreeProgramRepository;
 use Fau\DegreeProgram\Common\Infrastructure\Repository\WordPressDatabaseDegreeProgramViewRepository;
@@ -43,6 +44,7 @@ class RepositoryModule implements ServiceModule
             CampoKeysRepository::class => static fn() => new CampoKeysRepository(),
             ConditionalFieldsFilter::class => static fn() => new ConditionalFieldsFilter(),
             FacultyRepository::class => static fn() => new FacultyRepository(),
+            TimestampRepository::class => static fn() => new TimestampRepository(),
             DegreeProgramRepository::class => static fn(ContainerInterface $container) => new WordPressDatabaseDegreeProgramRepository(
                 $container->get(IdGenerator::class),
                 $container->get(EventDispatcherInterface::class),
@@ -54,6 +56,7 @@ class RepositoryModule implements ServiceModule
                 $container->get(HtmlDegreeProgramSanitizer::class),
                 $container->get(ConditionalFieldsFilter::class),
                 $container->get(FacultyRepository::class),
+                $container->get(TimestampRepository::class),
             ),
             DegreeProgramViewRepository::class => static fn(ContainerInterface $container) => new CachedDegreeProgramViewRepository(
                 $container->get(self::VIEW_REPOSITORY_UNCACHED),

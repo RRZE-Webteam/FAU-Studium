@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Fau\DegreeProgram\Infrastructure\Cache;
 
 use Fau\DegreeProgram\Common\Application\Cache\CacheInvalidator;
+use Fau\DegreeProgram\Common\Application\Event\CacheInvalidated;
 use Fau\DegreeProgram\Common\Infrastructure\Content\PostType\DegreeProgramPostType;
 use Psr\SimpleCache\InvalidArgumentException;
 
@@ -25,7 +26,7 @@ final class WhenDegreeProgramTermUpdated
             return;
         }
 
-        $this->cacheInvalidator->invalidatePartially($ids);
+        $this->cacheInvalidator->invalidatePartially($ids, CacheInvalidated::DATA_CHANGED);
     }
 
     /**
