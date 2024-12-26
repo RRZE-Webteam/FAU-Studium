@@ -13,6 +13,7 @@ use Fau\DegreeProgram\Common\Domain\DegreeProgramRepository;
 use Fau\DegreeProgram\Common\Infrastructure\Content\PostType\DegreeProgramPostType;
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\BachelorOrTeachingDegreeAdmissionRequirementTaxonomy;
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\DegreeTaxonomy;
+use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\GermanLanguageSkillsForInternationalStudentsTaxonomy;
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\MasterDegreeAdmissionRequirementTaxonomy;
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\TeachingDegreeHigherSemesterAdmissionRequirementTaxonomy;
 use Fau\DegreeProgram\Common\Infrastructure\Repository\FacultyRepository;
@@ -119,6 +120,7 @@ final class RestApiModule implements ServiceModule, ExecutableModule
                     BachelorOrTeachingDegreeAdmissionRequirementTaxonomy::KEY,
                     MasterDegreeAdmissionRequirementTaxonomy::KEY,
                     TeachingDegreeHigherSemesterAdmissionRequirementTaxonomy::KEY,
+                    GermanLanguageSkillsForInternationalStudentsTaxonomy::KEY,
                 ];
 
                 foreach ($taxonomies as $taxonomy) {
