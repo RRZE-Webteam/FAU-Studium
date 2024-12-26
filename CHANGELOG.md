@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Make “German language skills for international students” taxonomy hierarchical.
 
+### Changed
+
+- Updated the process for building assets to improve compatibility.
+
 ## [2.1.0] - 2024-09-06
 
 ### Added
