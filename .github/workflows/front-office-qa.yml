@@ -15,7 +15,7 @@ jobs:
     secrets:
       GITHUB_USER_EMAIL: ${{ secrets.DEPLOYBOT_EMAIL }}
       GITHUB_USER_NAME: ${{ secrets.DEPLOYBOT_USER }}
-      ENV_VARS: ${{ secrets.ENV_VARS }}
+      ENV_VARS: ${{ vars.ENV_VARS }}
     with:
       STYLELINT_ARGS: '"resources/**/*.scss"'
       ESLINT_ARGS: '"resources/**/*.{ts,tsx}"'
