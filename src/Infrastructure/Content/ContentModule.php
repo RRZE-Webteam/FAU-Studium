@@ -84,7 +84,7 @@ final class ContentModule implements ServiceModule, ExecutableModule
         foreach ($taxonomiesList as $taxonomyClass) {
             /** @var Taxonomy $taxonomyObject */
             // phpcs:ignore NeutronStandard.Functions.DisallowCallUserFunc.CallUserFunc
-            $taxonomyObject = call_user_func([$taxonomyClass, 'public']);
+            $taxonomyObject = call_user_func([$taxonomyClass, 'editableOnly']);
             $taxonomyObject = $taxonomyObject->merge([
                 'capabilities' => [
                     'manage_terms' => Capabilities::MANAGE_DEGREE_PROGRAM_TERMS,
