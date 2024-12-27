@@ -27,7 +27,7 @@ export function transformTermToMultilingualString(
 		: { ...EMPTY_MULTILINGUAL_STRING };
 }
 
-export function transformTermToMultilingualLink< ParentType = never >(
+export function transformTermToMultilingualLink(
 	term: WpTerm< MultilingualLinkMeta, MultilingualLink > | null
 ): MultilingualLink {
 	return term
