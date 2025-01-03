@@ -6,8 +6,10 @@ namespace Fau\DegreeProgram\Infrastructure\RestApi;
 
 use Fau\DegreeProgram\Common\Domain\AdmissionRequirement;
 use Fau\DegreeProgram\Common\Domain\Degree;
+use Fau\DegreeProgram\Common\Domain\MultilingualLink;
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\BachelorOrTeachingDegreeAdmissionRequirementTaxonomy;
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\DegreeTaxonomy;
+use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\GermanLanguageSkillsForInternationalStudentsTaxonomy;
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\MasterDegreeAdmissionRequirementTaxonomy;
 use Fau\DegreeProgram\Common\Infrastructure\Content\Taxonomy\TeachingDegreeHigherSemesterAdmissionRequirementTaxonomy;
 use Fau\DegreeProgram\Infrastructure\Repository\TermsRepository;
@@ -16,6 +18,7 @@ use WP_Term;
 /**
  * @psalm-import-type DegreeType from Degree
  * @psalm-import-type AdmissionRequirementType from AdmissionRequirement
+ * @psalm-import-type MultilingualLinkType from MultilingualLink
  */
 final class TermsParentObjectController
 {
@@ -47,6 +50,9 @@ final class TermsParentObjectController
             case TeachingDegreeHigherSemesterAdmissionRequirementTaxonomy::KEY:
                 return $this->parentAdmissionRequirement($parentTerm);
 
+            case GermanLanguageSkillsForInternationalStudentsTaxonomy::KEY:
+                return $this->parentGermanLanguageSkillsForInternationalStudents($parentTerm);
+
             default:
                 return null;
         }
@@ -66,5 +72,13 @@ final class TermsParentObjectController
     private function parentAdmissionRequirement(WP_Term $term): array
     {
         return $this->termsRepository->admissionRequirement($term)->asArray();
+    }
+
+    /**
+     * @psalm-return MultilingualLinkType
+     */
+    private function parentGermanLanguageSkillsForInternationalStudents(WP_Term $term): array
+    {
+        return $this->termsRepository->multilingualLinkFromTerm($term)->asArray();
     }
 }

@@ -107,6 +107,7 @@ export type MultilingualLink = {
 	name: MultilingualString;
 	link_text: MultilingualString;
 	link_url: MultilingualString;
+	parent: MultilingualLink | null;
 };
 
 export type ContentItem = {

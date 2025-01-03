@@ -18,6 +18,7 @@ export const mockNatFaculty: DegreeProgramData['faculty'] = [
             de: 'Nat',
             en: 'Nat',
         },
+        parent: null
     },
 ];
 
@@ -39,6 +40,7 @@ export const mockPhilFaculty: DegreeProgramData['faculty'] = [
             de: 'Phil',
             en: 'Phil',
         },
+        parent: null
     },
 ];
 
@@ -60,6 +62,7 @@ export const mockAbcFaculty: DegreeProgramData['faculty'] = [
             de: 'Abc',
             en: 'Abc',
         },
+        parent: null
     },
 ];
 
@@ -81,5 +84,6 @@ export const mockEmptyFaculty: DegreeProgramData['faculty'] = [
             de: '',
             en: '',
         },
+        parent: null
     },
 ];
