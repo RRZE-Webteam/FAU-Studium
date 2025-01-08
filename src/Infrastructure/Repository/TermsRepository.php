@@ -6,6 +6,7 @@ namespace Fau\DegreeProgram\Infrastructure\Repository;
 
 use Fau\DegreeProgram\Common\Domain\AdmissionRequirement;
 use Fau\DegreeProgram\Common\Domain\Degree;
+use Fau\DegreeProgram\Common\Domain\MultilingualLink;
 use Fau\DegreeProgram\Common\Infrastructure\Repository\BilingualRepository;
 use Fau\DegreeProgram\Common\Infrastructure\Repository\IdGenerator;
 use WP_Term;
@@ -42,5 +43,10 @@ final class TermsRepository extends BilingualRepository
             $parent instanceof WP_Term ? $this->admissionRequirement($parent) : null,
             $term->slug
         );
+    }
+
+    public function multilingualLinkFromTerm(WP_Term $term): MultilingualLink
+    {
+        return $this->bilingualLinkFromTerm($term);
     }
 }

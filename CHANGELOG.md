@@ -8,6 +8,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Make “German language skills for international students” taxonomy hierarchical.
+
+### Changed
+
+- Disable single term views for degree program-related taxonomies.
+- Update the process for building assets to improve compatibility.
+- Update dependencies.
+
+### Fixed
+
+- WordPress 6.7 compatibility.
+
 ## [2.1.0] - 2024-09-06
 
 ### Added
@@ -46,19 +60,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Updated dependencies.
+- Update dependencies.
 
 ## [1.2.5] - 2023-07-26
 
 ### Changed
 
-- Updated dependencies.
+- Update dependencies.
 
 ## [1.2.4] - 2023-07-19
 
 ### Changed
 
-- Updated dependencies.
+- Update dependencies.
 
 ## [1.2.3] - 2023-07-05
 
@@ -70,7 +84,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Updated dependencies.
+- Update dependencies.
 
 ## [1.2.1] - 2023-06-07
 
