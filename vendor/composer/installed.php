@@ -3,7 +3,7 @@
         'name' => 'rrze/fau-studium',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'a564140633d8e490499159fc414868d960703fd9',
+        'reference' => '253777f23c566e46134a97849c2ed2bc95b34ea6',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,18 +11,18 @@
     ),
     'versions' => array(
         'inpsyde/assets' => array(
-            'pretty_version' => '2.8.3',
-            'version' => '2.8.3.0',
-            'reference' => 'f198d7d8b726132851413a6a9b4918e02c077a4b',
+            'pretty_version' => '2.9.0',
+            'version' => '2.9.0.0',
+            'reference' => '2b2d2ac359383e24284388bf54a6ff4f122d3c67',
             'type' => 'library',
             'install_path' => __DIR__ . '/../inpsyde/assets',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
         'inpsyde/modularity' => array(
-            'pretty_version' => '1.8.0',
-            'version' => '1.8.0.0',
-            'reference' => 'c6855a6d9c4ce6f090d031e820f176bddf2a0b1c',
+            'pretty_version' => '1.11.0',
+            'version' => '1.11.0.0',
+            'reference' => 'c79bb3682f55e1a2ece67f36e70d04fa2ab8c65d',
             'type' => 'library',
             'install_path' => __DIR__ . '/../inpsyde/modularity',
             'aliases' => array(),
@@ -76,7 +76,7 @@
         'rrze/fau-studium' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'a564140633d8e490499159fc414868d960703fd9',
+            'reference' => '253777f23c566e46134a97849c2ed2bc95b34ea6',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -85,7 +85,7 @@
         'rrze/fau-studium-common' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '2314da111571d795a3f3d3dbe194680737a26e07',
+            'reference' => '9d164cfcdb8ff80950fbf07b9a9e8629342d7cac',
             'type' => 'library',
             'install_path' => __DIR__ . '/../rrze/fau-studium-common',
             'aliases' => array(

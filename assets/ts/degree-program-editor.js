@@ -4733,7 +4733,7 @@ function transformTermToMultilingualString(term) {
   } : (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, EMPTY_MULTILINGUAL_STRING);
 }
 function transformTermToMultilingualLink(term) {
-  var _a, _b, _c, _d, _e;
+  var _a, _b, _c, _d, _e, _f;
   return term ? {
     id: (0,_idHelpers__WEBPACK_IMPORTED_MODULE_0__.propertyId)('term', term.id),
     name: {
@@ -4750,12 +4750,14 @@ function transformTermToMultilingualLink(term) {
       id: (0,_idHelpers__WEBPACK_IMPORTED_MODULE_0__.propertyId)('term_meta', term.id, 'link_url'),
       de: (_d = term.meta.link_url) !== null && _d !== void 0 ? _d : '',
       en: (_e = term.meta.link_url_en) !== null && _e !== void 0 ? _e : ''
-    }
+    },
+    parent: (_f = term.parent_object) !== null && _f !== void 0 ? _f : null
   } : {
     id: '',
     name: (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, EMPTY_MULTILINGUAL_STRING),
     link_text: (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, EMPTY_MULTILINGUAL_STRING),
-    link_url: (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, EMPTY_MULTILINGUAL_STRING)
+    link_url: (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, EMPTY_MULTILINGUAL_STRING),
+    parent: null
   };
 }
 function transformTermToDegree(term) {
@@ -4781,13 +4783,9 @@ function transformTermToDegree(term) {
   };
 }
 function transformTermToAdmissionRequirement(term) {
-  var _a, _b;
+  var _a;
   var admissionRequirement = transformTermToMultilingualLink(term);
   admissionRequirement.slug = (_a = term === null || term === void 0 ? void 0 : term.slug) !== null && _a !== void 0 ? _a : '';
-  if (!term) {
-    return admissionRequirement;
-  }
-  admissionRequirement.parent = (_b = term.parent_object) !== null && _b !== void 0 ? _b : null;
   return admissionRequirement;
 }
 
