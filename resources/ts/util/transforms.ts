@@ -27,8 +27,8 @@ export function transformTermToMultilingualString(
 		: { ...EMPTY_MULTILINGUAL_STRING };
 }
 
-export function transformTermToMultilingualLink< ParentType = never >(
-	term: WpTerm< MultilingualLinkMeta, ParentType > | null
+export function transformTermToMultilingualLink(
+	term: WpTerm< MultilingualLinkMeta, MultilingualLink > | null
 ): MultilingualLink {
 	return term
 		? {
@@ -48,12 +48,14 @@ export function transformTermToMultilingualLink< ParentType = never >(
 					de: term.meta.link_url ?? '',
 					en: term.meta.link_url_en ?? '',
 				},
+				parent: term.parent_object ?? null,
 		  }
 		: {
 				id: '',
 				name: { ...EMPTY_MULTILINGUAL_STRING },
 				link_text: { ...EMPTY_MULTILINGUAL_STRING },
 				link_url: { ...EMPTY_MULTILINGUAL_STRING },
+				parent: null,
 		  };
 }
 
@@ -98,12 +100,6 @@ export function transformTermToAdmissionRequirement(
 	) as AdmissionRequirement;
 
 	admissionRequirement.slug = term?.slug ?? '';
-
-	if ( ! term ) {
-		return admissionRequirement;
-	}
-
-	admissionRequirement.parent = term.parent_object ?? null;
 
 	return admissionRequirement;
 }
