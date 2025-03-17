@@ -1,6 +1,6 @@
 {
   "name": "@rrze/fau-studium",
-  "version": "2.2.0-beta.1",
+  "version": "2.2.0",
   "private": true,
   "description": "Add and edit degree programs and expose them via the REST API.",
   "keywords": [],
