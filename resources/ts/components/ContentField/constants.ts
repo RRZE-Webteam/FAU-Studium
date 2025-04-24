@@ -9,6 +9,8 @@ export const ALLOWED_BLOCK_TYPES = [
 	'fau/description-list',
 	'fau/description-term',
 	'fau/description-details',
+	'fau/faudir-block',
+	'fau-degree-program/shares',
 ];
 
 export const ALLOWED_MIME_TYPES = {
