@@ -1431,7 +1431,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   ALLOWED_BLOCK_TYPES: () => (/* binding */ ALLOWED_BLOCK_TYPES),
 /* harmony export */   ALLOWED_MIME_TYPES: () => (/* binding */ ALLOWED_MIME_TYPES)
 /* harmony export */ });
-var ALLOWED_BLOCK_TYPES = ['core/paragraph', 'core/image', 'core/list', 'core/list-item', 'core/heading', 'core/shortcode', 'core/quote', 'fau/description-list', 'fau/description-term', 'fau/description-details'];
+var ALLOWED_BLOCK_TYPES = ['core/paragraph', 'core/image', 'core/list', 'core/list-item', 'core/heading', 'core/shortcode', 'core/quote', 'fau/description-list', 'fau/description-term', 'fau/description-details', 'fau/faudir-block', 'fau-degree-program/shares'];
 var ALLOWED_MIME_TYPES = {
   'jpg|jpeg|jpe': 'image/jpeg',
   gif: 'image/gif',
