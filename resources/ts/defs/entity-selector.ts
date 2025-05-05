@@ -11,6 +11,7 @@ export type EntitySelectorProps< Entity = object > = Readonly< {
 	childOnly?: boolean;
 	onChange( value: Array< Entity > ): void;
 	entityToToken( entity: Entity ): string;
+	search?: string;
 	searchedEntities: Array< Entity >;
 	setSearch( value: string ): void;
 } >;
