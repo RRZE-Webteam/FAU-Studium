@@ -62,10 +62,4 @@ const CircularProgressBar = ( {
 		</StyledSvgCircle>
 	);
 };
-
-CircularProgressBar.defaultProps = {
-	squareSize: DEFAULT_SQUARE_SIZE,
-	strokeWidth: DEFAULT_STROKE_WIDTH,
-};
-
 export default CircularProgressBar;
