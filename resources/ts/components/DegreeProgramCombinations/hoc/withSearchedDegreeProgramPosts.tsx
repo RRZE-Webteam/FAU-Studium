@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { createHigherOrderComponent } from '@wordpress/compose';
 import type { Post } from '@wordpress/core-data';
 import { store as coreStore } from '@wordpress/core-data';
-import { withSelect } from '@wordpress/data';
+import { useSelect } from '@wordpress/data';
 import { store as editorStore } from '@wordpress/editor';
 
 import serverData from '../../../util/serverData';
@@ -11,46 +11,53 @@ import serverData from '../../../util/serverData';
 import { EntitySelectorProps } from '../../../defs';
 import { SelectorProps } from '../../TermSelector/defs';
 
-const withSearchedPostsSelect = withSelect(
-	(
-		select,
-		ownProps: EntitySelectorProps< Post< 'view' > >
-	): Partial< EntitySelectorProps< Post< 'view' > > > => {
-		const { getCurrentPost } = select( editorStore.name );
-		const { getEntityRecords } = select( coreStore.name );
+const useSearchedDegreeProgramPosts = (
+	maxSuggestions: number
+): Partial< EntitySelectorProps< Post< 'view' > > > => {
+	const [ search, setSearch ] = useState( '' );
 
-		const currentPost = getCurrentPost();
+	const searchedEntities: Array< Post< 'view' > > = useSelect(
+		( select: any ): Array< Post< 'view' > > => {
+			const { getCurrentPost } = select( editorStore.name );
+			const { getEntityRecords } = select( coreStore.name );
 
-		const posts = getEntityRecords( 'postType', serverData().postType, {
-			...{
-				per_page: ownProps.maxSuggestions,
-				orderby: 'title',
-				order: 'asc',
-				_fields: 'id,degree_program',
-				context: 'view',
-				search: ownProps.search,
-			},
-			...( currentPost ? { exclude: currentPost.id } : {} ),
-		} );
+			const currentPost = getCurrentPost();
 
-		return {
-			searchedEntities: posts ?? [],
-		};
-	}
-);
+			return (
+				( getEntityRecords( 'postType', serverData().postType, {
+					...{
+						per_page: maxSuggestions,
+						orderby: 'title',
+						order: 'asc',
+						_fields: 'id,degree_program',
+						context: 'view',
+						search,
+					},
+					...( currentPost ? { exclude: currentPost.id } : {} ),
+				} ) as Post< 'view' >[] ) || []
+			);
+		},
+		[ maxSuggestions, search ]
+	);
+
+	return {
+		searchedEntities,
+		setSearch,
+	};
+};
 
 const withSearchedDegreeProgramPosts = createHigherOrderComponent(
 	( WrappedComponent: React.FC< Partial< EntitySelectorProps > > ) =>
-		( props: SelectorProps ) => {
-			const [ search, setSearch ] = useState( '' );
-			const EnhancedComponent: React.FC<
-				Partial< EntitySelectorProps >
-			> = withSearchedPostsSelect( WrappedComponent );
+		( props: SelectorProps & { maxSuggestions: number } ) => {
+			const { maxSuggestions } = props;
+
+			const { searchedEntities, setSearch } =
+				useSearchedDegreeProgramPosts( maxSuggestions );
 
 			return (
-				<EnhancedComponent
+				<WrappedComponent
 					{ ...props }
-					search={ search }
+					searchedEntities={ searchedEntities }
 					setSearch={ setSearch }
 				/>
 			);

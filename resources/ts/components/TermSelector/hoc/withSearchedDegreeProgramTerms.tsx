@@ -2,50 +2,58 @@ import React, { useState } from 'react';
 
 import { createHigherOrderComponent } from '@wordpress/compose';
 import { store as coreStore } from '@wordpress/core-data';
-import { withSelect } from '@wordpress/data';
+import { useSelect } from '@wordpress/data';
 
 import serverData from '../../../util/serverData';
 
 import { EntitySelectorProps, WpTerm } from '../../../defs';
 import { SelectorProps } from '../defs';
 
-const withSearchedTermsSelect = withSelect(
-	(
-		select,
-		ownProps: { taxonomy: string; maxSuggestions: number; search: string }
-	): Partial< EntitySelectorProps< WpTerm > > => {
-		const { getEntityRecords } = select( coreStore.name );
+const useSearchedDegreeProgramTerms = (
+	taxonomy: string,
+	maxSuggestions: number
+): Partial< EntitySelectorProps< WpTerm > > => {
+	const [ search, setSearch ] = useState( '' );
 
-		const terms = getEntityRecords(
-			'taxonomy',
-			serverData().taxonomySlugs[ ownProps.taxonomy ],
-			{
-				per_page: ownProps.maxSuggestions,
-				orderby: 'name',
-				order: 'asc',
-				context: 'view',
-				search: ownProps.search,
-			}
-		);
+	const searchedEntities: Array< WpTerm > = useSelect(
+		( select ): Array< WpTerm > => {
+			const { getEntityRecords } = select( coreStore );
 
-		return {
-			searchedEntities: terms ?? [],
-		};
-	}
-);
+			return (
+				( getEntityRecords(
+					'taxonomy',
+					serverData().taxonomySlugs[ taxonomy ],
+					{
+						per_page: maxSuggestions,
+						orderby: 'name',
+						order: 'asc',
+						context: 'view',
+						search,
+					}
+				) as WpTerm[] ) || []
+			);
+		},
+		[ taxonomy, maxSuggestions, search ]
+	);
+
+	return {
+		searchedEntities,
+		setSearch,
+	};
+};
 
 const withSearchedDegreeProgramTerms = createHigherOrderComponent(
 	( WrappedComponent: React.FC< Partial< EntitySelectorProps > > ) =>
-		( props: SelectorProps ) => {
-			const [ search, setSearch ] = useState( '' );
-			const EnhancedComponent: React.FC<
-				Partial< EntitySelectorProps >
-			> = withSearchedTermsSelect( WrappedComponent );
+		( props: SelectorProps & { maxSuggestions: number } ) => {
+			const { taxonomy, maxSuggestions } = props;
+
+			const { searchedEntities, setSearch } =
+				useSearchedDegreeProgramTerms( taxonomy, maxSuggestions );
 
 			return (
-				<EnhancedComponent
+				<WrappedComponent
 					{ ...props }
-					search={ search }
+					searchedEntities={ searchedEntities }
 					setSearch={ setSearch }
 				/>
 			);
