@@ -85,7 +85,11 @@ const BlockDeselectListener = ( {
  * @param {function(string): void} onChange Callback to update content
  * @param {?boolean}               required Is required?
  */
-const ContentField = ( { content, onChange, required }: ContentFieldProps ) => {
+const ContentField = ( {
+	content,
+	onChange,
+	required = false,
+}: ContentFieldProps ) => {
 	const [ currentBlocks, setCurrentBlocks ] = useState( parse( content ) );
 	const editorRef = useRef< HTMLDivElement >( null );
 
@@ -150,10 +154,6 @@ const ContentField = ( { content, onChange, required }: ContentFieldProps ) => {
 			</div>
 		</BlockEditorProvider>
 	);
-};
-
-ContentField.defaultProps = {
-	required: false,
 };
 
 export default ContentField;

@@ -149,10 +149,4 @@ const TextControlCollection = ( {
 		</div>
 	);
 };
-
-TextControlCollection.defaultProps = {
-	emptyMessage: undefined,
-	type: 'text',
-} as Partial< Props >;
-
 export default TextControlCollection;
