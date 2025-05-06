@@ -1291,10 +1291,6 @@ var CircularProgressBar = function (_a) {
     }
   }));
 };
-CircularProgressBar.defaultProps = {
-  squareSize: DEFAULT_SQUARE_SIZE,
-  strokeWidth: DEFAULT_STROKE_WIDTH
-};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CircularProgressBar);
 var templateObject_1;
 
@@ -1375,10 +1371,11 @@ var BlockDeselectListener = function (_a) {
 var ContentField = function (_a) {
   var content = _a.content,
     onChange = _a.onChange,
-    required = _a.required;
-  var _b = (0,tslib__WEBPACK_IMPORTED_MODULE_8__.__read)((0,react__WEBPACK_IMPORTED_MODULE_0__.useState)((0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__.parse)(content)), 2),
-    currentBlocks = _b[0],
-    setCurrentBlocks = _b[1];
+    _b = _a.required,
+    required = _b === void 0 ? false : _b;
+  var _c = (0,tslib__WEBPACK_IMPORTED_MODULE_8__.__read)((0,react__WEBPACK_IMPORTED_MODULE_0__.useState)((0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__.parse)(content)), 2),
+    currentBlocks = _c[0],
+    setCurrentBlocks = _c[1];
   var editorRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   var updateValue = function (blocks) {
     onChange((0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__.serialize)(blocks));
@@ -1410,9 +1407,6 @@ var ContentField = function (_a) {
   }), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(BlockDeselectListener, {
     editorRef: editorRef
   })))))), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Popover.Slot, null))));
-};
-ContentField.defaultProps = {
-  required: false
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ContentField);
 var templateObject_1;
@@ -1707,7 +1701,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   withSearchedDegreeProgramPosts: () => (/* reexport safe */ _withSearchedDegreeProgramPosts__WEBPACK_IMPORTED_MODULE_1__["default"])
 /* harmony export */ });
 /* harmony import */ var _withDegreeProgramPosts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./withDegreeProgramPosts */ "./resources/ts/components/DegreeProgramCombinations/hoc/withDegreeProgramPosts.ts");
-/* harmony import */ var _withSearchedDegreeProgramPosts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./withSearchedDegreeProgramPosts */ "./resources/ts/components/DegreeProgramCombinations/hoc/withSearchedDegreeProgramPosts.ts");
+/* harmony import */ var _withSearchedDegreeProgramPosts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./withSearchedDegreeProgramPosts */ "./resources/ts/components/DegreeProgramCombinations/hoc/withSearchedDegreeProgramPosts.tsx");
 
 
 
@@ -1759,10 +1753,10 @@ var withDegreeProgramPosts = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_1__.wit
 
 /***/ }),
 
-/***/ "./resources/ts/components/DegreeProgramCombinations/hoc/withSearchedDegreeProgramPosts.ts":
-/*!*************************************************************************************************!*\
-  !*** ./resources/ts/components/DegreeProgramCombinations/hoc/withSearchedDegreeProgramPosts.ts ***!
-  \*************************************************************************************************/
+/***/ "./resources/ts/components/DegreeProgramCombinations/hoc/withSearchedDegreeProgramPosts.tsx":
+/*!**************************************************************************************************!*\
+  !*** ./resources/ts/components/DegreeProgramCombinations/hoc/withSearchedDegreeProgramPosts.tsx ***!
+  \**************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1770,45 +1764,61 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_core_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/core-data */ "@wordpress/core-data");
-/* harmony import */ var _wordpress_core_data__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_core_data__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
-/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _wordpress_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/editor */ "@wordpress/editor");
-/* harmony import */ var _wordpress_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_editor__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _util_serverData__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../util/serverData */ "./resources/ts/util/serverData.ts");
+/* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/compose */ "@wordpress/compose");
+/* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_compose__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_core_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/core-data */ "@wordpress/core-data");
+/* harmony import */ var _wordpress_core_data__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_core_data__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_editor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/editor */ "@wordpress/editor");
+/* harmony import */ var _wordpress_editor__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_editor__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _util_serverData__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../util/serverData */ "./resources/ts/util/serverData.ts");
 
 
 
 
 
 
-var withSearchedDegreeProgramPosts = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.withSelect)(function (select, ownProps) {
-  var _a = (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__read)((0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''), 2),
+
+var useSearchedDegreeProgramPosts = function (maxSuggestions) {
+  var _a = (0,tslib__WEBPACK_IMPORTED_MODULE_6__.__read)((0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''), 2),
     search = _a[0],
     setSearch = _a[1];
-  var getCurrentPost = select(_wordpress_editor__WEBPACK_IMPORTED_MODULE_3__.store.name).getCurrentPost;
-  var getEntityRecords = select(_wordpress_core_data__WEBPACK_IMPORTED_MODULE_1__.store.name).getEntityRecords;
-  var currentPost = getCurrentPost();
-  var posts = getEntityRecords('postType', (0,_util_serverData__WEBPACK_IMPORTED_MODULE_4__["default"])().postType, (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_5__.__assign)({
-    per_page: ownProps.maxSuggestions,
-    orderby: 'title',
-    order: 'asc',
-    _fields: 'id,degree_program',
-    context: 'view'
-  }, {
-    search: search
-  }), currentPost ? {
-    exclude: currentPost.id
-  } : {}));
+  var searchedEntities = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(function (select) {
+    var getCurrentPost = select(_wordpress_editor__WEBPACK_IMPORTED_MODULE_4__.store.name).getCurrentPost;
+    var getEntityRecords = select(_wordpress_core_data__WEBPACK_IMPORTED_MODULE_2__.store.name).getEntityRecords;
+    var currentPost = getCurrentPost();
+    return getEntityRecords('postType', (0,_util_serverData__WEBPACK_IMPORTED_MODULE_5__["default"])().postType, (0,tslib__WEBPACK_IMPORTED_MODULE_6__.__assign)({
+      per_page: maxSuggestions,
+      orderby: 'title',
+      order: 'asc',
+      _fields: 'id,degree_program',
+      context: 'view',
+      search: search
+    }, currentPost ? {
+      exclude: currentPost.id
+    } : {})) || [];
+  }, [maxSuggestions, search]);
   return {
-    searchedEntities: posts !== null && posts !== void 0 ? posts : [],
+    searchedEntities: searchedEntities,
     setSearch: setSearch
   };
-});
+};
+var withSearchedDegreeProgramPosts = (0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_1__.createHigherOrderComponent)(function (WrappedComponent) {
+  return function (props) {
+    var maxSuggestions = props.maxSuggestions;
+    var _a = useSearchedDegreeProgramPosts(maxSuggestions),
+      searchedEntities = _a.searchedEntities,
+      setSearch = _a.setSearch;
+    return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(WrappedComponent, (0,tslib__WEBPACK_IMPORTED_MODULE_6__.__assign)({}, props, {
+      searchedEntities: searchedEntities,
+      setSearch: setSearch
+    }));
+  };
+}, 'withSearchedDegreeProgramPosts');
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (withSearchedDegreeProgramPosts);
 
 /***/ }),
@@ -3271,9 +3281,6 @@ function ImageField(_a) {
     onClick: handleOnCancel
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('Remove image'))))));
 }
-ImageField.defaultProps = {
-  title: ''
-};
 var templateObject_1, templateObject_2;
 
 /***/ }),
@@ -3339,11 +3346,9 @@ var StyledLabel = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].span
 var StyledHelpText = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].p(templateObject_2 || (templateObject_2 = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__makeTemplateObject)(["\n\tmargin: 0;\n\tmargin-top: 4px;\n\tfont-size: 12px;\n\tfont-style: normal;\n\tfont-weight: normal;\n\tcolor: rgb( 117, 117, 117 );\n"], ["\n\tmargin: 0;\n\tmargin-top: 4px;\n\tfont-size: 12px;\n\tfont-style: normal;\n\tfont-weight: normal;\n\tcolor: rgb( 117, 117, 117 );\n"])));
 var FormFieldLabel = function (_a) {
   var label = _a.label,
-    help = _a.help;
+    _b = _a.help,
+    help = _b === void 0 ? undefined : _b;
   return react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(StyledLabel, null, label), !!help && react__WEBPACK_IMPORTED_MODULE_0___default().createElement(StyledHelpText, null, help));
-};
-FormFieldLabel.defaultProps = {
-  help: undefined
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (FormFieldLabel);
 var templateObject_1, templateObject_2;
@@ -3525,9 +3530,6 @@ var LimitedInputControl = function (_a) {
     squareSize: 16
   }), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("small", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__._x)('%s characters left', 'backoffice: limited text input', 'fau-degree-program').replace('%s', charsLeft.toString()))));
 };
-LimitedInputControl.defaultProps = {
-  required: false
-};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LimitedInputControl);
 
 /***/ }),
@@ -3686,7 +3688,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   withTermSelectorProps: () => (/* reexport safe */ _withTermSelectorProps__WEBPACK_IMPORTED_MODULE_2__["default"])
 /* harmony export */ });
 /* harmony import */ var _withDegreeProgramTerms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./withDegreeProgramTerms */ "./resources/ts/components/TermSelector/hoc/withDegreeProgramTerms.ts");
-/* harmony import */ var _withSearchedDegreeProgramTerms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./withSearchedDegreeProgramTerms */ "./resources/ts/components/TermSelector/hoc/withSearchedDegreeProgramTerms.ts");
+/* harmony import */ var _withSearchedDegreeProgramTerms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./withSearchedDegreeProgramTerms */ "./resources/ts/components/TermSelector/hoc/withSearchedDegreeProgramTerms.tsx");
 /* harmony import */ var _withTermSelectorProps__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./withTermSelectorProps */ "./resources/ts/components/TermSelector/hoc/withTermSelectorProps.tsx");
 
 
@@ -3745,10 +3747,10 @@ var withDegreeProgramTerms = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.wit
 
 /***/ }),
 
-/***/ "./resources/ts/components/TermSelector/hoc/withSearchedDegreeProgramTerms.ts":
-/*!************************************************************************************!*\
-  !*** ./resources/ts/components/TermSelector/hoc/withSearchedDegreeProgramTerms.ts ***!
-  \************************************************************************************/
+/***/ "./resources/ts/components/TermSelector/hoc/withSearchedDegreeProgramTerms.tsx":
+/*!*************************************************************************************!*\
+  !*** ./resources/ts/components/TermSelector/hoc/withSearchedDegreeProgramTerms.tsx ***!
+  \*************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -3756,37 +3758,54 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_core_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/core-data */ "@wordpress/core-data");
-/* harmony import */ var _wordpress_core_data__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_core_data__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
-/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _util_serverData__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../util/serverData */ "./resources/ts/util/serverData.ts");
+/* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/compose */ "@wordpress/compose");
+/* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_compose__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_core_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/core-data */ "@wordpress/core-data");
+/* harmony import */ var _wordpress_core_data__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_core_data__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _util_serverData__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../util/serverData */ "./resources/ts/util/serverData.ts");
 
 
 
 
 
-var withSearchedDegreeProgramTerms = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.withSelect)(function (select, ownProps) {
-  var _a = (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__read)((0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''), 2),
+
+var useSearchedDegreeProgramTerms = function (taxonomy, maxSuggestions) {
+  var _a = (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__read)((0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''), 2),
     search = _a[0],
     setSearch = _a[1];
-  var getEntityRecords = select(_wordpress_core_data__WEBPACK_IMPORTED_MODULE_1__.store.name).getEntityRecords;
-  var terms = getEntityRecords('taxonomy', (0,_util_serverData__WEBPACK_IMPORTED_MODULE_3__["default"])().taxonomySlugs[ownProps.taxonomy], (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__assign)({
-    per_page: ownProps.maxSuggestions,
-    orderby: 'name',
-    order: 'asc',
-    context: 'view'
-  }, {
-    search: search
-  }));
+  var searchedEntities = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(function (select) {
+    var getEntityRecords = select(_wordpress_core_data__WEBPACK_IMPORTED_MODULE_2__.store).getEntityRecords;
+    return getEntityRecords('taxonomy', (0,_util_serverData__WEBPACK_IMPORTED_MODULE_4__["default"])().taxonomySlugs[taxonomy], {
+      per_page: maxSuggestions,
+      orderby: 'name',
+      order: 'asc',
+      context: 'view',
+      search: search
+    }) || [];
+  }, [taxonomy, maxSuggestions, search]);
   return {
-    searchedEntities: terms !== null && terms !== void 0 ? terms : [],
+    searchedEntities: searchedEntities,
     setSearch: setSearch
   };
-});
+};
+var withSearchedDegreeProgramTerms = (0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_1__.createHigherOrderComponent)(function (WrappedComponent) {
+  return function (props) {
+    var taxonomy = props.taxonomy,
+      maxSuggestions = props.maxSuggestions;
+    var _a = useSearchedDegreeProgramTerms(taxonomy, maxSuggestions),
+      searchedEntities = _a.searchedEntities,
+      setSearch = _a.setSearch;
+    return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(WrappedComponent, (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__assign)({}, props, {
+      searchedEntities: searchedEntities,
+      setSearch: setSearch
+    }));
+  };
+}, 'withSearchedDegreeProgramTerms');
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (withSearchedDegreeProgramTerms);
 
 /***/ }),
@@ -3951,10 +3970,6 @@ var TextControlCollection = function (_a) {
     },
     variant: "primary"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__._x)('Add', 'backoffice: TextControlCollection', 'fau-degree-program')));
-};
-TextControlCollection.defaultProps = {
-  emptyMessage: undefined,
-  type: 'text'
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TextControlCollection);
 var templateObject_1, templateObject_2;
