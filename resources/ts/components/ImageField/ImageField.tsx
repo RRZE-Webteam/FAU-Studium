@@ -131,7 +131,3 @@ export default function ImageField( { path, title = '' }: ImageFieldProps ) {
 		</MediaUploadCheck>
 	);
 }
-
-ImageField.defaultProps = {
-	title: '',
-};

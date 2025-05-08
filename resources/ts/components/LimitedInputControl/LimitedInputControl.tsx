@@ -61,8 +61,4 @@ const LimitedInputControl = ( {
 	);
 };
 
-LimitedInputControl.defaultProps = {
-	required: false,
-};
-
 export default LimitedInputControl;

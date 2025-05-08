@@ -19,17 +19,13 @@ const StyledHelpText = styled.p`
 	color: rgb( 117, 117, 117 );
 `;
 
-const FormFieldLabel = ( { label, help }: Props ) => {
+const FormFieldLabel = ( { label, help = undefined }: Props ) => {
 	return (
 		<>
 			<StyledLabel>{ label }</StyledLabel>
 			{ !! help && <StyledHelpText>{ help }</StyledHelpText> }
 		</>
 	);
-};
-
-FormFieldLabel.defaultProps = {
-	help: undefined,
 };
 
 export default FormFieldLabel;
