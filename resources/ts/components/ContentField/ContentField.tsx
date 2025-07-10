@@ -92,6 +92,37 @@ const ContentField = ( {
 }: ContentFieldProps ) => {
 	const [ currentBlocks, setCurrentBlocks ] = useState( parse( content ) );
 	const editorRef = useRef< HTMLDivElement >( null );
+	const { selectionChange } = useDispatch( 'core/block-editor' );
+
+	// Prevent block replacement when pasting content
+	useEffect( () => {
+		const container = editorRef.current;
+
+		if ( ! container ) {
+			return;
+		}
+
+		const handlePaste = ( event: ClipboardEvent ) => {
+			const target = event.target as HTMLElement;
+			const isWithinNestedEditor = container.contains( target );
+
+			if ( isWithinNestedEditor ) {
+				const blockElement = target.closest( '[data-block]' );
+
+				if ( blockElement ) {
+					const blockId = blockElement.getAttribute( 'data-block' );
+
+					if ( blockId ) {
+						selectionChange( blockId, 'content' );
+					}
+				}
+			}
+		};
+
+		container.addEventListener( 'paste', handlePaste, true );
+		return () =>
+			container.removeEventListener( 'paste', handlePaste, true );
+	}, [ selectionChange ] );
 
 	/**
 	 * The `onChange` callback is fired only when changes are considered final,
