@@ -94,7 +94,12 @@ const ContentField = ( {
 	const editorRef = useRef< HTMLDivElement >( null );
 	const { selectionChange } = useDispatch( 'core/block-editor' );
 
-	// Prevent block replacement when pasting content
+	/* The block editor mis-detects the selection inside our nested BlockEditorProvider: the parent editor
+	 * sees only `{ clientId }` (no `attributeKey`) and assumes the whole Degree-Program block is
+	 * selected, so a paste tries to replace the block. By capturing the paste first and forcing
+	 * `attributeKey: 'content'`, we tell WP we are editing _within_ the block, letting the text
+	 * drop into the intended paragraph instead of being blocked.
+	 */
 	useEffect( () => {
 		const container = editorRef.current;
 
