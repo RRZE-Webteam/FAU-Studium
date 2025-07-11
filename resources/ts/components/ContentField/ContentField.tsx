@@ -110,18 +110,21 @@ const ContentField = ( {
 		const handlePaste = ( event: ClipboardEvent ) => {
 			const target = event.target as HTMLElement;
 			const isWithinNestedEditor = container.contains( target );
-
-			if ( isWithinNestedEditor ) {
-				const blockElement = target.closest( '[data-block]' );
-
-				if ( blockElement ) {
-					const blockId = blockElement.getAttribute( 'data-block' );
-
-					if ( blockId ) {
-						selectionChange( blockId, 'content' );
-					}
-				}
+			if ( ! isWithinNestedEditor ) {
+				return;
 			}
+
+			const blockElement = target.closest( '[data-block]' );
+			if ( ! blockElement ) {
+				return;
+			}
+
+			const blockId = blockElement.getAttribute( 'data-block' );
+			if ( ! blockId ) {
+				return;
+			}
+
+			selectionChange( blockId, 'content' );
 		};
 
 		container.addEventListener( 'paste', handlePaste, true );
