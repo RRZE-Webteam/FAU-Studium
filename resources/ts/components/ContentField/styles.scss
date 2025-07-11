@@ -32,4 +32,8 @@
 
 .fau-content-field .editor-styles-wrapper {
 	padding-bottom: unset !important;
+
+	&::after {
+		height: unset;
+	}
 }
