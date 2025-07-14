@@ -1377,6 +1377,33 @@ var ContentField = function (_a) {
     currentBlocks = _c[0],
     setCurrentBlocks = _c[1];
   var editorRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  var selectionChange = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_4__.useDispatch)('core/block-editor').selectionChange;
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var container = editorRef.current;
+    if (!container) {
+      return;
+    }
+    var handlePaste = function (event) {
+      var target = event.target;
+      var isWithinNestedEditor = container.contains(target);
+      if (!isWithinNestedEditor) {
+        return;
+      }
+      var blockElement = target.closest('[data-block]');
+      if (!blockElement) {
+        return;
+      }
+      var blockId = blockElement.getAttribute('data-block');
+      if (!blockId) {
+        return;
+      }
+      selectionChange(blockId, 'content');
+    };
+    container.addEventListener('paste', handlePaste, true);
+    return function () {
+      return container.removeEventListener('paste', handlePaste, true);
+    };
+  }, [selectionChange]);
   var updateValue = function (blocks) {
     onChange((0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__.serialize)(blocks));
   };
