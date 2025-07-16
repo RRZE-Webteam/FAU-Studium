@@ -4,7 +4,7 @@
  * Plugin Name: FAU Degree Program Management
  * Plugin URI:  https://github.com/RRZE-Webteam/FAU-Studium
  * Description: Add and edit degree programs and expose them via the REST API.
- * Version:     2.2.3-beta.1
+ * Version:     2.2.3
  * Author:      Syde GmbH
  * Author URI:  https://syde.com/
  * Update URI:  false
