@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.2.3] - 2025-07-16
+
+### Fixed
+
+- Fixed issue with pasting text in the content fields.
+
 ## [2.2.2] - 2025-06-10
 
 ### Fixed
