@@ -2298,7 +2298,7 @@ var General = function () {
     name: "featured_image",
     fill: "half",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__._x)('Featured image', 'backoffice: degree program edit form', 'fau-degree-program'),
-    help: "Wird f\u00FCr die Detailansicht verwendet. Gr\u00F6\u00DFe: 1400 \u00D7 350 px.",
+    help: "Wird f\u00FCr die Detailansicht verwendet. Bildgr\u00F6\u00DFe: 1920x1080, bzw. Bildverh\u00E4ltnis: 16:9",
     required: true
   }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_ImageField__WEBPACK_IMPORTED_MODULE_4__["default"], {
     path: "featured_image"

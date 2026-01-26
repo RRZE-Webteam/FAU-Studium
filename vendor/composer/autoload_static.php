@@ -12,24 +12,24 @@ class ComposerStaticInit0f5b1b06c96445730f5f2cfcd75ed54f
     );
 
     public static $prefixLengthsPsr4 = array (
-        'W' => 
+        'W' =>
         array (
             'Webmozart\\Assert\\' => 17,
         ),
-        'P' => 
+        'P' =>
         array (
             'Psr\\SimpleCache\\' => 16,
             'Psr\\Log\\' => 8,
             'Psr\\EventDispatcher\\' => 20,
             'Psr\\Container\\' => 14,
         ),
-        'I' => 
+        'I' =>
         array (
             'Inpsyde\\Modularity\\' => 19,
             'Inpsyde\\Assets\\' => 15,
             'Inpsyde\\' => 8,
         ),
-        'F' => 
+        'F' =>
         array (
             'Fau\\DegreeProgram\\Common\\LanguageExtension\\' => 43,
             'Fau\\DegreeProgram\\Common\\' => 25,
@@ -38,47 +38,47 @@ class ComposerStaticInit0f5b1b06c96445730f5f2cfcd75ed54f
     );
 
     public static $prefixDirsPsr4 = array (
-        'Webmozart\\Assert\\' => 
+        'Webmozart\\Assert\\' =>
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
         ),
-        'Psr\\SimpleCache\\' => 
+        'Psr\\SimpleCache\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/simple-cache/src',
         ),
-        'Psr\\Log\\' => 
+        'Psr\\Log\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/log/src',
         ),
-        'Psr\\EventDispatcher\\' => 
+        'Psr\\EventDispatcher\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/event-dispatcher/src',
         ),
-        'Psr\\Container\\' => 
+        'Psr\\Container\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
         ),
-        'Inpsyde\\Modularity\\' => 
+        'Inpsyde\\Modularity\\' =>
         array (
             0 => __DIR__ . '/..' . '/inpsyde/modularity/src',
         ),
-        'Inpsyde\\Assets\\' => 
+        'Inpsyde\\Assets\\' =>
         array (
             0 => __DIR__ . '/..' . '/inpsyde/assets/src',
         ),
-        'Inpsyde\\' => 
+        'Inpsyde\\' =>
         array (
             0 => __DIR__ . '/..' . '/inpsyde/wp-context/src',
         ),
-        'Fau\\DegreeProgram\\Common\\LanguageExtension\\' => 
+        'Fau\\DegreeProgram\\Common\\LanguageExtension\\' =>
         array (
             0 => __DIR__ . '/..' . '/rrze/fau-studium-common/lib/lang-extension/src',
         ),
-        'Fau\\DegreeProgram\\Common\\' => 
+        'Fau\\DegreeProgram\\Common\\' =>
         array (
             0 => __DIR__ . '/..' . '/rrze/fau-studium-common/src',
         ),
-        'Fau\\DegreeProgram\\' => 
+        'Fau\\DegreeProgram\\' =>
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
