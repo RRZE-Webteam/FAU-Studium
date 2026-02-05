@@ -96,7 +96,7 @@ const General = () => {
 							'backoffice: degree program edit form',
 							'fau-degree-program'
 						) }
-						help="Wird für die Detailansicht verwendet. Größe: 1400 × 350 px."
+						help="Wird für die Detailansicht verwendet. Bildgröße: 1920x1080, bzw. Bildverhältnis: 16:9"
 						required
 					>
 						<ImageField path="featured_image" />
