@@ -3,7 +3,7 @@
         'name' => 'rrze/fau-studium',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'd52df4278b8277a997af232e8cc8fd2289b83d51',
+        'reference' => 'dc403bf779e1f0b7cf18fa0e2c440147f0a764c2',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -76,7 +76,7 @@
         'rrze/fau-studium' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'd52df4278b8277a997af232e8cc8fd2289b83d51',
+            'reference' => 'dc403bf779e1f0b7cf18fa0e2c440147f0a764c2',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
