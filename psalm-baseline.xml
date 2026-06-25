@@ -44,11 +44,6 @@
       <code><![CDATA[!$data]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
-  <file src="src/Infrastructure/Repository/WordPressRevisionNotificationRepository.php">
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[!$allEditors]]></code>
-    </RiskyTruthyFalsyComparison>
-  </file>
   <file src="src/Infrastructure/Repository/WorkflowAuthorsRepository.php">
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $workflowAuthors]]></code>

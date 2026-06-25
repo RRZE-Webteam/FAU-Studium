@@ -8,9 +8,11 @@ use Fau\DegreeProgram\Infrastructure\Authorization\Capabilities;
 
 final class Administrator implements CoreRole
 {
+    public const KEY = 'administrator';
+
     public function key(): string
     {
-        return 'administrator';
+        return self::KEY;
     }
 
     public function capabilities(): array

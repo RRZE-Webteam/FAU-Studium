@@ -15,6 +15,7 @@ final class WordPressRevisionNotificationRepository implements RevisionNotificat
     public function __construct(
         private DegreeProgramEditorRepository $degreeProgramEditorRepository,
         private WorkflowAuthorsRepository $authorsRepository,
+        private AdministratorRepository $administratorRepository,
     ) {
     }
 
@@ -180,10 +181,15 @@ final class WordPressRevisionNotificationRepository implements RevisionNotificat
      */
     private function findUsersSubscribedToPostChanges(int $postId): array
     {
-        /** @var array<int> | null $allEditors */
-        static $allEditors = null;
-        if (!$allEditors) {
-            $allEditors = $this->degreeProgramEditorRepository->fetchAllIds();
+        /** @var array<int> | null $globalRecipients */
+        static $globalRecipients = null;
+        if ($globalRecipients === null) {
+            $globalRecipients = array_unique(
+                array_merge(
+                    $this->degreeProgramEditorRepository->fetchAllIds(),
+                    $this->administratorRepository->fetchAllIds(),
+                )
+            );
         }
 
         /** @var array<int, array<int, int>> $cache
@@ -203,7 +209,7 @@ final class WordPressRevisionNotificationRepository implements RevisionNotificat
         }
 
         $authors = $this->authorsRepository->fetchAuthorIds($postId);
-        $ids = array_merge($allEditors, $authors);
+        $ids = array_merge($globalRecipients, $authors);
 
         foreach ($ids as $id) {
             $cache[$postId][$id] = $id;
