@@ -40,65 +40,65 @@ class RepositoryModule implements ServiceModule
     public function services(): array
     {
         return [
-            IdGenerator::class => static fn() => new IdGenerator(),
-            CampoKeysRepository::class => static fn() => new CampoKeysRepository(),
-            ConditionalFieldsFilter::class => static fn() => new ConditionalFieldsFilter(),
-            FacultyRepository::class => static fn() => new FacultyRepository(),
-            TimestampRepository::class => static fn() => new TimestampRepository(),
-            DegreeProgramRepository::class => static fn(ContainerInterface $container) => new WordPressDatabaseDegreeProgramRepository(
+            IdGenerator::class => static fn () => new IdGenerator(),
+            CampoKeysRepository::class => static fn () => new CampoKeysRepository(),
+            ConditionalFieldsFilter::class => static fn () => new ConditionalFieldsFilter(),
+            FacultyRepository::class => static fn () => new FacultyRepository(),
+            TimestampRepository::class => static fn () => new TimestampRepository(),
+            DegreeProgramRepository::class => static fn (ContainerInterface $container) => new WordPressDatabaseDegreeProgramRepository(
                 $container->get(IdGenerator::class),
                 $container->get(EventDispatcherInterface::class),
                 $container->get(HtmlDegreeProgramSanitizer::class),
                 $container->get(CampoKeysRepository::class),
             ),
-            self::VIEW_REPOSITORY_UNCACHED => static fn(ContainerInterface $container) => new WordPressDatabaseDegreeProgramViewRepository(
+            self::VIEW_REPOSITORY_UNCACHED => static fn (ContainerInterface $container) => new WordPressDatabaseDegreeProgramViewRepository(
                 $container->get(DegreeProgramRepository::class),
                 $container->get(HtmlDegreeProgramSanitizer::class),
                 $container->get(ConditionalFieldsFilter::class),
                 $container->get(FacultyRepository::class),
                 $container->get(TimestampRepository::class),
             ),
-            DegreeProgramViewRepository::class => static fn(ContainerInterface $container) => new CachedDegreeProgramViewRepository(
+            DegreeProgramViewRepository::class => static fn (ContainerInterface $container) => new CachedDegreeProgramViewRepository(
                 $container->get(self::VIEW_REPOSITORY_UNCACHED),
                 $container->get(CacheKeyGenerator::class),
                 $container->get(CacheInterface::class),
             ),
-            WpQueryArgsBuilder::class => static fn(ContainerInterface $container) => new WpQueryArgsBuilder(
+            WpQueryArgsBuilder::class => static fn (ContainerInterface $container) => new WpQueryArgsBuilder(
                 $container->get(TaxonomiesList::class),
                 $container->get(CampoKeysRepository::class),
             ),
-            WpQuerySplitter::class => static fn(ContainerInterface $container) => new WpQuerySplitter(
+            WpQuerySplitter::class => static fn (ContainerInterface $container) => new WpQuerySplitter(
                 $container->get(WpQueryArgsBuilder::class),
             ),
-            self::COLLECTION_REPOSITORY_UNCACHED => static fn(ContainerInterface $container) => new WordPressDatabaseDegreeProgramCollectionRepository(
+            self::COLLECTION_REPOSITORY_UNCACHED => static fn (ContainerInterface $container) => new WordPressDatabaseDegreeProgramCollectionRepository(
                 $container->get(self::VIEW_REPOSITORY_UNCACHED),
                 $container->get(WpQueryArgsBuilder::class),
                 $container->get(WpQuerySplitter::class),
             ),
-            DegreeProgramCollectionRepository::class => static fn(ContainerInterface $container) => new WordPressDatabaseDegreeProgramCollectionRepository(
+            DegreeProgramCollectionRepository::class => static fn (ContainerInterface $container) => new WordPressDatabaseDegreeProgramCollectionRepository(
                 $container->get(DegreeProgramViewRepository::class),
                 $container->get(WpQueryArgsBuilder::class),
                 $container->get(WpQuerySplitter::class),
             ),
-            DegreeProgramRevisionRepository::class => static fn(ContainerInterface $container) => new CacheBasedRevisionRepository(
+            DegreeProgramRevisionRepository::class => static fn (ContainerInterface $container) => new CacheBasedRevisionRepository(
                 $container->get(CacheKeyGenerator::class),
                 $container->get(CacheInterface::class),
                 $container->get(RepositoryModule::VIEW_REPOSITORY_UNCACHED),
                 $container->get(DegreeProgramViewRepository::class),
                 $container->get(IdGenerator::class),
             ),
-            RevisionNotificationRepository::class => static fn(ContainerInterface $container) => new WordPressRevisionNotificationRepository(
+            RevisionNotificationRepository::class => static fn (ContainerInterface $container) => new WordPressRevisionNotificationRepository(
                 $container->get(DegreeProgramEditorRepository::class),
                 $container->get(WorkflowAuthorsRepository::class),
                 $container->get(AdministratorRepository::class),
             ),
-            RevisionMetaRepository::class => static fn() => new RevisionMetaRepository(),
-            WorkflowAuthorsRepository::class => static fn() => new WorkflowAuthorsRepository(),
-            TermsRepository::class => static fn(ContainerInterface $container) => new TermsRepository(
+            RevisionMetaRepository::class => static fn () => new RevisionMetaRepository(),
+            WorkflowAuthorsRepository::class => static fn () => new WorkflowAuthorsRepository(),
+            TermsRepository::class => static fn (ContainerInterface $container) => new TermsRepository(
                 $container->get(IdGenerator::class),
             ),
-            DegreeProgramEditorRepository::class => static fn() => new DegreeProgramEditorRepository(),
-            AdministratorRepository::class => static fn() => new AdministratorRepository(),
+            DegreeProgramEditorRepository::class => static fn () => new DegreeProgramEditorRepository(),
+            AdministratorRepository::class => static fn () => new AdministratorRepository(),
         ];
     }
 }

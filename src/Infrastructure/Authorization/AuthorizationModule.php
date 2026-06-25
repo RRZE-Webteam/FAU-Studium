@@ -21,16 +21,16 @@ class AuthorizationModule implements ServiceModule, ExecutableModule
     public function services(): array
     {
         return [
-            MediaCapabilitiesModifier::class => static fn() => new MediaCapabilitiesModifier(),
-            BlocksCapabilitiesModifier::class => static fn() => new BlocksCapabilitiesModifier(),
-            EditPostCapabilitiesModifier::class => static fn(ContainerInterface $container) => new EditPostCapabilitiesModifier(
+            MediaCapabilitiesModifier::class => static fn () => new MediaCapabilitiesModifier(),
+            BlocksCapabilitiesModifier::class => static fn () => new BlocksCapabilitiesModifier(),
+            EditPostCapabilitiesModifier::class => static fn (ContainerInterface $container) => new EditPostCapabilitiesModifier(
                 $container->get(WorkflowAuthorsRepository::class)
             ),
-            PublishDegreeProgramsCapabilitiesModifier::class => static fn(ContainerInterface $container) => new PublishDegreeProgramsCapabilitiesModifier(
+            PublishDegreeProgramsCapabilitiesModifier::class => static fn (ContainerInterface $container) => new PublishDegreeProgramsCapabilitiesModifier(
                 $container->get(WorkflowAuthorsRepository::class),
             ),
-            DeletionDisabler::class => static fn() => new DeletionDisabler(),
-            WordPress22895Fix::class => static fn() => new WordPress22895Fix(),
+            DeletionDisabler::class => static fn () => new DeletionDisabler(),
+            WordPress22895Fix::class => static fn () => new WordPress22895Fix(),
         ];
     }
 

@@ -41,7 +41,7 @@ final class AssetsLoader
 
     private function isTermTaxonomyEditContext(): bool
     {
-        if (! function_exists('get_current_screen')) {
+        if (!function_exists('get_current_screen')) {
             return false;
         }
 
@@ -50,6 +50,6 @@ final class AssetsLoader
             return false;
         }
 
-        return ! empty($screen->taxonomy);
+        return !empty($screen->taxonomy);
     }
 }

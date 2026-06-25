@@ -49,37 +49,37 @@ final class CacheModule implements ServiceModule, ExecutableModule
     public function services(): array
     {
         return [
-            CacheKeyGenerator::class => static fn() => new CacheKeyGenerator(),
-            CacheInterface::class => static fn(ContainerInterface $container) => new PostMetaDegreeProgramCache(
+            CacheKeyGenerator::class => static fn () => new CacheKeyGenerator(),
+            CacheInterface::class => static fn (ContainerInterface $container) => new PostMetaDegreeProgramCache(
                 $container->get(CacheKeyGenerator::class),
             ),
-            CacheInvalidator::class => static fn(ContainerInterface $container) => new CacheInvalidator(
+            CacheInvalidator::class => static fn (ContainerInterface $container) => new CacheInvalidator(
                 $container->get(CacheKeyGenerator::class),
                 $container->get(CacheInterface::class),
                 $container->get(EventDispatcherInterface::class),
                 $container->get(LoggerInterface::class),
             ),
-            CacheWarmer::class => static fn(ContainerInterface $container) => new CacheWarmer(
+            CacheWarmer::class => static fn (ContainerInterface $container) => new CacheWarmer(
                 $container->get(CacheKeyGenerator::class),
                 $container->get(CacheInterface::class),
                 $container->get(RepositoryModule::COLLECTION_REPOSITORY_UNCACHED),
                 $container->get(EventDispatcherInterface::class),
                 $container->get(LoggerInterface::class),
             ),
-            WhenDegreeProgramUpdated::class => static fn(ContainerInterface $container) => new WhenDegreeProgramUpdated(
+            WhenDegreeProgramUpdated::class => static fn (ContainerInterface $container) => new WhenDegreeProgramUpdated(
                 $container->get(CacheInvalidator::class),
             ),
-            WhenDegreeProgramSharedPropertyUpdated::class => static fn(ContainerInterface $container) => new WhenDegreeProgramSharedPropertyUpdated(
+            WhenDegreeProgramSharedPropertyUpdated::class => static fn (ContainerInterface $container) => new WhenDegreeProgramSharedPropertyUpdated(
                 $container->get(CacheInvalidator::class),
             ),
-            WhenDegreeProgramTermUpdated::class => static fn(ContainerInterface $container) => new WhenDegreeProgramTermUpdated(
+            WhenDegreeProgramTermUpdated::class => static fn (ContainerInterface $container) => new WhenDegreeProgramTermUpdated(
                 $container->get(CacheInvalidator::class),
             ),
-            WhenCacheInvalidated::class => static fn(ContainerInterface $container) => new WhenCacheInvalidated(
+            WhenCacheInvalidated::class => static fn (ContainerInterface $container) => new WhenCacheInvalidated(
                 $container->get(MessageBus::class),
                 $container->get(TimestampRepository::class),
             ),
-            WarmCacheMessageHandler::class => static fn(ContainerInterface $container) => new WarmCacheMessageHandler(
+            WarmCacheMessageHandler::class => static fn (ContainerInterface $container) => new WarmCacheMessageHandler(
                 $container->get(CacheWarmer::class),
             ),
         ];

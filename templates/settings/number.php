@@ -27,11 +27,11 @@ declare(strict_types=1);
 ?>
 
 <input type="number"
-       name="<?= esc_attr($id) ?>"
-       value="<?= esc_attr($value) ?>"
-       min="<?= esc_attr((string) $min) ?>"
-       max="<?= esc_attr((string) $max) ?>"
-       step="<?= esc_attr((string) $step ?: 'any') ?>"
-       aria-label="<?= esc_attr($title) ?>"
-       <?php wp_readonly(!$editable) ?>
+        name="<?= esc_attr($id) ?>"
+        value="<?= esc_attr($value) ?>"
+        min="<?= esc_attr((string) $min) ?>"
+        max="<?= esc_attr((string) $max) ?>"
+        step="<?= esc_attr((string) $step ?: 'any') ?>"
+        aria-label="<?= esc_attr($title) ?>"
+        <?php wp_readonly(!$editable) ?>
 >

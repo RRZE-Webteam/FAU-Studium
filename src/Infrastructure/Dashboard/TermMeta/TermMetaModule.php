@@ -42,17 +42,17 @@ final class TermMetaModule implements ServiceModule, ExecutableModule
     public function services(): array
     {
         return [
-            AssetsLoader::class => static fn(ContainerInterface $container) => new AssetsLoader(
+            AssetsLoader::class => static fn (ContainerInterface $container) => new AssetsLoader(
                 $container->get(Package::PROPERTIES),
             ),
-            self::TERM_META_FIELD_RENDERER => static fn(ContainerInterface $container): Renderer => TemplateRenderer::new(
+            self::TERM_META_FIELD_RENDERER => static fn (ContainerInterface $container): Renderer => TemplateRenderer::new(
                 DirectoryLocator::new(
                     $container->get(Package::PROPERTIES)->basePath() . '/templates/term-meta'
                 )
             ),
-            TermMetaRepository::class => fn() => new TermMetaRepository(),
-            TermMetaFieldsValidator::class => fn() => new TermMetaFieldsValidator(),
-            TermMetaRegistrar::class => static fn(ContainerInterface $container): TermMetaRegistrar => new TermMetaRegistrar(
+            TermMetaRepository::class => static fn () => new TermMetaRepository(),
+            TermMetaFieldsValidator::class => static fn () => new TermMetaFieldsValidator(),
+            TermMetaRegistrar::class => static fn (ContainerInterface $container): TermMetaRegistrar => new TermMetaRegistrar(
                 termMetaFieldRenderer: $container->get(TermMetaModule::TERM_META_FIELD_RENDERER),
                 termMetaRepository: $container->get(TermMetaRepository::class),
                 validator: $container->get(TermMetaFieldsValidator::class),
