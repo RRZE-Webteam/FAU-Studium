@@ -19,16 +19,16 @@ final class DegreeProgramEditorModule implements ServiceModule, ExecutableModule
     public function services(): array
     {
         return [
-            ServerDataProvider::class => static fn() => new ServerDataProvider(),
+            ServerDataProvider::class => static fn () => new ServerDataProvider(),
             AssetsLoader::class => static fn (ContainerInterface $container) => new AssetsLoader(
                 $container->get(Package::PROPERTIES),
                 $container->get(ServerDataProvider::class),
             ),
             PostTypeEditor::class => static fn () => new PostTypeEditor(),
             TaxonomyVisibilityModifier::class => static fn () => new TaxonomyVisibilityModifier(),
-            InlineEditingDisabler::class => static fn() => new InlineEditingDisabler(),
-            CodeEditingDisabler::class => static fn() => new CodeEditingDisabler(),
-            PreviewFilter::class => static fn(ContainerInterface $container) => new PreviewFilter(
+            InlineEditingDisabler::class => static fn () => new InlineEditingDisabler(),
+            CodeEditingDisabler::class => static fn () => new CodeEditingDisabler(),
+            PreviewFilter::class => static fn (ContainerInterface $container) => new PreviewFilter(
                 $container->get(DegreeProgramViewRepository::class),
             ),
         ];

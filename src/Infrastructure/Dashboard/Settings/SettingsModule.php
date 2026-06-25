@@ -33,15 +33,15 @@ final class SettingsModule implements ServiceModule, ExecutableModule
     public function services(): array
     {
         return [
-            self::SETTINGS_FIELD_RENDERER => static fn(ContainerInterface $container): Renderer => TemplateRenderer::new(
+            self::SETTINGS_FIELD_RENDERER => static fn (ContainerInterface $container): Renderer => TemplateRenderer::new(
                 DirectoryLocator::new(
                     $container->get(Package::PROPERTIES)->basePath() . '/templates/settings'
                 )
             ),
-            SettingsRegistrar::class => static fn(ContainerInterface $container): SettingsRegistrar => new SettingsRegistrar(
+            SettingsRegistrar::class => static fn (ContainerInterface $container): SettingsRegistrar => new SettingsRegistrar(
                 $container->get(SettingsModule::SETTINGS_FIELD_RENDERER),
             ),
-            SettingAssetsLoader::class => static fn(ContainerInterface $container): SettingAssetsLoader => new SettingAssetsLoader(
+            SettingAssetsLoader::class => static fn (ContainerInterface $container): SettingAssetsLoader => new SettingAssetsLoader(
                 $container->get(Package::PROPERTIES),
                 [
                     self::FAU_CONTENT_ITEM_TITLES,

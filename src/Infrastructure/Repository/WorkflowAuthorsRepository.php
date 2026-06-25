@@ -59,7 +59,7 @@ class WorkflowAuthorsRepository
     public function isUserListedInAllowedEditors(WP_User $user, int $postId): bool
     {
         $workflowAuthors = $this->fetchForPost($postId);
-        if (! $workflowAuthors) {
+        if (!$workflowAuthors) {
             return false;
         }
 

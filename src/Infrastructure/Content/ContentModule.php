@@ -21,8 +21,8 @@ final class ContentModule implements ServiceModule, ExecutableModule
     public function services(): array
     {
         return [
-            TaxonomiesList::class => fn() => TaxonomiesList::new(),
-            SortableDegreeTaxonomyColumn::class => fn() => new SortableDegreeTaxonomyColumn(),
+            TaxonomiesList::class => static fn () => TaxonomiesList::new(),
+            SortableDegreeTaxonomyColumn::class => static fn () => new SortableDegreeTaxonomyColumn(),
         ];
     }
 

@@ -39,7 +39,7 @@ class InputTermMetaField implements TermMetaField
     {
         $showInRest = true;
 
-        if (! is_null($this->validationPattern)) {
+        if (!is_null($this->validationPattern)) {
             $showInRest = [
                 'schema' => [
                     'type' => 'string',

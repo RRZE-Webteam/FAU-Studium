@@ -16,7 +16,7 @@ final class EventDispatcherModule implements ServiceModule
     public function services(): array
     {
         return [
-            EventDispatcherInterface::class => static fn() => new WordPressHookEventDispatcher(),
+            EventDispatcherInterface::class => static fn () => new WordPressHookEventDispatcher(),
         ];
     }
 }

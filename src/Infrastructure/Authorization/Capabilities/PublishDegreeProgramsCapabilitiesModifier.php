@@ -18,7 +18,7 @@ final class PublishDegreeProgramsCapabilitiesModifier extends CapabilitiesModifi
 
     protected function shouldModify(array $arguments, WP_User $user): bool
     {
-        if (! UserRoleChecker::isDegreeProgramAuthorOrEditor($user)) {
+        if (!UserRoleChecker::isDegreeProgramAuthorOrEditor($user)) {
             return false;
         }
 
@@ -30,7 +30,7 @@ final class PublishDegreeProgramsCapabilitiesModifier extends CapabilitiesModifi
         // `publish_posts` capability checks without post ID, so let's try to get the global post object,
         // which usually is available for backoffice and REST API contexts.
         $post = get_post();
-        if (! $post instanceof WP_Post) {
+        if (!$post instanceof WP_Post) {
             return false;
         }
 

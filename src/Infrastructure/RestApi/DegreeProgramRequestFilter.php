@@ -120,14 +120,14 @@ final class DegreeProgramRequestFilter
             sprintf(
                 'Invalid degree program data. Invalid properties: %s.',
                 implode(', ', array_map(
-                    static fn(Violation $violation) => $violation->readablePath(),
+                    static fn (Violation $violation) => $violation->readablePath(),
                     $violations->getArrayCopy()
                 ))
             ),
             [
                 'status' => 400,
                 'params' => array_map(
-                    static fn($violation) => [
+                    static fn ($violation) => [
                         'code' => $violation->errorCode(),
                         'message' => $violation->errorMessage(),
                     ],

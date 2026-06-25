@@ -11,7 +11,7 @@ final class MediaCapabilitiesModifier extends CapabilitiesModifier
 {
     protected function shouldModify(array $arguments, WP_User $user): bool
     {
-        if (! UserRoleChecker::isDegreeProgramAuthorOrEditor($user)) {
+        if (!UserRoleChecker::isDegreeProgramAuthorOrEditor($user)) {
             return false;
         }
 

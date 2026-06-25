@@ -21,10 +21,10 @@ final class CliModule implements ServiceModule, ExecutableModule
     public function services(): array
     {
         return [
-            DegreeProgramCacheCommand::class => static fn(ContainerInterface $container) => new DegreeProgramCacheCommand(
+            DegreeProgramCacheCommand::class => static fn (ContainerInterface $container) => new DegreeProgramCacheCommand(
                 $container->get(CacheInvalidator::class),
             ),
-            DegreeProgramRevisionCommand::class => static fn(ContainerInterface $container) => new DegreeProgramRevisionCommand(
+            DegreeProgramRevisionCommand::class => static fn (ContainerInterface $container) => new DegreeProgramRevisionCommand(
                 $container->get(RevisionNotifier::class),
             ),
         ];
