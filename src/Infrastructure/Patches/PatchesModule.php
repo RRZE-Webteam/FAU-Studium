@@ -16,7 +16,7 @@ final class PatchesModule implements ExecutableModule, ServiceModule
     public function services(): array
     {
         return [
-            FAU171ThemePatch::class => static fn() => new FAU171ThemePatch(),
+            FAU171ThemePatch::class => static fn () => new FAU171ThemePatch(),
         ];
     }
 

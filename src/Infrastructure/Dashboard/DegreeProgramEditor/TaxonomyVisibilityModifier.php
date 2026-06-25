@@ -21,11 +21,11 @@ class TaxonomyVisibilityModifier
     public function modify(WP_REST_Response $response, WP_Taxonomy $taxonomy, WP_REST_Request $request): WP_REST_Response
     {
         $degreeProgramTaxonomies = array_map(
-            static fn(string $taxonomyClassName): string => (string) $taxonomyClassName::KEY,
+            static fn (string $taxonomyClassName): string => (string) $taxonomyClassName::KEY,
             (TaxonomiesList::new())->getArrayCopy()
         );
 
-        if (! in_array($taxonomy->name, $degreeProgramTaxonomies, true)) {
+        if (!in_array($taxonomy->name, $degreeProgramTaxonomies, true)) {
             return $response;
         }
 

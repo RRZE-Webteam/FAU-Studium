@@ -23,7 +23,7 @@ abstract class CapabilitiesModifier
         WP_User $user
     ): array {
 
-        if (! $this->shouldModify($arguments, $user)) {
+        if (!$this->shouldModify($arguments, $user)) {
             return $userCapabilities;
         }
 

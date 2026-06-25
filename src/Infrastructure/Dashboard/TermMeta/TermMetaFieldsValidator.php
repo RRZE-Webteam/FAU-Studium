@@ -10,7 +10,7 @@ final class TermMetaFieldsValidator
 {
     public function validate(TermMetaField ...$termMetaFields): ?WP_Error
     {
-        if (! $this->isTermEditingContext()) {
+        if (!$this->isTermEditingContext()) {
             return null;
         }
 
@@ -33,7 +33,7 @@ final class TermMetaFieldsValidator
                 continue;
             }
 
-            if (! $validationPattern->matches($sanitizedValue)) {
+            if (!$validationPattern->matches($sanitizedValue)) {
                 return new WP_Error(
                     'invalid_term_meta',
                     sprintf(

@@ -22,11 +22,11 @@ final class SettingsRegistrar
     public function registerSettings(SettingsPage|TabbedSettingPage ...$pages): void
     {
         foreach ($pages as $page) {
-            add_action('admin_menu', function () use ($page) {
+            add_action('admin_menu', function () use ($page): void {
                 $this->addPage($page);
             });
 
-            add_action('admin_init', function () use ($page) {
+            add_action('admin_init', function () use ($page): void {
                 if ($page instanceof SettingsPage) {
                     $this->registerSectionsForPage($page);
                     return;
@@ -34,7 +34,7 @@ final class SettingsRegistrar
 
                 $tabs = array_filter(
                     $page->pages(),
-                    static fn ($tab) => current_user_can($tab->readCapability()),
+                    static fn (SettingsPage $tab) => current_user_can($tab->readCapability()),
                 );
 
                 $this->registerSectionsForPage(...$tabs);
@@ -62,7 +62,7 @@ final class SettingsRegistrar
             $page->title(),
             $page->readCapability(),
             $page->id(),
-            function () use ($page) {
+            function () use ($page): void {
                 if (!current_user_can($page->readCapability())) {
                     return;
                 }
@@ -97,7 +97,7 @@ final class SettingsRegistrar
         add_settings_section(
             $section->id(),
             $section->title(),
-            function () use ($section) {
+            function () use ($section): void {
                 if (!$section->template()) {
                     return;
                 }
@@ -151,7 +151,7 @@ final class SettingsRegistrar
         add_settings_field(
             $field->id(),
             $field->title(),
-            function () use ($field, $templateData) {
+            function () use ($field, $templateData): void {
                 echo $this->settingsRenderer->render(
                     $field->templateName(),
                     $templateData

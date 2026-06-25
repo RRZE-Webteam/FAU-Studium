@@ -19,22 +19,22 @@ final class WorkflowAuthorModule implements ServiceModule, ExecutableModule
     public function services(): array
     {
         return [
-            UpdateWorkflowAuthorsWhenUserAdded::class => static fn(ContainerInterface $container) => new UpdateWorkflowAuthorsWhenUserAdded(
+            UpdateWorkflowAuthorsWhenUserAdded::class => static fn (ContainerInterface $container) => new UpdateWorkflowAuthorsWhenUserAdded(
                 $container->get(WorkflowAuthorsRepository::class)
             ),
-            UpdateWorkflowAuthorsWhenUserDeleted::class => static fn(ContainerInterface $container) => new UpdateWorkflowAuthorsWhenUserDeleted(
+            UpdateWorkflowAuthorsWhenUserDeleted::class => static fn (ContainerInterface $container) => new UpdateWorkflowAuthorsWhenUserDeleted(
                 $container->get(WorkflowAuthorsRepository::class)
             ),
-            UpdateWorkflowAuthorsWhenUserRemovedFromSite::class => static fn(ContainerInterface $container) => new UpdateWorkflowAuthorsWhenUserRemovedFromSite(
+            UpdateWorkflowAuthorsWhenUserRemovedFromSite::class => static fn (ContainerInterface $container) => new UpdateWorkflowAuthorsWhenUserRemovedFromSite(
                 $container->get(WorkflowAuthorsRepository::class)
             ),
-            UpdateWorkflowAuthorsWhenUserRoleAdded::class => static fn(ContainerInterface $container) => new UpdateWorkflowAuthorsWhenUserRoleAdded(
+            UpdateWorkflowAuthorsWhenUserRoleAdded::class => static fn (ContainerInterface $container) => new UpdateWorkflowAuthorsWhenUserRoleAdded(
                 $container->get(WorkflowAuthorsRepository::class)
             ),
-            UpdateWorkflowAuthorsWhenUserRoleRemoved::class => static fn(ContainerInterface $container) => new UpdateWorkflowAuthorsWhenUserRoleRemoved(
+            UpdateWorkflowAuthorsWhenUserRoleRemoved::class => static fn (ContainerInterface $container) => new UpdateWorkflowAuthorsWhenUserRoleRemoved(
                 $container->get(WorkflowAuthorsRepository::class)
             ),
-            UpdateWorkflowAuthorsWhenUserUpdated::class => static fn(ContainerInterface $container) => new UpdateWorkflowAuthorsWhenUserUpdated(
+            UpdateWorkflowAuthorsWhenUserUpdated::class => static fn (ContainerInterface $container) => new UpdateWorkflowAuthorsWhenUserUpdated(
                 $container->get(WorkflowAuthorsRepository::class)
             ),
         ];

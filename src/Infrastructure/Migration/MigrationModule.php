@@ -21,7 +21,7 @@ final class MigrationModule implements ServiceModule, ExecutableModule
     public function services(): array
     {
         return [
-            Migration002TransformVideosMeta::class => static fn() => new Migration002TransformVideosMeta(),
+            Migration002TransformVideosMeta::class => static fn () => new Migration002TransformVideosMeta(),
             Migration0010AddInfoBrochureAndStudentInitiativesFields::class => static function (
                 ContainerInterface $container
             ): Migration0010AddInfoBrochureAndStudentInitiativesFields {
@@ -30,7 +30,7 @@ final class MigrationModule implements ServiceModule, ExecutableModule
                     $container->get(CacheInterface::class),
                 );
             },
-            Migration0014WorkflowAuthorsTermMeta::class => static fn() => new Migration0014WorkflowAuthorsTermMeta(),
+            Migration0014WorkflowAuthorsTermMeta::class => static fn () => new Migration0014WorkflowAuthorsTermMeta(),
             Migration11ChangeNumberOfStudentsField::class => static function (
                 ContainerInterface $container
             ): Migration11ChangeNumberOfStudentsField {
@@ -40,7 +40,7 @@ final class MigrationModule implements ServiceModule, ExecutableModule
                     $container->get(IdGenerator::class),
                 );
             },
-            Migration13RemoveCustomOrdering::class => static fn() => new Migration13RemoveCustomOrdering(),
+            Migration13RemoveCustomOrdering::class => static fn () => new Migration13RemoveCustomOrdering(),
             Migration0015CampoKeyMeta::class => static function (
                 ContainerInterface $container
             ): Migration0015CampoKeyMeta {
@@ -56,7 +56,7 @@ final class MigrationModule implements ServiceModule, ExecutableModule
     {
         add_action(
             'admin_init',
-            fn() => $this->applyMigrations($container)
+            fn () => $this->applyMigrations($container)
         );
 
         return true;

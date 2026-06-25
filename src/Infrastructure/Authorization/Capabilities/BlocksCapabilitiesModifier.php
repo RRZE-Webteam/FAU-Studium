@@ -11,7 +11,7 @@ final class BlocksCapabilitiesModifier extends CapabilitiesModifier
 {
     protected function shouldModify(array $arguments, WP_User $user): bool
     {
-        if (! UserRoleChecker::isDegreeProgramAuthorOrEditor($user)) {
+        if (!UserRoleChecker::isDegreeProgramAuthorOrEditor($user)) {
             return false;
         }
 
@@ -25,7 +25,7 @@ final class BlocksCapabilitiesModifier extends CapabilitiesModifier
 
     private function isMatchingRestRequest(): bool
     {
-        if (! (defined('REST_REQUEST') && REST_REQUEST)) {
+        if (!(defined('REST_REQUEST') && REST_REQUEST)) {
             return false;
         }
 
