@@ -169,7 +169,7 @@ final class SettingsModule implements ServiceModule, ExecutableModule
                 Content::SPECIAL_FEATURES,
                 _x('Special Features', 'backoffice: setting title', 'fau-degree-program'),
                 [
-                    MultilingualString::DE => 'Besondere Hinweise',
+                    MultilingualString::DE => 'Besonderheiten des Studiengangs',
                     MultilingualString::EN => 'Special features',
                 ]
             ),
