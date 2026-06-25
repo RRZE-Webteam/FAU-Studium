@@ -90,6 +90,7 @@ class RepositoryModule implements ServiceModule
             RevisionNotificationRepository::class => static fn (ContainerInterface $container) => new WordPressRevisionNotificationRepository(
                 $container->get(DegreeProgramEditorRepository::class),
                 $container->get(WorkflowAuthorsRepository::class),
+                $container->get(AdministratorRepository::class),
             ),
             RevisionMetaRepository::class => static fn () => new RevisionMetaRepository(),
             WorkflowAuthorsRepository::class => static fn () => new WorkflowAuthorsRepository(),
@@ -97,6 +98,7 @@ class RepositoryModule implements ServiceModule
                 $container->get(IdGenerator::class),
             ),
             DegreeProgramEditorRepository::class => static fn () => new DegreeProgramEditorRepository(),
+            AdministratorRepository::class => static fn () => new AdministratorRepository(),
         ];
     }
 }
