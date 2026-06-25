@@ -92,7 +92,7 @@ final class WordPressRevisionNotificationRepository implements RevisionNotificat
 
         $authorIds = array_unique(
             array_map(
-                static fn ($revisionId) => (int) get_post_field('post_author', $revisionId),
+                static fn ($revisionId) => absint(get_post_field('post_author', $revisionId)),
                 $revisionIds
             )
         );
