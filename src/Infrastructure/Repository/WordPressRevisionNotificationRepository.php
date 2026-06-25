@@ -62,10 +62,12 @@ final class WordPressRevisionNotificationRepository implements RevisionNotificat
         $index = array_search($revisionId, $revisionIds, true);
         if ($index === false) {
             throw new LogicException(
-                sprintf(
-                    'Revision %s is not part of all revisions of %d degree program?',
-                    $revisionId,
-                    $degreeProgramId
+                esc_html(
+                    sprintf(
+                        'Revision %s is not part of all revisions of %d degree program?',
+                        $revisionId,
+                        $degreeProgramId
+                    )
                 )
             );
         }
@@ -91,7 +93,7 @@ final class WordPressRevisionNotificationRepository implements RevisionNotificat
 
         $authorIds = array_unique(
             array_map(
-                static fn ($revisionId) => (int) get_post_field('post_author', $revisionId),
+                static fn (int $revisionId) => absint(get_post_field('post_author', $revisionId)),
                 $revisionIds
             )
         );
@@ -102,7 +104,7 @@ final class WordPressRevisionNotificationRepository implements RevisionNotificat
 
         return array_filter(
             $subscribedUsers,
-            static fn ($userId) => !in_array($userId, $authorIds, true)
+            static fn (int $userId) => !in_array($userId, $authorIds, true)
         );
     }
 

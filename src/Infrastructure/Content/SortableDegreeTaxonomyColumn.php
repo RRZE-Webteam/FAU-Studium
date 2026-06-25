@@ -25,7 +25,7 @@ class SortableDegreeTaxonomyColumn
      */
     public function modifyClauses(array $clauses, WP_Query $query): array
     {
-        if (!is_admin() || $query->query['post_type'] !== DegreeProgramPostType::KEY) {
+        if (!is_admin() || ($query->query['post_type'] ?? null) !== DegreeProgramPostType::KEY) {
             return $clauses;
         }
 

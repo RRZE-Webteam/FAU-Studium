@@ -41,6 +41,7 @@ final class DegreeProgramEditorModule implements ServiceModule, ExecutableModule
             [$container->get(AssetsLoader::class), 'load']
         );
 
+        // phpcs:ignore Inpsyde.CodeQuality.HookPriority.HookPriority
         add_filter(
             'use_block_editor_for_post_type',
             [$container->get(PostTypeEditor::class), 'forceBlockEditor'],

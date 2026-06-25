@@ -127,7 +127,7 @@ final class DegreeProgramRequestFilter
             [
                 'status' => 400,
                 'params' => array_map(
-                    static fn ($violation) => [
+                    static fn (Violation $violation) => [
                         'code' => $violation->errorCode(),
                         'message' => $violation->errorMessage(),
                     ],

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.24.0@462c80e31c34e58cc4f750c656be3927e80e550e">
+<files psalm-version="5.26.1@d747f6500b38ac4f7dfc5edbcae6e4b637d7add0">
   <file src="src/Infrastructure/Authorization/Capabilities/BlocksCapabilitiesModifier.php">
     <RedundantCondition>
       <code><![CDATA[REST_REQUEST]]></code>
@@ -7,7 +7,7 @@
   </file>
   <file src="src/Infrastructure/Authorization/Capabilities/EditPostCapabilitiesModifier.php">
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! $postId]]></code>
+      <code><![CDATA[!$postId]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Infrastructure/Authorization/Capabilities/MediaCapabilitiesModifier.php">
@@ -51,8 +51,8 @@
   </file>
   <file src="src/Infrastructure/Repository/WorkflowAuthorsRepository.php">
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! $workflowAuthors]]></code>
       <code><![CDATA[!$terms]]></code>
+      <code><![CDATA[!$workflowAuthors]]></code>
       <code><![CDATA[$terms]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
