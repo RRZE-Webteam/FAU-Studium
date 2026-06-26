@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-18 07:58+0000\n"
-"PO-Revision-Date: 2024-06-10 16:16+0200\n"
+"PO-Revision-Date: 2026-06-25 15:58+0300\n"
 "Last-Translator: \n"
 "Language-Team: Deutsch\n"
 "Language: de_DE\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.9\n"
 "X-Domain: fau-degree-program\n"
 
 #. translators: %s - amount of revisions
@@ -470,7 +470,7 @@ msgstr "Semesterbeitrag"
 #: src/Infrastructure/Dashboard/Settings/SettingsModule.php:170
 msgctxt "backoffice: setting title"
 msgid "Special Features"
-msgstr "Besondere Hinweise"
+msgstr "Besonderheiten des Studiengangs"
 
 #: src/Infrastructure/Dashboard/Settings/SettingsModule.php:130
 msgctxt "backoffice: setting title"
