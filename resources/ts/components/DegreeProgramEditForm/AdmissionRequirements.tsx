@@ -249,7 +249,7 @@ const AdmissionRequirements = () => {
 							'backoffice: degree program edit form',
 							'fau-degree-program'
 						) }
-						help="evtl. zusätzliche Infos zu Bewerbung und Einschreibung."
+						help="Zusätzliche Infos zu Bewerbung, Einschreibung und Zugangsvoraussetzungen, Vorpraktika, etc."
 					>
 						<MultilingualContainer
 							value={ values.details_and_notes }
