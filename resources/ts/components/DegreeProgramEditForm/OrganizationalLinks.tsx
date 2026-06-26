@@ -79,7 +79,6 @@ const OrganizationalLinks = () => {
 							'fau-degree-program'
 						) }
 						fill="third"
-						required
 					>
 						<TextControlFormField
 							id="module_handbook"
@@ -101,7 +100,6 @@ const OrganizationalLinks = () => {
 							'fau-degree-program'
 						) }
 						fill="half"
-						required
 					>
 						<MultilingualContainer value={ values.url }>
 							{ ( languageCode, required ) => (
@@ -196,7 +194,6 @@ const OrganizationalLinks = () => {
 							'fau-degree-program'
 						) }
 						fill="third"
-						required
 					>
 						<TextControlFormField
 							onChange={ ( value: string ) => {
