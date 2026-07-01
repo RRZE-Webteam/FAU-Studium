@@ -67,6 +67,8 @@ export interface DegreeProgramData {
 	student_initiatives: MultilingualLink;
 	apply_now_link: MultilingualLink;
 	entry_text: MultilingualString;
+	news: MultilingualString;
+	news_expiry_date: string;
 }
 
 export const DEGREE_ABBREVIATION_GERMAN = {

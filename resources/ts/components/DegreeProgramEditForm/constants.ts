@@ -11,6 +11,8 @@ export const FIELDS_BY_TABS: Record<
 		'featured_image',
 		'teaser_image',
 		'entry_text',
+		'news',
+		'news_expiry_date',
 		'area_of_study',
 		'start',
 		'number_of_students',
