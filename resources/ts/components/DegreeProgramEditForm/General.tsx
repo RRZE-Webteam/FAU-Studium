@@ -160,9 +160,7 @@ const General = () => {
 							{ ( languageCode, required ) => (
 								<ContentField
 									key={ `news.${ languageCode }` }
-									content={
-										values.news[ languageCode ]
-									}
+									content={ values.news[ languageCode ] }
 									onChange={ ( content: string ) => {
 										handleChange< string >(
 											`news.${ languageCode }`,
