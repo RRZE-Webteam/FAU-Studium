@@ -101,19 +101,6 @@ const General = () => {
 					>
 						<ImageField path="featured_image" />
 					</FormField>
-					<FormField
-						name="teaser_image"
-						fill="half"
-						label={ _x(
-							'Teaser Image',
-							'backoffice: degree program edit form',
-							'fau-degree-program'
-						) }
-						help="Wird für die Kacheln auf der Auswahlseite verwendet. Größe: 500 × 500 px."
-						required
-					>
-						<ImageField path="teaser_image" />
-					</FormField>
 
 					<FormField
 						name="entry_text"

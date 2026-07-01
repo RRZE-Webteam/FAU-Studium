@@ -9,10 +9,6 @@ const transformedErrorMessages: Partial<
 		'Please select a featured image.',
 		'fau-degree-program'
 	),
-	'teaser_image.id': __(
-		'Please select a teaser image.',
-		'fau-degree-program'
-	),
 };
 
 const transformedErrorMessagesBasedOnErrorCode: Partial<
