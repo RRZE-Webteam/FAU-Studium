@@ -1,14 +1,5 @@
 <?php
 
-/*
- * This file is part of the Assets package.
- *
- * (c) Inpsyde GmbH
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 declare(strict_types=1);
 
 namespace Inpsyde\Assets\Loader;
@@ -19,16 +10,14 @@ use Inpsyde\Assets\ConfigureAutodiscoverVersionTrait;
 use Inpsyde\Assets\Exception\FileNotFoundException;
 use Inpsyde\Assets\Exception\InvalidResourceException;
 use Inpsyde\Assets\Script;
+use Inpsyde\Assets\ScriptModule;
 use Inpsyde\Assets\Style;
 
 abstract class AbstractWebpackLoader implements LoaderInterface
 {
     use ConfigureAutodiscoverVersionTrait;
 
-    /**
-     * @var string
-     */
-    protected $directoryUrl = '';
+    protected string $directoryUrl = '';
 
     /**
      * @param string $directoryUrl optional directory URL which will be used for the Asset
@@ -46,16 +35,16 @@ abstract class AbstractWebpackLoader implements LoaderInterface
      * @param array<string, string> $data
      * @param string $resource
      *
-     * @return array
+     * @return Asset[]
      */
     abstract protected function parseData(array $data, string $resource): array;
 
     /**
      * @param mixed $resource
      *
-     * @return array
+     * @return Asset[]
      *
-     * phpcs:disable Inpsyde.CodeQuality.ArgumentTypeDeclaration
+     * phpcs:disable Syde.Functions.ArgumentTypeDeclaration.NoArgumentType
      * @psalm-suppress MixedArgument
      */
     public function load($resource): array
@@ -64,7 +53,7 @@ abstract class AbstractWebpackLoader implements LoaderInterface
             throw new FileNotFoundException(
                 sprintf(
                     'The given file "%s" does not exists or is not readable.',
-                    (string) $resource
+                    esc_html($resource)
                 )
             );
         }
@@ -75,7 +64,10 @@ abstract class AbstractWebpackLoader implements LoaderInterface
         $errorCode = json_last_error();
         if (0 < $errorCode) {
             throw new InvalidResourceException(
-                sprintf('Error parsing JSON - %s', $this->getJSONErrorMessage($errorCode))
+                sprintf(
+                    'Error parsing JSON - %s',
+                    esc_html($this->getJSONErrorMessage($errorCode))
+                )
             );
         }
 
@@ -116,23 +108,17 @@ abstract class AbstractWebpackLoader implements LoaderInterface
      */
     protected function buildAsset(string $handle, string $fileUrl, string $filePath): ?Asset
     {
-        $extensionsToClass = [
-            'css' => Style::class,
-            'js' => Script::class,
-        ];
-
         /** @var array{filename?:string, extension?:string} $pathInfo */
         $pathInfo = pathinfo($filePath);
         $filename = $pathInfo['filename'] ?? '';
-        $extension = $pathInfo['extension'] ?? '';
 
-        if (!in_array($extension, array_keys($extensionsToClass), true)) {
+        $class = $this->resolveClassByExtension($filePath);
+
+        if (!$class) {
             return null;
         }
 
-        $class = $extensionsToClass[$extension];
-
-        /** @var Asset|BaseAsset $asset */
+        /** @var Style|Script|ScriptModule $asset */
         $asset = new $class($handle, $fileUrl, $this->resolveLocation($filename));
         $asset->withFilePath($filePath);
         $asset->canEnqueue(true);
@@ -144,6 +130,42 @@ abstract class AbstractWebpackLoader implements LoaderInterface
         }
 
         return $asset;
+    }
+
+    protected function resolveClassByExtension(string $filePath): ?string
+    {
+        $extensionsToClass = [
+            'css' => Style::class,
+            'js' => Script::class,
+            'mjs' => ScriptModule::class,
+            'module.js' => ScriptModule::class,
+        ];
+
+        // TODO Maybe make use of \SplFileInfo since it's typed and we can share it
+        //      we have to just make a factory method and that's it.
+        /** @var array{filename?:string, extension?:string} $pathInfo */
+        $pathInfo = pathinfo($filePath);
+        $baseName = $pathInfo['basename'] ?? '';
+        $extension = $pathInfo['extension'] ?? '';
+
+        if (self::isModule($baseName)) {
+            $extension = 'module.js';
+        }
+
+        if (!in_array($extension, array_keys($extensionsToClass), true)) {
+            return null;
+        }
+
+        return $extensionsToClass[$extension];
+    }
+
+    protected static function isModule(string $fileName): bool
+    {
+        // TODO replace it with `str_ends_with` once dropping support for php 7.4
+        $strEndsWith = static function (string $haystack, string $needle): bool {
+            return substr_compare($haystack, $needle, -strlen($needle)) === 0;
+        };
+        return $strEndsWith($fileName, '.module.js') || $strEndsWith($fileName, '.mjs');
     }
 
     /**
@@ -160,12 +182,40 @@ abstract class AbstractWebpackLoader implements LoaderInterface
      */
     protected function sanitizeFileName(string $file): string
     {
-        // Check, if the given "file"-value is an URL
+        // Check if the given "file"-value is a URL
         $parsedUrl = parse_url($file);
 
         // the "file"-value can contain "./file.css" or "/file.css".
 
         return ltrim($parsedUrl['path'] ?? $file, './');
+    }
+
+    /**
+     * Internal function to sanitize the handle based on the file
+     * by taking into consideration that @vendor can be present.
+     *
+     * @param string $file
+     *
+     * @return string
+     * @example /path/to/@vendor/script.module.js   -> @vendor/script.module
+     *
+     * @example /path/to/script.js                  -> script
+     * @example @vendor/script.module.js            -> @vendor/script.module
+     */
+    protected function normalizeHandle(string $file): string
+    {
+        $pathInfo = pathinfo($file);
+
+        $dirName = $pathInfo['dirname'] ?? '';
+        $parts = explode('@', $dirName);
+        $vendor = $parts[1] ?? null;
+
+        $handle = $pathInfo['filename'];
+        if ($vendor !== null) {
+            $handle = "@{$vendor}/{$handle}";
+        }
+
+        return $handle;
     }
 
     /**

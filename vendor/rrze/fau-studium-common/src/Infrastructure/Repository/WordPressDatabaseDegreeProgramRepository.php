@@ -72,7 +72,6 @@ final class WordPressDatabaseDegreeProgramRepository extends BilingualRepository
         }
 
         $featuredImageId = (int) get_post_thumbnail_id($post);
-        $teaserImageId = (int) get_post_meta($postId, DegreeProgram::TEASER_IMAGE, true);
 
         /**
          * @var string $videos
@@ -93,10 +92,6 @@ final class WordPressDatabaseDegreeProgramRepository extends BilingualRepository
             featuredImage: Image::new(
                 $featuredImageId,
                 (string) wp_get_attachment_image_url($featuredImageId, 'full')
-            ),
-            teaserImage: Image::new(
-                $teaserImageId,
-                (string) wp_get_attachment_image_url($teaserImageId, 'full')
             ),
             title: MultilingualString::fromTranslations(
                 $this->idGenerator->generatePostId($post, 'title'),
@@ -130,6 +125,12 @@ final class WordPressDatabaseDegreeProgramRepository extends BilingualRepository
             keywords: $this->bilingualTermsList($post, KeywordTaxonomy::KEY),
             areaOfStudy: $this->bilingualTermLinks($post, AreaOfStudyTaxonomy::KEY),
             entryText: $this->bilingualPostMeta($post, DegreeProgram::ENTRY_TEXT),
+            news: $this->bilingualPostMeta($post, DegreeProgram::NEWS),
+            newsExpiryDate: (string) get_post_meta(
+                $postId,
+                DegreeProgram::NEWS_EXPIRY_DATE,
+                true
+            ),
             content: Content::new(
                 about: $this->contentItem($post, Content::ABOUT),
                 structure: $this->contentItem($post, Content::STRUCTURE),
@@ -200,6 +201,21 @@ final class WordPressDatabaseDegreeProgramRepository extends BilingualRepository
             moduleHandbook: (string) get_post_meta(
                 $postId,
                 DegreeProgram::MODULE_HANDBOOK,
+                true
+            ),
+            sscFacultyAdviceOrgId: (string) get_post_meta(
+                $postId,
+                DegreeProgram::SSC_FACULTY_ADVICE_ORG_ID,
+                true
+            ),
+            subjectStudyAdviceOrgId: (string) get_post_meta(
+                $postId,
+                DegreeProgram::SUBJECT_STUDY_ADVICE_ORG_ID,
+                true
+            ),
+            degreeProgramCoordinatorOrgId: (string) get_post_meta(
+                $postId,
+                DegreeProgram::DEGREE_PROGRAM_COORDINATOR_ORG_ID,
                 true
             ),
             url: $this->bilingualPostMeta($post, DegreeProgram::URL),
@@ -364,8 +380,6 @@ final class WordPressDatabaseDegreeProgramRepository extends BilingualRepository
         );
 
         $metas = [
-            DegreeProgram::TEASER_IMAGE =>
-                $degreeProgramViewRaw->teaserImage()->id(),
             BilingualRepository::addEnglishSuffix('title') =>
                 $degreeProgramViewRaw->title()->inEnglish(),
             BilingualRepository::addEnglishSuffix('post_name') =>
@@ -385,6 +399,8 @@ final class WordPressDatabaseDegreeProgramRepository extends BilingualRepository
                         $degreeProgramViewRaw->videos()->getArrayCopy(),
                     ),
                 ),
+            DegreeProgram::NEWS_EXPIRY_DATE =>
+                $degreeProgramViewRaw->newsExpiryDate(),
             DegreeProgram::APPLICATION_DEADLINE_WINTER_SEMESTER =>
                 $degreeProgramViewRaw->applicationDeadlineWinterSemester(),
             DegreeProgram::APPLICATION_DEADLINE_SUMMER_SEMESTER =>
@@ -402,6 +418,18 @@ final class WordPressDatabaseDegreeProgramRepository extends BilingualRepository
             DegreeProgram::EXAMINATION_REGULATIONS =>
                 $this->fieldsSanitizer->sanitizeUrlField(
                     $degreeProgramViewRaw->examinationRegulations()
+                ),
+            DegreeProgram::SSC_FACULTY_ADVICE_ORG_ID =>
+                $this->fieldsSanitizer->sanitizeTextField(
+                    $degreeProgramViewRaw->sscFacultyAdviceOrgId()
+                ),
+            DegreeProgram::SUBJECT_STUDY_ADVICE_ORG_ID =>
+                $this->fieldsSanitizer->sanitizeTextField(
+                    $degreeProgramViewRaw->subjectStudyAdviceOrgId()
+                ),
+            DegreeProgram::DEGREE_PROGRAM_COORDINATOR_ORG_ID =>
+                $this->fieldsSanitizer->sanitizeTextField(
+                    $degreeProgramViewRaw->degreeProgramCoordinatorOrgId()
                 ),
         ];
 
@@ -436,6 +464,7 @@ final class WordPressDatabaseDegreeProgramRepository extends BilingualRepository
                 $degreeProgramViewRaw->department()
             ),
             $degreeProgramViewRaw->entryText(),
+            $degreeProgramViewRaw->news(),
         ];
 
         foreach ($bilingualMetas as $bilingualMeta) {

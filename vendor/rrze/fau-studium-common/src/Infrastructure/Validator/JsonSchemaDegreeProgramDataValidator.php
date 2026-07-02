@@ -28,11 +28,12 @@ final class JsonSchemaDegreeProgramDataValidator implements DegreeProgramDataVal
 
     public const DEADLINE_PATTERN = '^((0[1-9]|[12][0-9]|3[01])\.(0[13578]|1[02])|(0[1-9]|[12][0-9]|30)\.(0[469]|11)|(0[1-9]|1[0-9]|2[0-8])\.02)\.$|^$';
 
+    public const FAUDIR_ORG_ID_PATTERN = '^[a-z0-9]{10,11}$|^$';
+
     public const REQUIRED_PROPERTIES = [
         DegreeProgram::ID,
         DegreeProgram::SLUG,
         DegreeProgram::FEATURED_IMAGE,
-        DegreeProgram::TEASER_IMAGE,
         DegreeProgram::TITLE,
         DegreeProgram::SUBTITLE,
         DegreeProgram::STANDARD_DURATION,
@@ -59,9 +60,9 @@ final class JsonSchemaDegreeProgramDataValidator implements DegreeProgramDataVal
         DegreeProgram::START_OF_SEMESTER,
         DegreeProgram::SEMESTER_DATES,
         DegreeProgram::EXAMINATIONS_OFFICE,
-        DegreeProgram::EXAMINATION_REGULATIONS,
-        DegreeProgram::MODULE_HANDBOOK,
-        DegreeProgram::URL,
+        DegreeProgram::SSC_FACULTY_ADVICE_ORG_ID,
+        DegreeProgram::SUBJECT_STUDY_ADVICE_ORG_ID,
+        DegreeProgram::DEGREE_PROGRAM_COORDINATOR_ORG_ID,
         DegreeProgram::DEPARTMENT,
         DegreeProgram::STUDENT_ADVICE,
         DegreeProgram::SUBJECT_SPECIFIC_ADVICE,

@@ -1,20 +1,11 @@
 <?php
 
-/*
- * This file is part of the Assets package.
- *
- * (c) Inpsyde GmbH
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 declare(strict_types=1);
 
 namespace Inpsyde\Assets;
 
 // Exit early in case multiple Composer autoloaders try to include this file.
-if (defined(__NAMESPACE__.'\BOOTSTRAPPED')) {
+if (defined(__NAMESPACE__ . '\BOOTSTRAPPED')) {
     return;
 }
 

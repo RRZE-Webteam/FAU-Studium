@@ -9,10 +9,6 @@
     "id": 9,
     "url": "https:\/\/fau.localhost\/wp-content\/uploads\/2022\/12\/viber_image_2022-05-27_15-30-39-852.jpg"
   },
-  "teaser_image": {
-    "id": 14,
-    "url": "https:\/\/fau.localhost\/wp-content\/uploads\/2022\/12\/abstract-1-1528080.jpg"
-  },
   "title": {
     "id": "post:25:title",
     "de": "Master of Art FAU",
@@ -461,6 +457,9 @@
   },
   "examination_regulations": "https://fau.localhost/examinations-regulations",
   "module_handbook": "Module handbook value",
+  "ssc_faculty_advice_org_id": "abc1234567",
+  "subject_study_advice_org_id": "def12345678",
+  "degree_program_coordinator_org_id": "ghi1234567",
   "url": {
     "id": "post_meta:25:url",
     "de": "https:\/\/fau.localhost\/degree",
@@ -693,6 +692,12 @@
     "de": "Einstiegtext (werbend)",
     "en": "Entry text (promotional)"
   },
+  "news": {
+    "id": "post_meta:25:news",
+    "de": "Aktuelles",
+    "en": "Current news"
+  },
+  "news_expiry_date": "",
   "campo_keys": {
     "degree": "185",
     "area_of_study": "85",

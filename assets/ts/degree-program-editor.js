@@ -1993,7 +1993,7 @@ var AdmissionRequirements = function () {
   })), (applicationWinterDeadlineEnabled || applicationSummerDeadlineEnabled) && react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Layouts_FormSeparator__WEBPACK_IMPORTED_MODULE_12__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_FormField_FormField__WEBPACK_IMPORTED_MODULE_3__["default"], {
     name: "details_and_notes",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__._x)('Details and notes', 'backoffice: degree program edit form', 'fau-degree-program'),
-    help: "evtl. zus\u00E4tzliche Infos zu Bewerbung und Einschreibung."
+    help: "Zus\u00E4tzliche Infos zu Bewerbung, Einschreibung und Zugangsvoraussetzungen, Vorpraktika, etc."
   }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_MultilingualContainer__WEBPACK_IMPORTED_MODULE_13__["default"], {
     value: values.details_and_notes
   }, function (languageCode, required) {
@@ -2083,7 +2083,7 @@ var CONTENT_ITEMS = {
   qualities_and_skills: 'Fähigkeiten und Vorlieben der Studieninteressierten, nicht formelle Voraussetzungen; ±200 Wörter',
   why_should_study: 'Einzigartigkeit bzw. Besonderheiten (z. B. Kooperationspartner, Verbundstudiumsangebot) des Studiengangs an der FAU; ±200 Wörter',
   career_prospects: 'mögliche Tätigkeitsfelder nach Abschluss des Studiums; ±200 Wörter',
-  special_features: 'Möglichkeiten von Auslandsaufenthalten, Kooperationen mit Forschungsprojekten, etc.; ±200 Wörter'
+  special_features: 'Möglichkeiten von Auslandsaufenthalten, Kooperationen, Vorpraktika, Einführungsveranstaltungen, etc.; ±200 Wörter, in Listenpunkte (kein Fließtext)'
 };
 var REQUIRED_FIELDS = ['about', 'structure'];
 var Content = function () {
@@ -2235,15 +2235,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_FormField__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/FormField */ "./resources/ts/components/FormField/index.ts");
 /* harmony import */ var _components_ImageField__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/ImageField */ "./resources/ts/components/ImageField/index.ts");
 /* harmony import */ var _components_Layouts_FormWrapper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/Layouts/FormWrapper */ "./resources/ts/components/Layouts/FormWrapper.tsx");
-/* harmony import */ var _components_LimitedInputControl__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/LimitedInputControl */ "./resources/ts/components/LimitedInputControl/index.ts");
-/* harmony import */ var _components_TermSelector__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/TermSelector */ "./resources/ts/components/TermSelector/index.ts");
-/* harmony import */ var _components_TermSelector_TermSelector__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../components/TermSelector/TermSelector */ "./resources/ts/components/TermSelector/TermSelector.tsx");
-/* harmony import */ var _components_TextControlCollection__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../components/TextControlCollection */ "./resources/ts/components/TextControlCollection/index.ts");
-/* harmony import */ var _contexts_DegreeProgramEditFormProvider__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../contexts/DegreeProgramEditFormProvider */ "./resources/ts/contexts/DegreeProgramEditFormProvider.tsx");
-/* harmony import */ var _util_idHelpers__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../util/idHelpers */ "./resources/ts/util/idHelpers.ts");
-/* harmony import */ var _util_transforms__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../util/transforms */ "./resources/ts/util/transforms.ts");
-/* harmony import */ var _ContentField__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../ContentField */ "./resources/ts/components/ContentField/index.ts");
-/* harmony import */ var _MultilingualContainer__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./MultilingualContainer */ "./resources/ts/components/DegreeProgramEditForm/MultilingualContainer.tsx");
+/* harmony import */ var _components_Layouts_FormSeparator__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/Layouts/FormSeparator */ "./resources/ts/components/Layouts/FormSeparator.tsx");
+/* harmony import */ var _components_LimitedInputControl__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/LimitedInputControl */ "./resources/ts/components/LimitedInputControl/index.ts");
+/* harmony import */ var _components_TermSelector__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../components/TermSelector */ "./resources/ts/components/TermSelector/index.ts");
+/* harmony import */ var _components_TermSelector_TermSelector__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../components/TermSelector/TermSelector */ "./resources/ts/components/TermSelector/TermSelector.tsx");
+/* harmony import */ var _components_TextControlCollection__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../components/TextControlCollection */ "./resources/ts/components/TextControlCollection/index.ts");
+/* harmony import */ var _contexts_DegreeProgramEditFormProvider__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../contexts/DegreeProgramEditFormProvider */ "./resources/ts/contexts/DegreeProgramEditFormProvider.tsx");
+/* harmony import */ var _util_idHelpers__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../util/idHelpers */ "./resources/ts/util/idHelpers.ts");
+/* harmony import */ var _util_transforms__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../util/transforms */ "./resources/ts/util/transforms.ts");
+/* harmony import */ var _ContentField__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../ContentField */ "./resources/ts/components/ContentField/index.ts");
+/* harmony import */ var _MultilingualContainer__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./MultilingualContainer */ "./resources/ts/components/DegreeProgramEditForm/MultilingualContainer.tsx");
+
 
 
 
@@ -2260,7 +2262,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var General = function () {
-  var _a = (0,_contexts_DegreeProgramEditFormProvider__WEBPACK_IMPORTED_MODULE_10__.useEditDegreeProgram)(),
+  var _a = (0,_contexts_DegreeProgramEditFormProvider__WEBPACK_IMPORTED_MODULE_11__.useEditDegreeProgram)(),
     values = _a.values,
     handleChange = _a.handleChange;
   return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Panel, null, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, null, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Layouts_FormWrapper__WEBPACK_IMPORTED_MODULE_5__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_FormField__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -2269,7 +2271,7 @@ var General = function () {
     help: "Studiengangsbezeichnung, ohne Abschluss.",
     fill: "half",
     required: true
-  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_MultilingualContainer__WEBPACK_IMPORTED_MODULE_14__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_MultilingualContainer__WEBPACK_IMPORTED_MODULE_15__["default"], {
     value: values.title
   }, function (languageCode, required) {
     return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
@@ -2284,7 +2286,7 @@ var General = function () {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__._x)('Subtitle', 'backoffice: degree program edit form', 'fau-degree-program'),
     help: "Z. B. Aufz\u00E4hlung der Studienschwerpunkte bei Wirtschaftswissenschaften.",
     fill: "half"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_MultilingualContainer__WEBPACK_IMPORTED_MODULE_14__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_MultilingualContainer__WEBPACK_IMPORTED_MODULE_15__["default"], {
     value: values.subtitle
   }, function (languageCode, required) {
     return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
@@ -2303,23 +2305,15 @@ var General = function () {
   }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_ImageField__WEBPACK_IMPORTED_MODULE_4__["default"], {
     path: "featured_image"
   })), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_FormField__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    name: "teaser_image",
-    fill: "half",
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__._x)('Teaser Image', 'backoffice: degree program edit form', 'fau-degree-program'),
-    help: "Wird f\u00FCr die Kacheln auf der Auswahlseite verwendet. Gr\u00F6\u00DFe: 500 \u00D7 500 px.",
-    required: true
-  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_ImageField__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    path: "teaser_image"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_FormField__WEBPACK_IMPORTED_MODULE_3__["default"], {
     name: "entry_text",
     fill: "full",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__._x)('Entry text (promotional)', 'backoffice: degree program edit form', 'fau-degree-program'),
     help: "Ca. 300 Zeichen.",
     required: true
-  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_MultilingualContainer__WEBPACK_IMPORTED_MODULE_14__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_MultilingualContainer__WEBPACK_IMPORTED_MODULE_15__["default"], {
     value: values.entry_text
   }, function (languageCode, required) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_ContentField__WEBPACK_IMPORTED_MODULE_13__["default"], {
+    return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_ContentField__WEBPACK_IMPORTED_MODULE_14__["default"], {
       key: "entry_text.".concat(languageCode),
       content: values.entry_text[languageCode],
       onChange: function (content) {
@@ -2328,32 +2322,59 @@ var General = function () {
       required: required
     });
   })), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_FormField__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    name: "news",
+    fill: "full",
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__._x)('News', 'backoffice: degree program edit form', 'fau-degree-program'),
+    help: "Aktuelle, zeitlich begrenzte Hinweise (z. B. Infos zu Vortr\u00E4gen w\u00E4hrend der Studieninformationstage)."
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_MultilingualContainer__WEBPACK_IMPORTED_MODULE_15__["default"], {
+    value: values.news
+  }, function (languageCode, required) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_ContentField__WEBPACK_IMPORTED_MODULE_14__["default"], {
+      key: "news.".concat(languageCode),
+      content: values.news[languageCode],
+      onChange: function (content) {
+        handleChange("news.".concat(languageCode), content);
+      },
+      required: required
+    });
+  })), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_FormField__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    name: "news_expiry_date",
+    fill: "third",
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__._x)('News expiry date', 'backoffice: degree program edit form', 'fau-degree-program'),
+    help: "Optional. Nach diesem Datum wird \u201EAktuelles\u201C automatisch ausgeblendet. Leer lassen, damit der Hinweis dauerhaft sichtbar bleibt."
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
+    type: "date",
+    value: values.news_expiry_date,
+    onChange: function (value) {
+      handleChange('news_expiry_date', value);
+    }
+  })), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Layouts_FormSeparator__WEBPACK_IMPORTED_MODULE_6__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_FormField__WEBPACK_IMPORTED_MODULE_3__["default"], {
     name: "area_of_study",
     fill: "third",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__._x)('Area of study', 'backoffice: degree program edit form', 'fau-degree-program'),
     required: true
-  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_TermSelector__WEBPACK_IMPORTED_MODULE_7__.MultiTermSelector, {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_TermSelector__WEBPACK_IMPORTED_MODULE_8__.MultiTermSelector, {
     id: "area_of_study",
     taxonomy: "areaOfStudy",
     value: values.area_of_study.map(function (term) {
       return term.id;
     }),
     onChange: function (terms) {
-      handleChange('area_of_study', terms.map(_util_transforms__WEBPACK_IMPORTED_MODULE_12__.transformTermToMultilingualLink));
+      handleChange('area_of_study', terms.map(_util_transforms__WEBPACK_IMPORTED_MODULE_13__.transformTermToMultilingualLink));
     }
   })), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_FormField__WEBPACK_IMPORTED_MODULE_3__["default"], {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__._x)('Start of degree program', 'backoffice: degree program edit form', 'fau-degree-program'),
     name: "start",
     fill: "third",
     required: true
-  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_TermSelector__WEBPACK_IMPORTED_MODULE_7__.MultiTermSelector, {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_TermSelector__WEBPACK_IMPORTED_MODULE_8__.MultiTermSelector, {
     id: "semester",
     taxonomy: "semester",
     value: values.start.map(function (term) {
       return term.id;
     }),
     onChange: function (terms) {
-      handleChange('start', terms.map(_util_transforms__WEBPACK_IMPORTED_MODULE_12__.transformTermToMultilingualString));
+      handleChange('start', terms.map(_util_transforms__WEBPACK_IMPORTED_MODULE_13__.transformTermToMultilingualString));
     }
   })), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_FormField__WEBPACK_IMPORTED_MODULE_3__["default"], {
     name: "number_of_students",
@@ -2361,13 +2382,13 @@ var General = function () {
     help: "Gesamtzahl der Studierenden, nicht nur Erstsemester.",
     fill: "third",
     required: true
-  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_TermSelector_TermSelector__WEBPACK_IMPORTED_MODULE_8__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_TermSelector_TermSelector__WEBPACK_IMPORTED_MODULE_9__["default"], {
     id: "number_of_students",
     taxonomy: "numberOfStudents",
     value: values.number_of_students.id,
     onChange: function (term) {
       handleChange('number_of_students', term ? {
-        id: (0,_util_idHelpers__WEBPACK_IMPORTED_MODULE_11__.propertyId)('term', term.id),
+        id: (0,_util_idHelpers__WEBPACK_IMPORTED_MODULE_12__.propertyId)('term', term.id),
         name: term.name,
         description: term.description
       } : {
@@ -2381,94 +2402,94 @@ var General = function () {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__._x)('Teaching language', 'backoffice: degree program edit form', 'fau-degree-program'),
     fill: "third",
     required: true
-  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_TermSelector_TermSelector__WEBPACK_IMPORTED_MODULE_8__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_TermSelector_TermSelector__WEBPACK_IMPORTED_MODULE_9__["default"], {
     id: "teaching-language",
     taxonomy: "teachingLanguage",
     value: values.teaching_language.id,
     onChange: function (term) {
-      handleChange('teaching_language', (0,_util_transforms__WEBPACK_IMPORTED_MODULE_12__.transformTermToMultilingualString)(term));
+      handleChange('teaching_language', (0,_util_transforms__WEBPACK_IMPORTED_MODULE_13__.transformTermToMultilingualString)(term));
     }
   })), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_FormField__WEBPACK_IMPORTED_MODULE_3__["default"], {
     name: "attributes",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__._x)('Attributes', 'backoffice: degree program edit form', 'fau-degree-program'),
     fill: "third"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_TermSelector__WEBPACK_IMPORTED_MODULE_7__.MultiTermSelector, {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_TermSelector__WEBPACK_IMPORTED_MODULE_8__.MultiTermSelector, {
     id: "attribute",
     taxonomy: "attribute",
     value: values.attributes.map(function (term) {
       return term.id;
     }),
     onChange: function (terms) {
-      handleChange('attributes', terms.map(_util_transforms__WEBPACK_IMPORTED_MODULE_12__.transformTermToMultilingualString));
+      handleChange('attributes', terms.map(_util_transforms__WEBPACK_IMPORTED_MODULE_13__.transformTermToMultilingualString));
     }
   })), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_FormField__WEBPACK_IMPORTED_MODULE_3__["default"], {
     name: "degree",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__._x)('Degree', 'backoffice: degree program edit form', 'fau-degree-program'),
     fill: "third",
     required: true
-  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_TermSelector_TermSelector__WEBPACK_IMPORTED_MODULE_8__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_TermSelector_TermSelector__WEBPACK_IMPORTED_MODULE_9__["default"], {
     id: "degree",
     taxonomy: "degree",
     value: values.degree.id,
     childOnly: true,
     onChange: function (term) {
-      handleChange('degree', (0,_util_transforms__WEBPACK_IMPORTED_MODULE_12__.transformTermToDegree)(term));
+      handleChange('degree', (0,_util_transforms__WEBPACK_IMPORTED_MODULE_13__.transformTermToDegree)(term));
     }
   })), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_FormField__WEBPACK_IMPORTED_MODULE_3__["default"], {
     name: "faculty",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__._x)('Faculty', 'backoffice: degree program edit form', 'fau-degree-program'),
     fill: "half",
     required: true
-  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_TermSelector__WEBPACK_IMPORTED_MODULE_7__.MultiTermSelector, {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_TermSelector__WEBPACK_IMPORTED_MODULE_8__.MultiTermSelector, {
     id: "faculty",
     taxonomy: "faculty",
     value: values.faculty.map(function (term) {
       return term.id;
     }),
     onChange: function (terms) {
-      handleChange('faculty', terms.map(_util_transforms__WEBPACK_IMPORTED_MODULE_12__.transformTermToMultilingualLink));
+      handleChange('faculty', terms.map(_util_transforms__WEBPACK_IMPORTED_MODULE_13__.transformTermToMultilingualLink));
     }
   })), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_FormField__WEBPACK_IMPORTED_MODULE_3__["default"], {
     name: "location",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__._x)('Study location', 'backoffice: degree program edit form', 'fau-degree-program'),
     fill: "half",
     required: true
-  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_TermSelector__WEBPACK_IMPORTED_MODULE_7__.MultiTermSelector, {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_TermSelector__WEBPACK_IMPORTED_MODULE_8__.MultiTermSelector, {
     id: "study-location",
     taxonomy: "studyLocation",
     value: values.location.map(function (term) {
       return term.id;
     }),
     onChange: function (terms) {
-      handleChange('location', terms.map(_util_transforms__WEBPACK_IMPORTED_MODULE_12__.transformTermToMultilingualString));
+      handleChange('location', terms.map(_util_transforms__WEBPACK_IMPORTED_MODULE_13__.transformTermToMultilingualString));
     }
   })), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_FormField__WEBPACK_IMPORTED_MODULE_3__["default"], {
     name: "subject_groups",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__._x)('Subject groups', 'backoffice: degree program edit form', 'fau-degree-program'),
     fill: "half",
     required: true
-  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_TermSelector__WEBPACK_IMPORTED_MODULE_7__.MultiTermSelector, {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_TermSelector__WEBPACK_IMPORTED_MODULE_8__.MultiTermSelector, {
     id: "subject-group",
     taxonomy: "subjectGroup",
     value: values.subject_groups.map(function (term) {
       return term.id;
     }),
     onChange: function (terms) {
-      handleChange('subject_groups', terms.map(_util_transforms__WEBPACK_IMPORTED_MODULE_12__.transformTermToMultilingualString));
+      handleChange('subject_groups', terms.map(_util_transforms__WEBPACK_IMPORTED_MODULE_13__.transformTermToMultilingualString));
     }
   })), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_FormField__WEBPACK_IMPORTED_MODULE_3__["default"], {
     name: "keywords",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__._x)('Keywords', 'backoffice: degree program edit form', 'fau-degree-program'),
     fill: "half",
     required: true
-  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_TermSelector__WEBPACK_IMPORTED_MODULE_7__.MultiTermSelector, {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_TermSelector__WEBPACK_IMPORTED_MODULE_8__.MultiTermSelector, {
     id: "keywords",
     taxonomy: "keyword",
     value: values.keywords.map(function (term) {
       return term.id;
     }),
     onChange: function (terms) {
-      handleChange('keywords', terms.map(_util_transforms__WEBPACK_IMPORTED_MODULE_12__.transformTermToMultilingualString));
+      handleChange('keywords', terms.map(_util_transforms__WEBPACK_IMPORTED_MODULE_13__.transformTermToMultilingualString));
     }
   })), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_FormField__WEBPACK_IMPORTED_MODULE_3__["default"], {
     name: "videos",
@@ -2476,7 +2497,7 @@ var General = function () {
     help: "Videos \u00FCber den Studiengang, das Studienfach, ein Thema des Fachs (z. B. 2-Minuten-Wissen), Erfahrungsberichte.",
     fill: "full",
     required: true
-  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_TextControlCollection__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_TextControlCollection__WEBPACK_IMPORTED_MODULE_10__["default"], {
     value: values.videos,
     onChange: function (value) {
       handleChange('videos', value);
@@ -2500,10 +2521,10 @@ var General = function () {
     help: "Text f\u00FCr die Anzeige bei Suchmaschinen.",
     fill: "full",
     required: true
-  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_MultilingualContainer__WEBPACK_IMPORTED_MODULE_14__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_MultilingualContainer__WEBPACK_IMPORTED_MODULE_15__["default"], {
     value: values.meta_description
   }, function (languageCode, required) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_LimitedInputControl__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_LimitedInputControl__WEBPACK_IMPORTED_MODULE_7__["default"], {
       value: values.meta_description[languageCode],
       maxChars: 160,
       required: required
@@ -2646,8 +2667,7 @@ var OrganizationalLinks = function () {
   })), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_FormField_FormField__WEBPACK_IMPORTED_MODULE_4__["default"], {
     name: "module_handbook",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__._x)('Module handbook (URL)', 'backoffice: degree program edit form', 'fau-degree-program'),
-    fill: "third",
-    required: true
+    fill: "third"
   }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_FormField_FieldContextAwareTextControl__WEBPACK_IMPORTED_MODULE_3__["default"], {
     id: "module_handbook",
     onChange: function (handbook) {
@@ -2658,8 +2678,7 @@ var OrganizationalLinks = function () {
   })), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_FormField_FormField__WEBPACK_IMPORTED_MODULE_4__["default"], {
     name: "url",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__._x)('Degree program (URL)', 'backoffice: degree program edit form', 'fau-degree-program'),
-    fill: "half",
-    required: true
+    fill: "half"
   }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_MultilingualContainer__WEBPACK_IMPORTED_MODULE_10__["default"], {
     value: values.url
   }, function (languageCode, required) {
@@ -2713,14 +2732,43 @@ var OrganizationalLinks = function () {
   })), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_FormField_FormField__WEBPACK_IMPORTED_MODULE_4__["default"], {
     name: "examination_regulations",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__._x)('Degree program and examination regulations (URL)', 'backoffice: degree program edit form', 'fau-degree-program'),
-    fill: "third",
-    required: true
+    fill: "third"
   }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_FormField_FieldContextAwareTextControl__WEBPACK_IMPORTED_MODULE_3__["default"], {
     onChange: function (value) {
       handleChange("examination_regulations", value);
     },
     value: values.examination_regulations,
     type: "url"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_FormField_FormField__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    name: "ssc_faculty_advice_org_id",
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__._x)('SSC/advice at the faculty/department (FAUdir organization ID)', 'backoffice: degree program edit form', 'fau-degree-program'),
+    fill: "third"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_FormField_FieldContextAwareTextControl__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    id: "ssc_faculty_advice_org_id",
+    onChange: function (value) {
+      handleChange('ssc_faculty_advice_org_id', value);
+    },
+    value: values.ssc_faculty_advice_org_id
+  })), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_FormField_FormField__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    name: "subject_study_advice_org_id",
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__._x)('Subject study advice (FAUdir organization ID)', 'backoffice: degree program edit form', 'fau-degree-program'),
+    fill: "third"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_FormField_FieldContextAwareTextControl__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    id: "subject_study_advice_org_id",
+    onChange: function (value) {
+      handleChange('subject_study_advice_org_id', value);
+    },
+    value: values.subject_study_advice_org_id
+  })), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_FormField_FormField__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    name: "degree_program_coordinator_org_id",
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__._x)('Degree program coordinator (FAUdir organization ID)', 'backoffice: degree program edit form', 'fau-degree-program'),
+    fill: "third"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_FormField_FieldContextAwareTextControl__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    id: "degree_program_coordinator_org_id",
+    onChange: function (value) {
+      handleChange('degree_program_coordinator_org_id', value);
+    },
+    value: values.degree_program_coordinator_org_id
   })), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_FormField_FormField__WEBPACK_IMPORTED_MODULE_4__["default"], {
     name: "fee_required",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__._x)('Fee required', 'backoffice: degree program edit form', 'fau-degree-program'),
@@ -2812,10 +2860,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 var FIELDS_BY_TABS = {
-  general: ['title', 'subtitle', 'featured_image', 'teaser_image', 'entry_text', 'area_of_study', 'start', 'number_of_students', 'teaching_language', 'attributes', 'degree', 'faculty', 'location', 'subject_groups', 'keywords', 'videos', 'standard_duration'],
+  general: ['title', 'subtitle', 'featured_image', 'entry_text', 'news', 'news_expiry_date', 'area_of_study', 'start', 'number_of_students', 'teaching_language', 'attributes', 'degree', 'faculty', 'location', 'subject_groups', 'keywords', 'videos', 'standard_duration'],
   content: ['content'],
   'admission-requirements': ['admission_requirements', 'content_related_master_requirements', 'application_deadline_winter_semester', 'application_deadline_summer_semester', 'details_and_notes', 'language_skills', 'language_skills_humanities_faculty', 'german_language_skills_for_international_students'],
-  'organizational-links': ['apply_now_link', 'examinations_office', 'module_handbook', 'url', 'department', 'subject_specific_advice', 'info_brochure', 'examination_regulations', 'fee_required', 'degree_program_fees']
+  'organizational-links': ['apply_now_link', 'examinations_office', 'module_handbook', 'url', 'department', 'subject_specific_advice', 'info_brochure', 'examination_regulations', 'ssc_faculty_advice_org_id', 'subject_study_advice_org_id', 'degree_program_coordinator_org_id', 'fee_required', 'degree_program_fees']
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
@@ -4730,8 +4778,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
 
 var transformedErrorMessages = {
-  'featured_image.id': (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Please select a featured image.', 'fau-degree-program'),
-  'teaser_image.id': (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Please select a teaser image.', 'fau-degree-program')
+  'featured_image.id': (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Please select a featured image.', 'fau-degree-program')
 };
 var transformedErrorMessagesBasedOnErrorCode = {
   rest_too_short: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('This field can not be empty.', 'fau-degree-program'),

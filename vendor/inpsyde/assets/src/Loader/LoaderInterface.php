@@ -1,22 +1,19 @@
 <?php
 
-/*
- * This file is part of the Assets package.
- *
- * (c) Inpsyde GmbH
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
+declare(strict_types=1);
 
 namespace Inpsyde\Assets\Loader;
+
+use Inpsyde\Assets\Asset;
 
 interface LoaderInterface
 {
     /**
      * @param mixed $resource
      *
-     * @return array
+     * @return Asset[]
+     *
+     * phpcs:disable Syde.Functions.ArgumentTypeDeclaration.NoArgumentType
      */
     public function load($resource): array;
 }
