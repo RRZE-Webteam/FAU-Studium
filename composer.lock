@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9b26dc3afea28999db39ee47dc4ef724",
+    "content-hash": "29c9b89a1b5968376bfe5c92aa719243",
     "packages": [
         {
             "name": "inpsyde/assets",
@@ -405,16 +405,16 @@
         },
         {
             "name": "rrze/fau-studium-common",
-            "version": "dev-main",
+            "version": "dev-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RRZE-Webteam/FAU-Studium-Common.git",
-                "reference": "e8ffbf6159d2df954e7c396b4f5f47a8bef61c00"
+                "reference": "fcc8820c96f39bb5ea2bc0a0bb23d892bff12c0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RRZE-Webteam/FAU-Studium-Common/zipball/e8ffbf6159d2df954e7c396b4f5f47a8bef61c00",
-                "reference": "e8ffbf6159d2df954e7c396b4f5f47a8bef61c00",
+                "url": "https://api.github.com/repos/RRZE-Webteam/FAU-Studium-Common/zipball/fcc8820c96f39bb5ea2bc0a0bb23d892bff12c0c",
+                "reference": "fcc8820c96f39bb5ea2bc0a0bb23d892bff12c0c",
                 "shasum": ""
             },
             "require": {
@@ -484,10 +484,10 @@
             ],
             "description": "Shared kernel for FAU Degree Program and FAU Degree Program Output plugins.",
             "support": {
-                "source": "https://github.com/RRZE-Webteam/FAU-Studium-Common/tree/main",
+                "source": "https://github.com/RRZE-Webteam/FAU-Studium-Common/tree/dev",
                 "issues": "https://github.com/RRZE-Webteam/FAU-Studium-Common/issues"
             },
-            "time": "2025-05-27T06:20:51+00:00"
+            "time": "2026-07-02T12:17:43+00:00"
         },
         {
             "name": "webmozart/assert",
