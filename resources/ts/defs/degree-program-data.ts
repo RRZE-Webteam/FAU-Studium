@@ -49,6 +49,9 @@ export interface DegreeProgramData {
 	examinations_office: MultilingualLink;
 	examination_regulations: string;
 	module_handbook: string;
+	ssc_faculty_advice_org_id: string;
+	subject_study_advice_org_id: string;
+	degree_program_coordinator_org_id: string;
 	url: MultilingualString;
 	readonly department: MultilingualString;
 	readonly student_advice: MultilingualLink;

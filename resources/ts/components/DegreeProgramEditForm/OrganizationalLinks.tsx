@@ -206,6 +206,66 @@ const OrganizationalLinks = () => {
 							type="url"
 						/>
 					</FormField>
+					<FormField
+						name="ssc_faculty_advice_org_id"
+						label={ _x(
+							'SSC/advice at the faculty/department (FAUdir organization ID)',
+							'backoffice: degree program edit form',
+							'fau-degree-program'
+						) }
+						fill="third"
+					>
+						<TextControlFormField
+							id="ssc_faculty_advice_org_id"
+							onChange={ ( value: string ) => {
+								handleChange< string >(
+									'ssc_faculty_advice_org_id',
+									value
+								);
+							} }
+							value={ values.ssc_faculty_advice_org_id }
+						/>
+					</FormField>
+					<FormField
+						name="subject_study_advice_org_id"
+						label={ _x(
+							'Subject study advice (FAUdir organization ID)',
+							'backoffice: degree program edit form',
+							'fau-degree-program'
+						) }
+						fill="third"
+					>
+						<TextControlFormField
+							id="subject_study_advice_org_id"
+							onChange={ ( value: string ) => {
+								handleChange< string >(
+									'subject_study_advice_org_id',
+									value
+								);
+							} }
+							value={ values.subject_study_advice_org_id }
+						/>
+					</FormField>
+					<FormField
+						name="degree_program_coordinator_org_id"
+						label={ _x(
+							'Degree program coordinator (FAUdir organization ID)',
+							'backoffice: degree program edit form',
+							'fau-degree-program'
+						) }
+						fill="third"
+					>
+						<TextControlFormField
+							id="degree_program_coordinator_org_id"
+							onChange={ ( value: string ) => {
+								handleChange< string >(
+									'degree_program_coordinator_org_id',
+									value
+								);
+							} }
+							value={ values.degree_program_coordinator_org_id }
+						/>
+					</FormField>
 
 					<FormField
 						name="fee_required"
