@@ -11,6 +11,7 @@ import { _x } from '@wordpress/i18n';
 import FormField from '../../components/FormField';
 import ImageField from '../../components/ImageField';
 import FormWrapper from '../../components/Layouts/FormWrapper';
+import FormSeparator from '../../components/Layouts/FormSeparator';
 import LimitedInputControl from '../../components/LimitedInputControl';
 import { MultiTermSelector } from '../../components/TermSelector';
 import TermSelector from '../../components/TermSelector/TermSelector';
@@ -131,6 +132,57 @@ const General = () => {
 							) }
 						</MultilingualContainer>
 					</FormField>
+
+					<FormField
+						name="news"
+						fill="full"
+						label={ _x(
+							'News',
+							'backoffice: degree program edit form',
+							'fau-degree-program'
+						) }
+						help="Aktuelle, zeitlich begrenzte Hinweise (z. B. Infos zu Vorträgen während der Studieninformationstage)."
+					>
+						<MultilingualContainer value={ values.news }>
+							{ ( languageCode, required ) => (
+								<ContentField
+									key={ `news.${ languageCode }` }
+									content={ values.news[ languageCode ] }
+									onChange={ ( content: string ) => {
+										handleChange< string >(
+											`news.${ languageCode }`,
+											content
+										);
+									} }
+									required={ required }
+								/>
+							) }
+						</MultilingualContainer>
+					</FormField>
+
+					<FormField
+						name="news_expiry_date"
+						fill="third"
+						label={ _x(
+							'News expiry date',
+							'backoffice: degree program edit form',
+							'fau-degree-program'
+						) }
+						help="Optional. Nach diesem Datum wird „Aktuelles“ automatisch ausgeblendet. Leer lassen, damit der Hinweis dauerhaft sichtbar bleibt."
+					>
+						<TextControl
+							type="date"
+							value={ values.news_expiry_date }
+							onChange={ ( value: string ) => {
+								handleChange< string >(
+									'news_expiry_date',
+									value
+								);
+							} }
+						/>
+					</FormField>
+
+					<FormSeparator />
 
 					<FormField
 						name="area_of_study"
