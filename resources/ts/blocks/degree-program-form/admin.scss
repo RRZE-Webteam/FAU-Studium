@@ -63,7 +63,8 @@
 label[class^="components-"][class*="__label"],
 span[class^="components-"][class*="__label"] {
 	text-transform: none !important;
-	font-size: 14px !important;
+	font-size: 18px !important;
+	font-weight: 600;
 }
 
 .components-base-control__field,
