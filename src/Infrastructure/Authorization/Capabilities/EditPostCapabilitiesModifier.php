@@ -17,7 +17,7 @@ final class EditPostCapabilitiesModifier extends CapabilitiesModifier
 
     protected function shouldModify(array $arguments, WP_User $user): bool
     {
-        if (! UserRoleChecker::isDegreeProgramAuthorOrEditor($user)) {
+        if (!UserRoleChecker::isDegreeProgramAuthorOrEditor($user)) {
             return false;
         }
 
@@ -34,7 +34,7 @@ final class EditPostCapabilitiesModifier extends CapabilitiesModifier
         }
 
         $postId = $arguments[2] ?? 0;
-        if (! $postId) {
+        if (!$postId) {
             return false;
         }
 

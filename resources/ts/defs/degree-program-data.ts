@@ -5,7 +5,6 @@ import { ObjectValues, Paths } from './generic';
 export interface DegreeProgramData {
 	id: number;
 	featured_image: Image;
-	teaser_image: Image;
 	title: MultilingualString;
 	subtitle: MultilingualString;
 	standard_duration: string;
@@ -50,6 +49,9 @@ export interface DegreeProgramData {
 	examinations_office: MultilingualLink;
 	examination_regulations: string;
 	module_handbook: string;
+	ssc_faculty_advice_org_id: string;
+	subject_study_advice_org_id: string;
+	degree_program_coordinator_org_id: string;
 	url: MultilingualString;
 	readonly department: MultilingualString;
 	readonly student_advice: MultilingualLink;
@@ -67,6 +69,8 @@ export interface DegreeProgramData {
 	student_initiatives: MultilingualLink;
 	apply_now_link: MultilingualLink;
 	entry_text: MultilingualString;
+	news: MultilingualString;
+	news_expiry_date: string;
 }
 
 export const DEGREE_ABBREVIATION_GERMAN = {

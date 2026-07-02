@@ -26,20 +26,20 @@ final class RevisionNotificationModule implements ServiceModule, ExecutableModul
     public function services(): array
     {
         return [
-            RevisionDiff::class => static fn() => new RevisionDiff(),
-            self::REVISION_NOTIFICATION_RENDERER => static fn(ContainerInterface $container): Renderer => TemplateRenderer::new(
+            RevisionDiff::class => static fn () => new RevisionDiff(),
+            self::REVISION_NOTIFICATION_RENDERER => static fn (ContainerInterface $container): Renderer => TemplateRenderer::new(
                 DirectoryLocator::new(
                     $container->get(Package::PROPERTIES)->basePath() . '/templates/revision-notification'
                 )
             ),
-            RevisionNotificationFormatter::class => static fn(ContainerInterface $container) => new RevisionNotificationFormatter(
+            RevisionNotificationFormatter::class => static fn (ContainerInterface $container) => new RevisionNotificationFormatter(
                 $container->get(self::REVISION_NOTIFICATION_RENDERER),
                 $container->get(RevisionDiff::class),
                 $container->get(RevisionNotificationRepository::class),
                 $container->get(RevisionMetaRepository::class),
             ),
-            RevisionNotificationSender::class => static fn() => new RevisionNotificationSender(),
-            RevisionNotifier::class => static fn(ContainerInterface $container) => new RevisionNotifier(
+            RevisionNotificationSender::class => static fn () => new RevisionNotificationSender(),
+            RevisionNotifier::class => static fn (ContainerInterface $container) => new RevisionNotifier(
                 $container->get(RevisionNotificationRepository::class),
                 $container->get(RevisionNotificationFormatter::class),
                 $container->get(RevisionNotificationSender::class),
@@ -53,7 +53,7 @@ final class RevisionNotificationModule implements ServiceModule, ExecutableModul
         $revisionMetaRepository = $container->get(RevisionMetaRepository::class);
         add_action(
             RevisionNotificationCompleted::NAME,
-            fn(RevisionNotificationCompleted $completed)
+            static fn (RevisionNotificationCompleted $completed)
                 => $revisionMetaRepository->markRevisionsAsSent(
                     ...$completed->processedIds()
                 ),

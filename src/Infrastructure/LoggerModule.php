@@ -19,8 +19,8 @@ final class LoggerModule implements ServiceModule, FactoryModule
     public function services(): array
     {
         return [
-            WordPressLogger::class => static fn() => WordPressLogger::new('fau.degree-program'),
-            WordPressCliLogger::class => static fn(ContainerInterface $container) => new WordPressCliLogger(
+            WordPressLogger::class => static fn () => WordPressLogger::new('fau.degree-program'),
+            WordPressCliLogger::class => static fn (ContainerInterface $container) => new WordPressCliLogger(
                 $container->get(WordPressLogger::class),
             ),
         ];
@@ -29,7 +29,7 @@ final class LoggerModule implements ServiceModule, FactoryModule
     public function factories(): array
     {
         return [
-            LoggerInterface::class => static fn(ContainerInterface $container) => defined('WP_CLI') && WP_CLI
+            LoggerInterface::class => static fn (ContainerInterface $container) => defined('WP_CLI') && WP_CLI
                 ? $container->get(WordPressCliLogger::class)
                 : $container->get(WordPressLogger::class),
         ];

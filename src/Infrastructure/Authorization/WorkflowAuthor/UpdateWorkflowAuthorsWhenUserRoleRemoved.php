@@ -27,7 +27,7 @@ class UpdateWorkflowAuthorsWhenUserRoleRemoved
         }
 
         $user = get_user_by('id', $userId);
-        if (! $user instanceof WP_User) {
+        if (!$user instanceof WP_User) {
             return;
         }
 
