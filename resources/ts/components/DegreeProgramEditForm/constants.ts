@@ -9,7 +9,6 @@ export const FIELDS_BY_TABS: Record<
 		'title',
 		'subtitle',
 		'featured_image',
-		'teaser_image',
 		'entry_text',
 		'area_of_study',
 		'start',

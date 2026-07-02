@@ -17,7 +17,7 @@ import useMedia from './useMedia';
 import { Image } from '../../defs';
 
 type ImageFieldProps = {
-	path: 'teaser_image' | 'featured_image';
+	path: 'featured_image';
 	title?: string;
 };
 

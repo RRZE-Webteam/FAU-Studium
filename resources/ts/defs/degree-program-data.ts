@@ -5,7 +5,6 @@ import { ObjectValues, Paths } from './generic';
 export interface DegreeProgramData {
 	id: number;
 	featured_image: Image;
-	teaser_image: Image;
 	title: MultilingualString;
 	subtitle: MultilingualString;
 	standard_duration: string;
