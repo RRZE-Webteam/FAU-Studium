@@ -59,6 +59,18 @@ final class SettingsModule implements ServiceModule, ExecutableModule
             [$container->get(SettingAssetsLoader::class), 'load']
         );
 
+        add_action('init', fn () => $this->registerSettings($container));
+
+        return true;
+    }
+
+    /**
+     * Deferred to `init` so translated labels don't load too early (WP 6.7).
+     *
+     * @wp-hook init
+     */
+    private function registerSettings(ContainerInterface $container): void
+    {
         $container->get(SettingsRegistrar::class)->registerSettings(
             TabbedSettingPage::default(
                 self::FAU_DEGREE_PROGRAM_SETTINGS,
@@ -93,8 +105,6 @@ final class SettingsModule implements ServiceModule, ExecutableModule
                 ),
             ),
         );
-
-        return true;
     }
 
     /**

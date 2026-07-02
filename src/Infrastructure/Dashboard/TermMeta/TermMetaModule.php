@@ -60,10 +60,28 @@ final class TermMetaModule implements ServiceModule, ExecutableModule
         ];
     }
 
+    public function run(ContainerInterface $container): bool
+    {
+        add_action(
+            'init',
+            fn () => $this->registerTermMeta($container)
+        );
+
+        add_action(
+            AssetManager::ACTION_SETUP,
+            [$container->get(AssetsLoader::class), 'load']
+        );
+
+        return true;
+    }
+
     /**
+     * Deferred to `init` so translated labels don't load too early (WP 6.7).
+     *
+     * @wp-hook init
      * phpcs:disable Inpsyde.CodeQuality.FunctionLength.TooLong
      */
-    public function run(ContainerInterface $container): bool
+    private function registerTermMeta(ContainerInterface $container): void
     {
         $termMetaRegistrar = $container->get(TermMetaRegistrar::class);
 
@@ -161,13 +179,6 @@ final class TermMetaModule implements ServiceModule, ExecutableModule
             ApplyNowLinkTaxonomy::KEY,
             ...(new MultilingualLinkTermMetaFields())->getArrayCopy(),
         );
-
-        add_action(
-            AssetManager::ACTION_SETUP,
-            [$container->get(AssetsLoader::class), 'load']
-        );
-
-        return true;
     }
 
     /**
