@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/FAU-Studium\n"
-"POT-Creation-Date: 2026-07-01T06:44:50+00:00\n"
-"PO-Revision-Date: 2026-07-01 09:45+0300\n"
+"POT-Creation-Date: 2026-07-02T12:44:53+00:00\n"
+"PO-Revision-Date: 2026-07-02 15:48+0300\n"
 "Last-Translator: \n"
 "Language-Team: Deutsch\n"
 "Language: de_DE\n"
@@ -60,17 +60,17 @@ msgctxt "backoffice: taxonomy singular name"
 msgid "Workflow author"
 msgstr "Workflow-Autor"
 
-#: src/Infrastructure/Dashboard/AdminBarModule.php:28
+#: src/Infrastructure/Dashboard/AdminBarModule.php:40
 msgctxt "backoffice: admin notice"
 msgid "Degree program cache invalidated."
 msgstr "Studiengang-Cache invalidiert."
 
-#: src/Infrastructure/Dashboard/AdminBarModule.php:35
+#: src/Infrastructure/Dashboard/AdminBarModule.php:47
 msgctxt "backoffice: admin notice"
 msgid "Could not invalidate degree program cache."
 msgstr "Der Studiengang-Cache konnte nicht invalidiert werden."
 
-#: src/Infrastructure/Dashboard/AdminBarModule.php:48
+#: src/Infrastructure/Dashboard/AdminBarModule.php:60
 msgctxt "backoffice: admin bar menu item"
 msgid "Invalidate degree program caches"
 msgstr "Studiengang-Caches invalidieren"
@@ -125,117 +125,117 @@ msgctxt "backoffice: field label"
 msgid "English link URL"
 msgstr "Englische Link-URL"
 
-#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:65
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:77
 msgctxt "backoffice: setting page title"
 msgid "FAU Degree Program"
 msgstr "FAU Studiengang"
 
-#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:74
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:86
 msgctxt "backoffice: setting page tab title"
 msgid "General"
 msgstr "Allgemein"
 
-#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:85
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:97
 msgctxt "backoffice: setting page tab title"
 msgid "Content"
 msgstr "Inhalte"
 
-#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:107
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:117
 msgctxt "backoffice: setting page section"
 msgid "Content item (accordion) titles"
 msgstr "Titel der Inhaltselemente (Akkordeon)"
 
-#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:114
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:124
 msgctxt "backoffice: setting title"
 msgid "About"
 msgstr "Über"
 
-#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:122
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:132
 msgctxt "backoffice: setting title"
 msgid "Structure"
 msgstr "Struktur"
 
-#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:130
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:140
 msgctxt "backoffice: setting title"
 msgid "Specializations"
 msgstr "Schwerpunkte"
 
-#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:138
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:148
 msgctxt "backoffice: setting title"
 msgid "Qualities and skills"
 msgstr "Qualitäten und Fähigkeiten"
 
-#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:150
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:160
 msgctxt "backoffice: setting title"
 msgid "Why study at FAU"
 msgstr "Warum an der FAU studieren"
 
-#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:160
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:170
 msgctxt "backoffice: setting title"
 msgid "Career prospects"
 msgstr "Berufliche Perspektiven"
 
-#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:170
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:180
 msgctxt "backoffice: setting title"
 msgid "Special Features"
 msgstr "Besonderheiten des Studiengangs"
 
-#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:178
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:188
 msgctxt "backoffice: setting title"
 msgid "Testimonials"
 msgstr "Erfahrungsberichte"
 
-#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:191
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:201
 msgctxt "backoffice: setting page section"
 msgid "Degree program shared properties"
 msgstr "Geteilte Eigenschaften Studiengang"
 
-#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:199
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:209
 msgctxt "backoffice: setting title"
 msgid "Notes for international applicants"
 msgstr "Hinweise für internationale Bewerber"
 
-#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:207
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:217
 msgctxt "backoffice: setting title"
 msgid "\"Tips for application\" link text"
 msgstr "„Tipps zur Bewerbung“-Linktext"
 
-#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:216
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:226
 msgctxt "backoffice: setting title"
 msgid "Start of semester"
 msgstr "Semesterstart"
 
-#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:220
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:230
 msgctxt "backoffice: setting title"
 msgid "Semester dates"
 msgstr "Semestertermine"
 
-#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:224
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:234
 msgctxt "backoffice: setting title"
 msgid "Semester fee"
 msgstr "Semesterbeitrag"
 
-#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:228
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:238
 msgctxt "backoffice: setting title"
 msgid "Counseling and Service Centers at FAU"
 msgstr "Beratungs- und Servicestellen der FAU"
 
-#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:236
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:246
 msgctxt "backoffice: setting title"
 msgid "Opportunities for spending time abroad"
 msgstr "Wege ins Ausland"
 
-#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:245
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:255
 msgctxt "backoffice: setting title"
 msgid "Students' Union/Student Initiatives"
 msgstr "StuVe/FSI"
 
-#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:254
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:264
 msgctxt "backoffice: setting title"
 msgid "Student Advice and Career Service"
 msgstr "Allgemeine Studienberatung"
 
-#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:263
+#: src/Infrastructure/Dashboard/Settings/SettingsModule.php:273
 msgctxt "backoffice: setting field"
 msgid "Maximum number of revisions"
 msgstr "Maximale Anzahl von Revisionen"
@@ -260,7 +260,7 @@ msgid "Link text"
 msgstr "Linktext"
 
 #: src/Infrastructure/Dashboard/TermMeta/MultilingualLinkTermMetaFields.php:29
-#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:217
+#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:228
 msgctxt "backoffice: term field name"
 msgid "Link URL"
 msgstr "Link-URL"
@@ -276,13 +276,13 @@ msgid "Link text used for English translation."
 msgstr "Für die englische Übersetzung verwendeter Linktext."
 
 #: src/Infrastructure/Dashboard/TermMeta/MultilingualLinkTermMetaFields.php:51
-#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:226
+#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:237
 msgctxt "backoffice: term field name"
 msgid "English link URL"
 msgstr "Englische Link-URL"
 
 #: src/Infrastructure/Dashboard/TermMeta/MultilingualLinkTermMetaFields.php:56
-#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:231
+#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:242
 msgctxt "backoffice: term field description"
 msgid "Link URL used for English translation."
 msgstr "Für die englische Übersetzung verwendete Link-URL."
@@ -294,38 +294,38 @@ msgid ""
 msgstr ""
 "Der Wert des Feldes &#8220;%1$s&#8221; ist ungültig. Erwarteter Wert: %2$s"
 
-#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:73
-#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:137
+#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:91
+#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:155
 msgid "Up to 3 digits, no letters. Leading zeros are allowed."
 msgstr "Bis zu 3 Ziffern, keine Buchstaben. Führende Nullen sind erlaubt."
 
-#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:79
-#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:143
+#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:97
+#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:161
 msgid "1 to 3 digits"
 msgstr "1 bis 3 Ziffern"
 
-#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:123
+#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:141
 msgid "Up to 3 uppercase alphanumeric characters."
 msgstr "Bis zu 3 alphanumerische Zeichen in Großbuchstaben."
 
-#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:129
+#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:147
 msgid "1 to 3 uppercase letters or digits"
 msgstr "1 bis 3 Großbuchstaben oder Ziffern"
 
-#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:180
+#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:191
 msgid "Up to 3 lowercase alphanumeric characters."
 msgstr "Bis zu 3 alphanumerische Zeichen in Kleinbuchstaben."
 
-#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:186
+#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:197
 msgid "1 to 3 lowercase letters or digits"
 msgstr "1 bis 3 Kleinbuchstaben oder Ziffern"
 
-#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:191
+#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:202
 msgctxt "backoffice: term field name"
 msgid "Abbreviation"
 msgstr "Abkürzung"
 
-#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:200
+#: src/Infrastructure/Dashboard/TermMeta/TermMetaModule.php:211
 msgctxt "backoffice: term field name"
 msgid "English abbreviation"
 msgstr "Englische Abkürzung"
@@ -389,10 +389,6 @@ msgstr "Einstellungen speichern"
 #: assets/ts/degree-program-editor.js:1
 msgid "Please select a featured image."
 msgstr "Bitte wähle ein Beitragsbild."
-
-#: assets/ts/degree-program-editor.js:1
-msgid "Please select a teaser image."
-msgstr "Bitte wähle ein Teaserbild."
 
 #: assets/ts/degree-program-editor.js:1
 msgid "This field can not be empty."
@@ -576,11 +572,6 @@ msgstr "Beitragsbild"
 
 #: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
-msgid "Teaser Image"
-msgstr "Teaserbild"
-
-#: assets/ts/degree-program-editor.js:1
-msgctxt "backoffice: degree program edit form"
 msgid "Entry text (promotional)"
 msgstr "Einstiegtext (werbend)"
 
@@ -661,6 +652,15 @@ msgstr "Metabeschreibung"
 
 #: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
+msgid ""
+"Please enter a valid FAUdir organization ID: 10 to 11 lowercase letters or "
+"digits."
+msgstr ""
+"Bitte gib eine gültige FAUdir Organisations-Id ein: 10 bis 11 "
+"Kleinbuchstaben oder Ziffern."
+
+#: assets/ts/degree-program-editor.js:1
+msgctxt "backoffice: degree program edit form"
 msgid "\"Apply now\" link"
 msgstr "„Jetzt bewerben“-Link"
 
@@ -698,6 +698,21 @@ msgstr "Infobroschüre Studiengang"
 msgctxt "backoffice: degree program edit form"
 msgid "Degree program and examination regulations (URL)"
 msgstr "Studien- und Prüfungsordnungen (URL)"
+
+#: assets/ts/degree-program-editor.js:1
+msgctxt "backoffice: degree program edit form"
+msgid "SSC/advice at the faculty/department (FAUdir organization ID)"
+msgstr "SSC/Beratung an der Fakultät/am Fachbereich (FAUdir Organisations-Id)"
+
+#: assets/ts/degree-program-editor.js:1
+msgctxt "backoffice: degree program edit form"
+msgid "Subject study advice (FAUdir organization ID)"
+msgstr "Fachstudienberatung (FAUdir Organisations-Id)"
+
+#: assets/ts/degree-program-editor.js:1
+msgctxt "backoffice: degree program edit form"
+msgid "Degree program coordinator (FAUdir organization ID)"
+msgstr "Studiengangskoordinator/in (FAUdir Organisations-Id)"
 
 #: assets/ts/degree-program-editor.js:1
 msgctxt "backoffice: degree program edit form"
@@ -761,3 +776,10 @@ msgstr "Beschreibungsliste"
 msgctxt "block title"
 msgid "Description Term"
 msgstr "Beschreibungsbegriff"
+
+#~ msgid "Please select a teaser image."
+#~ msgstr "Bitte wähle ein Teaserbild."
+
+#~ msgctxt "backoffice: degree program edit form"
+#~ msgid "Teaser Image"
+#~ msgstr "Teaserbild"
