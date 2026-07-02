@@ -76,6 +76,9 @@ final class TermMetaModule implements ServiceModule, ExecutableModule
     }
 
     /**
+     * Deferred to `init` so translated labels don't load too early (WP 6.7).
+     *
+     * @wp-hook init
      * phpcs:disable Inpsyde.CodeQuality.FunctionLength.TooLong
      */
     private function registerTermMeta(ContainerInterface $container): void

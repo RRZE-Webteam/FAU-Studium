@@ -19,48 +19,53 @@ final class AdminBarModule implements ExecutableModule
 
     public function run(ContainerInterface $container): bool
     {
-        add_action(
-            'init',
-            static function () use ($container): void {
-                $cacheInvalidationAction = AdminPostAction::new(
-                    'invalidate_degree_program_cache',
-                    Closure::fromCallable(
-                        [$container->get(CacheInvalidator::class), 'invalidateFully']
-                    )
-                )->withSuccessMessage(
-                    _x(
-                        'Degree program cache invalidated.',
-                        'backoffice: admin notice',
-                        'fau-degree-program'
-                    )
-                )
-                ->withErrorMessage(
-                    _x(
-                        'Could not invalidate degree program cache.',
-                        'backoffice: admin notice',
-                        'fau-degree-program'
-                    )
-                );
-
-                $cacheInvalidationAction->register();
-
-                $adminBar = AdminBarMenu::new()
-                    ->withMenuItem(
-                        MenuItem::new(
-                            'invalidate-cache',
-                            _x(
-                                'Invalidate degree program caches',
-                                'backoffice: admin bar menu item',
-                                'fau-degree-program'
-                            ),
-                            $cacheInvalidationAction->buildUrl()
-                        )
-                    );
-
-                add_action('admin_bar_menu', [$adminBar, 'render'], 100);
-            }
-        );
+        add_action('init', fn () => $this->registerAdminBar($container));
 
         return true;
+    }
+
+    /**
+     * Deferred to `init` so translated labels don't load too early (WP 6.7).
+     *
+     * @wp-hook init
+     */
+    private function registerAdminBar(ContainerInterface $container): void
+    {
+        $cacheInvalidationAction = AdminPostAction::new(
+            'invalidate_degree_program_cache',
+            Closure::fromCallable(
+                [$container->get(CacheInvalidator::class), 'invalidateFully']
+            )
+        )->withSuccessMessage(
+            _x(
+                'Degree program cache invalidated.',
+                'backoffice: admin notice',
+                'fau-degree-program'
+            )
+        )
+        ->withErrorMessage(
+            _x(
+                'Could not invalidate degree program cache.',
+                'backoffice: admin notice',
+                'fau-degree-program'
+            )
+        );
+
+        $cacheInvalidationAction->register();
+
+        $adminBar = AdminBarMenu::new()
+            ->withMenuItem(
+                MenuItem::new(
+                    'invalidate-cache',
+                    _x(
+                        'Invalidate degree program caches',
+                        'backoffice: admin bar menu item',
+                        'fau-degree-program'
+                    ),
+                    $cacheInvalidationAction->buildUrl()
+                )
+            );
+
+        add_action('admin_bar_menu', [$adminBar, 'render'], 100);
     }
 }

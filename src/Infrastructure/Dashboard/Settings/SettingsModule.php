@@ -59,47 +59,52 @@ final class SettingsModule implements ServiceModule, ExecutableModule
             [$container->get(SettingAssetsLoader::class), 'load']
         );
 
-        add_action(
-            'init',
-            static function () use ($container): void {
-                $container->get(SettingsRegistrar::class)->registerSettings(
-                    TabbedSettingPage::default(
-                        self::FAU_DEGREE_PROGRAM_SETTINGS,
-                        _x(
-                            'FAU Degree Program',
-                            'backoffice: setting page title',
-                            'fau-degree-program'
-                        ),
-                        Capabilities::READ_DEGREE_PROGRAM_SETTINGS,
-                        Capabilities::EDIT_DEGREE_PROGRAM_SETTINGS,
-                        SettingsPage::default(
-                            self::FAU_DEGREE_PROGRAM_SHARED_PROPERTIES,
-                            _x(
-                                'General',
-                                'backoffice: setting page tab title',
-                                'fau-degree-program'
-                            ),
-                            Capabilities::READ_DEGREE_PROGRAM_SETTINGS,
-                            Capabilities::EDIT_DEGREE_PROGRAM_SETTINGS,
-                            self::degreeProgramSharedPropertiesSection(),
-                        ),
-                        SettingsPage::default(
-                            self::FAU_CONTENT_ITEM_TITLES,
-                            _x(
-                                'Content',
-                                'backoffice: setting page tab title',
-                                'fau-degree-program'
-                            ),
-                            Capabilities::READ_DEGREE_PROGRAM_SETTINGS,
-                            Capabilities::EDIT_DEGREE_PROGRAM_SETTINGS,
-                            self::contentItemTitlesSection(),
-                        ),
-                    ),
-                );
-            }
-        );
+        add_action('init', fn () => $this->registerSettings($container));
 
         return true;
+    }
+
+    /**
+     * Deferred to `init` so translated labels don't load too early (WP 6.7).
+     *
+     * @wp-hook init
+     */
+    private function registerSettings(ContainerInterface $container): void
+    {
+        $container->get(SettingsRegistrar::class)->registerSettings(
+            TabbedSettingPage::default(
+                self::FAU_DEGREE_PROGRAM_SETTINGS,
+                _x(
+                    'FAU Degree Program',
+                    'backoffice: setting page title',
+                    'fau-degree-program'
+                ),
+                Capabilities::READ_DEGREE_PROGRAM_SETTINGS,
+                Capabilities::EDIT_DEGREE_PROGRAM_SETTINGS,
+                SettingsPage::default(
+                    self::FAU_DEGREE_PROGRAM_SHARED_PROPERTIES,
+                    _x(
+                        'General',
+                        'backoffice: setting page tab title',
+                        'fau-degree-program'
+                    ),
+                    Capabilities::READ_DEGREE_PROGRAM_SETTINGS,
+                    Capabilities::EDIT_DEGREE_PROGRAM_SETTINGS,
+                    self::degreeProgramSharedPropertiesSection(),
+                ),
+                SettingsPage::default(
+                    self::FAU_CONTENT_ITEM_TITLES,
+                    _x(
+                        'Content',
+                        'backoffice: setting page tab title',
+                        'fau-degree-program'
+                    ),
+                    Capabilities::READ_DEGREE_PROGRAM_SETTINGS,
+                    Capabilities::EDIT_DEGREE_PROGRAM_SETTINGS,
+                    self::contentItemTitlesSection(),
+                ),
+            ),
+        );
     }
 
     /**
