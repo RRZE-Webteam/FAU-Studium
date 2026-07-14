@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.3.0] - 2026-7-14
+
 ### Changed
 
 - Made URL, module handbook and examination regulations fields optional.
@@ -187,7 +189,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.
 
-[Unreleased]: https://github.com/RRZE-Webteam/FAU-Studium/compare/2.2.4...HEAD
+[Unreleased]: https://github.com/RRZE-Webteam/FAU-Studium/compare/2.3.0...HEAD
+[2.3.0]: https://github.com/RRZE-Webteam/FAU-Studium/compare/2.2.4...2.3.0
 [2.2.4]: https://github.com/RRZE-Webteam/FAU-Studium/compare/2.2.3...2.2.4
 [2.2.3]: https://github.com/RRZE-Webteam/FAU-Studium/compare/2.2.2...2.2.3
 [2.2.2]: https://github.com/RRZE-Webteam/FAU-Studium/compare/2.2.1...2.2.2
