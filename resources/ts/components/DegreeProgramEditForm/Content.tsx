@@ -24,7 +24,7 @@ const CONTENT_ITEMS = {
 	career_prospects:
 		'mögliche Tätigkeitsfelder nach Abschluss des Studiums; ±200 Wörter',
 	special_features:
-		'Möglichkeiten von Auslandsaufenthalten, Kooperationen mit Forschungsprojekten, etc.; ±200 Wörter',
+		'Möglichkeiten von Auslandsaufenthalten, Kooperationen, Vorpraktika, Einführungsveranstaltungen, etc.; ±200 Wörter, in Listenpunkte (kein Fließtext)',
 } as Record< keyof DegreeProgramData[ 'content' ], string >;
 
 const REQUIRED_FIELDS = [ 'about', 'structure' ];

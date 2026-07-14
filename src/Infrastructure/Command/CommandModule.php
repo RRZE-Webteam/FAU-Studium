@@ -20,11 +20,11 @@ class CommandModule implements ServiceModule, ExecutableModule
     public function services(): array
     {
         return [
-            DegreeProgramBulkUpdater::class => static fn(ContainerInterface $container) => new DegreeProgramBulkUpdater(
+            DegreeProgramBulkUpdater::class => static fn (ContainerInterface $container) => new DegreeProgramBulkUpdater(
                 $container->get(DegreeProgramCollectionRepository::class),
                 $container->get(DegreeProgramRepository::class),
             ),
-            RelatedPostMetaRemover::class => static fn() => new RelatedPostMetaRemover(),
+            RelatedPostMetaRemover::class => static fn () => new RelatedPostMetaRemover(),
         ];
     }
 

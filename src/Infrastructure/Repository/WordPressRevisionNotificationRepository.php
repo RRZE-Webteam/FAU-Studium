@@ -15,6 +15,7 @@ final class WordPressRevisionNotificationRepository implements RevisionNotificat
     public function __construct(
         private DegreeProgramEditorRepository $degreeProgramEditorRepository,
         private WorkflowAuthorsRepository $authorsRepository,
+        private AdministratorRepository $administratorRepository,
     ) {
     }
 
@@ -62,10 +63,12 @@ final class WordPressRevisionNotificationRepository implements RevisionNotificat
         $index = array_search($revisionId, $revisionIds, true);
         if ($index === false) {
             throw new LogicException(
-                sprintf(
-                    'Revision %s is not part of all revisions of %d degree program?',
-                    $revisionId,
-                    $degreeProgramId
+                esc_html(
+                    sprintf(
+                        'Revision %s is not part of all revisions of %d degree program?',
+                        $revisionId,
+                        $degreeProgramId
+                    )
                 )
             );
         }
@@ -91,7 +94,7 @@ final class WordPressRevisionNotificationRepository implements RevisionNotificat
 
         $authorIds = array_unique(
             array_map(
-                static fn ($revisionId) => (int) get_post_field('post_author', $revisionId),
+                static fn (int $revisionId) => absint(get_post_field('post_author', $revisionId)),
                 $revisionIds
             )
         );
@@ -102,7 +105,7 @@ final class WordPressRevisionNotificationRepository implements RevisionNotificat
 
         return array_filter(
             $subscribedUsers,
-            static fn ($userId) => !in_array($userId, $authorIds, true)
+            static fn (int $userId) => !in_array($userId, $authorIds, true)
         );
     }
 
@@ -180,10 +183,15 @@ final class WordPressRevisionNotificationRepository implements RevisionNotificat
      */
     private function findUsersSubscribedToPostChanges(int $postId): array
     {
-        /** @var array<int> | null $allEditors */
-        static $allEditors = null;
-        if (!$allEditors) {
-            $allEditors = $this->degreeProgramEditorRepository->fetchAllIds();
+        /** @var array<int> | null $globalRecipients */
+        static $globalRecipients = null;
+        if ($globalRecipients === null) {
+            $globalRecipients = array_unique(
+                array_merge(
+                    $this->degreeProgramEditorRepository->fetchAllIds(),
+                    $this->administratorRepository->fetchAllIds(),
+                )
+            );
         }
 
         /** @var array<int, array<int, int>> $cache
@@ -203,7 +211,7 @@ final class WordPressRevisionNotificationRepository implements RevisionNotificat
         }
 
         $authors = $this->authorsRepository->fetchAuthorIds($postId);
-        $ids = array_merge($allEditors, $authors);
+        $ids = array_merge($globalRecipients, $authors);
 
         foreach ($ids as $id) {
             $cache[$postId][$id] = $id;

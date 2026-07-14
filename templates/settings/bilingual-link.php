@@ -37,10 +37,10 @@ declare(strict_types=1);
 
 <?php foreach ($subFields as $subFieldId => $subFieldTitle) : ?>
     <input type="text"
-           name="<?= esc_attr(sprintf('%s[%s]', $id, $subFieldId)) ?>"
-           value="<?= esc_attr($value[$subFieldId]) ?>"
-           aria-label="<?= esc_attr($title . ': ' . $subFieldTitle) ?>"
-           <?php wp_readonly(!$editable) ?>
+            name="<?= esc_attr(sprintf('%s[%s]', $id, $subFieldId)) ?>"
+            value="<?= esc_attr($value[$subFieldId]) ?>"
+            aria-label="<?= esc_attr($title . ': ' . $subFieldTitle) ?>"
+            <?php wp_readonly(!$editable) ?>
     >
     <p class="description">
         <?= esc_html($subFieldTitle) ?>

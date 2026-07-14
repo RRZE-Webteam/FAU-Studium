@@ -15,8 +15,8 @@ declare(strict_types=1);
 ?>
 
 <input type="text"
-       name="<?= esc_attr($id) ?>"
-       value="<?= esc_attr($value) ?>"
-       aria-label="<?= esc_attr($title) ?>"
-       <?php wp_readonly(!$editable) ?>
+        name="<?= esc_attr($id) ?>"
+        value="<?= esc_attr($value) ?>"
+        aria-label="<?= esc_attr($title) ?>"
+        <?php wp_readonly(!$editable) ?>
 >

@@ -45,7 +45,7 @@ final class RestApiModule implements ServiceModule, ExecutableModule
     public function services(): array
     {
         return [
-            DegreeProgramRetriever::class => static fn(ContainerInterface $container) => new DegreeProgramRetriever(
+            DegreeProgramRetriever::class => static fn (ContainerInterface $container) => new DegreeProgramRetriever(
                 $container->get(DegreeProgramViewRepository::class)
             ),
             JsonSchemaDegreeProgramDataValidator::class => function (ContainerInterface $container): JsonSchemaDegreeProgramDataValidator {
@@ -60,29 +60,29 @@ final class RestApiModule implements ServiceModule, ExecutableModule
                     $container->get(SerializedBlocksDegreeProgramSanitizer::class),
                 );
             },
-            DegreeProgramDataValidator::class => static fn(ContainerInterface $container) => new CompositeValidator(
+            DegreeProgramDataValidator::class => static fn (ContainerInterface $container) => new CompositeValidator(
                 $container->get(JsonSchemaDegreeProgramDataValidator::class),
                 new ConditionalFieldsValidator($container->get(FacultyRepository::class)),
             ),
-            DegreeProgramUpdater::class => static fn(ContainerInterface $container) => new DegreeProgramUpdater(
+            DegreeProgramUpdater::class => static fn (ContainerInterface $container) => new DegreeProgramUpdater(
                 $container->get(DegreeProgramRepository::class),
                 $container->get(DegreeProgramDataValidator::class),
                 $container->get(SerializedBlocksDegreeProgramSanitizer::class),
             ),
-            DegreeProgramRequestFilter::class => static fn(ContainerInterface $container) => new DegreeProgramRequestFilter(
+            DegreeProgramRequestFilter::class => static fn (ContainerInterface $container) => new DegreeProgramRequestFilter(
                 $container->get(DegreeProgramDataValidator::class),
                 $container->get(DegreeProgramViewRepository::class),
             ),
-            DegreeProgramController::class => static fn(ContainerInterface $container) => new DegreeProgramController(
+            DegreeProgramController::class => static fn (ContainerInterface $container) => new DegreeProgramController(
                 $container->get(DegreeProgramRetriever::class),
                 $container->get(DegreeProgramUpdater::class),
                 $container->get(LoggerInterface::class),
             ),
-            TranslatedDegreeProgramController::class => static fn(ContainerInterface $container) => new TranslatedDegreeProgramController(
+            TranslatedDegreeProgramController::class => static fn (ContainerInterface $container) => new TranslatedDegreeProgramController(
                 $container->get(DegreeProgramViewRepository::class),
                 $container->get(DegreeProgramCollectionRepository::class),
             ),
-            TermsParentObjectController::class => static fn(ContainerInterface $container) => new TermsParentObjectController(
+            TermsParentObjectController::class => static fn (ContainerInterface $container) => new TermsParentObjectController(
                 $container->get(TermsRepository::class),
             ),
         ];

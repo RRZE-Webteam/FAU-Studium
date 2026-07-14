@@ -36,7 +36,7 @@ use Fau\DegreeProgram\Infrastructure\Dashboard\TermMeta\TermMetaFieldValidationP
         aria-describedby="<?= esc_attr($key) ?>-description"
     <?php endif ?>
 
-    <?php if (! is_null($validationPattern)) : ?>
+    <?php if (!is_null($validationPattern)) : ?>
         pattern="<?= esc_attr($validationPattern->pattern()) ?>"
         title="<?= esc_attr($validationPattern->expectedPatternMessage()) ?>"
     <?php endif ?>

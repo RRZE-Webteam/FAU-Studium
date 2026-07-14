@@ -18,9 +18,9 @@ final class SanitizerModule implements ServiceModule
     {
         return [
             SerializedBlocksDegreeProgramSanitizer::class =>
-                static fn(): DegreeProgramSanitizer => new SerializedBlocksDegreeProgramSanitizer(),
+                static fn (): DegreeProgramSanitizer => new SerializedBlocksDegreeProgramSanitizer(),
             HtmlDegreeProgramSanitizer::class =>
-                static fn(): DegreeProgramSanitizer => new HtmlDegreeProgramSanitizer(),
+                static fn (): DegreeProgramSanitizer => new HtmlDegreeProgramSanitizer(),
         ];
     }
 }

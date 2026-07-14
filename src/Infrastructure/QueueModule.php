@@ -27,8 +27,8 @@ final class QueueModule implements ServiceModule, FactoryModule, ExecutableModul
     public function services(): array
     {
         return [
-            JsonSerializer::class => static fn() => new JsonSerializer(),
-            MessageHandler::class => static fn(ContainerInterface $container) => new MessageHandler(
+            JsonSerializer::class => static fn () => new JsonSerializer(),
+            MessageHandler::class => static fn (ContainerInterface $container) => new MessageHandler(
                 $container->get(JsonSerializer::class),
                 [
                     WarmCacheMessage::class => [
@@ -36,10 +36,10 @@ final class QueueModule implements ServiceModule, FactoryModule, ExecutableModul
                     ],
                 ],
             ),
-            SyncMessageBus::class => static fn(ContainerInterface $container) => new SyncMessageBus(
+            SyncMessageBus::class => static fn (ContainerInterface $container) => new SyncMessageBus(
                 $container->get(MessageHandler::class),
             ),
-            WpCronMessageBus::class => static fn(ContainerInterface $container) => new WpCronMessageBus(
+            WpCronMessageBus::class => static fn (ContainerInterface $container) => new WpCronMessageBus(
                 $container->get(JsonSerializer::class),
             ),
         ];

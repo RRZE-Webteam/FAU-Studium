@@ -20,20 +20,20 @@ final class DegreeProgramListTableModule implements ServiceModule, ExecutableMod
     public function services(): array
     {
         return [
-            StickyColumn::class => static fn(ContainerInterface $container) => new StickyColumn(
+            StickyColumn::class => static fn (ContainerInterface $container) => new StickyColumn(
                 $container->get(AdminRequest::class),
                 $container->get(StickyDegreeProgramRepository::class),
             ),
-            AssetsLoader::class => static fn(ContainerInterface $container) => new AssetsLoader(
+            AssetsLoader::class => static fn (ContainerInterface $container) => new AssetsLoader(
                 $container->get(Package::PROPERTIES),
                 $container->get(AdminRequest::class),
             ),
-            StickyDegreeProgramRepository::class => static fn() => new StickyDegreeProgramRepository(),
-            ToggleStickyRequestHandler::class => static fn(ContainerInterface $container) => new ToggleStickyRequestHandler(
+            StickyDegreeProgramRepository::class => static fn () => new StickyDegreeProgramRepository(),
+            ToggleStickyRequestHandler::class => static fn (ContainerInterface $container) => new ToggleStickyRequestHandler(
                 $container->get(StickyDegreeProgramRepository::class),
             ),
-            AdminRequest::class => static fn() => new AdminRequest(),
-            EditPostsQueryModifier::class => static fn(ContainerInterface $container) => new EditPostsQueryModifier(
+            AdminRequest::class => static fn () => new AdminRequest(),
+            EditPostsQueryModifier::class => static fn (ContainerInterface $container) => new EditPostsQueryModifier(
                 $container->get(AdminRequest::class),
             ),
         ];
