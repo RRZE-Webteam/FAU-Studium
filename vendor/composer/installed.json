@@ -420,8 +420,8 @@
         },
         {
             "name": "rrze/fau-studium-common",
-            "version": "dev-dev",
-            "version_normalized": "dev-dev",
+            "version": "dev-main",
+            "version_normalized": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RRZE-Webteam/FAU-Studium-Common.git",
@@ -453,7 +453,6 @@
                 "inpsyde/modularity": "Modular PSR-11 implementation for WordPress Plugins, Themes or Libraries"
             },
             "time": "2026-07-03T06:41:54+00:00",
-            "default-branch": true,
             "type": "library",
             "installation-source": "dist",
             "autoload": {
