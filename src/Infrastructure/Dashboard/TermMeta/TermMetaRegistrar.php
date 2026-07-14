@@ -94,7 +94,7 @@ final class TermMetaRegistrar
 
                 $validationError = $this->validator->validate(...$termMetaFields);
 
-                if (! is_null($validationError)) {
+                if (!is_null($validationError)) {
                     wp_die($validationError->get_error_message());
                 }
             },

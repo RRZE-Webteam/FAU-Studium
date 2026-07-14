@@ -15,6 +15,7 @@ use Fau\DegreeProgram\Common\Infrastructure\Content\PostType\DegreeProgramPostTy
  */
 final class WordPress22895Fix
 {
+    /** @var array<array-key, mixed>|null */
     private ?array $degreeProgramSubmenu = null;
 
     /**

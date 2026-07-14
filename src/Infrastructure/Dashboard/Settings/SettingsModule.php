@@ -33,15 +33,15 @@ final class SettingsModule implements ServiceModule, ExecutableModule
     public function services(): array
     {
         return [
-            self::SETTINGS_FIELD_RENDERER => static fn(ContainerInterface $container): Renderer => TemplateRenderer::new(
+            self::SETTINGS_FIELD_RENDERER => static fn (ContainerInterface $container): Renderer => TemplateRenderer::new(
                 DirectoryLocator::new(
                     $container->get(Package::PROPERTIES)->basePath() . '/templates/settings'
                 )
             ),
-            SettingsRegistrar::class => static fn(ContainerInterface $container): SettingsRegistrar => new SettingsRegistrar(
+            SettingsRegistrar::class => static fn (ContainerInterface $container): SettingsRegistrar => new SettingsRegistrar(
                 $container->get(SettingsModule::SETTINGS_FIELD_RENDERER),
             ),
-            SettingAssetsLoader::class => static fn(ContainerInterface $container): SettingAssetsLoader => new SettingAssetsLoader(
+            SettingAssetsLoader::class => static fn (ContainerInterface $container): SettingAssetsLoader => new SettingAssetsLoader(
                 $container->get(Package::PROPERTIES),
                 [
                     self::FAU_CONTENT_ITEM_TITLES,
@@ -59,6 +59,18 @@ final class SettingsModule implements ServiceModule, ExecutableModule
             [$container->get(SettingAssetsLoader::class), 'load']
         );
 
+        add_action('init', fn () => $this->registerSettings($container));
+
+        return true;
+    }
+
+    /**
+     * Deferred to `init` so translated labels don't load too early (WP 6.7).
+     *
+     * @wp-hook init
+     */
+    private function registerSettings(ContainerInterface $container): void
+    {
         $container->get(SettingsRegistrar::class)->registerSettings(
             TabbedSettingPage::default(
                 self::FAU_DEGREE_PROGRAM_SETTINGS,
@@ -93,8 +105,6 @@ final class SettingsModule implements ServiceModule, ExecutableModule
                 ),
             ),
         );
-
-        return true;
     }
 
     /**
@@ -169,7 +179,7 @@ final class SettingsModule implements ServiceModule, ExecutableModule
                 Content::SPECIAL_FEATURES,
                 _x('Special Features', 'backoffice: setting title', 'fau-degree-program'),
                 [
-                    MultilingualString::DE => 'Besondere Hinweise',
+                    MultilingualString::DE => 'Besonderheiten des Studiengangs',
                     MultilingualString::EN => 'Special features',
                 ]
             ),

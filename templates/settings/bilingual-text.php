@@ -17,10 +17,10 @@ use Fau\DegreeProgram\Common\Domain\MultilingualString;
 ?>
 
 <input type="text"
-       name="<?= esc_attr(sprintf('%s[%s]', $id, MultilingualString::DE)) ?>"
-       value="<?= esc_attr($value[MultilingualString::DE]) ?>"
-       aria-label="<?= esc_attr($title) ?>"
-       <?php wp_readonly(!$editable) ?>
+        name="<?= esc_attr(sprintf('%s[%s]', $id, MultilingualString::DE)) ?>"
+        value="<?= esc_attr($value[MultilingualString::DE]) ?>"
+        aria-label="<?= esc_attr($title) ?>"
+        <?php wp_readonly(!$editable) ?>
 >
 <p class="description">
     <?= esc_html_x(
@@ -34,10 +34,10 @@ use Fau\DegreeProgram\Common\Domain\MultilingualString;
 <br/>
 
 <input type="text"
-       name="<?= esc_attr(sprintf('%s[%s]', $id, MultilingualString::EN)) ?>"
-       value="<?= esc_attr($value[MultilingualString::EN]) ?>"
-       aria-label="<?= esc_attr($title) ?>"
-       <?php wp_readonly(!$editable) ?>
+        name="<?= esc_attr(sprintf('%s[%s]', $id, MultilingualString::EN)) ?>"
+        value="<?= esc_attr($value[MultilingualString::EN]) ?>"
+        aria-label="<?= esc_attr($title) ?>"
+        <?php wp_readonly(!$editable) ?>
 >
 <p class="description">
     <?= esc_html_x(

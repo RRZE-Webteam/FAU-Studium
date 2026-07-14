@@ -94,7 +94,6 @@ final class CacheBasedRevisionRepository implements DegreeProgramRevisionReposit
             [
                 DegreeProgramRevision::STATUS => self::status($revisionId->asInt()),
                 DegreeProgram::FEATURED_IMAGE => self::imageToContextualId($rawRevision->featuredImage()),
-                DegreeProgram::TEASER_IMAGE => self::imageToContextualId($rawRevision->teaserImage()),
             ],
             self::multilingualStringToFlatArray(DegreeProgram::TITLE, $rawRevision->title()),
             self::multilingualStringToFlatArray(DegreeProgram::SUBTITLE, $rawRevision->subtitle()),

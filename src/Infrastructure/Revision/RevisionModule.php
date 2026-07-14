@@ -28,30 +28,30 @@ class RevisionModule implements ServiceModule, ExecutableModule
     public function services(): array
     {
         return [
-            ChangesDetector::class => static fn(ContainerInterface $container) => new ChangesDetector(
+            ChangesDetector::class => static fn (ContainerInterface $container) => new ChangesDetector(
                 $container->get(DegreeProgramRevisionRepository::class),
             ),
-            PersistRevision::class => static fn(ContainerInterface $container) => new PersistRevision(
+            PersistRevision::class => static fn (ContainerInterface $container) => new PersistRevision(
                 $container->get(DegreeProgramRevisionRepository::class),
             ),
-            ReplaceListOfRevisionableFields::class => static fn(ContainerInterface $container) => new ReplaceListOfRevisionableFields(
+            ReplaceListOfRevisionableFields::class => static fn (ContainerInterface $container) => new ReplaceListOfRevisionableFields(
                 $container->get(DegreeProgramRevisionRepository::class),
                 $container->get(FieldRetriever::class),
             ),
-            FieldRetriever::class => static fn(ContainerInterface $container) => new FieldRetriever(
+            FieldRetriever::class => static fn (ContainerInterface $container) => new FieldRetriever(
                 $container->get(DegreeProgramRevisionRepository::class),
             ),
-            PrepareRevisionForJs::class => static fn(ContainerInterface $container) => new PrepareRevisionForJs(
+            PrepareRevisionForJs::class => static fn (ContainerInterface $container) => new PrepareRevisionForJs(
                 $container->get(DegreeProgramRevisionRepository::class),
             ),
-            RestoreRevision::class => static fn(ContainerInterface $container) => new RestoreRevision(
+            RestoreRevision::class => static fn (ContainerInterface $container) => new RestoreRevision(
                 $container->get(DegreeProgramViewRepository::class),
                 $container->get(DegreeProgramUpdater::class),
             ),
-            DailyRevisionNotificationRunner::class => static fn(ContainerInterface $container) => new DailyRevisionNotificationRunner(
+            DailyRevisionNotificationRunner::class => static fn (ContainerInterface $container) => new DailyRevisionNotificationRunner(
                 $container->get(RevisionNotifier::class),
             ),
-            RevisionsToKeep::class => static fn(ContainerInterface $container) => new RevisionsToKeep(
+            RevisionsToKeep::class => static fn (ContainerInterface $container) => new RevisionsToKeep(
                 $container->get(RevisionMetaRepository::class),
             ),
         ];
