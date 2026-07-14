@@ -28,7 +28,6 @@ return [
         ],
         DegreeProgram::SLUG => MultilingualString::SCHEMA,
         DegreeProgram::FEATURED_IMAGE => Image::SCHEMA_REQUIRED,
-        DegreeProgram::TEASER_IMAGE => Image::SCHEMA_REQUIRED,
         DegreeProgram::TITLE => MultilingualString::SCHEMA_REQUIRED,
         DegreeProgram::SUBTITLE => MultilingualString::SCHEMA,
         DegreeProgram::STANDARD_DURATION => [
@@ -128,15 +127,25 @@ return [
         DegreeProgram::EXAMINATIONS_OFFICE => MultilingualLink::SCHEMA_REQUIRED,
         DegreeProgram::EXAMINATION_REGULATIONS => [
             'type' => 'string',
-            'minLength' => 1,
             'format' => 'uri',
         ],
         DegreeProgram::MODULE_HANDBOOK => [
             'type' => 'string',
-            'minLength' => 1,
             'format' => 'uri',
         ],
-        DegreeProgram::URL => MultilingualString::SCHEMA_URL_REQUIRED,
+        DegreeProgram::SSC_FACULTY_ADVICE_ORG_ID => [
+            'type' => 'string',
+            'pattern' => JsonSchemaDegreeProgramDataValidator::FAUDIR_ORG_ID_PATTERN,
+        ],
+        DegreeProgram::SUBJECT_STUDY_ADVICE_ORG_ID => [
+            'type' => 'string',
+            'pattern' => JsonSchemaDegreeProgramDataValidator::FAUDIR_ORG_ID_PATTERN,
+        ],
+        DegreeProgram::DEGREE_PROGRAM_COORDINATOR_ORG_ID => [
+            'type' => 'string',
+            'pattern' => JsonSchemaDegreeProgramDataValidator::FAUDIR_ORG_ID_PATTERN,
+        ],
+        DegreeProgram::URL => MultilingualString::SCHEMA,
         DegreeProgram::DEPARTMENT => MultilingualString::SCHEMA_URL_REQUIRED,
         DegreeProgram::STUDENT_ADVICE => MultilingualLink::SCHEMA,
         DegreeProgram::SUBJECT_SPECIFIC_ADVICE => MultilingualLink::SCHEMA_REQUIRED,
@@ -156,6 +165,10 @@ return [
         DegreeProgram::STUDENT_INITIATIVES => MultilingualLink::SCHEMA,
         DegreeProgram::APPLY_NOW_LINK => MultilingualLink::SCHEMA_REQUIRED,
         DegreeProgram::ENTRY_TEXT => MultilingualString::SCHEMA_REQUIRED,
+        DegreeProgram::NEWS => MultilingualString::SCHEMA,
+        DegreeProgram::NEWS_EXPIRY_DATE => [
+            'type' => 'string',
+        ],
         DegreeProgram::CAMPO_KEYS => CampoKeys::SCHEMA_REQUIRED,
     ],
 ];

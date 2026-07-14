@@ -1,25 +1,18 @@
 <?php
 
-/*
- * This file is part of the Assets package.
- *
- * (c) Inpsyde GmbH
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
+declare(strict_types=1);
 
 namespace Inpsyde\Assets\OutputFilter;
 
-use Inpsyde\Assets\Asset;
+use Inpsyde\Assets\FilterAwareAsset;
 
 interface AssetOutputFilter
 {
     /**
      * @param string $html
-     * @param Asset $asset
+     * @param FilterAwareAsset $asset
      *
      * @return string $html
      */
-    public function __invoke(string $html, Asset $asset): string;
+    public function __invoke(string $html, FilterAwareAsset $asset): string;
 }

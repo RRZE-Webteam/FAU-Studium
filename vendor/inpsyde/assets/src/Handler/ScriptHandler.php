@@ -1,23 +1,14 @@
 <?php
 
-/*
- * This file is part of the Assets package.
- *
- * (c) Inpsyde GmbH
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 declare(strict_types=1);
 
 namespace Inpsyde\Assets\Handler;
 
+use Inpsyde\Assets\Asset;
 use Inpsyde\Assets\OutputFilter\AsyncScriptOutputFilter;
 use Inpsyde\Assets\OutputFilter\AttributesOutputFilter;
 use Inpsyde\Assets\OutputFilter\DeferScriptOutputFilter;
 use Inpsyde\Assets\OutputFilter\InlineAssetOutputFilter;
-use Inpsyde\Assets\Asset;
 use Inpsyde\Assets\Script;
 use WP_Scripts;
 
@@ -25,10 +16,7 @@ class ScriptHandler implements AssetHandler, OutputFilterAwareAssetHandler
 {
     use OutputFilterAwareAssetHandlerTrait;
 
-    /**
-     * @var \WP_Scripts
-     */
-    protected $wpScripts;
+    protected \WP_Scripts $wpScripts;
 
     /**
      * ScriptHandler constructor.

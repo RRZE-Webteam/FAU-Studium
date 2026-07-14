@@ -30,7 +30,6 @@ final class DegreeProgramViewRaw implements JsonSerializable
         private DegreeProgramId $id,
         private MultilingualString $slug,
         private Image $featuredImage,
-        private Image $teaserImage,
         private MultilingualString $title,
         private MultilingualString $subtitle,
         private string $standardDuration,
@@ -59,6 +58,9 @@ final class DegreeProgramViewRaw implements JsonSerializable
         private MultilingualLink $examinationsOffice,
         private string $examinationRegulations,
         private string $moduleHandbook,
+        private string $sscFacultyAdviceOrgId,
+        private string $subjectStudyAdviceOrgId,
+        private string $degreeProgramCoordinatorOrgId,
         private MultilingualString $url,
         private MultilingualString $department,
         private MultilingualLink $studentAdvice,
@@ -76,6 +78,8 @@ final class DegreeProgramViewRaw implements JsonSerializable
         private MultilingualLink $studentInitiatives,
         private MultilingualLink $applyNowLink,
         private MultilingualString $entryText,
+        private MultilingualString $news,
+        private string $newsExpiryDate,
         private CampoKeys $campoKeys,
     ) {
     }
@@ -90,7 +94,6 @@ final class DegreeProgramViewRaw implements JsonSerializable
             $data[DegreeProgram::ID],
             $data[DegreeProgram::SLUG],
             $data[DegreeProgram::FEATURED_IMAGE],
-            $data[DegreeProgram::TEASER_IMAGE],
             $data[DegreeProgram::TITLE],
             $data[DegreeProgram::SUBTITLE],
             $data[DegreeProgram::STANDARD_DURATION],
@@ -119,6 +122,9 @@ final class DegreeProgramViewRaw implements JsonSerializable
             $data[DegreeProgram::EXAMINATIONS_OFFICE],
             $data[DegreeProgram::EXAMINATION_REGULATIONS],
             $data[DegreeProgram::MODULE_HANDBOOK],
+            $data[DegreeProgram::SSC_FACULTY_ADVICE_ORG_ID],
+            $data[DegreeProgram::SUBJECT_STUDY_ADVICE_ORG_ID],
+            $data[DegreeProgram::DEGREE_PROGRAM_COORDINATOR_ORG_ID],
             $data[DegreeProgram::URL],
             $data[DegreeProgram::DEPARTMENT],
             $data[DegreeProgram::STUDENT_ADVICE],
@@ -136,6 +142,8 @@ final class DegreeProgramViewRaw implements JsonSerializable
             $data[DegreeProgram::STUDENT_INITIATIVES],
             $data[DegreeProgram::APPLY_NOW_LINK],
             $data[DegreeProgram::ENTRY_TEXT],
+            $data[DegreeProgram::NEWS],
+            $data[DegreeProgram::NEWS_EXPIRY_DATE],
             $data[DegreeProgram::CAMPO_KEYS],
         );
     }
@@ -151,7 +159,6 @@ final class DegreeProgramViewRaw implements JsonSerializable
             id: DegreeProgramId::fromInt($data[DegreeProgram::ID]),
             slug: MultilingualString::fromArray($data[DegreeProgram::SLUG]),
             featuredImage: Image::fromArray($data[DegreeProgram::FEATURED_IMAGE]),
-            teaserImage: Image::fromArray($data[DegreeProgram::TEASER_IMAGE]),
             title: MultilingualString::fromArray($data[DegreeProgram::TITLE]),
             subtitle: MultilingualString::fromArray($data[DegreeProgram::SUBTITLE]),
             standardDuration: $data[DegreeProgram::STANDARD_DURATION],
@@ -180,6 +187,9 @@ final class DegreeProgramViewRaw implements JsonSerializable
             examinationsOffice: MultilingualLink::fromArray($data[DegreeProgram::EXAMINATIONS_OFFICE]),
             examinationRegulations: $data[DegreeProgram::EXAMINATION_REGULATIONS],
             moduleHandbook: $data[DegreeProgram::MODULE_HANDBOOK],
+            sscFacultyAdviceOrgId: $data[DegreeProgram::SSC_FACULTY_ADVICE_ORG_ID] ?? '',
+            subjectStudyAdviceOrgId: $data[DegreeProgram::SUBJECT_STUDY_ADVICE_ORG_ID] ?? '',
+            degreeProgramCoordinatorOrgId: $data[DegreeProgram::DEGREE_PROGRAM_COORDINATOR_ORG_ID] ?? '',
             url: MultilingualString::fromArray($data[DegreeProgram::URL]),
             department: MultilingualString::fromArray($data[DegreeProgram::DEPARTMENT]),
             studentAdvice: MultilingualLink::fromArray($data[DegreeProgram::STUDENT_ADVICE]),
@@ -201,6 +211,10 @@ final class DegreeProgramViewRaw implements JsonSerializable
             ),
             applyNowLink: MultilingualLink::fromArray($data[DegreeProgram::APPLY_NOW_LINK]),
             entryText: MultilingualString::fromArray($data[DegreeProgram::ENTRY_TEXT]),
+            news: MultilingualString::fromArray(
+                $data[DegreeProgram::NEWS] ?? MultilingualString::empty()->asArray()
+            ),
+            newsExpiryDate: $data[DegreeProgram::NEWS_EXPIRY_DATE] ?? '',
             campoKeys: CampoKeys::fromArray($data[DegreeProgram::CAMPO_KEYS] ?? []),
         );
     }
@@ -216,7 +230,6 @@ final class DegreeProgramViewRaw implements JsonSerializable
             DegreeProgram::ID => $this->id->asInt(),
             DegreeProgram::SLUG => $this->slug->asArray(),
             DegreeProgram::FEATURED_IMAGE => $this->featuredImage->asArray(),
-            DegreeProgram::TEASER_IMAGE => $this->teaserImage->asArray(),
             DegreeProgram::TITLE => $this->title->asArray(),
             DegreeProgram::SUBTITLE => $this->subtitle->asArray(),
             DegreeProgram::STANDARD_DURATION => $this->standardDuration,
@@ -248,6 +261,9 @@ final class DegreeProgramViewRaw implements JsonSerializable
             DegreeProgram::EXAMINATIONS_OFFICE => $this->examinationsOffice->asArray(),
             DegreeProgram::EXAMINATION_REGULATIONS => $this->examinationRegulations,
             DegreeProgram::MODULE_HANDBOOK => $this->moduleHandbook,
+            DegreeProgram::SSC_FACULTY_ADVICE_ORG_ID => $this->sscFacultyAdviceOrgId,
+            DegreeProgram::SUBJECT_STUDY_ADVICE_ORG_ID => $this->subjectStudyAdviceOrgId,
+            DegreeProgram::DEGREE_PROGRAM_COORDINATOR_ORG_ID => $this->degreeProgramCoordinatorOrgId,
             DegreeProgram::URL => $this->url->asArray(),
             DegreeProgram::DEPARTMENT => $this->department->asArray(),
             DegreeProgram::STUDENT_ADVICE => $this->studentAdvice->asArray(),
@@ -265,6 +281,8 @@ final class DegreeProgramViewRaw implements JsonSerializable
             DegreeProgram::STUDENT_INITIATIVES => $this->studentInitiatives->asArray(),
             DegreeProgram::APPLY_NOW_LINK => $this->applyNowLink->asArray(),
             DegreeProgram::ENTRY_TEXT => $this->entryText->asArray(),
+            DegreeProgram::NEWS => $this->news->asArray(),
+            DegreeProgram::NEWS_EXPIRY_DATE => $this->newsExpiryDate,
             DegreeProgram::CAMPO_KEYS => $this->campoKeys->asArray(),
         ];
     }
@@ -287,11 +305,6 @@ final class DegreeProgramViewRaw implements JsonSerializable
     public function featuredImage(): Image
     {
         return $this->featuredImage;
-    }
-
-    public function teaserImage(): Image
-    {
-        return $this->teaserImage;
     }
 
     public function title(): MultilingualString
@@ -434,6 +447,21 @@ final class DegreeProgramViewRaw implements JsonSerializable
         return $this->moduleHandbook;
     }
 
+    public function sscFacultyAdviceOrgId(): string
+    {
+        return $this->sscFacultyAdviceOrgId;
+    }
+
+    public function subjectStudyAdviceOrgId(): string
+    {
+        return $this->subjectStudyAdviceOrgId;
+    }
+
+    public function degreeProgramCoordinatorOrgId(): string
+    {
+        return $this->degreeProgramCoordinatorOrgId;
+    }
+
     public function url(): MultilingualString
     {
         return $this->url;
@@ -517,6 +545,16 @@ final class DegreeProgramViewRaw implements JsonSerializable
     public function entryText(): MultilingualString
     {
         return $this->entryText;
+    }
+
+    public function news(): MultilingualString
+    {
+        return $this->news;
+    }
+
+    public function newsExpiryDate(): string
+    {
+        return $this->newsExpiryDate;
     }
 
     public function campoKeys(): CampoKeys

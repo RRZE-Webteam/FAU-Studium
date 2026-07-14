@@ -118,11 +118,6 @@ final class WordPressDatabaseDegreeProgramViewRepository implements DegreeProgra
                 DegreeProgram::FEATURED_IMAGE,
                 $title
             ),
-            teaserImage: $this->imageView(
-                $raw->teaserImage(),
-                DegreeProgram::TEASER_IMAGE,
-                $title
-            ),
             title: $raw->title()->asString($languageCode),
             subtitle: $raw->subtitle()->asString($languageCode),
             standardDuration: $raw->standardDuration(),
@@ -171,6 +166,9 @@ final class WordPressDatabaseDegreeProgramViewRepository implements DegreeProgra
             examinationsOffice: Link::fromMultilingualLink($raw->examinationsOffice(), $languageCode),
             examinationRegulations: $raw->examinationRegulations(),
             moduleHandbook: $raw->moduleHandbook(),
+            sscFacultyAdviceOrgId: $raw->sscFacultyAdviceOrgId(),
+            subjectStudyAdviceOrgId: $raw->subjectStudyAdviceOrgId(),
+            degreeProgramCoordinatorOrgId: $raw->degreeProgramCoordinatorOrgId(),
             url: $raw->url()->asString($languageCode),
             department: $raw->department()->asString($languageCode),
             studentAdvice: Link::fromMultilingualLink($raw->studentAdvice(), $languageCode),
@@ -188,12 +186,14 @@ final class WordPressDatabaseDegreeProgramViewRepository implements DegreeProgra
             studentInitiatives: Link::fromMultilingualLink($raw->studentInitiatives(), $languageCode),
             applyNowLink: Link::fromMultilingualLink($raw->applyNowLink(), $languageCode),
             entryText: $this->formatContentField($raw->entryText()->asString($languageCode)),
+            news: $this->formatContentField($raw->news()->asString($languageCode)),
+            newsExpiryDate: $raw->newsExpiryDate(),
             campoKeys: $raw->campoKeys(),
         );
     }
 
     /**
-     * @psalm-param 'featured_image' | 'teaser_image' $type
+     * @psalm-param 'featured_image' $type
      */
     private function imageView(Image $image, string $type, string $alt): ImageView
     {

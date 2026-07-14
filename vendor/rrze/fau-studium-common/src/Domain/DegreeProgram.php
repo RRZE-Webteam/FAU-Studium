@@ -22,7 +22,6 @@ use RuntimeException;
  *     id: int,
  *     slug: MultilingualStringType,
  *     featured_image: array{id: int, url: string},
- *     teaser_image: array{id: int, url: string},
  *     title: MultilingualStringType,
  *     subtitle: MultilingualStringType,
  *     standard_duration: string,
@@ -51,6 +50,9 @@ use RuntimeException;
  *     examinations_office: MultilingualLinkType,
  *     examination_regulations: string,
  *     module_handbook: string,
+ *     ssc_faculty_advice_org_id: string,
+ *     subject_study_advice_org_id: string,
+ *     degree_program_coordinator_org_id: string,
  *     url: MultilingualStringType,
  *     department: MultilingualStringType,
  *     student_advice: MultilingualLinkType,
@@ -68,6 +70,8 @@ use RuntimeException;
  *     student_initiatives: MultilingualLinkType,
  *     apply_now_link: MultilingualLinkType,
  *     entry_text: MultilingualStringType,
+ *     news: MultilingualStringType,
+ *     news_expiry_date: string,
  *     campo_keys: CampoKeysMap,
  * }
  */
@@ -76,7 +80,6 @@ final class DegreeProgram
     public const ID = 'id';
     public const SLUG = 'slug';
     public const FEATURED_IMAGE = 'featured_image';
-    public const TEASER_IMAGE = 'teaser_image';
     public const TITLE = 'title';
     public const SUBTITLE = 'subtitle';
     public const STANDARD_DURATION = 'standard_duration';
@@ -105,6 +108,9 @@ final class DegreeProgram
     public const EXAMINATIONS_OFFICE = 'examinations_office';
     public const EXAMINATION_REGULATIONS = 'examination_regulations';
     public const MODULE_HANDBOOK = 'module_handbook';
+    public const SSC_FACULTY_ADVICE_ORG_ID = 'ssc_faculty_advice_org_id';
+    public const SUBJECT_STUDY_ADVICE_ORG_ID = 'subject_study_advice_org_id';
+    public const DEGREE_PROGRAM_COORDINATOR_ORG_ID = 'degree_program_coordinator_org_id';
     public const URL = 'url';
     public const DEPARTMENT = 'department';
     public const STUDENT_ADVICE = 'student_advice';
@@ -117,6 +123,8 @@ final class DegreeProgram
     public const KEYWORDS = 'keywords';
     public const AREA_OF_STUDY = 'area_of_study';
     public const ENTRY_TEXT = 'entry_text';
+    public const NEWS = 'news';
+    public const NEWS_EXPIRY_DATE = 'news_expiry_date';
     public const COMBINATIONS = 'combinations';
     public const LIMITED_COMBINATIONS = 'limited_combinations';
     public const COMBINATIONS_CHANGESET = 'combinations_changeset';
@@ -136,7 +144,6 @@ final class DegreeProgram
         private MultilingualString $slug,
         //--- At a glance (“Auf einen Blick”) ---//
         private Image $featuredImage,
-        private Image $teaserImage,
         private MultilingualString $title,
         private MultilingualString $subtitle,
         /**
@@ -193,6 +200,14 @@ final class DegreeProgram
          * Einstiegtext (werbend)
          */
         private MultilingualString $entryText,
+        /**
+         * Current news
+         */
+        private MultilingualString $news,
+        /**
+         * News expiry date (optional)
+         */
+        private string $newsExpiryDate,
         //--- Content (“Inhalte”) ---//
         private Content $content,
         //--- Admission requirements, application and enrollment (“Zugangsvoraussetzungen, Bewerbung und Einschreibung”) ---//
@@ -251,6 +266,18 @@ final class DegreeProgram
          * Modulhandbuch
          */
         private string $moduleHandbook,
+        /**
+         * SSC/Beratung an der Fakultät/am Fachbereich (FAUdir Organisations-Id)
+         */
+        private string $sscFacultyAdviceOrgId,
+        /**
+         * Fachstudienberatung (FAUdir Organisations-Id)
+         */
+        private string $subjectStudyAdviceOrgId,
+        /**
+         * Studiengangskoordinator/in (FAUdir Organisations-Id)
+         */
+        private string $degreeProgramCoordinatorOrgId,
         /**
          * Studiengang-URL
          */
@@ -387,6 +414,7 @@ final class DegreeProgram
                 self::DETAILS_AND_NOTES,
                 self::LANGUAGE_SKILLS,
                 self::ENTRY_TEXT,
+                self::NEWS,
             ] as $key
         ) {
             $data[$key] = MultilingualString::mapTranslations(
@@ -412,7 +440,6 @@ final class DegreeProgram
 
         $this->slug = MultilingualString::fromArray($data[self::SLUG]);
         $this->featuredImage = Image::fromArray($data[self::FEATURED_IMAGE]);
-        $this->teaserImage = Image::fromArray($data[self::TEASER_IMAGE]);
         $this->title = MultilingualString::fromArray($data[self::TITLE]);
         $this->subtitle = MultilingualString::fromArray($data[self::SUBTITLE]);
         $this->standardDuration = $data[self::STANDARD_DURATION];
@@ -441,6 +468,9 @@ final class DegreeProgram
         $this->examinationsOffice = MultilingualLink::fromArray($data[self::EXAMINATIONS_OFFICE]);
         $this->examinationRegulations = $data[self::EXAMINATION_REGULATIONS];
         $this->moduleHandbook = $data[self::MODULE_HANDBOOK];
+        $this->sscFacultyAdviceOrgId = $data[self::SSC_FACULTY_ADVICE_ORG_ID];
+        $this->subjectStudyAdviceOrgId = $data[self::SUBJECT_STUDY_ADVICE_ORG_ID];
+        $this->degreeProgramCoordinatorOrgId = $data[self::DEGREE_PROGRAM_COORDINATOR_ORG_ID];
         $this->url = MultilingualString::fromArray($data[self::URL]);
         $this->department = MultilingualString::fromArray($data[self::DEPARTMENT]);
         $this->studentAdvice = MultilingualLink::fromArray($data[self::STUDENT_ADVICE]);
@@ -458,6 +488,8 @@ final class DegreeProgram
         $this->studentInitiatives = MultilingualLink::fromArray($data[self::STUDENT_INITIATIVES]);
         $this->applyNowLink = MultilingualLink::fromArray($data[self::APPLY_NOW_LINK]);
         $this->entryText = MultilingualString::fromArray($data[self::ENTRY_TEXT]);
+        $this->news = MultilingualString::fromArray($data[self::NEWS]);
+        $this->newsExpiryDate = $data[self::NEWS_EXPIRY_DATE];
         $this->campoKeys = CampoKeys::fromArray($data[self::CAMPO_KEYS]);
 
         $this->combinationsChangeset = $this
@@ -475,7 +507,6 @@ final class DegreeProgram
      *     id: DegreeProgramId,
      *     slug: MultilingualString,
      *     featured_image: Image,
-     *     teaser_image: Image,
      *     title: MultilingualString,
      *     subtitle: MultilingualString,
      *     standard_duration: string,
@@ -504,6 +535,9 @@ final class DegreeProgram
      *     examinations_office: MultilingualLink,
      *     examination_regulations: string,
      *     module_handbook: string,
+     *     ssc_faculty_advice_org_id: string,
+     *     subject_study_advice_org_id: string,
+     *     degree_program_coordinator_org_id: string,
      *     url: MultilingualString,
      *     department: MultilingualString,
      *     student_advice: MultilingualLink,
@@ -523,6 +557,8 @@ final class DegreeProgram
      *     student_initiatives: MultilingualLink,
      *     apply_now_link: MultilingualLink,
      *     entry_text: MultilingualString,
+     *     news: MultilingualString,
+     *     news_expiry_date: string,
      *     campo_keys: CampoKeys,
      * }
      * @internal Only for repositories usage
@@ -534,7 +570,6 @@ final class DegreeProgram
             self::ID => $this->id,
             self::SLUG => $this->slug,
             self::FEATURED_IMAGE => $this->featuredImage,
-            self::TEASER_IMAGE => $this->teaserImage,
             self::TITLE => $this->title,
             self::SUBTITLE => $this->subtitle,
             self::STANDARD_DURATION => $this->standardDuration,
@@ -564,6 +599,9 @@ final class DegreeProgram
             self::EXAMINATIONS_OFFICE => $this->examinationsOffice,
             self::EXAMINATION_REGULATIONS => $this->examinationRegulations,
             self::MODULE_HANDBOOK => $this->moduleHandbook,
+            self::SSC_FACULTY_ADVICE_ORG_ID => $this->sscFacultyAdviceOrgId,
+            self::SUBJECT_STUDY_ADVICE_ORG_ID => $this->subjectStudyAdviceOrgId,
+            self::DEGREE_PROGRAM_COORDINATOR_ORG_ID => $this->degreeProgramCoordinatorOrgId,
             self::URL => $this->url,
             self::DEPARTMENT => $this->department,
             self::STUDENT_ADVICE => $this->studentAdvice,
@@ -583,6 +621,8 @@ final class DegreeProgram
             self::STUDENT_INITIATIVES => $this->studentInitiatives,
             self::APPLY_NOW_LINK => $this->applyNowLink,
             self::ENTRY_TEXT => $this->entryText,
+            self::NEWS => $this->news,
+            self::NEWS_EXPIRY_DATE => $this->newsExpiryDate,
             self::CAMPO_KEYS => $this->campoKeys,
         ];
     }
