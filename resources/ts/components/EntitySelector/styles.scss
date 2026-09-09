@@ -5,25 +5,22 @@
 	.components-form-token-field__input-container {
 		position: relative;
 
-		> .components-flex {
-			position: relative;
-
-			&::after {
-				content: "\f140";
-				font-family: dashicons;
-				display: inline-block;
-				line-height: 1;
-				font-weight: 400;
-				font-style: normal;
-				position: absolute;
-				top: 50%;
-				right: 5px;
-				font-size: 16px;
-				transform: translateY(-50%);
-			}
+		&::after {
+			content: "\f140";
+			font-family: dashicons;
+			display: inline-block;
+			line-height: 1;
+			font-weight: 400;
+			font-style: normal;
+			position: absolute;
+			top: 50%;
+			right: 5px;
+			font-size: 16px;
+			transform: translateY(-50%);
+			pointer-events: none;
 		}
 
-		&.is-active > .components-flex::after {
+		&.is-active::after {
 			transform: translateY(-50%) scaleY(-1);
 		}
 	}

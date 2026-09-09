@@ -51,6 +51,15 @@ final class AssetsLoader
                 'handle' => self::BLOCK_ASSET_HANDLE,
                 'url' => (string) $this->pluginProperties->baseUrl()
                     . 'assets/ts/degree-program-editor.css',
+                'location' => Asset::BLOCK_ASSETS,
+                'type' => Style::class,
+                'dependencies' => ['dashicons'],
+                'enqueue' => fn (): bool => is_admin() && $this->isDegreeProgramPostType(),
+            ],
+            [
+                'handle' => 'css/degree-program-editor-ui',
+                'url' => (string) $this->pluginProperties->baseUrl()
+                    . 'assets/css/degree-program-editor-ui.css',
                 'location' => Asset::BLOCK_EDITOR_ASSETS,
                 'type' => Style::class,
                 'enqueue' => [$this, 'isDegreeProgramPostType'],
