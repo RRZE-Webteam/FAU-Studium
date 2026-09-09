@@ -63,15 +63,20 @@ const BlockDeselectListener = ( {
 	);
 
 	useEffect( () => {
-		document.body.addEventListener( 'click', blurListener, {
+		const body = editorRef.current?.ownerDocument.body;
+		if ( ! body ) {
+			return;
+		}
+
+		body.addEventListener( 'click', blurListener, {
 			capture: true,
 		} );
 
 		return () =>
-			document.body.removeEventListener( 'click', blurListener, {
+			body.removeEventListener( 'click', blurListener, {
 				capture: true,
 			} );
-	}, [ blurListener ] );
+	}, [ blurListener, editorRef ] );
 
 	return null;
 };

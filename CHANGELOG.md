@@ -8,6 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.3.1] - 2026-09-09
+
+### Fixed
+- Fixed CSS not loading in the editor.
+
 ## [2.3.0] - 2026-7-14
 
 ### Changed
